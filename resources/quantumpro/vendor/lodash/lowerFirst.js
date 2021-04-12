@@ -1,0 +1,1 @@
+var createCaseFirst=require("./_createCaseFirst"),lowerFirst=createCaseFirst("toLowerCase");module.exports=lowerFirst;

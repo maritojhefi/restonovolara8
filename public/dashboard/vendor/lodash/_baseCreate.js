@@ -1,0 +1,1 @@
+var isObject=require("./isObject"),objectCreate=Object.create,baseCreate=function(){function r(){}return function(e){if(!isObject(e))return{};if(objectCreate)return objectCreate(e);r.prototype=e;var t=new r;return r.prototype=void 0,t}}();module.exports=baseCreate;

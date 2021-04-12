@@ -1,0 +1,1 @@
+var baseForRight=require("./_baseForRight"),castFunction=require("./_castFunction"),keysIn=require("./keysIn");function forInRight(e,n){return null==e?e:baseForRight(e,castFunction(n),keysIn)}module.exports=forInRight;

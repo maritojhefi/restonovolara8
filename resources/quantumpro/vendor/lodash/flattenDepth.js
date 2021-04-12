@@ -1,0 +1,1 @@
+var baseFlatten=require("./_baseFlatten"),toInteger=require("./toInteger");function flattenDepth(e,t){return(null==e?0:e.length)?(t=void 0===t?1:toInteger(t),baseFlatten(e,t)):[]}module.exports=flattenDepth;

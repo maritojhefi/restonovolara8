@@ -1,0 +1,1 @@
+var baseInRange=require("./_baseInRange"),toFinite=require("./toFinite"),toNumber=require("./toNumber");function inRange(e,n,i){return n=toFinite(n),void 0===i?(i=n,n=0):i=toFinite(i),e=toNumber(e),baseInRange(e,n,i)}module.exports=inRange;

@@ -1,0 +1,1 @@
+var HOT_COUNT=800,HOT_SPAN=16,nativeNow=Date.now;function shortOut(e){var n=0,o=0;return function(){var t=nativeNow(),r=HOT_SPAN-(t-o);if(o=t,0<r){if(++n>=HOT_COUNT)return arguments[0]}else n=0;return e.apply(void 0,arguments)}}module.exports=shortOut;

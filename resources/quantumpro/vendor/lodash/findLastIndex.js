@@ -1,0 +1,1 @@
+var baseFindIndex=require("./_baseFindIndex"),baseIteratee=require("./_baseIteratee"),toInteger=require("./toInteger"),nativeMax=Math.max,nativeMin=Math.min;function findLastIndex(e,n,t){var a=null==e?0:e.length;if(!a)return-1;var r=a-1;return void 0!==t&&(r=toInteger(t),r=t<0?nativeMax(a+r,0):nativeMin(r,a-1)),baseFindIndex(e,baseIteratee(n,3),r,!0)}module.exports=findLastIndex;

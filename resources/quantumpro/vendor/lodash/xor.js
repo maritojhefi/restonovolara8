@@ -1,0 +1,1 @@
+var arrayFilter=require("./_arrayFilter"),baseRest=require("./_baseRest"),baseXor=require("./_baseXor"),isArrayLikeObject=require("./isArrayLikeObject"),xor=baseRest(function(r){return baseXor(arrayFilter(r,isArrayLikeObject))});module.exports=xor;

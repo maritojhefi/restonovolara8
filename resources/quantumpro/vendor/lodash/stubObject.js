@@ -1,0 +1,1 @@
+function stubObject(){return{}}module.exports=stubObject;

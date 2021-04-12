@@ -1,0 +1,1 @@
+var baseSlice=require("./_baseSlice"),toInteger=require("./toInteger");function drop(e,r,t){var o=null==e?0:e.length;return o?(r=t||void 0===r?1:toInteger(r),baseSlice(e,r<0?0:r,o)):[]}module.exports=drop;

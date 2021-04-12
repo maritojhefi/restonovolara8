@@ -1,0 +1,1 @@
+var assocIndexOf=require("./_assocIndexOf");function listCacheHas(s){return-1<assocIndexOf(this.__data__,s)}module.exports=listCacheHas;

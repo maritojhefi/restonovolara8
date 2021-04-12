@@ -1,0 +1,1 @@
+var isArrayLike=require("./isArrayLike");function createBaseEach(n,u){return function(r,e){if(null==r)return r;if(!isArrayLike(r))return n(r,e);for(var a=r.length,i=u?a:-1,t=Object(r);(u?i--:++i<a)&&!1!==e(t[i],i,t););return r}}module.exports=createBaseEach;

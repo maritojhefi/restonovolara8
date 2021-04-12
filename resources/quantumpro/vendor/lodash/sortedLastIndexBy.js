@@ -1,0 +1,1 @@
+var baseIteratee=require("./_baseIteratee"),baseSortedIndexBy=require("./_baseSortedIndexBy");function sortedLastIndexBy(e,r,t){return baseSortedIndexBy(e,r,baseIteratee(t,2),!0)}module.exports=sortedLastIndexBy;

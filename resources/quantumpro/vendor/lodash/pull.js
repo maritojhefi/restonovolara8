@@ -1,0 +1,1 @@
+var baseRest=require("./_baseRest"),pullAll=require("./pullAll"),pull=baseRest(pullAll);module.exports=pull;

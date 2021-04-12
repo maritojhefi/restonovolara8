@@ -1,0 +1,1 @@
+var createPadding=require("./_createPadding"),stringSize=require("./_stringSize"),toInteger=require("./toInteger"),toString=require("./toString");function padEnd(e,r,t){e=toString(e);var i=(r=toInteger(r))?stringSize(e):0;return r&&i<r?e+createPadding(r-i,t):e}module.exports=padEnd;

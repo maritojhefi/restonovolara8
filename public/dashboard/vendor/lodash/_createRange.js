@@ -1,0 +1,1 @@
+var baseRange=require("./_baseRange"),isIterateeCall=require("./_isIterateeCall"),toFinite=require("./toFinite");function createRange(r){return function(e,t,i){return i&&"number"!=typeof i&&isIterateeCall(e,t,i)&&(t=i=void 0),e=toFinite(e),void 0===t?(t=e,e=0):t=toFinite(t),i=void 0===i?e<t?1:-1:toFinite(i),baseRange(e,t,i,r)}}module.exports=createRange;

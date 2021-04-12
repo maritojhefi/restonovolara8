@@ -1,0 +1,1 @@
+var baseClamp=require("./_baseClamp"),baseToString=require("./_baseToString"),toInteger=require("./toInteger"),toString=require("./toString");function startsWith(e,t,r){return e=toString(e),r=null==r?0:baseClamp(toInteger(r),0,e.length),t=baseToString(t),e.slice(r,r+t.length)==t}module.exports=startsWith;

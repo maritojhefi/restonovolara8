@@ -1,0 +1,1 @@
+var apply=require("./_apply"),baseRest=require("./_baseRest"),customDefaultsMerge=require("./_customDefaultsMerge"),mergeWith=require("./mergeWith"),defaultsDeep=baseRest(function(e){return e.push(void 0,customDefaultsMerge),apply(mergeWith,void 0,e)});module.exports=defaultsDeep;

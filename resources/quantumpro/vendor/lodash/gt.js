@@ -1,0 +1,1 @@
+var baseGt=require("./_baseGt"),createRelationalOperation=require("./_createRelationalOperation"),gt=createRelationalOperation(baseGt);module.exports=gt;

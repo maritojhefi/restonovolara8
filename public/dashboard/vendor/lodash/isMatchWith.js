@@ -1,0 +1,1 @@
+var baseIsMatch=require("./_baseIsMatch"),getMatchData=require("./_getMatchData");function isMatchWith(t,a,e){return e="function"==typeof e?e:void 0,baseIsMatch(t,a,getMatchData(a),e)}module.exports=isMatchWith;

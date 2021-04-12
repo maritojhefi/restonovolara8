@@ -1,0 +1,1 @@
+var arrayReduceRight=require("./_arrayReduceRight"),baseEachRight=require("./_baseEachRight"),baseIteratee=require("./_baseIteratee"),baseReduce=require("./_baseReduce"),isArray=require("./isArray");function reduceRight(e,r,a){var t=isArray(e)?arrayReduceRight:baseReduce,i=arguments.length<3;return t(e,baseIteratee(r,4),a,i,baseEachRight)}module.exports=reduceRight;

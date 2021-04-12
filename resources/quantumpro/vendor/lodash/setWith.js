@@ -1,0 +1,1 @@
+var baseSet=require("./_baseSet");function setWith(e,t,i,n){return n="function"==typeof n?n:void 0,null==e?e:baseSet(e,t,i,n)}module.exports=setWith;

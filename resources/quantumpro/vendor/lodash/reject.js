@@ -1,0 +1,1 @@
+var arrayFilter=require("./_arrayFilter"),baseFilter=require("./_baseFilter"),baseIteratee=require("./_baseIteratee"),isArray=require("./isArray"),negate=require("./negate");function reject(e,r){return(isArray(e)?arrayFilter:baseFilter)(e,negate(baseIteratee(r,3)))}module.exports=reject;

@@ -1,0 +1,1 @@
+var baseAssignValue=require("./_baseAssignValue"),baseForOwn=require("./_baseForOwn"),baseIteratee=require("./_baseIteratee");function mapValues(e,r){var u={};return r=baseIteratee(r,3),baseForOwn(e,function(e,a,s){baseAssignValue(u,a,r(e,a,s))}),u}module.exports=mapValues;

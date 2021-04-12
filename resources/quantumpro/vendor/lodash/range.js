@@ -1,0 +1,1 @@
+var createRange=require("./_createRange"),range=createRange();module.exports=range;

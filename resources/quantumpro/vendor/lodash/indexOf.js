@@ -1,0 +1,1 @@
+var baseIndexOf=require("./_baseIndexOf"),toInteger=require("./toInteger"),nativeMax=Math.max;function indexOf(e,n,r){var t=null==e?0:e.length;if(!t)return-1;var a=null==r?0:toInteger(r);return a<0&&(a=nativeMax(t+a,0)),baseIndexOf(e,n,a)}module.exports=indexOf;

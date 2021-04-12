@@ -1,0 +1,1 @@
+var baseIteratee=require("./_baseIteratee"),basePullAt=require("./_basePullAt");function remove(e,r){var t=[];if(!e||!e.length)return t;var a=-1,u=[],l=e.length;for(r=baseIteratee(r,3);++a<l;){var s=e[a];r(s,a,e)&&(t.push(s),u.push(a))}return basePullAt(e,u),t}module.exports=remove;

@@ -1,0 +1,1 @@
+var ary=require("./ary");function unary(r){return ary(r,1)}module.exports=unary;

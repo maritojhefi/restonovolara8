@@ -1,0 +1,1 @@
+var baseRest=require("./_baseRest"),toInteger=require("./toInteger"),FUNC_ERROR_TEXT="Expected a function";function rest(e,t){if("function"!=typeof e)throw new TypeError(FUNC_ERROR_TEXT);return t=void 0===t?t:toInteger(t),baseRest(e,t)}module.exports=rest;

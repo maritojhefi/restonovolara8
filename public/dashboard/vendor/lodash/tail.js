@@ -1,0 +1,1 @@
+var baseSlice=require("./_baseSlice");function tail(e){var l=null==e?0:e.length;return l?baseSlice(e,1,l):[]}module.exports=tail;

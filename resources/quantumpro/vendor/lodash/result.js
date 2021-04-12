@@ -1,0 +1,1 @@
+var castPath=require("./_castPath"),isFunction=require("./isFunction"),toKey=require("./_toKey");function result(t,e,r){var i=-1,o=(e=castPath(e,t)).length;for(o||(o=1,t=void 0);++i<o;){var u=null==t?void 0:t[toKey(e[i])];void 0===u&&(i=o,u=r),t=isFunction(u)?u.call(t):u}return t}module.exports=result;

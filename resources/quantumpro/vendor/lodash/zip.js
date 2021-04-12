@@ -1,0 +1,1 @@
+var baseRest=require("./_baseRest"),unzip=require("./unzip"),zip=baseRest(unzip);module.exports=zip;

@@ -1,0 +1,1 @@
+var baseRepeat=require("./_baseRepeat"),isIterateeCall=require("./_isIterateeCall"),toInteger=require("./toInteger"),toString=require("./toString");function repeat(e,t,r){return t=(r?isIterateeCall(e,t,r):void 0===t)?1:toInteger(t),baseRepeat(toString(e),t)}module.exports=repeat;

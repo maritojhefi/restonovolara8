@@ -1,0 +1,1 @@
+var baseDifference=require("./_baseDifference"),baseRest=require("./_baseRest"),isArrayLikeObject=require("./isArrayLikeObject"),without=baseRest(function(e,r){return isArrayLikeObject(e)?baseDifference(e,r):[]});module.exports=without;

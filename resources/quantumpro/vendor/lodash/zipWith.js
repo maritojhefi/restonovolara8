@@ -1,0 +1,1 @@
+var baseRest=require("./_baseRest"),unzipWith=require("./unzipWith"),zipWith=baseRest(function(i){var e=i.length,t=1<e?i[e-1]:void 0;return t="function"==typeof t?(i.pop(),t):void 0,unzipWith(i,t)});module.exports=zipWith;

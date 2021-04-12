@@ -1,0 +1,1 @@
+var baseIndexOf=require("./_baseIndexOf");function charsStartIndex(e,r){for(var a=-1,n=e.length;++a<n&&-1<baseIndexOf(r,e[a],0););return a}module.exports=charsStartIndex;

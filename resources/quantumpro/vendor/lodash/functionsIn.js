@@ -1,0 +1,1 @@
+var baseFunctions=require("./_baseFunctions"),keysIn=require("./keysIn");function functionsIn(n){return null==n?[]:baseFunctions(n,keysIn(n))}module.exports=functionsIn;

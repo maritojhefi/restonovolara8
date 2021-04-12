@@ -1,0 +1,1 @@
+var baseFill=require("./_baseFill"),isIterateeCall=require("./_isIterateeCall");function fill(e,l,r,a){var i=null==e?0:e.length;return i?(r&&"number"!=typeof r&&isIterateeCall(e,l,r)&&(r=0,a=i),baseFill(e,l,r,a)):[]}module.exports=fill;

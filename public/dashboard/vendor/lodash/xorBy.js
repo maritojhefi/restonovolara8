@@ -1,0 +1,1 @@
+var arrayFilter=require("./_arrayFilter"),baseIteratee=require("./_baseIteratee"),baseRest=require("./_baseRest"),baseXor=require("./_baseXor"),isArrayLikeObject=require("./isArrayLikeObject"),last=require("./last"),xorBy=baseRest(function(e){var r=last(e);return isArrayLikeObject(r)&&(r=void 0),baseXor(arrayFilter(e,isArrayLikeObject),baseIteratee(r,2))});module.exports=xorBy;

@@ -1,0 +1,1 @@
+var apply=require("./_apply"),nativeMax=Math.max;function overRest(o,v,i){return v=nativeMax(void 0===v?o.length-1:v,0),function(){for(var r=arguments,a=-1,e=nativeMax(r.length-v,0),t=Array(e);++a<e;)t[a]=r[v+a];a=-1;for(var n=Array(v+1);++a<v;)n[a]=r[a];return n[v]=i(t),apply(o,this,n)}}module.exports=overRest;

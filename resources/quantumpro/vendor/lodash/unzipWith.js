@@ -1,0 +1,1 @@
+var apply=require("./_apply"),arrayMap=require("./_arrayMap"),unzip=require("./unzip");function unzipWith(r,p){if(!r||!r.length)return[];var u=unzip(r);return null==p?u:arrayMap(u,function(r){return apply(p,void 0,r)})}module.exports=unzipWith;

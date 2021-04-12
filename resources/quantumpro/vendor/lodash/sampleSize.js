@@ -1,0 +1,1 @@
+var arraySampleSize=require("./_arraySampleSize"),baseSampleSize=require("./_baseSampleSize"),isArray=require("./isArray"),isIterateeCall=require("./_isIterateeCall"),toInteger=require("./toInteger");function sampleSize(e,r,a){return r=(a?isIterateeCall(e,r,a):void 0===r)?1:toInteger(r),(isArray(e)?arraySampleSize:baseSampleSize)(e,r)}module.exports=sampleSize;

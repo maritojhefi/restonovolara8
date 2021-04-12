@@ -1,0 +1,1 @@
+var baseFlatten=require("./_baseFlatten"),map=require("./map"),INFINITY=1/0;function flatMapDeep(e,a){return baseFlatten(map(e,a),INFINITY)}module.exports=flatMapDeep;

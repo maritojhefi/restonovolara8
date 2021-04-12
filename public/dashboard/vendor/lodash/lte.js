@@ -1,0 +1,1 @@
+var createRelationalOperation=require("./_createRelationalOperation"),lte=createRelationalOperation(function(e,t){return e<=t});module.exports=lte;

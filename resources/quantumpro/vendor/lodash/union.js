@@ -1,0 +1,1 @@
+var baseFlatten=require("./_baseFlatten"),baseRest=require("./_baseRest"),baseUniq=require("./_baseUniq"),isArrayLikeObject=require("./isArrayLikeObject"),union=baseRest(function(e){return baseUniq(baseFlatten(e,1,isArrayLikeObject,!0))});module.exports=union;

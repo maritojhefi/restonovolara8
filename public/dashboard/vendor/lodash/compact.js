@@ -1,0 +1,1 @@
+function compact(o){for(var r=-1,t=null==o?0:o.length,c=0,n=[];++r<t;){var a=o[r];a&&(n[c++]=a)}return n}module.exports=compact;

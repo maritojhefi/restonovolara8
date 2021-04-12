@@ -1,0 +1,1 @@
+var baseGetTag=require("./_baseGetTag"),isObjectLike=require("./isObjectLike"),numberTag="[object Number]";function isNumber(e){return"number"==typeof e||isObjectLike(e)&&baseGetTag(e)==numberTag}module.exports=isNumber;

@@ -1,0 +1,1 @@
+var toNumber=require("./toNumber");function createRelationalOperation(r){return function(e,t){return"string"==typeof e&&"string"==typeof t||(e=toNumber(e),t=toNumber(t)),r(e,t)}}module.exports=createRelationalOperation;

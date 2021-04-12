@@ -1,0 +1,1 @@
+var baseFlatten=require("./_baseFlatten"),INFINITY=1/0;function flattenDeep(e){return(null==e?0:e.length)?baseFlatten(e,INFINITY):[]}module.exports=flattenDeep;

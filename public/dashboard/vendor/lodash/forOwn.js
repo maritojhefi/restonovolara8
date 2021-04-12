@@ -1,0 +1,1 @@
+var baseForOwn=require("./_baseForOwn"),castFunction=require("./_castFunction");function forOwn(n,r){return n&&baseForOwn(n,castFunction(r))}module.exports=forOwn;

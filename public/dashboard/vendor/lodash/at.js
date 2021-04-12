@@ -1,0 +1,1 @@
+var baseAt=require("./_baseAt"),flatRest=require("./_flatRest"),at=flatRest(baseAt);module.exports=at;

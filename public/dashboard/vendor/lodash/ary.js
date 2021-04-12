@@ -1,0 +1,1 @@
+var createWrap=require("./_createWrap"),WRAP_ARY_FLAG=128;function ary(r,e,a){return e=a?void 0:e,e=r&&null==e?r.length:e,createWrap(r,WRAP_ARY_FLAG,void 0,void 0,void 0,void 0,e)}module.exports=ary;

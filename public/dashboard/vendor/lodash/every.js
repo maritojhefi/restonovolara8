@@ -1,0 +1,1 @@
+var arrayEvery=require("./_arrayEvery"),baseEvery=require("./_baseEvery"),baseIteratee=require("./_baseIteratee"),isArray=require("./isArray"),isIterateeCall=require("./_isIterateeCall");function every(e,r,a){var t=isArray(e)?arrayEvery:baseEvery;return a&&isIterateeCall(e,r,a)&&(r=void 0),t(e,baseIteratee(r,3))}module.exports=every;

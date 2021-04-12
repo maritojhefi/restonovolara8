@@ -1,0 +1,1 @@
+var createAggregator=require("./_createAggregator"),partition=createAggregator(function(r,e,t){r[t?0:1].push(e)},function(){return[[],[]]});module.exports=partition;

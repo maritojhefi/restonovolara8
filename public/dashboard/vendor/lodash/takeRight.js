@@ -1,0 +1,1 @@
+var baseSlice=require("./_baseSlice"),toInteger=require("./toInteger");function takeRight(e,t,r){var i=null==e?0:e.length;return i?(t=r||void 0===t?1:toInteger(t),baseSlice(e,(t=i-t)<0?0:t,i)):[]}module.exports=takeRight;

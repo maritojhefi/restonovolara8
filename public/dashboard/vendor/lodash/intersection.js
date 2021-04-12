@@ -1,0 +1,1 @@
+var arrayMap=require("./_arrayMap"),baseIntersection=require("./_baseIntersection"),baseRest=require("./_baseRest"),castArrayLikeObject=require("./_castArrayLikeObject"),intersection=baseRest(function(e){var r=arrayMap(e,castArrayLikeObject);return r.length&&r[0]===e[0]?baseIntersection(r):[]});module.exports=intersection;

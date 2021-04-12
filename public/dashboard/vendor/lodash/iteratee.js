@@ -1,0 +1,1 @@
+var baseClone=require("./_baseClone"),baseIteratee=require("./_baseIteratee"),CLONE_DEEP_FLAG=1;function iteratee(e){return baseIteratee("function"==typeof e?e:baseClone(e,CLONE_DEEP_FLAG))}module.exports=iteratee;

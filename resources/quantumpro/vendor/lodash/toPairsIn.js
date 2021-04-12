@@ -1,0 +1,1 @@
+var createToPairs=require("./_createToPairs"),keysIn=require("./keysIn"),toPairsIn=createToPairs(keysIn);module.exports=toPairsIn;

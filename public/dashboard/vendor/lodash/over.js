@@ -1,0 +1,1 @@
+var arrayMap=require("./_arrayMap"),createOver=require("./_createOver"),over=createOver(arrayMap);module.exports=over;

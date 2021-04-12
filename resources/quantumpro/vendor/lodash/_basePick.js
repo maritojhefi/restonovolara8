@@ -1,0 +1,1 @@
+var basePickBy=require("./_basePickBy"),hasIn=require("./hasIn");function basePick(a,e){return basePickBy(a,e,function(e,r){return hasIn(a,r)})}module.exports=basePick;

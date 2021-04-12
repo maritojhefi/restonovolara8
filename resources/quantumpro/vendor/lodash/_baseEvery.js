@@ -1,0 +1,1 @@
+var baseEach=require("./_baseEach");function baseEvery(e,n){var s=!0;return baseEach(e,function(e,r,a){return s=!!n(e,r,a)}),s}module.exports=baseEvery;

@@ -1,0 +1,1 @@
+var createCompounder=require("./_createCompounder"),upperFirst=require("./upperFirst"),startCase=createCompounder(function(r,e,t){return r+(t?" ":"")+upperFirst(e)});module.exports=startCase;

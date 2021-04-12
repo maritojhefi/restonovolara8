@@ -1,0 +1,1 @@
+var createCompounder=require("./_createCompounder"),lowerCase=createCompounder(function(e,r,o){return e+(o?" ":"")+r.toLowerCase()});module.exports=lowerCase;

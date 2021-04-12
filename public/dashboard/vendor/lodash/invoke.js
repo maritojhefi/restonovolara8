@@ -1,0 +1,1 @@
+var baseInvoke=require("./_baseInvoke"),baseRest=require("./_baseRest"),invoke=baseRest(baseInvoke);module.exports=invoke;

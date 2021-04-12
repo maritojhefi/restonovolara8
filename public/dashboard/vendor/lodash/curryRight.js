@@ -1,0 +1,1 @@
+var createWrap=require("./_createWrap"),WRAP_CURRY_RIGHT_FLAG=16;function curryRight(r,e,i){var o=createWrap(r,WRAP_CURRY_RIGHT_FLAG,void 0,void 0,void 0,void 0,void 0,e=i?void 0:e);return o.placeholder=curryRight.placeholder,o}curryRight.placeholder={},module.exports=curryRight;

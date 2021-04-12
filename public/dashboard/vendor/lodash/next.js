@@ -1,0 +1,1 @@
+var toArray=require("./toArray");function wrapperNext(){void 0===this.__values__&&(this.__values__=toArray(this.value()));var _=this.__index__>=this.__values__.length;return{done:_,value:_?void 0:this.__values__[this.__index__++]}}module.exports=wrapperNext;

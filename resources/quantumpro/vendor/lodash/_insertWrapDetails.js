@@ -1,0 +1,1 @@
+var reWrapComment=/\{(?:\n\/\* \[wrapped with .+\] \*\/)?\n?/;function insertWrapDetails(r,e){var n=e.length;if(!n)return r;var t=n-1;return e[t]=(1<n?"& ":"")+e[t],e=e.join(2<n?", ":" "),r.replace(reWrapComment,"{\n/* [wrapped with "+e+"] */\n")}module.exports=insertWrapDetails;

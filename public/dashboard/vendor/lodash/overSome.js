@@ -1,0 +1,1 @@
+var arraySome=require("./_arraySome"),createOver=require("./_createOver"),overSome=createOver(arraySome);module.exports=overSome;

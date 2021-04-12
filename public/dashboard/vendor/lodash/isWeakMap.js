@@ -1,0 +1,1 @@
+var getTag=require("./_getTag"),isObjectLike=require("./isObjectLike"),weakMapTag="[object WeakMap]";function isWeakMap(e){return isObjectLike(e)&&getTag(e)==weakMapTag}module.exports=isWeakMap;

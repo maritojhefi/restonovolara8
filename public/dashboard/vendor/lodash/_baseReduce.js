@@ -1,0 +1,1 @@
+function baseReduce(e,c,o,t,u){return u(e,function(e,u,n){o=t?(t=!1,e):c(o,e,u,n)}),o}module.exports=baseReduce;

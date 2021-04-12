@@ -1,0 +1,1 @@
+var baseOrderBy=require("./_baseOrderBy"),isArray=require("./isArray");function orderBy(r,e,y,a){return null==r?[]:(isArray(e)||(e=null==e?[]:[e]),isArray(y=a?void 0:y)||(y=null==y?[]:[y]),baseOrderBy(r,e,y))}module.exports=orderBy;

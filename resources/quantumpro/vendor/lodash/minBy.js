@@ -1,0 +1,1 @@
+var baseExtremum=require("./_baseExtremum"),baseIteratee=require("./_baseIteratee"),baseLt=require("./_baseLt");function minBy(e,r){return e&&e.length?baseExtremum(e,baseIteratee(r,2),baseLt):void 0}module.exports=minBy;

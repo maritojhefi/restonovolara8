@@ -1,0 +1,1 @@
+var baseNth=require("./_baseNth"),toInteger=require("./toInteger");function nth(e,t){return e&&e.length?baseNth(e,toInteger(t)):void 0}module.exports=nth;

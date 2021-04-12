@@ -1,0 +1,1 @@
+var apply=require("./_apply"),baseRest=require("./_baseRest"),isError=require("./isError"),attempt=baseRest(function(r,e){try{return apply(r,void 0,e)}catch(r){return isError(r)?r:new Error(r)}});module.exports=attempt;

@@ -1,0 +1,1 @@
+var baseSortedIndex=require("./_baseSortedIndex"),eq=require("./eq");function sortedIndexOf(e,r){var d=null==e?0:e.length;if(d){var n=baseSortedIndex(e,r);if(n<d&&eq(e[n],r))return n}return-1}module.exports=sortedIndexOf;

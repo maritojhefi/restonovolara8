@@ -1,0 +1,1 @@
+var arrayPush=require("./_arrayPush"),baseFlatten=require("./_baseFlatten"),copyArray=require("./_copyArray"),isArray=require("./isArray");function concat(){var r=arguments.length;if(!r)return[];for(var a=Array(r-1),e=arguments[0],t=r;t--;)a[t-1]=arguments[t];return arrayPush(isArray(e)?copyArray(e):[e],baseFlatten(a,1))}module.exports=concat;

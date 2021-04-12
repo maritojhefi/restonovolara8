@@ -1,0 +1,1 @@
+var baseGetTag=require("./_baseGetTag"),isArray=require("./isArray"),isObjectLike=require("./isObjectLike"),stringTag="[object String]";function isString(e){return"string"==typeof e||!isArray(e)&&isObjectLike(e)&&baseGetTag(e)==stringTag}module.exports=isString;

@@ -1,0 +1,1 @@
+var baseSlice=require("./_baseSlice"),isIterateeCall=require("./_isIterateeCall"),toInteger=require("./toInteger");function slice(e,r,t){var l=null==e?0:e.length;return l?(t&&"number"!=typeof t&&isIterateeCall(e,r,t)?(r=0,t=l):(r=null==r?0:toInteger(r),t=void 0===t?l:toInteger(t)),baseSlice(e,r,t)):[]}module.exports=slice;

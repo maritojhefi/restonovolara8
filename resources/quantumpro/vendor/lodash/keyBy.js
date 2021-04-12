@@ -1,0 +1,1 @@
+var baseAssignValue=require("./_baseAssignValue"),createAggregator=require("./_createAggregator"),keyBy=createAggregator(function(e,r,a){baseAssignValue(e,a,r)});module.exports=keyBy;

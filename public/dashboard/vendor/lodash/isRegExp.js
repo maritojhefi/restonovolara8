@@ -1,0 +1,1 @@
+var baseIsRegExp=require("./_baseIsRegExp"),baseUnary=require("./_baseUnary"),nodeUtil=require("./_nodeUtil"),nodeIsRegExp=nodeUtil&&nodeUtil.isRegExp,isRegExp=nodeIsRegExp?baseUnary(nodeIsRegExp):baseIsRegExp;module.exports=isRegExp;

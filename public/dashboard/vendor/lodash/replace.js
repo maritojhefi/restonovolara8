@@ -1,0 +1,1 @@
+var toString=require("./toString");function replace(){var r=arguments,e=toString(r[0]);return r.length<3?e:e.replace(r[1],r[2])}module.exports=replace;

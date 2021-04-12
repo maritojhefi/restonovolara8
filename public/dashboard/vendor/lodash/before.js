@@ -1,0 +1,1 @@
+var toInteger=require("./toInteger"),FUNC_ERROR_TEXT="Expected a function";function before(e,r){var t;if("function"!=typeof r)throw new TypeError(FUNC_ERROR_TEXT);return e=toInteger(e),function(){return 0<--e&&(t=r.apply(this,arguments)),e<=1&&(r=void 0),t}}module.exports=before;

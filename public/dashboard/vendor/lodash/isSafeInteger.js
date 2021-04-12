@@ -1,0 +1,1 @@
+var isInteger=require("./isInteger"),MAX_SAFE_INTEGER=9007199254740991;function isSafeInteger(e){return isInteger(e)&&-MAX_SAFE_INTEGER<=e&&e<=MAX_SAFE_INTEGER}module.exports=isSafeInteger;

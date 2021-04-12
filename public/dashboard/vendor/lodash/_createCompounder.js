@@ -1,0 +1,1 @@
+var arrayReduce=require("./_arrayReduce"),deburr=require("./deburr"),words=require("./words"),rsApos="['’]",reApos=RegExp(rsApos,"g");function createCompounder(e){return function(r){return arrayReduce(words(deburr(r).replace(reApos,"")),e,"")}}module.exports=createCompounder;

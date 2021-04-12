@@ -1,0 +1,1 @@
+var toString=require("./toString"),unescapeHtmlChar=require("./_unescapeHtmlChar"),reEscapedHtml=/&(?:amp|lt|gt|quot|#39);/g,reHasEscapedHtml=RegExp(reEscapedHtml.source);function unescape(e){return(e=toString(e))&&reHasEscapedHtml.test(e)?e.replace(reEscapedHtml,unescapeHtmlChar):e}module.exports=unescape;

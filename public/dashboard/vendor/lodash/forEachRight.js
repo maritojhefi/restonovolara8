@@ -1,0 +1,1 @@
+var arrayEachRight=require("./_arrayEachRight"),baseEachRight=require("./_baseEachRight"),castFunction=require("./_castFunction"),isArray=require("./isArray");function forEachRight(r,a){return(isArray(r)?arrayEachRight:baseEachRight)(r,castFunction(a))}module.exports=forEachRight;

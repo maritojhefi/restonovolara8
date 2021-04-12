@@ -1,0 +1,1 @@
+var baseEach=require("./_baseEach"),isArrayLike=require("./isArrayLike");function baseMap(r,i){var s=-1,n=isArrayLike(r)?Array(r.length):[];return baseEach(r,function(r,a,e){n[++s]=i(r,a,e)}),n}module.exports=baseMap;

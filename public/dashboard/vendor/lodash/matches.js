@@ -1,0 +1,1 @@
+var baseClone=require("./_baseClone"),baseMatches=require("./_baseMatches"),CLONE_DEEP_FLAG=1;function matches(e){return baseMatches(baseClone(e,CLONE_DEEP_FLAG))}module.exports=matches;

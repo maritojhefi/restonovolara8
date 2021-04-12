@@ -1,0 +1,1 @@
+var baseClamp=require("./_baseClamp"),toInteger=require("./toInteger"),MAX_SAFE_INTEGER=9007199254740991;function toSafeInteger(e){return e?baseClamp(toInteger(e),-MAX_SAFE_INTEGER,MAX_SAFE_INTEGER):0===e?e:0}module.exports=toSafeInteger;

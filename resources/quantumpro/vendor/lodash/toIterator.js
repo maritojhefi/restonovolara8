@@ -1,0 +1,1 @@
+function wrapperToIterator(){return this}module.exports=wrapperToIterator;

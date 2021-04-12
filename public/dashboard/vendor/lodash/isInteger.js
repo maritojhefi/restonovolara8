@@ -1,0 +1,1 @@
+var toInteger=require("./toInteger");function isInteger(e){return"number"==typeof e&&e==toInteger(e)}module.exports=isInteger;

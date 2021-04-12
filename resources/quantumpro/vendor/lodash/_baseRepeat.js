@@ -1,0 +1,1 @@
+var MAX_SAFE_INTEGER=9007199254740991,nativeFloor=Math.floor;function baseRepeat(e,r){var o="";if(!e||r<1||MAX_SAFE_INTEGER<r)return o;for(;r%2&&(o+=e),(r=nativeFloor(r/2))&&(e+=e),r;);return o}module.exports=baseRepeat;

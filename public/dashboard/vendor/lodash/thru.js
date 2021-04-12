@@ -1,0 +1,1 @@
+function thru(r,t){return t(r)}module.exports=thru;

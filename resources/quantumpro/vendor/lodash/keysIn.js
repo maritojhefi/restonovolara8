@@ -1,0 +1,1 @@
+var arrayLikeKeys=require("./_arrayLikeKeys"),baseKeysIn=require("./_baseKeysIn"),isArrayLike=require("./isArrayLike");function keysIn(e){return isArrayLike(e)?arrayLikeKeys(e,!0):baseKeysIn(e)}module.exports=keysIn;

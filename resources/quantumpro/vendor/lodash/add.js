@@ -1,0 +1,1 @@
+var createMathOperation=require("./_createMathOperation"),add=createMathOperation(function(e,a){return e+a},0);module.exports=add;

@@ -1,0 +1,1 @@
+var createMathOperation=require("./_createMathOperation"),divide=createMathOperation(function(e,r){return e/r},1);module.exports=divide;

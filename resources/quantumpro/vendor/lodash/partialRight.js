@@ -1,0 +1,1 @@
+var baseRest=require("./_baseRest"),createWrap=require("./_createWrap"),getHolder=require("./_getHolder"),replaceHolders=require("./_replaceHolders"),WRAP_PARTIAL_RIGHT_FLAG=64,partialRight=baseRest(function(e,r){var a=replaceHolders(r,getHolder(partialRight));return createWrap(e,WRAP_PARTIAL_RIGHT_FLAG,void 0,r,a)});partialRight.placeholder={},module.exports=partialRight;

@@ -1,0 +1,1 @@
+var baseClone=require("./_baseClone"),baseConforms=require("./_baseConforms"),CLONE_DEEP_FLAG=1;function conforms(e){return baseConforms(baseClone(e,CLONE_DEEP_FLAG))}module.exports=conforms;

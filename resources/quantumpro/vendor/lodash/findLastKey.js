@@ -1,0 +1,1 @@
+var baseFindKey=require("./_baseFindKey"),baseForOwnRight=require("./_baseForOwnRight"),baseIteratee=require("./_baseIteratee");function findLastKey(e,r){return baseFindKey(e,baseIteratee(r,3),baseForOwnRight)}module.exports=findLastKey;

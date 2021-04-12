@@ -1,0 +1,1 @@
+var baseIndexOf=require("./_baseIndexOf");function charsEndIndex(e,n){for(var r=e.length;r--&&-1<baseIndexOf(n,e[r],0););return r}module.exports=charsEndIndex;

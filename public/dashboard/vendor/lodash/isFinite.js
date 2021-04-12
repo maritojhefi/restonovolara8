@@ -1,0 +1,1 @@
+var root=require("./_root"),nativeIsFinite=root.isFinite;function isFinite(i){return"number"==typeof i&&nativeIsFinite(i)}module.exports=isFinite;

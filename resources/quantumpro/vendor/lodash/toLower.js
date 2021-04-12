@@ -1,0 +1,1 @@
+var toString=require("./toString");function toLower(o){return toString(o).toLowerCase()}module.exports=toLower;

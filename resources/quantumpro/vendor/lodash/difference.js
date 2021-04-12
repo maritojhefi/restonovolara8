@@ -1,0 +1,1 @@
+var baseDifference=require("./_baseDifference"),baseFlatten=require("./_baseFlatten"),baseRest=require("./_baseRest"),isArrayLikeObject=require("./isArrayLikeObject"),difference=baseRest(function(e,r){return isArrayLikeObject(e)?baseDifference(e,baseFlatten(r,1,isArrayLikeObject,!0)):[]});module.exports=difference;

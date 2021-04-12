@@ -1,0 +1,1 @@
+var asciiWords=require("./_asciiWords"),hasUnicodeWord=require("./_hasUnicodeWord"),toString=require("./toString"),unicodeWords=require("./_unicodeWords");function words(r,o,i){return r=toString(r),void 0===(o=i?void 0:o)?hasUnicodeWord(r)?unicodeWords(r):asciiWords(r):r.match(o)||[]}module.exports=words;

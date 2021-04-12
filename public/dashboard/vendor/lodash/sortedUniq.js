@@ -1,0 +1,1 @@
+var baseSortedUniq=require("./_baseSortedUniq");function sortedUniq(e){return e&&e.length?baseSortedUniq(e):[]}module.exports=sortedUniq;

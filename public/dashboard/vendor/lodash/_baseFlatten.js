@@ -1,0 +1,1 @@
+var arrayPush=require("./_arrayPush"),isFlattenable=require("./_isFlattenable");function baseFlatten(a,e,r,t,l){var n=-1,s=a.length;for(r||(r=isFlattenable),l||(l=[]);++n<s;){var u=a[n];0<e&&r(u)?1<e?baseFlatten(u,e-1,r,t,l):arrayPush(l,u):t||(l[l.length]=u)}return l}module.exports=baseFlatten;

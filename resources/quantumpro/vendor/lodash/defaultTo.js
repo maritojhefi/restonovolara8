@@ -1,0 +1,1 @@
+function defaultTo(u,e){return null==u||u!=u?e:u}module.exports=defaultTo;

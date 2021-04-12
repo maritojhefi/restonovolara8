@@ -1,0 +1,1 @@
+var createRound=require("./_createRound"),ceil=createRound("ceil");module.exports=ceil;

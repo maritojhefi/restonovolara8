@@ -1,0 +1,1 @@
+var baseDelay=require("./_baseDelay"),baseRest=require("./_baseRest"),defer=baseRest(function(e,a){return baseDelay(e,1,a)});module.exports=defer;

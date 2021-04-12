@@ -1,0 +1,1 @@
+var baseClone=require("./_baseClone"),CLONE_DEEP_FLAG=1,CLONE_SYMBOLS_FLAG=4;function cloneDeepWith(e,o){return baseClone(e,CLONE_DEEP_FLAG|CLONE_SYMBOLS_FLAG,o="function"==typeof o?o:void 0)}module.exports=cloneDeepWith;

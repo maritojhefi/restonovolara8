@@ -1,0 +1,1 @@
+var baseAssign=require("./_baseAssign"),baseCreate=require("./_baseCreate");function create(e,r){var a=baseCreate(e);return null==r?a:baseAssign(a,r)}module.exports=create;
