@@ -284,14 +284,17 @@ class SaleController extends Controller
         $receiptPrinterId=70259292;
         $receipt = (string) (new ReceiptPrinter)
     ->centerAlign()
-    ->text('My heading')
-    ->leftAlign()
+    ->text('Rincon Tomateno Restaurante')
     ->line()
+    ->leftAlign()
+    
     ->twoColumnText('Item 1', '2.00')
+    ->rightAlign()
     ->twoColumnText('Item 2', '4.00')
     ->feed(2)
     ->centerAlign()
     ->barcode('1234')
+    ->feed(2)
     ->cut();
 
 // Now send the string to your receipt printer
@@ -317,7 +320,7 @@ Printing::newPrintTask()
           ->update(['estado' => "finalizado"]);
 
 //actualizar mediante vue el estado
-        event(new OrderStatusChangedEvent($cuenta));
+        //event(new OrderStatusChangedEvent($cuenta));
 
         foreach($coleccion as $nombre=>$cantidad)
         {
@@ -329,7 +332,7 @@ Printing::newPrintTask()
         $numeromesa=$cuenta->table->numero;
  
         $profile= CapabilityProfile::load('simple');
-        $nombre_impresora = "POS-582"; 
+       /* $nombre_impresora = "POS-582"; 
         $connector = new WindowsPrintConnector("smb://INTEL:jhefi123@DESKTOP-M8AETTU/".$nombre_impresora);
         $printer = new Printer($connector, $profile);
         $printer->setJustification(Printer::JUSTIFY_CENTER);
@@ -350,22 +353,47 @@ Printing::newPrintTask()
         $printer->setTextSize(1, 1);
           foreach ($personalizado as $list) {
          
-            
+          */  
 
             /*Alinear a la izquierda para la cantidad y el nombre*/
-            $printer->setJustification(Printer::JUSTIFY_LEFT);
-            $printer->text($list['cantidad'] . "x " . $list['nombre'] ."(Bs ".$list['precio']." c/u)". "\n");
+         /*   $printer->setJustification(Printer::JUSTIFY_LEFT);
+            $printer->text($list['cantidad'] . "x " . $list['nombre'] ."(Bs ".$list['precio']." c/u)". "\n"); */
          
             /*Y a la derecha para el importe*/
-            $printer->setJustification(Printer::JUSTIFY_RIGHT);
+         /*   $printer->setJustification(Printer::JUSTIFY_RIGHT);
             $printer->text(' Bs ' . $list['subtotal'] . "\n");
         }
         $printer->text("--------\n");
         $printer->text("TOTAL: Bs ". $total ."\n");
         $printer->text("Muchas gracias por su compra!\n");
-        $printer->feed(3);
+        $printer->feed(3);*/
        
-        $printer->close();
+        //Imprimir con api en red
+        $receiptPrinterId=70259292;
+        $receipt = (string) (new ReceiptPrinter)
+        ->centerAlign()
+        ->setTextSize(1, 2)
+        ->text('Rincon Tomateño Restaurant')
+        ->leftAlign()
+        ->line()
+        ->twoColumnText('Item 1', '2.00')
+        ->rightAlign()
+        ->twoColumnText('Item 2', '4.00')
+        ->feed(2)
+        ->centerAlign()
+        ->barcode('1234')
+        ->feed(2)
+        ->cut();
+
+        // Enviar lo anterior a la impresora mediante api
+        Printing::newPrintTask()
+        ->printer($receiptPrinterId)
+        ->content($receipt)
+        ->send();
+
+
+
+        $printer->close(); 
       
 
     return back()->with('success','La cuenta '.$numeromesa.' ahora esta finalizada!')->with('borrar','boton borrado');
