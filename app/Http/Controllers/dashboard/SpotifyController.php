@@ -48,7 +48,7 @@ class SpotifyController extends Controller
  $token2=Http::post('https://accounts.spotify.com/api/token');
 
 
- dd($token);
+ return $token;
 
 
 
