@@ -44,7 +44,7 @@ class SpotifyController extends Controller
  $dispositivos= Http::withToken($tokenactual)
  ->get('https://api.spotify.com/v1/me/player/devices');
 
- $token=Http::get('https://accounts.spotify.com/authorize?response_type=code&state=&client_id=a7814781430f49b38051ef66eb2baa99&scope=user-read-playback-state%20user-modify-playback-state&redirect_uri=https%3A%2F%2Frestonovo.site%2Fdashboard%2Frockola');
+ $token=Http::get('https://accounts.spotify.com/authorize?response_type=code&state=&client_id=a7814781430f49b38051ef66eb2baa99&scope=user-read-playback-state%20user-modify-playback-state&redirect_uri=https%3A%2F%nena.fun%2Fdashboard%2Frockola');
  $token2=Http::post('https://accounts.spotify.com/api/token');
 
 
