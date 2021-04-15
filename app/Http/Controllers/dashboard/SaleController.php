@@ -2,22 +2,27 @@
 
 namespace App\Http\Controllers\dashboard;
 
+use App\Caja;
 use App\Sale;
 use App\User;
 use App\Table;
 use App\Product;
 use App\Categoria;
-use App\Number_ticket;
 
+use Carbon\Carbon;
+use App\Sale_record;
+use App\Number_ticket;
+use Mike42\Escpos\Printer;
 use Illuminate\Support\Str;
+use App\Helpers\CustomPrint;
 use Illuminate\Http\Request;
 use Mike42\Escpos\EscposImage;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Mike42\Escpos\CapabilityProfile;
 use Rawilk\Printing\Facades\Printing;
-use Rawilk\Printing\Contracts\Printer;
 use App\Events\OrderStatusChangedEvent;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Database\Eloquent\Builder;
 use Rawilk\Printing\Receipts\ReceiptPrinter;
 use Mike42\Escpos\PrintConnectors\WindowsPrintConnector;
@@ -26,7 +31,7 @@ class SaleController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware(['auth','ifcajaopen']);
     }
     public function cuentasActivas()
     {
@@ -78,19 +83,13 @@ class SaleController extends Controller
                         break;
                     }
                  
-                }
-                
-               
-              
-    
-            }
-          
+                }   
+            }         
         }
         else
         {
            $estado="mesanoexiste";
-        }
-        
+        }      
         echo $estado;
     }
 
@@ -103,7 +102,6 @@ class SaleController extends Controller
     if($mesas->count()==0)
     {
         return back()->with('danger','La mesa no existe!');
-
     }
     else
     {
@@ -129,8 +127,6 @@ class SaleController extends Controller
             
         }
     }
-    
-         
        
     }
     public function anadirALista(Request $request)
@@ -175,6 +171,32 @@ class SaleController extends Controller
         }     
         return response($personalizado);   
     }
+    public function mostrarListaCompleta(Request $request)
+    {
+        $cuenta = Sale::find($request->id_sale);
+        $listafiltrada=$cuenta->products->pluck('nombre');
+        
+        $lista=$cuenta->products->all();
+        $total=$cuenta->products->pluck('precioventa')->sum();
+        DB::table('sales')
+        ->where('id', $cuenta->id)
+        ->update(['total' => $total]);
+       
+       $contando=$listafiltrada->countBy();
+   
+        $coleccion=collect($contando);
+       
+        $personalizado=collect();
+
+        foreach($coleccion as $nombre=>$cantidad)
+        {
+            $producto=Product::where('nombre',$nombre)->first();
+           $subtotal=$producto->precioventa*$cantidad;
+            $personalizado->prepend(['nombre'=>$nombre,'cantidad'=>$cantidad,'precio'=>$producto->precioventa,'subtotal'=>$subtotal,'id'=>$producto->id,'idmesa'=>$cuenta->id]);
+
+        }     
+        return response($personalizado);   
+    }
     
     public function deleteproductocuenta(Request $request)
     {
@@ -204,19 +226,46 @@ class SaleController extends Controller
 
         
     }
+    public function deleteproductocuentaCompleta(Request $request)
+    {
+        $cuenta = Sale::find($request->id_sale);
+        $producto=Product::find($request->id_producto);
+       
+        for ($i=1; $i <= $request->cantidad; $i++) { 
+            DB::table('sales')->where('id','=',$request->id_sale)->decrement('total',$producto->precioventa);
+            $cuenta->products()->detach($request->id_producto);
+        }
+        DB::table('products')->where('id','=',$request->id_producto)->increment('cantidad',$request->cantidad);
 
+        $listafiltrada=$cuenta->products->pluck('nombre');
+        $total=$cuenta->products->pluck('precioventa')->sum();
+        $contando=$listafiltrada->countBy();
+        $coleccion=collect($contando);
+        $personalizado=collect();
+
+        foreach($coleccion as $nombre=>$cantidad)
+        {
+            $producto=Product::where('nombre',$nombre)->first();
+           $subtotal=$producto->precioventa*$cantidad;
+            $personalizado->prepend(['nombre'=>$nombre,'cantidad'=>$cantidad,'precio'=>$producto->precioventa,'subtotal'=>$subtotal,'id'=>$producto->id,'idmesa'=>$cuenta->id]);
+
+        }     
+        return response($personalizado);  
+
+        
+    }
+
+   
     public function sumarproducto(Request $request)
     {
         $cuenta = Sale::find($request->id_sale);
         $producto=Product::find($request->id_producto);
-       $agotado="agotado";
         if($producto->cantidad>0)
         {
             DB::table('sales')->where('id','=',$request->id_sale)->increment('total',$producto->precioventa);
             DB::table('products')->where('id','=',$request->id_producto)->decrement('cantidad',1);
-
-            $cuenta->products()->attach($request->id_producto);
             
+            $cuenta->products()->attach($request->id_producto);
             $listafiltrada=$cuenta->pendientes->pluck('nombre');
             $total=$cuenta->products->pluck('precioventa')->sum();
             $contando=$listafiltrada->countBy();
@@ -227,7 +276,7 @@ class SaleController extends Controller
             {
                 $producto=Product::where('nombre',$nombre)->first();
                $subtotal=$producto->precioventa*$cantidad;
-                $personalizado->prepend(['nombre'=>$nombre,'cantidad'=>$cantidad,'precio'=>$producto->precioventa,'subtotal'=>$subtotal,'id'=>$producto->id]);
+                $personalizado->prepend(['nombre'=>$nombre,'cantidad'=>$cantidad,'precio'=>$producto->precioventa,'subtotal'=>$subtotal,'id'=>$producto->id,'idmesa'=>$cuenta->id]);
     
             }     
             return response($personalizado);  
@@ -240,11 +289,47 @@ class SaleController extends Controller
     }
    
 
-    public function deletecuenta(Sale $cuenta)
+    public function archivarcuenta(Sale $cuenta)
     {
-        $cuenta->delete();
-        $cuenta->products()->detach();
-        return back()->with('success','La mesa: '. $cuenta->table->numero.' fue eliminada!');
+        if($cuenta->total!=0)
+        {
+            $mesero=$cuenta->usuario_id;
+            $mesa=$cuenta->mesa_id;
+            $total=$cuenta->total;
+            $observacion=$cuenta->observacion;
+            $cliente=$cuenta->comprador_id;
+
+            $caja= Caja::whereDate('created_At',Carbon::today())->get();
+           
+          $cuentaguardada= Sale_record::create([
+              'usuario_id'=>$mesero,
+              'mesa_id'=>$mesa,
+              'total'=>$total,
+              'observacion'=>$observacion,
+              'comprador_id'=>$cliente,
+              'caja_id'=>$caja[0]->id,
+          ]);
+          
+         $productos=$cuenta->products;
+        $sumaproductos = $productos->pluck('precioventa')->sum();
+         foreach($productos as $prod)
+         {
+             
+            $cuentaguardada->products()->attach($prod->id);
+    
+         }
+            
+            $cuenta->delete();
+            $cuenta->products()->detach();
+            DB::table('cajas')->where('id','=',$caja[0]->id)->increment('monto_acumulado',$sumaproductos);
+
+            return back()->with('success','La mesa: '. $cuenta->table->numero.' fue archivada!');
+        }
+        else{
+            $cuenta->delete();
+            return back()->with('danger','La mesa: '. $cuenta->table->numero.' no se archivo porque no tiene ningun producto!'); 
+        }
+        
     }
     public function cobrar(Sale $cuenta)
     {
@@ -278,39 +363,13 @@ class SaleController extends Controller
 
         }
     }
-
-    public function impresoralaravel(){
-
-        $receiptPrinterId=70259292;
-        $receipt = (string) (new ReceiptPrinter)
-    ->centerAlign()
-    ->text('Rincon Tomateno Restaurante')
-    ->line()
-    ->leftAlign()
-    
-    ->twoColumnText('Item 1', '2.00')
-    ->rightAlign()
-    ->twoColumnText('Item 2', '4.00')
-    ->feed(2)
-    ->centerAlign()
-    ->barcode('1234')
-    ->feed(2)
-    ->cut();
-
-// Now send the string to your receipt printer
-Printing::newPrintTask()
-    ->printer($receiptPrinterId)
-    ->content($receipt)
-    ->send();
-
-        
-    }
     public function imprimir(Sale $cuenta)
     {
         $cuenta = Sale::find($cuenta->id);
        
 
         $listafiltrada=$cuenta->products->pluck('nombre');
+        
         $total=$cuenta->products->pluck('precioventa')->sum();
         $contando=$listafiltrada->countBy();
         $coleccion=collect($contando);
@@ -332,7 +391,7 @@ Printing::newPrintTask()
         $numeromesa=$cuenta->table->numero;
  
         $profile= CapabilityProfile::load('simple');
-       /* $nombre_impresora = "POS-582"; 
+        $nombre_impresora = "POS-582"; 
         $connector = new WindowsPrintConnector("smb://INTEL:jhefi123@DESKTOP-M8AETTU/".$nombre_impresora);
         $printer = new Printer($connector, $profile);
         $printer->setJustification(Printer::JUSTIFY_CENTER);
@@ -353,53 +412,42 @@ Printing::newPrintTask()
         $printer->setTextSize(1, 1);
           foreach ($personalizado as $list) {
          
-          */  
+           
 
             /*Alinear a la izquierda para la cantidad y el nombre*/
-         /*   $printer->setJustification(Printer::JUSTIFY_LEFT);
-            $printer->text($list['cantidad'] . "x " . $list['nombre'] ."(Bs ".$list['precio']." c/u)". "\n"); */
+            $printer->setJustification(Printer::JUSTIFY_LEFT);
+            $printer->text($list['cantidad'] . "x " . $list['nombre'] ."(Bs ".$list['precio']." c/u)". "\n"); 
          
             /*Y a la derecha para el importe*/
-         /*   $printer->setJustification(Printer::JUSTIFY_RIGHT);
+            $printer->setJustification(Printer::JUSTIFY_RIGHT);
             $printer->text(' Bs ' . $list['subtotal'] . "\n");
         }
         $printer->text("--------\n");
         $printer->text("TOTAL: Bs ". $total ."\n");
         $printer->text("Muchas gracias por su compra!\n");
-        $printer->feed(3);*/
-       
-        //Imprimir con api en red
-        $receiptPrinterId=70259292;
-        $receipt = (string) (new ReceiptPrinter)
-        ->centerAlign()
-        ->setTextSize(1, 2)
-        ->text('Rincon Tomateño Restaurant')
-        ->leftAlign()
-        ->line()
-        ->twoColumnText('Item 1', '2.00')
-        ->rightAlign()
-        ->twoColumnText('Item 2', '4.00')
-        ->feed(2)
-        ->centerAlign()
-        ->barcode('1234')
-        ->feed(2)
-        ->cut();
-
-        // Enviar lo anterior a la impresora mediante api
-        Printing::newPrintTask()
-        ->printer($receiptPrinterId)
-        ->content($receipt)
-        ->send();
-
-
-
-        $printer->close(); 
-      
-
+        $printer->feed(3);
+        //convertimos en array y recorremos hasta obtener el string para enviar al helper de impresion
+        $lista= collect($printer);      
+        $cont=0;    
+        $listastring="";
+        foreach($lista as $p)
+        {
+            $cont++;
+            if($cont==2)
+            {
+                $boleta=collect($p);           
+                foreach($boleta as $asd)
+                {         
+                        for ($i=0; $i < collect($asd)->count() ; $i++) { 
+                    $listastring=$listastring.$asd[$i];             
+                }
+                break;              
+                }         
+            }
+        }
+        //helper para imprimir por api
+      CustomPrint::imprimir($listastring);
     return back()->with('success','La cuenta '.$numeromesa.' ahora esta finalizada!')->with('borrar','boton borrado');
-
-
-  
     }
 
     public function listarmesasMesero()
@@ -433,9 +481,9 @@ Printing::newPrintTask()
 
         
             $nombre_impresora = "POS-582"; 
-            $profile= CapabilityProfile::load('simple');
+           
             $connector = new WindowsPrintConnector($nombre_impresora);
-            $printer = new Printer($connector ,$profile);
+            $printer = new Printer($connector);
             $printer->setTextSize(2, 2);
             $printer->text("#".$tickets."\n");
             $printer->setTextSize(2, 1);
@@ -445,7 +493,7 @@ Printing::newPrintTask()
             $printer->text("Nro Mesa:".$cuenta->table->numero."\n");
             $printer->setJustification(Printer::JUSTIFY_LEFT);
     
-            $printer->setTextSize(2, 1);
+            $printer->setTextSize(1, 2);
     
               foreach ($contando as $nombre=>$cantidad) {
                 $printer->setJustification(Printer::JUSTIFY_LEFT);
@@ -455,23 +503,36 @@ Printing::newPrintTask()
             $printer->setJustification(Printer::JUSTIFY_CENTER);
     
             $printer->text("---------------"."\n");
-          
+            $printer->setTextSize(1, 1);
+            $printer->text(date('d-m-Y')."\n");
+
           
             $printer->feed(3);
-           
-            $printer->close();
-    
-    
-    
-    
-    
+          //convertimos en array y recorremos hasta obtener el string para enviar al helper de impresion
+          $lista= collect($printer);      
+          $cont=0;    
+          $listastring="";
+          foreach($lista as $p)
+          {
+              $cont++;
+              if($cont==2)
+              {
+                  $boleta=collect($p);           
+                  foreach($boleta as $asd)
+                  {         
+                          for ($i=0; $i < collect($asd)->count() ; $i++) { 
+                      $listastring=$listastring.$asd[$i];             
+                  }
+                  break;              
+                  }         
+              }
+          }
+          //helper para imprimir por api
+        CustomPrint::imprimir($listastring);
             DB::table('product_sale')
                   ->where('sale_id', $cuenta->id)
-                  ->update(['estado_actual' => 'impreso']);
-    
-    
-                  
-                  return back()->with('success','Pedido impreso!');
+                  ->update(['estado_actual' => 'impreso']);             
+         return back()->with('success','Pedido impreso!');
         }
         else
         {
@@ -480,4 +541,13 @@ Printing::newPrintTask()
         }
        
     }
+
+    public function meserosactivos()
+    {
+     
+        $usuarios=User::with('sales')->where('rol_id','=','3')->get();
+    return view('dashboard.ventasdiarias.meserosactivos', compact('usuarios'));
+    
+    }
+   
 }

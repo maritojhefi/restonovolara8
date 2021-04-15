@@ -16,12 +16,12 @@ use App\Events\OrderStatusChangedEvent;
 
 Route::get('/', function () {
     return view('frontend.clientes.main');
-});
+})->name('cliente');
 
 
 Route::get('/principal', function () {
     return view('dashboard.empresa.dashboard');
-})->name('principal');
+})->middleware('cliente');
 
 
 
@@ -30,7 +30,7 @@ Route::get('/principal', function () {
 //rutas dashboard
 Route::get('/inicio', 'dashboard\MainController@index')->name('inicio');
 Route::get('/configuracion', 'dashboard\MainController@configuracion')->name('configuracion');
-Route::get('/pruebaprint', 'dashboard\SaleController@impresoralaravel')->name('configuracion');
+Route::get('/pruebaprint', 'dashboard\SaleController@impresoralaravel')->name('pruebaprint');
 
 
 
@@ -70,11 +70,28 @@ Route::post('/dashboard/anadiralista', 'dashboard\SaleController@anadirALista')-
 Route::post('/dashboard/restarproducto', 'dashboard\SaleController@restarproducto')->name('restarproducto');
 Route::post('/dashboard/sumarproducto', 'dashboard\SaleController@sumarproducto')->name('sumarproducto');
 Route::post('/dashboard/deleteproductocuenta', 'dashboard\SaleController@deleteproductocuenta')->name('deleteproductocuenta');
-Route::delete('/dashboard/deletecuenta/{cuenta}', 'dashboard\SaleController@deletecuenta')->name('deletecuenta');
+Route::delete('/dashboard/archivarcuenta/{cuenta}', 'dashboard\SaleController@archivarcuenta')->name('archivarcuenta');
 Route::get('/dashboard/cobrar{cuenta}', 'dashboard\SaleController@cobrar')->name('cobrar');
 Route::get('/dashboard/imprimir/{cuenta}', 'dashboard\SaleController@imprimir')->name('imprimir');
 Route::get('/dashboard/listarMesas', 'dashboard\SaleController@listarmesasMesero')->name('listarmesasMesero');
 Route::get('/dashboard/pedidomesero{cuenta}', 'dashboard\SaleController@imprimirpedidomesero')->name('imprimirpedidomesero');
+Route::get('/dashboard/meserosactivos', 'dashboard\SaleController@meserosactivos')->name('meserosactivos');
+//Permisos de ventas solo para cajero y administrador:
+Route::post('/dashboard/mostrarListaCompleta', 'dashboard\SaleController@mostrarListaCompleta')->name('mostrarListaCompleta');
+Route::delete('/dashboard/deletecuenta/{cuenta}', 'dashboard\SaleController@deletecuenta')->name('deletecuenta');
+Route::post('/dashboard/deleteproductocuentaCompleta', 'dashboard\SaleController@deleteproductocuentaCompleta')->name('deleteproductocuentaCompleta');
+
+
+
+
+//cajas rutas
+Route::get('/dashboard/cajaactiva', 'dashboard\CajaController@cajaactiva')->name('cajaactiva');
+Route::get('/dashboard/activarcaja', 'dashboard\CajaController@activarcaja')->name('activarcaja');
+Route::get('/dashboard/finalizarcaja/{caja}', 'dashboard\CajaController@finalizarcaja')->name('finalizarcaja');
+
+
+
+
 
 
 Route::get('/offline', function () {
@@ -87,8 +104,10 @@ Route::get('/offline', function () {
 Route::get('/dashboard/rockola', 'dashboard\SpotifyController@buscarcanciones')->name('buscarcanciones');
 
 
-
-
+//rutas para clientes dashboard
+Route::get('/menuCliente', function () {
+    return view('frontend.dashboardcliente.cuenta.inicio');
+})->name('cliente');
 
 
 

@@ -1,3 +1,4 @@
+@if(auth()->user()->rol->nombre!='mesero')
 <aside class="sidebar sidebar-left">
     <div class="sidebar-content">
         <nav class="main-menu">
@@ -32,8 +33,8 @@
                     <a class="has-arrow" href="#" aria-expanded="false"><i class="zmdi zmdi-assignment-check zmdi-hc-fw"></i><span>Venta Diaria</span></a>
                     <ul class="collapse nav-sub" aria-expanded="true">
                         <li><a href="{{route('cuentasActivas')}}"><span>Cuentas Activas</span></a></li>
-                        <li><a href="dashboard.financials.html"><span>Meseros Activos</span></a></li>
-                        <li><a href="dashboard.ecommerce.html"><span>Caja diaria</span></a></li>
+                        <li><a href="{{route('meserosactivos')}}"><span>Meseros Activos</span></a></li>
+                        <li><a href="{{route('cajaactiva')}}"><span>Caja diaria</span></a></li>
                     </ul>
                 </li>
                 <li class="nav-dropdown">
@@ -60,6 +61,6 @@
         </nav>
     </div>
 </aside>
-      
+      @endif
 
     

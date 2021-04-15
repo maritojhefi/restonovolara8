@@ -50,7 +50,7 @@ class User extends Authenticatable
     }
     public function sales()
     {
-        return $this->hasMany(Sale::class);
+        return $this->hasMany(Sale::class,'usuario_id');
     }
    
     public function rol()

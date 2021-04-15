@@ -44,11 +44,22 @@ class SpotifyController extends Controller
  $dispositivos= Http::withToken($tokenactual)
  ->get('https://api.spotify.com/v1/me/player/devices');
 
- $token=Http::get('https://accounts.spotify.com/authorize?response_type=code&state=&client_id=a7814781430f49b38051ef66eb2baa99&scope=user-read-playback-state%20user-modify-playback-state&redirect_uri=https%3A%2F%nena.fun%2Fdashboard%2Frockola');
- $token2=Http::post('https://accounts.spotify.com/api/token');
+ $token=Http::get('https://accounts.spotify.com/authorize?response_type=code&state=&client_id=a7814781430f49b38051ef66eb2baa99&scope=user-read-playback-state%20user-modify-playback-state&redirect_uri=https%3A%2F%2Frestonovo.site%2Fdashboard%2Frockola');
+ $token2=Http::withHeaders([
+     'Authorization' =>base64_encode($clientid.":".$clientpass),
+     'grant_type' => 'authorization_code',
+     'code' => 'AQBWg8Vwt9TA9ytmkamuOd__vNWOtPVfSFUhwlF1Z5CtOGnIz-OJSdjgiSQEjLvZBmjBclMfKD7P5VHjMliOQ9XJEJf8FEAc18yHR3tx6TQAtGJkREmRRQ3HDFBoOvWZy3OoTPDNbtMQFnVZHWtPdr8eYoxNh8nMCI6X7fW8s_uY4NpRzz06GBAgVR_6Ej32PbOJKYWsKJ2v0gsfJSS6owja2KviJOfWeja8sQ8l5boMpJGmdmTnqOM4RrCejDsESyw',
+     'redirect_uri' => 'https://restonovo.site/dashboard/rockola',
+     'client_id'=>'a7814781430f49b38051ef66eb2baa99'
+ ])->post('https://accounts.spotify.com/api/token');
 
 
- return $token;
+
+
+ //curl -H "Authorization: Basic ZjM...zE=" -d grant_type=authorization_code
+ // -d code=MQCbtKe...44KN -d redirect_uri=https%3A%2F%2Fwww.foo.com%2Fauth https://accounts.spotify.com/api/token
+
+ dd($token2);
 
 
 

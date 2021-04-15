@@ -2,6 +2,8 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\IfAdminCheck;
+use App\Http\Middleware\CheckIfCajaOpen;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -63,5 +65,10 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+        'ifcajaopen' => \App\Http\Middleware\CheckIfCajaOpen::class,
+        'admin' => \App\Http\Middleware\IfAdminCheck::class,
+        'cliente' => \App\Http\Middleware\IfClienteCheck::class,
+
+
     ];
 }

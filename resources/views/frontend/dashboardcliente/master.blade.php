@@ -82,15 +82,15 @@ a.disabled {
 	<!-- CONTENT WRAPPER -->
 	<div id="">
 		<!-- TOP TOOLBAR WRAPPER -->
-		@include('dashboard.partials.navmobile')
-		@include('dashboard.partials.nav')
+		@include('frontend.dashboardcliente.partials.navmobile')
+		@include('frontend.dashboardcliente.partials.nav')
 
 		<!-- END TOP TOOLBAR WRAPPER -->
 			<div class="content-wrapper">
 				<!-- MENU SIDEBAR WRAPPER -->
-				@include('dashboard.partials.sidebar')
+				@include('frontend.dashboardcliente.partials.sidebar')
 				<div class="content container-fluid">
-					@include('dashboard.partials.session-flash-status')
+					@include('frontend.dashboardcliente.partials.session-flash-status')
 				@yield('content')
 				</div>
 			

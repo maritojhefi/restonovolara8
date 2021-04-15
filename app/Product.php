@@ -6,6 +6,7 @@ use App\Sale;
 use App\Product;
 use App\Categoria;
 use App\UserImage;
+use App\Sale_record;
 use App\ProductImage;
 use Illuminate\Database\Eloquent\Model;
 
@@ -30,5 +31,9 @@ class Product extends Model
     public function sales()
     {
         return $this->belongsToMany(Sale::class);
+    }
+    public function salerecords()
+    {
+        return $this->belongsToMany(Sale_record::class);
     }
 }

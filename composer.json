@@ -49,6 +49,7 @@
         "psr-4": {
             "App\\": "app/"
         },
+        "files" : ["app/Helpers/CustomPrint.php"],
         "classmap": [
             "database/seeds",
             "database/factories"
