@@ -51,6 +51,7 @@
         </div>
         <div class="invoice-body">
           <div class="table-responsive">
+            @isset($comida)
             <table class="table">
               <thead>
                 <tr>
@@ -78,33 +79,37 @@
               </tbody>
               
             </table>
-            <table class="table">
-              <thead>
+            @endisset
+           @isset($bebida)
+           <table class="table">
+            <thead>
+              <tr>
+                <th>Item#</th>
+                <th>Bebida</th>
+                <th class="text-right">Cantidad</th>
+                <th class="text-right">Precio Unitario</th>
+                <th class="text-right">Total</th>
+              </tr>
+            </thead>
+            <tbody>
+             
+                @foreach ($bebida as $lista)
                 <tr>
-                  <th>Item#</th>
-                  <th>Bebida</th>
-                  <th class="text-right">Cantidad</th>
-                  <th class="text-right">Precio Unitario</th>
-                  <th class="text-right">Total</th>
-                </tr>
-              </thead>
-              <tbody>
+                <th scope="row">{{$loop->iteration}}</th>
+                <td>{{$lista['nombre']}}</td>
+                <td class="text-right">{{$lista['cantidad']}}</td>
+                <td class="text-right">{{$lista['precio']}} Bs</td>
+                <td class="text-right">{{$lista['subtotal']}} Bs</td>
+              </tr>
+                @endforeach
                
-                  @foreach ($bebida as $lista)
-                  <tr>
-                  <th scope="row">{{$loop->iteration}}</th>
-                  <td>{{$lista['nombre']}}</td>
-                  <td class="text-right">{{$lista['cantidad']}}</td>
-                  <td class="text-right">{{$lista['precio']}} Bs</td>
-                  <td class="text-right">{{$lista['subtotal']}} Bs</td>
-                </tr>
-                  @endforeach
-                 
-               
-               
-              </tbody>
-              
-            </table>
+             
+             
+            </tbody>
+            
+          </table>
+           @endisset
+           
           </div>
         </div>
         <div class="invoice-footer">

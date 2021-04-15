@@ -163,16 +163,23 @@
             <div class="dropdown-menu dropdown-menu-right p-0">
                 <div class="dropdown-menu-grid">
                     <div class="menu-grid-row">
-                        <div><a class="dropdown-item  border-bottom border-right" href="{{route('listarmesasMesero')}}"><i class="icon dripicons-mail"></i><span>Mesas Activas</span></a></div>
-                        <div><a class="dropdown-item  border-bottom" href="{{route('activarcaja')}}"><i class="icon dripicons-message"></i><span>Abrir Caja Diaria</span></a></div>
-                    </div>
+                        <div><a class="dropdown-item  border-bottom border-right" href="{{route('listarmesasMesero')}}"><i class="la la-newspaper-o"></i><span>Mesas Activas</span></a></div>
+                        <div><a class="dropdown-item  border-right" href="javascript:void(0)"><i class="zmdi zmdi-assignment-check zmdi-hc-fw"></i><span>Ventas del dia</span></a></div>
+
+                     </div>
+                    @if (auth()->user()->rol->nombre=='administrador')
                     <div class="menu-grid-row">
-                        <div><a class="dropdown-item  border-right" href="apps.contacts.html"><i class="icon dripicons-archive"></i><span>Contacts</span></a></div>
-                        <div> <a class="dropdown-item" href="apps.calendar.html"><i class="icon dripicons-calendar"></i><span>Calendar</span></a></div>
+                      
+                        <div><a class="dropdown-item  border-bottom" href="{{route('activarcaja')}}"><i class="la la-unlock-alt"></i><span>Abrir Caja Diaria</span></a></div>
+
+                                               
+                         <div> <a class="dropdown-item" href="javascript:void(0)"><i class="icon dripicons-calendar"></i><span>Promociones</span></a></div>
                     </div>
+                    @endif 
                 </div>
             </div>
         </li>
+        <!--
         <li class="nav-item dropdown dropdown-notifications dropdown-menu-lg">
             <a href="javascript:void(0)" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                 <i class="icon dripicons-bell"></i>
@@ -257,7 +264,7 @@
                 </div>
             </div>
         </li>
-        
+    -->        
         <li class="nav-item dropdown">
             <a class="nav-link nav-pill user-avatar" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                 @if (auth()->user()->image)
@@ -278,14 +285,14 @@
                         </div>
                     </div>
                 </div>
-                <a class="dropdown-item" href="apps.messages.html"><i class="icon dripicons-mail"></i> Comentarios <span class="badge badge-accent rounded-circle w-15 h-15 p-0 font-size-10">4</span></a>
+                <a class="dropdown-item" href="javascript:void(0);"><i class="icon dripicons-mail"></i> Comentarios <span class="badge badge-accent rounded-circle w-15 h-15 p-0 font-size-10">4</span></a>
             <a class="dropdown-item" href="{{ route('usuario.show',auth()->user()->id) }}"><i class="icon dripicons-user"></i> Perfil</a>
 
                 <a class="dropdown-item" href="{{ route('listarmesasMesero') }}"><i class="icon dripicons-gear"></i>Cuentas Activas</a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#"><i class="icon dripicons-lock"></i> Seguridad</a>
+                
                 <a class="dropdown-item" href="{{ route('logout') }}"  onclick="event.preventDefault();
-                document.getElementById('logout-form').submit();"><i class="icon dripicons-lock-open"></i> Cerra Sesion</a>
+                document.getElementById('logout-form').submit();"><i class="icon dripicons-lock-open"></i> Cerrar Sesion</a>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                     @csrf
                 </form>
@@ -297,9 +304,9 @@
            
         </li>
     </ul>
-    <form role="search" action="pages.search.html" class="navbar-form">
+    <form role="search" action="javascript:void(0);" class="navbar-form">
         <div class="form-group">
-            <input type="text" placeholder="Search and press enter..." class="form-control navbar-search" autocomplete="off">
+            <input type="text" placeholder="Busca alguna funcion del sistema..." class="form-control navbar-search" autocomplete="off">
             <i data-q-action="close-site-search" class="icon dripicons-cross close-search"></i>
         </div>
         <button type="submit" class="d-none">Submit</button>

@@ -14,6 +14,12 @@ use Illuminate\Support\Facades\Redirect;
 
 class CajaController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware('admin');
+  
+    }
     public function cajaactiva()
     {
         $cajaactiva=Caja::whereDate('created_at',Carbon::today())->get();
@@ -88,7 +94,7 @@ class CajaController extends Controller
             if($caja->estado=='activo')
             {
                
-               return view('dashboard.ventasdiarias.cajaactiva', compact('caja'))->with('info','Sin cambios, la caja se encuentra abierta');
+               return back()->with('info','Sin cambios, la caja se encuentra abierta');
                
             }
             else if($caja->estado=='finalizado')
@@ -96,7 +102,7 @@ class CajaController extends Controller
                 $caja->estado='activo';
                 $caja->save();
                 
-                return view('dashboard.ventasdiarias.cajaactiva', compact('caja'))->with('info','La caja diaria fue abierta de nuevo!');
+                return back()->with('info','La caja diaria fue abierta de nuevo!');
 
             }
         }
@@ -116,6 +122,6 @@ class CajaController extends Controller
         ->where('id', $caja->id)
         ->update(['estado' => 'finalizado']);
 
-        return Redirect::route('principal')->with('success','Caja cerrada con exito!');
+        return Redirect::route('dashboard')->with('success','Caja cerrada con exito!');
     }
 }

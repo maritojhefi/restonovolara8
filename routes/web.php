@@ -16,12 +16,12 @@ use App\Events\OrderStatusChangedEvent;
 
 Route::get('/', function () {
     return view('frontend.clientes.main');
-})->name('cliente');
+})->name('principal');
 
 
 Route::get('/principal', function () {
     return view('dashboard.empresa.dashboard');
-})->middleware('cliente');
+})->name('dashboard')->middleware('cliente');
 
 
 
@@ -96,7 +96,7 @@ Route::get('/dashboard/finalizarcaja/{caja}', 'dashboard\CajaController@finaliza
 
 Route::get('/offline', function () {
     return view('frontend.clientes.main');
-})->name('principal');
+})->name('offline');
 
 
 
