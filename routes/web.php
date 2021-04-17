@@ -109,6 +109,18 @@ Route::get('/menuCliente', function () {
     return view('frontend.dashboardcliente.cuenta.inicio');
 })->name('cliente');
 
+Route::get('/cliente/musica', 'MusicController@buscarcanciones')->name('agregarmusica');
+Route::get('/cliente/buscador', 'MusicController@vistamusica')->name('vistamusica');
+Route::get('/cliente/agregaracola', 'MusicController@agregaracola')->name('agregaracola');
+Route::get('/cliente/generartoken', 'MusicController@generartoken')->name('generartoken');
+Route::get('/cliente/vercancionactual', 'MusicController@vercancionactual')->name('vercancionactual');
+Route::get('/cliente/playresume', 'MusicController@playresume')->name('playresume');
+
+
+
+
+
+
 
 
 

@@ -1,11 +1,11 @@
 
     @if (session('success'))
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
+    <div class="alert alert-success alert-dismissible fade show" role="alert" id="contenido">
         <strong><span class="material-icons">
             done
             </span> 
-            Notificacion:</strong> {{session('success')}} 
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+         </strong> {{session('success')}} 
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close" id="contenido">
             <span class="material-icons">
             close
             </span>
@@ -13,12 +13,12 @@
     </div>
     @endif
     @if (session('info'))
-    <div class="alert alert-info alert-dismissible fade show" role="alert">
+    <div class="alert alert-info alert-dismissible fade show" role="alert" id="contenido">
         <strong><span class="material-icons">
             info
             </span> 
-            Notificacion:</strong> {{session('info')}} 
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            </strong> {{session('info')}} 
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close" >
             <span class="material-icons">
             close
             </span>
@@ -26,11 +26,11 @@
     </div>
 @endif
 @if (session('danger'))
-<div class="alert alert-danger alert-dismissible fade show" role="alert">
+<div class="alert alert-danger alert-dismissible fade show" role="alert" id="contenido">
     <strong> <span class="material-icons">
         new_releases
         </span> 
-        Advertencia:</strong> {{session('danger')}}
+    </strong> {{session('danger')}}
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
         <span class="material-icons">
         close
@@ -38,3 +38,19 @@
     </button>
 </div>
 @endif
+
+<script>
+    $(document).ready(function() {
+        //Ejecutamos método que oculta las cajas
+        OcultarContenedores1();
+      });
+      
+      //Método que oculta el primer contenedor para mostrar el otro
+      function OcultarContenedores1() {
+        setTimeout(function() {
+          $("#contenido").hide(1000);
+        }, 3000);
+      }
+     
+
+</script>

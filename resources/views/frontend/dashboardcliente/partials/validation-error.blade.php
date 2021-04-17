@@ -4,7 +4,7 @@
         @if (count($errors) > 1)
         <strong>Errores en el formulario...</strong> 
         @else
-        <strong>Casi listo! </strong> 
+        <strong>Error!</strong> 
 
         @endif
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">

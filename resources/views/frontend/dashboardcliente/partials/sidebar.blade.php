@@ -16,7 +16,7 @@
                     </ul>
                 </li>
                 <li class="nav-dropdown">
-                    <a href="#" aria-expanded="false"><i class="la la-music"></i><span>Reproducir Musica!</span></a>
+                    <a href="{{route('vistamusica')}}" aria-expanded="false"><i class="la la-music"></i><span>Reproducir Musica!</span></a>
                 </li>
                 <li class="nav-dropdown">
                     <a href="#" aria-expanded="false"><i class="la la-star-half-full"></i><span>Valora tu experiencia</span></a>

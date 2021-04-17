@@ -75,6 +75,14 @@ a.disabled {
   pointer-events: none;
   cursor: default;
 }
+.texto-borde {
+	color: white; text-shadow: black 0.1em 0.1em 0.2em;
+	font-weight: normal;
+}
+.texto-artist {
+	color: white; text-shadow: black 0.1em 0.1em 0.2em;
+	font-weight: bold;
+}
 
 </style>
 
@@ -89,8 +97,7 @@ a.disabled {
 			<div class="content-wrapper">
 				<!-- MENU SIDEBAR WRAPPER -->
 				@include('frontend.dashboardcliente.partials.sidebar')
-				<div class="content container-fluid">
-					@include('frontend.dashboardcliente.partials.session-flash-status')
+				<div class="content " data-layout="tabbed">
 				@yield('content')
 				</div>
 			

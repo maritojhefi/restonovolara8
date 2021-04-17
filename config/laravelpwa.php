@@ -1,10 +1,10 @@
 <?php
 
 return [
-    'name' => 'LaravelPWA',
+    'name' => 'Restonovo',
     'manifest' => [
         'name' => env('APP_NAME', 'Restonovo'),
-        'short_name' => 'PWA',
+        'short_name' => 'Restonovo',
         'start_url' => '/',
         'background_color' => '#ffffff',
         'theme_color' => '#000000',
