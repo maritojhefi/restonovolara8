@@ -30,6 +30,7 @@ class CreateUsersTable extends Migration
             $table->string('entrevista')->nullable()->default('no');
             $table->string('imagen', 100)->nullable();
             $table->string('tiposueldo', 100)->nullable();
+            $table->string('token', 100)->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

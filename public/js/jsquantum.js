@@ -1355,18 +1355,18 @@ $(window).on("resize", function() {
     //== SweetAlert Demo 8
     $('#sweetalert_demo_8').on('click', function(e) {
       swal({
-        title: 'Are you sure?',
-        text: "You won't be able to revert this!",
+        title: 'Estas seguro?',
+        text: "Se agregara 1bs a tu cuenta",
         type: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes, delete it!'
+        confirmButtonText: 'Si, lo quiero'
       }).then((result) => {
         if (result.value) {
           swal(
-            'Deleted!',
-            'Your file has been deleted.',
+            'Agregado!',
+            'Tu cancion sonara en breve.',
             'success'
           )
         }

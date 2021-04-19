@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Spotify;
+use App\Play_device;
 use App\Ranking_track;
 use App\Spotify_token;
 use Illuminate\Support\Str;
@@ -159,53 +160,64 @@ class MusicController extends Controller
    {
 
     $track=explode(':',$request->trackid);
-     $deviceid='93becd543d17f1b639aa89c17dc8205bd494ee87';
-    $tokens=Spotify_token::all();
-    if($tokens->count()>0)
+    $reproductoractual=Play_device::find(1);
+
+    if($reproductoractual!=null)
     {
-        $tokenactual=$tokens->last();
   
-        $agregaracola = Http::withToken($tokenactual->token)
-        ->post("https://api.spotify.com/v1/me/player/queue?uri=spotify%3Atrack%3A".$track[2]."&device_id=".$deviceid);
-
-       
-        if($agregaracola->successful())
-        {
-            
-            $canciones=Ranking_track::where('uri',$request->trackid)->get();
-            if($canciones->count()==0)
-            {
-                Ranking_track::create([
-                    'nombre'=>$request->cancion,
-                    'artista'=>$request->artista,
-                    'foto'=>$request->foto,
-                    'uri'=>$request->trackid,
-                ]);
-            }
-            else
-            {
-                foreach($canciones as $cancion)
-                {
-                    $cancion->increment('reproducido',1);
-                    break;
-                }
-            
-            }
-           
-            return back()->with('success','La cancion fue agregada correctamente!');
-
-        }
-        else
-        {
-            return back()->with('danger','Error de token, notifique al administrador!');
-
-        }
+        $deviceid=$reproductoractual->id_reproductor;
+       $tokens=Spotify_token::all();
+       if($tokens->count()>0)
+       {
+           $tokenactual=$tokens->last();
+     
+           $agregaracola = Http::withToken($tokenactual->token)
+           ->post("https://api.spotify.com/v1/me/player/queue?uri=spotify%3Atrack%3A".$track[2]."&device_id=".$deviceid);
+   
+          
+           if($agregaracola->successful())
+           {
+               
+               $canciones=Ranking_track::where('uri',$request->trackid)->get();
+               if($canciones->count()==0)
+               {
+                   Ranking_track::create([
+                       'nombre'=>$request->cancion,
+                       'artista'=>$request->artista,
+                       'foto'=>$request->foto,
+                       'uri'=>$request->trackid,
+                   ]);
+               }
+               else
+               {
+                   foreach($canciones as $cancion)
+                   {
+                       $cancion->increment('reproducido',1);
+                       break;
+                   }
+               
+               }
+              
+               return back()->with('success','Agregado a la cola! Tu cancion sonará en breve...');
+   
+           }
+           else
+           {
+               return back()->with('danger','Error de token, notifique al administrador!');
+   
+           }
+       }
+       else
+       {
+           return back()->with('danger','No se encuentra habilitada la rockola');
+   
+       }
     }
     else
     {
-        return back()->with('danger','No se encuentra habilitada la rockola');
-
+        return back()->with('danger','No se habilito el reproductor, por favor notifique al administrador');
     }
+    
   
  
    }

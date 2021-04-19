@@ -78,27 +78,62 @@
                                                         <div class="card-img-overlay">
                                                             <h3 class="card-title texto-borde">{{$canciones['nombre']}}</h3>
                                                             <p class="texto-artist ">{{$canciones['artista']}}</p>
-                                                            <form action="{{route('agregaracola')}}" method="get">
-                                                                @csrf
-                                                                <button type="submit" class="btn btn-dark btn-rounded btn-outline" data-qt-block="body" style="padding: 10px 10px 40px 10px; position:absolute;bottom:30px;right:15px;box-shadow: 0px -1px 5px 1px rgb(250, 226, 226)">
-                                                                   <span class="material-icons">
-                                                                        add_task
-                                                                        </span><strong> Añadir</strong> 
+                                                            <button type="button" class="btn btn-dark btn-rounded btn-outline"  data-toggle="modal" data-target="#modal{{$loop->index}}" style="padding: 10px 10px 40px 10px; position:absolute;bottom:30px;right:15px;box-shadow: 0px -1px 5px 1px rgb(250, 226, 226)">
+                                                                <span class="material-icons">
+                                                                    add_task
+                                                                    </span><strong> Añadir</strong> </button>
 
-                                                                 </button>
-                                                                
-                                                                 <input type="hidden" name="trackid" value="{{$canciones['uri']}}">
-                                                                 <input type="hidden" name="cancion" value="{{$canciones['nombre']}}">
-                                                                 <input type="hidden" name="artista" value="{{$canciones['artista']}}">
-                                                                 <input type="hidden" name="foto" value="{{$canciones['foto']}}">
-
-                                                            </form>
                                                             
                                                         </div>
                 
                                                     </div>
                                                 </div>
-                                            
+                                               
+                                                <div class="modal fade bd-example-modal-sm" id="modal{{$loop->index}}" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" >
+                                                    <div class="modal-dialog modal-sm" >
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <small class="modal-title" id="exampleModalLongTitle"><strong>{{$canciones['nombre']}}</strong></small> 
+                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                    <span aria-hidden="true" class="zmdi zmdi-close"></span>
+                                                                </button>
+                                                            </div>
+                                                            <div class="modal-body mx-auto">
+                                                                <div class="row mx-auto"><small>
+                                                                    Se agregara 1 bs a tu cuenta y tu cancion se reproducira! Estas seguro?
+                                                                </small></div>
+                                                                <div class="row ">
+                                                                    <div class="col-4"><img src="{{asset('asset-cliente/speaker.gif')}}" class="rounded-circle" style="width: 100px" alt="">                                                                    </div>
+                                                                    <div class="col-4"><img src="{{asset('asset-cliente/wavesanimated.gif')}}" class="rounded-circle" style="width: 100px" alt=""></div>
+
+                                                                    <div class="col-4"><img src="{{asset('asset-cliente/play.gif')}}" class="rounded-circle" style="width: 150px" alt=""></div>
+
+                                                                    
+                                                                    
+
+                                                                </div>
+                                                                
+                                                                
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-danger btn-outline btn-rounded btn-sm" data-dismiss="modal">Cerrar</button>
+                                                               
+                                                                <form action="{{route('agregaracola')}}" method="get">
+                                                                    @csrf
+                                                                   <div id="loading"><button type="submit" class="btn btn-dark btn-rounded btn-sm cargar"  data-qt-block="body" onclick="cargar({{$loop->index}})" >Confirmar</button></div> 
+    
+                                                                    
+                                                                    
+                                                                     <input type="hidden" name="trackid" value="{{$canciones['uri']}}">
+                                                                     <input type="hidden" name="cancion" value="{{$canciones['nombre']}}">
+                                                                     <input type="hidden" name="artista" value="{{$canciones['artista']}}">
+                                                                     <input type="hidden" name="foto" value="{{$canciones['foto']}}">
+    
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                            
                                             @endforeach
                                         </div>
@@ -214,6 +249,12 @@
        imagen.innerHTML=' <img class="card-img" src="'+approved[0]+'" alt="Card image">';
    }
 
+   function cargar(index)
+   {
+    $('#modal'+index).modal('toggle'); // abrir
+  }
+
+   
    function leerjson2(approved){
     console.log(approved);
     
