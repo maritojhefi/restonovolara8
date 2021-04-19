@@ -89,6 +89,16 @@ Route::get('/dashboard/cajaactiva', 'dashboard\CajaController@cajaactiva')->name
 Route::get('/dashboard/activarcaja', 'dashboard\CajaController@activarcaja')->name('activarcaja');
 Route::get('/dashboard/finalizarcaja/{caja}', 'dashboard\CajaController@finalizarcaja')->name('finalizarcaja');
 
+//rutas perifericos
+Route::get('/dashboard/periferico', 'dashboard\PerifericoController@periferico')->name('periferico');
+Route::get('/dashboard/nuevotoken', 'dashboard\PerifericoController@nuevotoken')->name('nuevotoken');
+Route::post('/dashboard/guardartoken', 'dashboard\PerifericoController@guardartoken')->name('guardartoken');
+Route::get('/dashboard/selecimpresora', 'dashboard\PerifericoController@selecimpresora')->name('selecimpresora');
+Route::post('/dashboard/activarimpresora', 'dashboard\PerifericoController@activarimpresora')->name('activarimpresora');
+Route::post('/dashboard/activarreproductor', 'dashboard\PerifericoController@activarreproductor')->name('activarreproductor');
+
+Route::get('/dashboard/selecreproductor', 'dashboard\PerifericoController@selecreproductor')->name('selecreproductor');
+
 
 
 
@@ -115,6 +125,10 @@ Route::get('/cliente/agregaracola', 'MusicController@agregaracola')->name('agreg
 Route::get('/cliente/generartoken', 'MusicController@generartoken')->name('generartoken');
 Route::get('/cliente/vercancionactual', 'MusicController@vercancionactual')->name('vercancionactual');
 Route::get('/cliente/playresume', 'MusicController@playresume')->name('playresume');
+Route::get('/cliente/gettoken', 'MusicController@gettoken')->name('gettoken');
+Route::get('/cliente/listarranking', 'MusicController@listarranking')->name('listarranking');
+
+
 
 
 

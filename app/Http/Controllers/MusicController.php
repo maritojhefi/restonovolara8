@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Spotify;
+use App\Ranking_track;
 use App\Spotify_token;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use SpotifyWebAPI\SpotifyWebAPI;
 use Illuminate\Support\Facades\Http;
@@ -92,7 +94,7 @@ class MusicController extends Controller
         }
         
         $coleccion=collect([
-            $foto,$artista,$nombre
+            $foto,Str::limit($artista, 50),Str::limit($nombre, 50)
         ]);
         return $coleccion;
     }
@@ -129,6 +131,7 @@ class MusicController extends Controller
     $contador=0;
     $track= $request->cancion;
     $canciones= Spotify::searchTracks($track)->limit(20)->get('tracks');
+    
      foreach($canciones['items'] as $tema)
      {
         $artista='';
@@ -146,7 +149,7 @@ class MusicController extends Controller
        }
        $uri=$tema['uri'];
       
-       $listafiltrada->push(['nombre'=>$nombre,'artista'=>$artista,'uri'=>$uri,'foto'=>$foto]);
+       $listafiltrada->push(['nombre'=>Str::limit($nombre, 40),'artista'=>Str::limit($artista, 50),'uri'=>$uri,'foto'=>$foto]);
        $contador=$contador+1;
      }
      
@@ -168,6 +171,27 @@ class MusicController extends Controller
        
         if($agregaracola->successful())
         {
+            
+            $canciones=Ranking_track::where('uri',$request->trackid)->get();
+            if($canciones->count()==0)
+            {
+                Ranking_track::create([
+                    'nombre'=>$request->cancion,
+                    'artista'=>$request->artista,
+                    'foto'=>$request->foto,
+                    'uri'=>$request->trackid,
+                ]);
+            }
+            else
+            {
+                foreach($canciones as $cancion)
+                {
+                    $cancion->increment('reproducido',1);
+                    break;
+                }
+            
+            }
+           
             return back()->with('success','La cancion fue agregada correctamente!');
 
         }
@@ -199,6 +223,41 @@ class MusicController extends Controller
    public function vistamusica()
    {
     return view('frontend.dashboardcliente.spotify.agregarcancion');
+   }
+
+   public function gettoken()
+   {
+    $token=Http::get('https://accounts.spotify.com/authorize?response_type=code&state=&client_id=a7814781430f49b38051ef66eb2baa99&scope=user-read-playback-state%20user-modify-playback-state&redirect_uri=https%3A%2F%2Frestonovo.site%2Fdashboard%2Frockola');
+
+    //AQBW0QWT4sg1Rwc5a9gwQ7hHq9I7sJUQ2e4fzmddZMpWlGmON1AcpNU8k83GHxsSvGzfGSImtmAUeWE9cU50XrN8OrfvcBh0UCBIwh44R2zrGE6Jd2Nylr7hgsrotDgxlzHDxUEyptepee_DlNyfZmT2XZiQZhL_T1O2bMgmeijf8jQsgVTwDDbtMQ9lcfoI9orvatbj0YSX3raT-yNRvE_RF6lj5Dj007fcgrIgWKIQEhxjczvu73zErB6uMzqpy4c
+  //AQAACXs/K06OjhI4HmqG0Cf7sj1kJCR67mw5T/DLWCqDOp4fK149TXGzsBm5jGLnvE3+OyB0jXhqb4o3/jSB3oMYu0vPbO34cHQNkzRDLryeX+Fm3P2I0Z2Xrh3InQHpU7W/KEjKWiTkQYRo1Kdcm0/XnNc9OQV2/5Q8FG9P/cSlElREg3BpRWq4Cj1a8hAgyk3T19sccDLqhb12ZJCdtZShfKPbkLq98fj6kB73qS1hsneqWEPqEAxw7NfPaT8rzooG+BtmCaFxdQCPQrhlL6bdbmhtlzhO7SPJgVXjd0t+Q2lYp3eSovz+YlYVpR9Kww9pfB2+JnGttHZJwt6/GN5yhbqGdEHZTgBO72zrMmxQxqkO7gP9Yiy7AmkY2DHNgnpXTCWSsxcf4yJESf/StlZdSYzdB/dQz76JGfBT/9hB1I6lwLnxPOcgMGZCR8YBiIYqXU7OD1Q/w9ksMTV03J73DEiITc0o35JChuVqMHmnMOdXonBEEECJ0Jl9fEBt+lqNXcs8
+  //AQC40FGIVDlE9tFut30ivMuT9ryJ1lhIhNLwghcFy9bgM1WRg5cRttb1MuNRkIJsfAgb4-N2ejhFsB5WR8Zz0omXcYGxrFs033UJp91-m7ZupQ87q5vov9_eFKTDN8a3bTGrHHtgf6WJwzU2NaSH5RcBg3y-te95cBLPPfRsxyqgRfy3SYKSjUToFnQQCDQpiA4gLJpRgdjYdUOlSJwjTOtK5J8HXfalhAWm4snh9Huy0nJRJaXRssa5IixMcOCYqew 
+ 
+   }
+
+   public function listarranking()
+   {
+       $ranking= Ranking_track::orderBy('reproducido','desc')->take(10)->get();
+      $coleccion=collect();
+       foreach($ranking as $lista)
+       {
+        $coleccion->push([
+            'nombre'=>Str::limit($lista->nombre, 30),
+            'artista'=>Str::limit($lista->artista, 30),
+            'foto'=>$lista->foto,
+            'reproducido'=>$lista->reproducido,
+        ]);
+       }
+     
+       if($coleccion->sum('reproducido')>50)
+       {
+        return $coleccion;
+
+       }
+       else{
+           return 'pocos registros';
+       }
+
    }
  
 }

@@ -68,6 +68,8 @@ class Kernel extends HttpKernel
         'ifcajaopen' => \App\Http\Middleware\CheckIfCajaOpen::class,
         'admin' => \App\Http\Middleware\IfAdminCheck::class,
         'cliente' => \App\Http\Middleware\IfClienteCheck::class,
+        'printernotfound' => \App\Http\Middleware\IfPrinterNotFound::class,
+
 
 
     ];

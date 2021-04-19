@@ -20,7 +20,7 @@ class RolController extends Controller
        
         $resultados=5;
         $roles=Rol::orderBy('id','desc');
-       $roles=$roles->paginate($resultados);
+       $roles=$roles->simplePaginate($resultados);
       $lista=$roles->count();
       return view('dashboard.roles.index',['roles'=>$roles,"lista"=>$lista]);
     }

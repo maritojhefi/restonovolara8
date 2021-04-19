@@ -8,7 +8,7 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>RESTONOVO</title>
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-	<link rel="stylesheet" href="{{asset("css/cssquantum.css")}}">
+	<link rel="stylesheet" href="{{asset("css/cssquantumcliente.css")}}">
 	<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500" rel="stylesheet">
 	<link rel="stylesheet" href="{{asset("dashboard/css/icons/dripicons.min.css")}}">
 	<link rel="stylesheet" href="{{asset("dashboard/css/icons/line-awesome.min.css")}}">
@@ -113,6 +113,7 @@ a.disabled {
 		</div>
 	
 		<script src="{{asset('js/jsquantum.js')}}"></script>
+		<script src="{{asset('dashboard/js/components/mail-app.js')}}"></script>
 
 	</body>
 </html>

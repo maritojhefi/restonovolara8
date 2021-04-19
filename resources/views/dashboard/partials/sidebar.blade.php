@@ -20,6 +20,14 @@
                         <li class="{{ Request::path()=='roles' ? 'active':''}}"><a href="{{route('rol.index')}}"><span>Roles</span></a></li>
                     </ul>
                 </li>
+                <li class="nav-dropdown">
+                    <a class="has-arrow" data-toggle="dropdown" href="#" aria-expanded="false"><i class="zmdi zmdi-input-composite zmdi-hc-fw"></i><span>Perifericos</span></a>
+                    <ul class="collapse {{ Request::path()=='usuarios' ? 'in':''}} {{ Request::path()=='mesas' ? 'in':''}} nav-sub" aria-expanded="true">
+                        <li class="{{ Request::path()=='usuarios' ? 'active':''}}"><a href="{{route('nuevotoken')}}" ><span>Agregar token de spotify</span></a></li>
+                        <li class="{{ Request::path()=='mesas' ? 'active':''}}"><a href="{{route('selecimpresora')}}"><span>Seleccionar impresora</span></a></li>
+                        <li class="{{ Request::path()=='roles' ? 'active':''}}"><a href="{{route('selecreproductor')}}"><span>Seleccionar reproductor</span></a></li>
+                    </ul>
+                </li>
                 <li class="nav-dropdown ">
                     <a class="has-arrow" href="#" aria-expanded="false"><i class="zmdi zmdi-shopping-cart zmdi-hc-fw"></i><span>Productos</span></a>
                     <ul class="collapse nav-sub" aria-expanded="false">

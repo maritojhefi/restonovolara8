@@ -150,19 +150,30 @@
             <!-- END LOGO -->
         </li>
     </ul>
-    <ul class="navbar-nav nav-right">
+    <ul class="navbar-nav nav-right mx-auto">
         
         
         <li class="nav-item dropdown">
+            <a class="nav-link nav-pill user-avatar" >
+                <img src="{{asset('asset-cliente/locateresto.gif')}}" class="w-35 rounded-circle" style="width: 55px!important;">
+             </a>
+             <a class="nav-link nav-pill user-avatar" >
+                <img src="{{asset('asset-cliente/wavesanimated.gif')}}" class="w-35 rounded-circle" style="width: 55px!important;">
+             </a>
+            
+            <a class="nav-link nav-pill user-avatar" >
+               <img src="{{asset('asset-cliente/musicicon.gif')}}" class="w-35 rounded-circle" style="width: 55px!important;">
+            </a>
             <a class="nav-link nav-pill user-avatar" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                 @if (auth()->user()->image)
                 <img src="{{asset('images')}}/{{auth()->user()->image->imagen}}" class="w-35 rounded-circle">
                @else
-               <img src="{{asset('images/person.png')}}" class="w-35 rounded-circle">
+               <img src="{{asset('asset-cliente/person.gif')}}" class="w-35 rounded-circle" style="width: 55px!important;">
 
                 @endif
 
             </a>
+           
             <div class="dropdown-menu dropdown-menu-right dropdown-menu-accout">
                 <div class="dropdown-header pb-3">
                     <div class="media d-user">
@@ -182,9 +193,7 @@
         </li>
         
         
-        <li class="nav-item">
-           
-        </li>
+      
     </ul>
     <form role="search" action="pages.search.html" class="navbar-form">
         <div class="form-group">

@@ -18,7 +18,10 @@ class CreateRankingTracksTable extends Migration
             $table->string('nombre', 100)->nullable();
             $table->string('artista', 100)->nullable();
             $table->string('uri', 100)->nullable();
-            $table->string('foto', 100)->nullable()->default('text');
+            $table->string('foto', 100)->nullable();
+            $table->string('like', 100)->nullable()->default(0);
+            $table->string('dislike', 100)->nullable()->default(0);
+            $table->string('reproducido', 100)->nullable()->default(0);
             $table->timestamps();
         });
     }

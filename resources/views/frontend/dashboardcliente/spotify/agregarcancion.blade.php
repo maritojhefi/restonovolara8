@@ -8,11 +8,11 @@
             <div class="search-wrapper page-search ">
                 <button class="search-button-submit" type="submit"><i class="icon dripicons-search"></i></button>
                 @isset($track)
-                <input type="text" class="search-input" placeholder="Artista o cancion" name="cancion" value="{{$track}}">
+                <input type="text" class="search-input" placeholder="Artista y/o cancion" name="cancion" value="{{$track}}">
 
                 @endisset
                 @empty($track)
-                <input type="text" class="search-input" placeholder="Artista o cancion" name="cancion">
+                <input type="text" class="search-input" placeholder="Artista y/o cancion" name="cancion">
 
                 @endempty
             </div>
@@ -25,10 +25,10 @@
                 <a href="#tab-busqueda" class="nav-link active show" data-toggle="tab" aria-expanded="true">Buscar</a>
             </li>
             <li class="nav-item" role="presentation">
-                <a href="#tab-cola" class="nav-link actual" data-toggle="tab"  aria-expanded="true">En reproduccion</a>
+                <a href="#tab-cola" class="nav-link actual" data-toggle="tab"  aria-expanded="true">Actual</a>
             </li>
             <li class="nav-item" role="presentation">
-                <a href="#tab-ranking" class="nav-link" data-toggle="tab" aria-expanded="true">Ranking</a>
+                <a href="#tab-ranking" class="nav-link rank" data-toggle="tab" aria-expanded="true">Ranking</a>
             </li>
         </ul>
     </div>
@@ -64,7 +64,8 @@
                                 @endisset
                                 @isset($listafiltrada)
                                             @if ($listafiltrada->count()>0)
-                                            <strong>Resultados : {{$listafiltrada->count()}}</strong>
+                                            <small> <strong>{{$listafiltrada->count()}} resultados para:  </strong>{{$track}}</small>
+                                           
 
                                             @endif
                                                 
@@ -79,10 +80,17 @@
                                                             <p class="texto-artist ">{{$canciones['artista']}}</p>
                                                             <form action="{{route('agregaracola')}}" method="get">
                                                                 @csrf
-                                                                <button type="submit" class="btn btn-dark btn-rounded btn-outline btn-lg " data-qt-block="body" style="position:absolute;bottom:30px;right:15px;">
-                                                                    Anadir
-                                                                    <input type="hidden" name="trackid" value="{{$canciones['uri']}}">
+                                                                <button type="submit" class="btn btn-dark btn-rounded btn-outline" data-qt-block="body" style="padding: 10px 10px 40px 10px; position:absolute;bottom:30px;right:15px;box-shadow: 0px -1px 5px 1px rgb(250, 226, 226)">
+                                                                   <span class="material-icons">
+                                                                        add_task
+                                                                        </span><strong> Añadir</strong> 
+
                                                                  </button>
+                                                                
+                                                                 <input type="hidden" name="trackid" value="{{$canciones['uri']}}">
+                                                                 <input type="hidden" name="cancion" value="{{$canciones['nombre']}}">
+                                                                 <input type="hidden" name="artista" value="{{$canciones['artista']}}">
+                                                                 <input type="hidden" name="foto" value="{{$canciones['foto']}}">
 
                                                             </form>
                                                             
@@ -122,10 +130,21 @@
                                 </div>
                             </div>
                         -->
-                        <div class="col-sm-12 col-md-4" id="cardactual">
+                        <div class="col-sm-12 col-md-6" id="cardactual">
                            
                         </div>
-
+                        
+                        <div class="">
+                            <div class="alert alert-accent alert-rounded alert-dismissible fade show" role="alert">
+                              
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true" class="la la-close"></span>
+                                </button>
+                                <small class="text-white">
+                                    Recuerda volver a presionar <strong>"Actual"</strong> para actualizar la informacion de esta pestaña
+                                </small>
+                            </div>
+                        </div>
 <!--
                             <div class="" id="imagen">
                                
@@ -145,29 +164,18 @@
                 </div>
 
                 <div class="tab-pane fadeIn" id="tab-ranking">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="result-info p-b-30">
-                                <div class="alert alert-info alert-dismissible fade show" role="alert">
-                                   aggg
-                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                        <span aria-hidden="true" class="la la-close"></span>
-                                    </button>
-                                </div>
-                            </div>
-                            <h6>Suggestions:</h6>
-                            <ul class="list-reset">
-                                <li>Make sure all words are spelled correctly.</li>
-                                 <li>Try different keywords.</li>
-                                <li>Try more general keywords.</li>
-                            </ul>
-                        </div>
+                   
+                    <div class="card" id="ranking">
+                       
+                               
                     </div>
+                    
                 </div>
             </div>
         </div>
     </div>
 </section>
+
 <script>
         document.querySelectorAll(".actual").
    forEach(link=>link.addEventListener("click", function(){
@@ -186,7 +194,7 @@
          else
          {
             var error = document.getElementById("tab-cola");
-            error.innerHTML='   <div id="contenedor" class="result-info p-b-30"><div class="alert alert-info alert-dismissible fade show" role="alert">Sin permisos para ver esta seccion...<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true" class="la la-close"></span></button></div></div>';
+            error.innerHTML='   <div id="cardactual" class="result-info p-b-30"><div class="alert alert-rounded alert-info alert-dismissible fade show" role="alert">Sin permisos para ver esta seccion...<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true" class="la la-close"></span></button></div></div>';
             
         setTimeout(function() {
           $("#contenedor").hide(1000);
@@ -211,12 +219,80 @@
     
      var imagen =  document.getElementById("cardactual");
       
-       imagen.innerHTML='<div class="card text-white"><img class="card-img" src="'+approved[0]+'" style="width: auto" alt="Card image"><div class="card-img-overlay"><h3 class="card-title texto-borde">'+approved[2]+'</h3><p class="texto-artist ">'+approved[1]+'</p><img src="{{asset('asset-cliente/casette.gif')}}" style="width: 150px; position: absolute; right:10px;bottom:10px;" alt=""></div></div>';
+       imagen.innerHTML='<div class="card text-white"><img class="card-img" src="'+approved[0]+'" style="width: auto" alt="Card image"><div class="card-img-overlay"><img src="{{asset('asset-cliente/hojas.gif')}}" style="width: 80%; height:auto; position: absolute; " alt=""><h3 class="card-title texto-borde">'+approved[2]+'</h3><p class="texto-artist ">'+approved[1]+'</p><div style="position: absolute; left:15px;bottom:15px;"><a class="btn btn-rounded btn-dark mr-2" style="padding:10px 10px 30px 10px"><i class="zmdi zmdi-thumb-up zmdi-hc-fw" style="color:white"></i></a><a class="btn btn-rounded btn-dark" style="padding:10px 10px 30px 10px"><i class="zmdi zmdi-thumb-down zmdi-hc-fw" style="color:white"></i></a></div><img src="{{asset('asset-cliente/casette.gif')}}" style="width: 100px; position: absolute; right:15px;bottom:15px;" alt=""></div></div>';
 
        
    }
 
+   document.querySelectorAll(".rank").
+   forEach(link=>link.addEventListener("click", function(){
+      
+   $.ajax({
+     method: "get",
+     url: "{{route('listarranking')}}",
+     data:{'_token': '{{csrf_token()}}'}
+   })
+     .done(function( approved ) {
+         if(approved!='pocos registros')
+         {
+            leerjson3(approved)
 
+         }
+         else
+         {
+            var error = document.getElementById("tab-ranking");
+            error.innerHTML='   <div id="cardactual" class="result-accent p-b-30"><div class="alert alert-rounded alert-danger alert-dismissible fade show" role="alert">Ups! Aun no hay el minimo de registros para formar un ranking...<strong>Empieza pidiendo un tema!</strong><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true" class="la la-close"></span></button></div></div>';
+            
+        setTimeout(function() {
+          $("#contenedor").hide(1000);
+        }, 6000);
+      }
+         });
   
+     
+   }))
+   function leerjson3(approved){
+    console.log(approved);
+    
+     var cardrank =  document.getElementById("tab-ranking");
+      
+      var z=0;
+      var a='';
+      var b='';
+      var c='';
+      var d='';
+      var e='';
+      var f='';
+      var g='';
+      var h='';
+      var i='';
+      var j='';
+      var k='';
+      var l='';
+      var m='';
+
+       var card='';
+        for(var lista in approved)
+        {
+           
+            a='<li class="list-group-item">'
+            b=a+'<a href="javascript:void(0)" class="item d-flex" data-q-action="page-aside-right-open">'
+            c=b+'<div class="avatar order-1">'
+            d=c+'<img src="'+approved[z].foto+'" alt="contact person" class="rounded-circle w-40 mCS_img_loaded">'
+            e=d+'</div>'
+            f=e+'<div class="row-content order-2">'
+            g=f+'<button type="button" class="btn btn-dark btn-sm btn-rounded"><i class="zmdi zmdi-play-circle zmdi-hc-fw" style="color:white"></i><span class="badge badge-light">'+approved[z].reproducido+'</span></button><small class="text-dark">veces</small>'
+            h=g+'<h6 class="list-group-item-heading">'+approved[z].nombre+'</h6>'
+            i=h+'<p class="list-group-item-title">'+approved[z].artista+'</p>'
+            j=i+''
+            k=j+'</div>'
+            l=k+'</a>'
+            m=l+'</li>'
+            card=card+m
+            z++  
+        }
+            
+        cardrank.innerHTML=card;
+   }
 </script>
 @endsection

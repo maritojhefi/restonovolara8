@@ -77,4 +77,24 @@ mix.scripts([
     'resources/quantumpro/css/layouts/vertical/themes/theme-f.css',
 
 
-], 'public/css/cssquantum.css');
+], 'public/css/cssquantum.css')
+
+
+.styles([
+    'resources/quantumpro/css/vendor/bootstrap.css',
+    'resources/quantumpro/vendor/metismenu/dist/metisMenu.css',
+    'resources/quantumpro/vendor/switchery-npm/index.css',
+    'resources/quantumpro/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css',
+    'resources/quantumpro/css/icons/line-awesome.min.css',
+    'resources/quantumpro/css/icons/simple-line-icons.css',
+    'resources/quantumpro/css/icons/dripicons.min.css',
+    'resources/quantumpro/css/icons/material-design-iconic-font.min.css',
+    'resources/quantumpro/vendor/dragula/dragula.min.css',
+    'resources/quantumpro/vendor/select2/select2.min.css',
+    'resources/quantumpro/css/common/main.bundle.css',
+    'resources/quantumpro/css/layouts/vertical/core/main.css',
+    'resources/quantumpro/css/layouts/vertical/menu-type/content.css',
+    'resources/quantumpro/css/layouts/vertical/themes/theme-rojo.css',
+
+
+], 'public/css/cssquantumcliente.css');

@@ -119,7 +119,7 @@
                 <div class="row"><div class="col-sm-12 col-md-5">
                     <div class="dataTables_info" id="bs4-table_info" role="status" aria-live="polite">Mostrando {{$lista}} roles</div>
                 </div>
-                <div class="row"><div class="col-sm-12 col-md-5">
+                <div class="row"><div class="btn btn-sm">
                     {{$roles->links()}}
                 </div>
             </div>
