@@ -10,7 +10,7 @@
 	<!-- ================== GOOGLE FONTS ==================-->
 
 
-	<link rel="stylesheet" href="{{asset("css/cssquantum.css")}}">
+	<link rel="stylesheet" href="{{asset("css/cssquantumcliente.css")}}">
 
 	
 	

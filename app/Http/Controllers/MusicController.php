@@ -16,6 +16,7 @@ class MusicController extends Controller
     public function __construct()
     {
         $this->middleware(['auth']);
+        $this->middleware(['iftokenexist']);
     }
     public $clientid='a7814781430f49b38051ef66eb2baa99';
     public $clientpass='a1734acb42e443baa9be5232c6eacf1a';

@@ -26,11 +26,12 @@
         "pusher/pusher-php-server": "^6.1",
         "rawilk/laravel-printing": "^2.0",
         "silviolleite/laravelpwa": "^2.0",
-        "simplesoftwareio/simple-qrcode": "^4.2"
+        "simplesoftwareio/simple-qrcode": "~4"
     },
     "require-dev": {
         "facade/ignition": "^2.3.6",
         "fakerphp/faker": "^1.9.1",
+        "laravel/sail": "^1.0.1",
         "mockery/mockery": "^1.3.1",
         "nunomaduro/collision": "^5.0",
         "phpunit/phpunit": "^9.0"

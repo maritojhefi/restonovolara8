@@ -52,11 +52,11 @@
                                 <a class="btn btn-success btn-rounded btn-floating   btn-sm text-white" href="{{route('cobrar',$cuenta->id)}}">Cobrar</a>
                                 <button class="btn btn-info btn-rounded btn-floating  btn-sm showlist"  data-toggle="modal" data-target="#exampleModalFixedHeight{{$cuenta->id}}" data-id="{{ $cuenta->id}}">
                                     <span class="material-icons">fact_check</span></button>
-                                    <button class="btn btn-warning btn-rounded btn-floating  btn-sm gettoken" data-id="{{ $cuenta->id}}">
+                                    <button class="btn btn-warning btn-rounded btn-floating  btn-sm gettoken" data-id="{{ $cuenta->id}}"  data-toggle="modal" data-target="#exampleModalLabel{{$cuenta->id}}">
                                         <span class="material-icons">
                                             vpn_key
                                             </span></button>
-                                            <button class="btn btn-primary" id="popover_scrollbar_demo" data-toggle="popover" data-original-title="" title="" aria-describedby="popover974128">Popover with HTML</button>                                @endif
+                                @endif
                                
                                 <button class="btn btn-accent btn-rounded btn-floating  btn-sm"  data-toggle="modal" data-target="#deleteModal{{$cuenta->id}}" data-id="{{ $cuenta->id}}">
                                     <span class="material-icons">save</span></button>
@@ -73,14 +73,25 @@
          
             </div>
 
-            <div class="popover fade show bs-popover-left" role="tooltip" id="popover974128" style="position: absolute; transform: translate3d(552px, 580px, 0px); top: 0px; left: 0px; will-change: transform;" x-placement="left"><div class="arrow" style="top: 151px;"></div><h3 class="popover-header"></h3><div class="popover-body">
-                <h4>Popover Title</h4>
-                <p>
-                    Lorem ipsum dolor amet <a href="http://www.google.com" target="_blank">banjo coloring book PBR&amp;B single-origin coffee</a> banjo coloring book PBR&amp;B single-origin coffee, banh mi chambray heirloom cray kombucha swag. Affogato pinterest dreamcatcher
-                    ramps stumptown, hexagon celiac photo booth narwhal. Sartorial letterpress butcher put a bird on it art party.
-                </p>
-                <button class="btn btn-primary btn-sm text-right">Small Button</button>
-            </div></div>
+            <div class="modal modal-top-left-corner fade" data-backdrop="static" tabindex="-1" role="dialog" id="exampleModalLabel{{$cuenta->id}}" aria-labelledby="exampleModalLabel{{$cuenta->id}}" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Generar clave Token para la mesa : {{$cuenta->table->numero}}?</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true" class="zmdi zmdi-close"></span>
+                            </button>
+                        </div>
+                       
+                        <div class="modal-footer">
+                            <button type="button" class=" btn btn-secondary btn-rounded btn-floating" data-dismiss="modal">Cerrar</button>
+                            <a href="{{route('creartokenmesa',$cuenta->id)}}" class=" btn btn-success btn-rounded btn-floating text-white">Confirmar</a>
+            
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div class="modal fade" id="deleteModal{{$cuenta->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                   <div class="modal-content">

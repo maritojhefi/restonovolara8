@@ -52,8 +52,8 @@
                                 @isset ($listafiltrada)
                                 @if($listafiltrada->count()==0)
                                 <div class="result-info p-b-30">
-                                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                       No se encontraron resultados... 
+                                    <div class="alert alert-danger alert-rounded alert-dismissible fade show" role="alert">
+                                       No se encontraron resultados para <strong>{{$track}}</strong>.
                                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                             <span aria-hidden="true" class="la la-close"></span>
                                         </button>

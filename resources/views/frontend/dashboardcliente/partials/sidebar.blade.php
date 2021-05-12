@@ -9,7 +9,7 @@
                 <li class="nav-dropdown">
                     <a class="has-arrow" href="#" aria-expanded="false"><i class="zmdi zmdi-assignment-check zmdi-hc-fw"></i><span>Tu cuenta</span></a>
                     <ul class="collapse nav-sub" aria-expanded="true">
-                        <li><a href="dashboard.financials.html"><span>Detalle</span></a></li>
+                        <li><a href="{{route('detallecuenta')}}"><span>Mi cuenta actual</span></a></li>
                         <li><a href="dashboard.ecommerce.html"><span>Crear nuevo pre-pedido</span></a></li>
                         <li><a href="dashboard.ecommerce.html"><span>Agregar Propina</span></a></li>
 

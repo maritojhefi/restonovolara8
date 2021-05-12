@@ -48,14 +48,13 @@
                                     <span class="text-center">{{$cuenta->estado}}</span>                                        
 
                                 </div>
-                            </div>
-                            
-                            <div class="form-group row">
                                 <label class="control-label text-info col-md-4">Detalle</label>
                                 <div class="col-md-8">
                                     <span class="text-center">{{$cuenta->observacion}}</span>
-                                </div>                                    
+                                </div>   
                             </div>
+                            
+                           
                                  
                               
                             </div>

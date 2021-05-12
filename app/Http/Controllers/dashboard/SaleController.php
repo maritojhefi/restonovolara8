@@ -129,6 +129,110 @@ class SaleController extends Controller
     }
        
     }
+
+    public function creartokenmesa(Sale $id)
+    {
+        if($id->token!=null)
+        {
+            $profile= CapabilityProfile::load('simple');
+            $nombre_impresora = "POS-582"; 
+            $connector = new WindowsPrintConnector("smb://INTEL:jhefi123@DESKTOP-M8AETTU/".$nombre_impresora);
+            $printer = new Printer($connector, $profile);
+            $printer->setJustification(Printer::JUSTIFY_CENTER);
+            $printer->setTextSize(1, 2);
+            $printer->text("Clave para acceder al sistema:" . "\n");
+           
+            $printer->feed(1);
+            $printer->setTextSize(2, 2);
+            $printer->text($id->token. "\n");
+            $printer->feed(1);
+            $printer->setTextSize(1, 1);
+            $printer->text("Mesa # ".$id->table->numero."\n");
+            $printer->text(Carbon::now()."\n");
+
+            $printer->setTextSize(2, 2);
+            $printer->text("--------------\n");
+            $printer->setTextSize(1, 1);
+            $printer->text("Valido hasta el cierre de cuenta\n");
+            $printer->feed(3);
+            //convertimos en array y recorremos hasta obtener el string para enviar al helper de impresion
+            $lista= collect($printer);      
+            $cont=0;    
+            $listastring="";
+            foreach($lista as $p)
+            {
+                $cont++;
+                if($cont==2)
+                {
+                    $boleta=collect($p);           
+                    foreach($boleta as $asd)
+                    {         
+                            for ($i=0; $i < collect($asd)->count() ; $i++) { 
+                        $listastring=$listastring.$asd[$i];             
+                    }
+                    break;              
+                    }         
+                }
+            }
+            //helper para imprimir por api
+          CustomPrint::imprimir($listastring);
+           return back()->with('info','La mesa ya tiene el token: '.$id->token); 
+
+        }
+        else
+        {
+            $id->token=Str::random(6);
+            $id->update();
+            $profile= CapabilityProfile::load('simple');
+            $nombre_impresora = "POS-582"; 
+            $connector = new WindowsPrintConnector("smb://INTEL:jhefi123@DESKTOP-M8AETTU/".$nombre_impresora);
+            $printer = new Printer($connector, $profile);
+            $printer->setJustification(Printer::JUSTIFY_CENTER);
+        
+                
+            
+            $printer->setTextSize(1, 2);
+            $printer->text("Clave para acceder al sistema" . "\n");
+           
+            $printer->feed(1);
+            $printer->setTextSize(2, 2);
+            $printer->text($id->token. "\n");
+            $printer->feed(1);
+            $printer->setTextSize(1, 1);
+            $printer->text("Mesa # ".$id->table->numero."\n");
+            $printer->text(Carbon::now()."\n");
+
+            $printer->setTextSize(2, 2);
+            $printer->text("--------------\n");
+            $printer->setTextSize(1, 1);
+            $printer->text("Valido hasta el cierre de cuenta\n");
+            $printer->feed(3);
+            //convertimos en array y recorremos hasta obtener el string para enviar al helper de impresion
+            $lista= collect($printer);      
+            $cont=0;    
+            $listastring="";
+            foreach($lista as $p)
+            {
+                $cont++;
+                if($cont==2)
+                {
+                    $boleta=collect($p);           
+                    foreach($boleta as $asd)
+                    {         
+                            for ($i=0; $i < collect($asd)->count() ; $i++) { 
+                        $listastring=$listastring.$asd[$i];             
+                    }
+                    break;              
+                    }         
+                }
+            }
+            //helper para imprimir por api
+          CustomPrint::imprimir($listastring);
+            return back()->with('success','Se creo token para la mesa : '.$id->table->numero);
+        }
+        
+    }
+
     public function anadirALista(Request $request)
     {
         
@@ -291,6 +395,16 @@ class SaleController extends Controller
 
     public function archivarcuenta(Sale $cuenta)
     {
+        if($cuenta->token!=null)
+        {
+            $usuarioscontoken=User::where('token',$cuenta->token)->get();
+            foreach($usuarioscontoken as $usertoken)
+            {
+                $usertoken->token=null;
+                $usertoken->update();
+            }
+            
+        }
         if($cuenta->total!=0)
         {
             $mesero=$cuenta->usuario_id;
@@ -300,7 +414,7 @@ class SaleController extends Controller
             $cliente=$cuenta->comprador_id;
 
             $caja= Caja::whereDate('created_At',Carbon::today())->get();
-           
+          
           $cuentaguardada= Sale_record::create([
               'usuario_id'=>$mesero,
               'mesa_id'=>$mesa,

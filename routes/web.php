@@ -80,6 +80,8 @@ Route::get('/dashboard/meserosactivos', 'dashboard\SaleController@meserosactivos
 Route::post('/dashboard/mostrarListaCompleta', 'dashboard\SaleController@mostrarListaCompleta')->name('mostrarListaCompleta');
 Route::delete('/dashboard/deletecuenta/{cuenta}', 'dashboard\SaleController@deletecuenta')->name('deletecuenta');
 Route::post('/dashboard/deleteproductocuentaCompleta', 'dashboard\SaleController@deleteproductocuentaCompleta')->name('deleteproductocuentaCompleta');
+Route::get('/dashboard/creartokenmesa/{id}', 'dashboard\SaleController@creartokenmesa')->name('creartokenmesa');
+
 
 
 
@@ -117,8 +119,9 @@ Route::get('/dashboard/rockola', 'dashboard\SpotifyController@buscarcanciones')-
 //rutas para clientes dashboard
 Route::get('/menuCliente', function () {
     return view('frontend.dashboardcliente.cuenta.inicio');
-})->name('cliente');
+})->name('cliente')->middleware('auth');
 
+//rutas cliente rockola
 Route::get('/cliente/musica', 'MusicController@buscarcanciones')->name('agregarmusica');
 Route::get('/cliente/buscador', 'MusicController@vistamusica')->name('vistamusica');
 Route::get('/cliente/agregaracola', 'MusicController@agregaracola')->name('agregaracola');
@@ -128,8 +131,15 @@ Route::get('/cliente/playresume', 'MusicController@playresume')->name('playresum
 Route::get('/cliente/gettoken', 'MusicController@gettoken')->name('gettoken');
 Route::get('/cliente/listarranking', 'MusicController@listarranking')->name('listarranking');
 
+//rutas cliente dashboard
+Route::post('/cliente/verificartoken', 'ClientController@verificartoken')->name('verificartoken');
+Route::get('/cliente/cuenta', 'ClientController@detallecuenta')->name('detallecuenta');
 
 
+
+//login face
+//Route::get('/login/{driver}', [App\Http\Controllers\Auth\LoginController::class, 'redirectToProvider'])->name('social_auth');
+//Route::get('/login/{driver}/callback', [App\Http\Controllers\Auth\LoginController::class, 'handleProviderCallback']);
 
 
 

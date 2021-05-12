@@ -3,6 +3,7 @@
 namespace App\Http;
 
 use App\Http\Middleware\IfAdminCheck;
+use App\Http\Middleware\IfTokenExists;
 use App\Http\Middleware\CheckIfCajaOpen;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
@@ -69,6 +70,7 @@ class Kernel extends HttpKernel
         'admin' => \App\Http\Middleware\IfAdminCheck::class,
         'cliente' => \App\Http\Middleware\IfClienteCheck::class,
         'printernotfound' => \App\Http\Middleware\IfPrinterNotFound::class,
+        'iftokenexist' => \App\Http\Middleware\IfTokenExists::class,
 
 
 

@@ -12,6 +12,10 @@ use Rawilk\Printing\Facades\Printing;
 
 class PerifericoController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function periferico(){
         return view('dashboard.perifericos.side');
     }

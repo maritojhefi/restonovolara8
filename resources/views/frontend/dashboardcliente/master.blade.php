@@ -97,10 +97,17 @@ a.disabled {
 			<div class="content-wrapper">
 				<!-- MENU SIDEBAR WRAPPER -->
 				@include('frontend.dashboardcliente.partials.sidebar')
-				<div class="content " data-layout="tabbed">
-				@yield('content')
-				</div>
-			
+				@hasSection ('content')
+				<div class="content" data-layout="tabbed">
+					@yield('content')
+					</div>
+				@else
+				<div class="content container-fluid">
+					@yield('content2')
+					</div>
+				@endif
+				
+				
 				<!-- SIDEBAR QUICK PANNEL WRAPPER -->
 					<aside class="sidebar sidebar-right">
 						    <div class="sidebar-content">
