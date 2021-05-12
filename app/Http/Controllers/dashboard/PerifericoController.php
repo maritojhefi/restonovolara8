@@ -109,6 +109,11 @@ class PerifericoController extends Controller
   
        return view('dashboard.perifericos.listadispositivosmusica', compact('coleccion','reproductoractivo'));
         }
+        else
+        {
+            return back()->with('danger','Necesita un token de spotify para acceder a esta funcion');
+
+        }
     }
 
 }

@@ -138,8 +138,8 @@ Route::get('/cliente/cuenta', 'ClientController@detallecuenta')->name('detallecu
 
 
 //login face
-//Route::get('/login/{driver}', [App\Http\Controllers\Auth\LoginController::class, 'redirectToProvider'])->name('social_auth');
-//Route::get('/login/{driver}/callback', [App\Http\Controllers\Auth\LoginController::class, 'handleProviderCallback']);
+Route::get('/login/{driver}', [App\Http\Controllers\Auth\LoginController::class, 'redirectToProvider'])->name('social_auth');
+Route::get('/login/{driver}/callback', [App\Http\Controllers\Auth\LoginController::class, 'handleProviderCallback']);
 
 
 
