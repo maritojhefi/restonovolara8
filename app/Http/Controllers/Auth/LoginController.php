@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\User;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Laravel\Socialite\Facades\Socialite;
@@ -67,14 +68,7 @@ class LoginController extends Controller
                     'email'=>$email,
                     ]);
 
-                UserSocialAccount::create([
-                    'user_id'=>$user->id,
-                    'provider'=>$driver,
-                    'provider_uid'=>$socialUser->id,
-                ]);
-                Student::create([
-                    'user_id'=>$user->id,
-                ]);
+               
             } 
             catch (Throwable $th) {
                 $success=$th->getMessage();
