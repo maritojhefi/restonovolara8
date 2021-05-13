@@ -81,7 +81,6 @@ class LoginController extends Controller
 
         }
         if($success==true){
-          dd($user);
             Auth::loginUsingId($user->id);
             DB::commit();
             return redirect('/');
