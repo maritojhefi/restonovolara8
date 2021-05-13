@@ -83,7 +83,7 @@ class LoginController extends Controller
           
             Auth::loginUsingId($user->id);
             DB::commit();
-            return redirect(route('home'));
+            return redirect('/');
         }
         session()->flash('message',['danger',$success]);
         return back();
