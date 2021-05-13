@@ -9,6 +9,7 @@
 	<title>RESTONOVO</title>
 	<!-- ================== GOOGLE FONTS ==================-->
 
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 	<link rel="stylesheet" href="{{asset("css/cssquantumcliente.css")}}">
 
