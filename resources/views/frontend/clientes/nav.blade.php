@@ -17,21 +17,21 @@
                             </button>
                             <div class="logo">
                                 <a class="navbar-brand js-scroll-trigger logo-header" href="#">
-                                    <img src="{{asset('restaurant/images/logo.png')}}" alt="">
+                                    <img src="{{asset('restaurant/images/icono.png')}}" style="width:230px" alt="">
                                 </a>
                             </div>
                         </div>
                         <div id="navbar" class="navbar-collapse collapse">
                             <ul class="nav navbar-nav navbar-right">
                                 <li class="active"><a href="#banner">Inicio</a></li>
-                                <li><a href="#about">Quienes Somos</a></li>
-                                <li><a href="#menu">Menu</a></li>
+                                
+                                <li><a href="#menu">Nuestro Menu</a></li>
                                 
                                
-                                <li><a href="#blog">Blog</a></li>
-                                <li><a href="#gallery">Galeria</a></li>
+                                <li><a href="#blog">Nuevas funciones!</a></li>
+                                <li><a href="#gallery">Galeria de fotos</a></li>
                               
-                                <li><a href="#footer">Valoranos</a></li>
+                                <li><a href="#footer">Calificanos!</a></li>
                                 <li><a href="{{route('login')}}">Inicia Sesion</a></li>
                             </ul>
                         </div>

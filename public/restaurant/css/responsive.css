@@ -224,7 +224,7 @@
 		height: 65px;
 		line-height: 65px;
 		font-size: 18px;
-		display:none;
+		
 	}
 	.offer-item div{
 		width: 70%;
@@ -312,14 +312,14 @@
 }
 @media (max-width: 480px) {
 	.offer-item img{
-		width: 50%;
+		width: 80%;
 	}
 	.offer-item .offer-price{
 		width: 65px;
 		height: 65px;
 		line-height: 65px;
 		font-size: 18px;
-		display:none;
+		
 	}
 	.offer-item div{
 		width: 100%;

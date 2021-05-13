@@ -3,22 +3,22 @@
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <h2 class="block-title text-center">
-                Our Blog 	
+                Restonovo!	
             </h2>
                 <div class="blog-box clearfix">
                     <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
                         <div class="col-md-6 col-sm-6">
                             <div class="blog-block">
                                 <div class="blog-img-box">
-                                    <img src="images/featured-image-01.jpg" alt="" />
+                                    <img src="{{asset('restaurant/images/musicarest.jpg')}}" alt="" />
                                     <div class="overlay">
-                                        <a href=""><i class="fa fa-link" aria-hidden="true"></i></a>
+                                        <a href="{{route('login')}}"><i class="fa fa-link" aria-hidden="true"></i></a>
                                     </div>
                                 </div>
                                 <div class="blog-dit">
-                                    <p><span>25 NOVEMBER, 2014</span></p>
-                                    <h2>LATEST RECIPES JUST IN!</h2>
-                                    <h5>BY John Doggett</h5>
+                                    <p><span>Nueva funcion</span></p>
+                                    <h2>Reproduce musica en el restaurante!</h2>
+                                    <h5>Potenciado por Spotify</h5>
                                 </div>
                             </div>
                         </div>
@@ -28,15 +28,15 @@
                         <div class="col-md-6 col-sm-6">
                             <div class="blog-block">
                                 <div class="blog-img-box">
-                                    <img src="images/featured-image-02.jpg" alt="" />
+                                    <img src="{{asset('restaurant/images/restonovofuncion.jpg')}}" alt="" />
                                     <div class="overlay">
-                                        <a href=""><i class="fa fa-link" aria-hidden="true"></i></a>
+                                        <a href="{{route('login')}}"><i class="fa fa-link" aria-hidden="true"></i></a>
                                     </div>
                                 </div>
                                 <div class="blog-dit">
-                                    <p><span>2 NOVEMBER, 2014</span></p>
-                                    <h2>NEW RECRUITS HAVE ARRIVED!</h2>
-                                    <h5>BY Jeffrey Spender</h5>
+                                    <p><span>Creando tu cuenta</span></p>
+                                    <h2>Conoce el detalle y la disponibilidad de nuestro menu!</h2>
+                                    <h5>Ingresa a Restonovo</h5>
                                 </div>
                             </div>
                         </div>
@@ -46,15 +46,15 @@
                         <div class="col-md-6 col-sm-6">
                             <div class="blog-block">
                                 <div class="blog-img-box">
-                                    <img src="images/featured-image-03.jpg" alt="" />
+                                    <img src="{{asset('restaurant/images/pagartarjeta.jpg')}}" alt="" />
                                     <div class="overlay">
-                                        <a href=""><i class="fa fa-link" aria-hidden="true"></i></a>
+                                        <a href="{{route('login')}}"><i class="fa fa-link" aria-hidden="true"></i></a>
                                     </div>
                                 </div>
                                 <div class="blog-dit">
-                                    <p><span>4 NOVEMBER, 2014</span></p>
-                                    <h2>BAKING TIPS FROM THE PROS</h2>
-                                    <h5>BY Monica Reyes</h5>
+                                    <p><span>Nueva funcion!</span></p>
+                                    <h2>Paga con tu tarjeta o con otras plataformas online!</h2>
+                                    <h5>Ingresa a Restonovo</h5>
                                 </div>
                             </div>
                         </div>
@@ -64,15 +64,15 @@
                         <div class="col-md-6 col-sm-6">
                             <div class="blog-block">
                                 <div class="blog-img-box">
-                                    <img src="images/featured-image-04.jpg" alt="" />
+                                    <img src="{{asset('restaurant/images/redessociales.jpg')}}" alt="" />
                                     <div class="overlay">
-                                        <a href=""><i class="fa fa-link" aria-hidden="true"></i></a>
+                                        <a href="{{route('login')}}"><i class="fa fa-link" aria-hidden="true"></i></a>
                                     </div>
                                 </div>
                                 <div class="blog-dit">
-                                    <p><span>12 NOVEMBER, 2014</span></p>
-                                    <h2>ALL YOUR EGGS BELONG TO US</h2>
-                                    <h5>BY John Doggett</h5>
+                                    <p><span>Restonovo</span></p>
+                                    <h2>Contactanos si te interesa esta plataforma!</h2>
+                                    <h5>Plataforma hecho en Tarija!</h5>
                                 </div>
                             </div>
                         </div>
@@ -82,7 +82,7 @@
                 <!-- end blog-box -->
 
                 <div class="blog-btn-v">
-                    <a class="hvr-underline-from-center" href="#">View the Blog</a>
+                    <a class="hvr-underline-from-center" href="{{route('login')}}">Ingresa a Restonovo</a>
                 </div>
 
             </div>

@@ -44,7 +44,7 @@
 <body>
  @include('frontend.clientes.nav')
  @include('frontend.clientes.inicio')
- @include('frontend.clientes.nosotros')
+ 
  @include('frontend.clientes.especialmenu')
  @include('frontend.clientes.menucliente')
  @include('frontend.clientes.blog')

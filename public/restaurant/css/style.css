@@ -766,7 +766,7 @@ html, body{ height: 100%; }
 	position:absolute;
 	height:100%;
 	width:100%;
-	background:rgba(231, 91, 30, 0.5);
+	background:rgba(231, 30, 30, 0.5);
 	top:0px;
 	left:0px;
 }
@@ -838,11 +838,12 @@ html, body{ height: 100%; }
 }
 
 .offer-item img {
-    width: 20%;
+    width: 80%;
     float: left;
     padding: 10px;
     background: #fff;
-	border-radius: 50%;
+    border-radius: 50%;
+	
 }
 
 .offer-item div {
@@ -855,7 +856,7 @@ html, body{ height: 100%; }
 .offer-item .offer-price {
     position: absolute;
     right: 15px;
-    top: 50%;
+    top: 80%;
     display: block;
     width: 92px;
     height: 92px;

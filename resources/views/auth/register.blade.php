@@ -10,9 +10,9 @@
             <div class="card">
                   <div class="card-body">
                       <a href="index.html" class="brand text-center d-block m-b-20">
-                          <img src="../assets/img/qt-logo@2x.png" alt="QuantumPro Logo">
+                          <img src="{{asset('restaurant/images/logo.png')}}" alt="QuantumPro Logo">
                       </a>
-                      <h5 class="sign-in-heading text-center m-b-20">Create an account</h5>
+                      <h5 class="sign-in-heading text-center m-b-20">Rellena los siguientes campos:</h5>
                       <div class="form-group">
                           <label for="inputEmail" class="sr-only">Your Name</label>
                           <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" placeholder="Nombre" value="{{ old('name') }}" required autocomplete="name" autofocus>

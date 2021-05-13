@@ -14,9 +14,8 @@ use App\Events\OrderStatusChangedEvent;
 |
 */
 
-Route::get('/', function () {
-    return view('frontend.clientes.main');
-})->name('principal');
+Route::get('/', 'MainController@menu')->name('principal');
+
 
 
 Route::get('/principal', function () {
