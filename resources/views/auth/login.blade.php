@@ -31,9 +31,7 @@
 						@enderror					</div>
 					
 					<button type="submit" class="btn btn-primary btn-rounded btn-floating btn-lg btn-block" type="submit">Inicia Sesion</button>
-					<a href="{{route('social_auth',['driver'=>'facebook'])}}" class="btn btn-rounded btn-floating  btn-block text-white" style="background-color: rgb(53, 119, 240)">Inicia con Facebook<span class="material-icons">
-						facebook
-						</span></a>
+					<a href="{{route('social_auth',['driver'=>'facebook'])}}" class="btn btn-rounded btn-floating  btn-block text-white" style="background-color: rgb(53, 119, 240)">Inicia con <i class="zmdi zmdi-facebook-box zmdi-hc-fw"></i></a>
 				 <p class="text-muted m-t-25 m-b-0 p-0">Aun sin una cuenta?<a href="{{route('register')}}"> Crea una nueva</a></p>
 				</div>
 
