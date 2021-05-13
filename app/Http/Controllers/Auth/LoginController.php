@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
-use Throwable;
+
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -57,7 +57,7 @@ class LoginController extends Controller
         $success=true;
         $email=$socialUser->email;
         $check=User::whereEmail($email)->first();
-        dd($socialUser);
+      
         if($check){
             $user=$check;
         }
