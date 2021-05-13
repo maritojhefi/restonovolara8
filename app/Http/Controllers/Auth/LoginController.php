@@ -41,7 +41,6 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
-        $this->middleware('guest');
     }
     public function redirectToProvider(string $driver){
         return Socialite::driver($driver)->redirect();
@@ -83,7 +82,7 @@ class LoginController extends Controller
         if($success==true){
             Auth::loginUsingId($user->id);
             DB::commit();
-            return redirect('/');
+            return redirect(route('dashboard'));
         }
         session()->flash('message',['danger',$success]);
         return back();
