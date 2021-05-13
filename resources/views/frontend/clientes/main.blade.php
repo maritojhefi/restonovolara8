@@ -39,6 +39,37 @@
     <![endif]-->
     @laravelPWA
 
+  
+<style>
+  .whatsapp {
+   position: fixed; 
+   left:10px; /*Margen derecho*/
+   bottom:20px; /*Margen abajo*/
+   z-index:999;
+  }
+  .whatsapp img {
+   width:40px; /*Alto del icono*/
+   height:40px; /*Ancho del icono*/
+  }
+  .whatsapp:hover{
+  opacity: 0.7 !important;
+  filter: alpha(opacity=70) !important;
+  }
+  .facebook {
+ position: fixed; 
+ left:10px; /*Margen derecho*/
+ bottom:70px; /*Margen abajo*/
+ z-index:999;
+}
+.facebook img {
+ width:40px; /*Alto del icono*/
+ height:40px; /*Ancho del icono*/
+}
+.facebook:hover{
+opacity: 0.7 !important;
+filter: alpha(opacity=70) !important;
+}
+  </style>
 </head>
 
 <body>
@@ -54,12 +85,23 @@
 	
 
     <a href="#" class="scrollup" style="display: none;">Scroll</a>
-
+    <div class="whatsapp">
+      <a href="https://api.whatsapp.com/send?phone=+59175140175&text=Me%20gusta%20su%20plataforma%20restonovo..." target="_blank" title="Contactame por Whatsapp">
+      <img src="https://www.peengler.com/wp-content/uploads/whatsapp.png" alt="WhatsApp" />
+      </a>
+     </div>
+     <div class="facebook">
+      <a href="https://www.facebook.com/cot.tja.bo" target="_blank" title="Contactame por Messenger">
+      <img src="https://www.peengler.com/wp-content/uploads/messenger.png" alt="Messenger" />
+      </a>
+     </div>
     <!-- ALL JS FILES -->
     <script src="{{asset('restaurant/js/all.js')}}"></script>
     <script src="{{asset('restaurant/js/bootstrap.min.js')}}"></script>
     <!-- ALL PLUGINS -->
     <script src="{{asset('restaurant/js/custom.js')}}"></script>
+    
+   
 </body>
 
 </html>

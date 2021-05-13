@@ -4,7 +4,7 @@
             <div class="banner-static">
                 <div class="banner-text">
                     <div class="banner-cell" >
-                        <h1 style="padding-top:0px">Disfruta  <span class="typer " id="some-id" data-delay="100" data-delim=":" data-words="nuestra comida:nuestra tradicion:con Restonovo" data-colors="red"></span><span class="cursor" data-cursorDisplay="_" data-owner="some-id"></span></h1>
+                        <h1 style="padding-top:0px">Disfruta  <span class="typer " id="some-id" data-delay="100" data-delim=":" data-words="nuestra comida:nuestras tradiciones:con Restonovo" data-colors="red"></span><span class="cursor" data-cursorDisplay="_" data-owner="some-id"></span></h1>
                         <h2 style="color: white">Rincon Tomateño Restaurant </h2>
                         
                       
