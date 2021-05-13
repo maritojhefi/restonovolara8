@@ -57,7 +57,7 @@ class LoginController extends Controller
         $success=true;
         $email=$socialUser->email;
         $check=User::whereEmail($email)->first();
-        
+        dd($socialUser);
         if($check){
             $user=$check;
         }
