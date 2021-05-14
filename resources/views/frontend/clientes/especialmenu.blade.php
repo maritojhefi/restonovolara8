@@ -19,7 +19,7 @@
                                 </div>
                             </a>
                             <div class="item-img">
-                                <img src="{{asset('restaurant/images/pique.png')}}" alt="sp-menu">
+                                <img src="{{asset('restaurant/images/pique.jpg')}}" alt="sp-menu">
                             </div>
                         </div>
                         <div class="item item-type-zoom">
@@ -33,7 +33,7 @@
                                 </div>
                             </a>
                             <div class="item-img">
-                                <img src="{{asset('restaurant/images/mixto.png')}}" alt="sp-menu">
+                                <img src="{{asset('restaurant/images/mixto.jpg')}}" alt="sp-menu">
                             </div>
                         </div>
                         <div class="item item-type-zoom">
@@ -47,7 +47,7 @@
                                 </div>
                             </a>
                             <div class="item-img">
-                                <img src="{{asset('restaurant/images/charke.png')}}" alt="sp-menu">
+                                <img src="{{asset('restaurant/images/charke.jpg')}}" alt="sp-menu">
                             </div>
                         </div>
                         <div class="item item-type-zoom">
@@ -61,7 +61,7 @@
                                 </div>
                             </a>
                             <div class="item-img">
-                                <img src="{{asset('restaurant/images/lomoborracho.png')}}" alt="sp-menu">
+                                <img src="{{asset('restaurant/images/lomoborracho.jpg')}}" alt="sp-menu">
                             </div>
                         </div>
                         <div class="item item-type-zoom">
@@ -75,7 +75,7 @@
                                 </div>
                             </a>
                             <div class="item-img">
-                                <img src="{{asset('restaurant/images/chancho.png')}}" alt="sp-menu">
+                                <img src="{{asset('restaurant/images/chancho.jpg')}}" alt="sp-menu">
                             </div>
                         </div>
                     </div>

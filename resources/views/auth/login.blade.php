@@ -6,7 +6,7 @@
 			@csrf
 			<div class="card">
 				<div class="card-body">
-					<a href="index.html" class="brand text-center d-block m-b-20">
+					<a href="#" class="brand text-center d-block m-b-20">
 						<img src="{{asset('restaurant/images/logo.png')}}" alt="Rincon Tomateno Logo" />
 					</a>
 					<h5 class="sign-in-heading text-center m-b-20">Bienvenid@!</h5>
