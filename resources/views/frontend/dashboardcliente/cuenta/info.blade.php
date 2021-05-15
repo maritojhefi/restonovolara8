@@ -5,8 +5,7 @@
         <div class="card-header">Tu cuenta
             <ul class="actions top-right">
                 <li><a href="javascript:void(0)" data-q-action="card-collapsed"><i class="icon dripicons-chevron-down"></i></a></li>
-                <li><a href="javascript:void(0)" data-qt-block=".block-el"><i class="icon dripicons-clockwise"></i></a></li>
-                <li><a href="javascript:void(0)" data-q-action="card-expand"><i class="icon dripicons-expand-2"></i></a></li>
+                <li><a href="{{route('detallecuenta')}}" data-qt-block=".block-el"><i class="icon dripicons-clockwise"></i></a></li>
                 <li class="dropdown">
                     <a href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="la la-ellipsis-h"></i>
@@ -54,9 +53,9 @@
                           <div class="row">
                             <div class="col-12">
                               <p>Sub Total:{{$total}}</p>
-                              <p>Rockola: $970</p>
-                              <p>Propina: $970</p>
-                              <p class="total">Total: <span class="text-danger">{{$total}}</span></p>
+                              <p>RestoMusic!: {{$rockola}} Bs</p>
+                             
+                              <p class="total">Total: <span class="text-danger">{{$total+$rockola}} Bs</span></p>
                             </div>
                           </div>
                         </div>

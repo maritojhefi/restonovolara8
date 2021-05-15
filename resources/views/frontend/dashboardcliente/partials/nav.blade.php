@@ -154,21 +154,21 @@
         
         
         <li class="nav-item dropdown">
-            <a class="nav-link nav-pill user-avatar" >
-                <img src="{{asset('asset-cliente/locateresto.gif')}}" class="w-35 rounded-circle" style="width: 55px!important;">
+            <a class="nav-link nav-pill user-avatar" href="{{route('detallecuenta')}}">
+                <img src="{{asset('asset-cliente/food.gif')}}" class="w-35 rounded-circle" style="width: 55px!important;">
              </a>
-             <a class="nav-link nav-pill user-avatar" >
-                <img src="{{asset('asset-cliente/wavesanimated.gif')}}" class="w-35 rounded-circle" style="width: 55px!important;">
+             <a class="nav-link nav-pill user-avatar"  href="{{route('pagaronline')}}">
+                <img src="{{asset('asset-cliente/pay.gif')}}" class="w-35 rounded-circle" style="width: 55px!important;">
              </a>
             
-            <a class="nav-link nav-pill user-avatar" >
-               <img src="{{asset('asset-cliente/musicicon.gif')}}" class="w-35 rounded-circle" style="width: 55px!important;">
+            <a class="nav-link nav-pill user-avatar"  href="{{route('vistamusica')}}">
+               <img src="{{asset('asset-cliente/wavesanimated.gif')}}" class="w-35 rounded-circle" style="width: 55px!important;">
             </a>
             <a class="nav-link nav-pill user-avatar" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                 @if (auth()->user()->image)
                 <img src="{{asset('images')}}/{{auth()->user()->image->imagen}}" class="w-35 rounded-circle">
                @else
-               <img src="{{asset('asset-cliente/person.gif')}}" class="w-35 rounded-circle" style="width: 55px!important;">
+               <img src="{{asset('asset-cliente/profile.gif')}}" class="w-35 rounded-circle" style="width: 55px!important;">
 
                 @endif
 

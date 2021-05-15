@@ -19,15 +19,15 @@
             <div class="col-md-6">
               <div class="card">
                   <h5 class="card-header">Comida</h5>
-                  <div class="card-body">
+                  
                       <div class="row">
                           <div class="col-4">
                             <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                               @foreach ($catcomidas as $comida)
                               @if ($loop->first)
-                              <a class="nav-link  active" id="v-pills-home-tab" data-toggle="pill" href="#{{$comida->id}}" role="tab" aria-controls="v-pills-home" aria-selected="true">{{$comida->nombre}}</a>
+                              <a class="nav-link  active" style="padding: 10px 10px" id="v-pills-home-tab" data-toggle="pill" href="#{{$comida->id}}" role="tab" aria-controls="v-pills-home" aria-selected="true">{{$comida->nombre}}</a>
                               @else
-                              <a class="nav-link " id="v-pills-home-tab" data-toggle="pill" href="#{{$comida->id}}" role="tab" aria-controls="v-pills-home" aria-selected="true">{{$comida->nombre}}</a>
+                              <a class="nav-link " style="padding: 10px 10px" id="v-pills-home-tab" data-toggle="pill" href="#{{$comida->id}}" role="tab" aria-controls="v-pills-home" aria-selected="true">{{$comida->nombre}}</a>
       
                           @endif
       
@@ -47,10 +47,10 @@
                                @foreach ($productos as $producto)
                                @if ($producto->category_id==$comida->id)
       
-                               <div class="col-6">
+                               <div class="col-6" style="padding:0px 5px">
       
                                
-                               <div class="card text-dark">
+                               <div class=" card text-dark">
                                 <p class="text-small">{{$producto->nombre}}-{{$producto->precioventa}}Bs</p> 
                                 @if ($producto->image)
                                 <img class="card-img" src="{{asset('images')}}/{{$producto->image->imagen}}" alt="Card image">
@@ -83,7 +83,7 @@
                                @foreach ($productos as $producto)
                                @if ($producto->category_id==$comida->id)
                              
-                               <div class="col-6">
+                               <div class="col-6"  style="padding:0px 5px">
       
                                
                                <div class="card text-dark ">
@@ -115,7 +115,7 @@
                             </div>
                           </div>
                         </div>
-                  </div>
+                  
               </div>
           </div>
               
@@ -126,16 +126,16 @@
             <div class="col-md-6">
               <div class="card">
                   <h5 class="card-header">Bebida</h5>
-                  <div class="card-body">
+                  
                       <div class="row">
                           <div class="col-4">
                             
                             <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                               @foreach ($catbebidas as $bebida)
                               @if ($loop->first)
-                              <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#{{$bebida->id}}" role="tab" aria-controls="v-pills-home" aria-selected="true">{{$bebida->nombre}}</a>
+                              <a class="nav-link active" style="padding: 10px 10px" id="v-pills-home-tab" data-toggle="pill" href="#{{$bebida->id}}" role="tab" aria-controls="v-pills-home" aria-selected="true">{{$bebida->nombre}}</a>
                               @else
-                              <a class="nav-link " id="v-pills-home-tab" data-toggle="pill" href="#{{$bebida->id}}" role="tab" aria-controls="v-pills-home" aria-selected="true">{{$bebida->nombre}}</a>
+                              <a class="nav-link " style="padding: 10px 10px" id="v-pills-home-tab" data-toggle="pill" href="#{{$bebida->id}}" role="tab" aria-controls="v-pills-home" aria-selected="true">{{$bebida->nombre}}</a>
       
                           @endif
       
@@ -153,7 +153,7 @@
                                 
                                @foreach ($productos as $producto)
                                @if ($producto->category_id==$bebida->id)
-                               <div class="col-6">
+                               <div class="col-6"  style="padding:0px 5px">
       
                                
                                <div class="card text-dark">
@@ -187,7 +187,7 @@
                                 
                                @foreach ($productos as $producto)
                                @if ($producto->category_id==$bebida->id)
-                               <div class="col-6">
+                               <div class="col-6"  style="padding:0px 5px">
       
                                
                                <div class="card text-dark">
@@ -221,7 +221,7 @@
                             </div>
                           </div>
                         </div>
-                  </div>
+                  
               </div>
           </div>
                 
@@ -245,7 +245,7 @@
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
 					<div class="modal-header">
-						<h5 class="modal-title" id="exampleModalFixedHeightTitle">Lista del Pedido</h5>
+						<h5 class="modal-title" id="exampleModalFixedHeightTitle">Lista del Pedido MESA#{{$cuenta->table->numero}}</h5>
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 							<span aria-hidden="true" class="zmdi zmdi-close"></span>
 						</button>

@@ -83,7 +83,41 @@ a.disabled {
 	color: white; text-shadow: black 0.1em 0.1em 0.2em;
 	font-weight: bold;
 }
+#form {
+  width: 250px;
+  margin: 0 auto;
+  height: 50px;
+}
 
+#form p {
+  text-align: center;
+}
+
+#form label {
+  font-size: 20px;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+label {
+  color: grey;
+}
+
+.clasificacion {
+  direction: rtl;
+  unicode-bidi: bidi-override;
+}
+
+label:hover,
+label:hover ~ label {
+  color: orange;
+}
+
+input[type="radio"]:checked ~ label {
+  color: orange;
+}
 </style>
 
 <body class="content-menu  {{auth()->user()->rol->nombre=='mesero'? 'content-menu-close' : ''}}">

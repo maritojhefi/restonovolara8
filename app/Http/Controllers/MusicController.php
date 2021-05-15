@@ -3,12 +3,14 @@
 namespace App\Http\Controllers;
 
 use Spotify;
+use App\Sale;
 use App\Play_device;
 use App\Ranking_track;
 use App\Spotify_token;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use SpotifyWebAPI\SpotifyWebAPI;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
 
 class MusicController extends Controller
@@ -178,7 +180,10 @@ class MusicController extends Controller
           
            if($agregaracola->successful())
            {
-               
+               $token=auth()->user()->token;
+               $mesa=Sale::where('token',$token)->first();
+               DB::table('sales')->increment('rockola',1);
+              
                $canciones=Ranking_track::where('uri',$request->trackid)->get();
                if($canciones->count()==0)
                {

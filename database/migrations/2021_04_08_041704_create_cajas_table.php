@@ -18,6 +18,8 @@ class CreateCajasTable extends Migration
             $table->string('entrada', 100)->nullable()->default(0);
             $table->string('estado', 100)->nullable()->default('activo');
             $table->string('monto_acumulado', 100)->nullable()->default(0);
+            $table->string('rockola_acumulado', 100)->nullable()->default(0);
+
             $table->timestamps();
         });
     }

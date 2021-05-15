@@ -116,8 +116,10 @@
           <div class="invoice-total">
             <div class="row">
               <div class="col-12">
-                <p>Subtotal: {{$caja->entrada+$caja->monto_acumulado }}</p>
-                <p class="total">Total: <span class="text-danger">{{$caja->monto_acumulado}} Bs</span></p>
+                
+                <p>Subtotal: {{$caja->entrada+$caja->monto_acumulado }} Bs</p>
+                <p>Rockola: {{$caja->rockola_acumulado}} Bs</p>
+                <p class="total">Total: <span class="text-danger">{{$caja->monto_acumulado+$caja->rockola_acumulado}} Bs</span></p>
               </div>
             </div>
           </div>

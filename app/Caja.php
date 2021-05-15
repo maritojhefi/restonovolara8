@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Caja extends Model
 {
     protected $fillable = [
-        'entrada','estado','monto_acumulado'
+        'entrada','estado','monto_acumulado','rockola_acumulado'
      ];
      protected $casts = [
         'created_at'  => 'date:d-m-Y',

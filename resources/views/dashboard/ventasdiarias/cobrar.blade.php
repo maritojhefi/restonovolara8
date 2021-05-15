@@ -68,8 +68,11 @@
               <div class="invoice-total">
                 <div class="row">
                   <div class="col-12">
-                    
-                    <p class="total">Total A Pagar: <span class="text-danger">{{$total}} Bs</span></p>
+                    @if ($canciones!=null)
+                    <p>Rockola: Bs {{$canciones}}</p>
+
+                    @endif
+                    <p class="total">Total A Pagar: <span class="text-danger">{{$total+$canciones}} Bs</span></p>
                   </div>
                 </div>
               </div>

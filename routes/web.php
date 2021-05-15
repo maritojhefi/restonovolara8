@@ -18,9 +18,7 @@ Route::get('/', 'MainController@menu')->name('principal');
 
 
 
-Route::get('/principal', function () {
-    return view('dashboard.empresa.dashboard');
-})->name('dashboard')->middleware('cliente');
+Route::get('/principal', 'dashboard\MainController@index')->name('dashboard')->middleware('cliente');
 
 
 
@@ -133,7 +131,12 @@ Route::get('/cliente/listarranking', 'MusicController@listarranking')->name('lis
 //rutas cliente dashboard
 Route::post('/cliente/verificartoken', 'ClientController@verificartoken')->name('verificartoken');
 Route::get('/cliente/cuenta', 'ClientController@detallecuenta')->name('detallecuenta');
-
+Route::get('/cliente/menuplatos', 'ClientController@menuplatos')->name('menuplatos');
+Route::get('/cliente/prepedido', 'ClientController@prepedido')->name('prepedido');
+Route::get('/cliente/pagaronline', 'ClientController@pagaronline')->name('pagaronline');
+Route::get('/cliente/propina', 'ClientController@propina')->name('propina');
+Route::get('/cliente/valoracion', 'ClientController@valoracion')->name('valoracion');
+Route::get('/cliente/calificamesero', 'ClientController@calificamesero')->name('calificamesero');
 
 
 //login face

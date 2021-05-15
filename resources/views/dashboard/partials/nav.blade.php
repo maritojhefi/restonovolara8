@@ -164,7 +164,7 @@
                 <div class="dropdown-menu-grid">
                     <div class="menu-grid-row">
                         <div><a class="dropdown-item  border-bottom border-right" href="{{route('listarmesasMesero')}}"><i class="la la-newspaper-o"></i><span>Mesas Activas</span></a></div>
-                        <div><a class="dropdown-item  border-right" href="javascript:void(0)"><i class="zmdi zmdi-assignment-check zmdi-hc-fw"></i><span>Ventas del dia</span></a></div>
+                        <div><a class="dropdown-item  border-right" href="{{route('inicio')}}"><i class="zmdi zmdi-assignment-check zmdi-hc-fw"></i><span>Ventas del dia</span></a></div>
 
                      </div>
                     @if (auth()->user()->rol->nombre=='administrador')

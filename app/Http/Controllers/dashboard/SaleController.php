@@ -395,6 +395,7 @@ class SaleController extends Controller
 
     public function archivarcuenta(Sale $cuenta)
     {
+        
         if($cuenta->token!=null)
         {
             $usuarioscontoken=User::where('token',$cuenta->token)->get();
@@ -405,6 +406,7 @@ class SaleController extends Controller
             }
             
         }
+
         if($cuenta->total!=0)
         {
             $mesero=$cuenta->usuario_id;
@@ -436,6 +438,7 @@ class SaleController extends Controller
             $cuenta->delete();
             $cuenta->products()->detach();
             DB::table('cajas')->where('id','=',$caja[0]->id)->increment('monto_acumulado',$sumaproductos);
+            DB::table('cajas')->where('id','=',$caja[0]->id)->increment('rockola_acumulado',$cuenta->rockola);
 
             return back()->with('success','La mesa: '. $cuenta->table->numero.' fue archivada!');
         }
@@ -449,7 +452,11 @@ class SaleController extends Controller
     {
         $cuenta = Sale::find($cuenta->id);
         $idcuenta=$cuenta->id;
-
+        $canciones=null;
+        if($cuenta->rockola!=0)
+        {
+            $canciones=$cuenta->rockola;
+        }
         $listafiltrada=$cuenta->products->pluck('nombre');
         $total=$cuenta->products->pluck('precioventa')->sum();
         DB::table('sales')
@@ -473,7 +480,7 @@ class SaleController extends Controller
 
         }
         else{
-            return view('dashboard.ventasdiarias.cobrar',compact('cabecera','personalizado','total','numeromesa','idcuenta'));
+            return view('dashboard.ventasdiarias.cobrar',compact('cabecera','personalizado','total','numeromesa','idcuenta','canciones'));
 
         }
     }
@@ -536,9 +543,20 @@ class SaleController extends Controller
             $printer->setJustification(Printer::JUSTIFY_RIGHT);
             $printer->text(' Bs ' . $list['subtotal'] . "\n");
         }
+       
+        if($cuenta->rockola!=0)
+        {
+            $printer->setJustification(Printer::JUSTIFY_LEFT);
+            $printer->text("RestoMusic!:". $cuenta->rockola." canciones" ."\n");
+            $printer->setJustification(Printer::JUSTIFY_RIGHT);
+            $printer->text(' Bs ' . $cuenta->rockola . "\n");
+
+        }
         $printer->text("--------\n");
-        $printer->text("TOTAL: Bs ". $total ."\n");
-        $printer->text("Muchas gracias por su compra!\n");
+        $printer->setTextSize(1, 2);
+        $printer->text("TOTAL: Bs ". $total+$cuenta->rockola ."\n");
+        $printer->setTextSize(1, 1);
+        $printer->text("Muchas gracias por preferirnos!\n");
         $printer->feed(3);
         //convertimos en array y recorremos hasta obtener el string para enviar al helper de impresion
         $lista= collect($printer);      
@@ -610,13 +628,30 @@ class SaleController extends Controller
             $printer->setTextSize(1, 2);
     
               foreach ($contando as $nombre=>$cantidad) {
-                $printer->setJustification(Printer::JUSTIFY_LEFT);
-                $printer->text($nombre .' x '.$cantidad. "\n");
+                $verificartipo=Product::where('nombre',$nombre)->first();
+                if($verificartipo->genero=='comida')
+                {
+                    $printer->setJustification(Printer::JUSTIFY_LEFT);
+                    $printer->text($cantidad." ".$nombre."\n");
+                }
+                
+                
+            }
+            foreach ($contando as $nombre=>$cantidad) {
+                $verificartipo=Product::where('nombre',$nombre)->first();
+                if($verificartipo->genero=='bebida')
+                {
+                    $printer->setTextSize(1, 1);
+                    $printer->setJustification(Printer::JUSTIFY_LEFT);
+                    $printer->text($cantidad." ".$nombre."\n");
+                }
+                
                 
             }
             $printer->setJustification(Printer::JUSTIFY_CENTER);
-    
+            $printer->setTextSize(1, 2);
             $printer->text("---------------"."\n");
+            $printer->text(date('H:i:s')."\n");
             $printer->setTextSize(1, 1);
             $printer->text(date('d-m-Y')."\n");
 

@@ -48,7 +48,7 @@
                     <img src="{{asset('asset-cliente/grow.gif')}}" alt="" width="150px">
 
                     <h5 class="card-title  m-t-20">Creciendo juntos!</h5>
-                    <small class="text-muted">Puedes dejar comentarios y valoraciones sobre tu experiencia</small>
+                    <small class="text-muted">Mejoramos a traves de tu experiencia!</small>
                 </div>
             </a>
         </div>
@@ -71,8 +71,8 @@
                 </div>
                 <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
                     <div class="card-body">
-                       <strong>Restonovo</strong> es una plataforma para restaurantes que otorga varias funciones
-                        interactivas para los usuarios,
+                       <strong>Restonovo</strong> es una plataforma nueva para restaurantes que otorga varias funciones
+                        interactivas a los usuarios, entre ellas, verificar el estado actual de tu cuenta, con lujo de detalles para no perderte de nada ademas de poder acceder al menu del dia con la disponibilidad en tiempo real de cada platillo.
 
                         </div>
                 </div>
@@ -81,15 +81,15 @@
                 <div class="card-header" id="headingTwo">
                     <h5 class="mb-0">
                             <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                Installation Guides
+                                Como funciona
                             </button>
                         </h5>
                 </div>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
                     <div class="card-body">
-                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird
-                        on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table,
-                        raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                       
+                        Para cada una de las funciones que brinda restonovo, se requiere la clave de acceso suministrada por el 
+                        cajero o mesero de turno, no obstante, es imprescindible no compartir dicha clave con personas ajenas puesto que con ella tendrian acceso a tu cuenta para poder alterar el consumo total de distintas maneras.
                     </div>
                 </div>
             </div>
@@ -97,16 +97,14 @@
                 <div class="card-header" id="headingThree">
                     <h5 class="mb-0">
                             <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                Additional Options and Services
+                                Politicas de uso
                             </button>
                         </h5>
                 </div>
                 <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
                     <div class="card-body">
-                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird
-                        on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table,
-                        raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                    </div>
+                        Al ingresar a esta plataforma estas aceptando la 
+                        </div>
                 </div>
             </div>
         </div>
@@ -121,15 +119,14 @@
                 <div class="card-header" id="headingFaqOne">
                     <h5 class="mb-0">
                             <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseFaqOne" aria-expanded="true" aria-controls="collapseFaqOne">
-                                General Description
+                                Descripcion general
                             </button>
                         </h5>
                 </div>
                 <div id="collapseFaqOne" class="collapse show" aria-labelledby="headingFaqOne" data-parent="#accordion-faq">
                     <div class="card-body">
-                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird
-                        on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table,
-                        raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                        Restonovo te ofrece el nuevo servicio de musica para restaurantes <strong>RestoMusic!</strong> con el que de manera intuitiva el usuario puede agregar
+                        canciones desde la comodida de su asiento por medio de nuestro buscador para ser reproducidas en el restaurante! Es un servicio nunca antes visto cambiando el paradigma de las rockolas que antiguamente se usaban dentro de bares y/o algunos restaurantes en todo el pais.
                     </div>
                 </div>
             </div>
@@ -137,15 +134,13 @@
                 <div class="card-header" id="headingFaqTwo">
                     <h5 class="mb-0">
                             <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFaqTwo" aria-expanded="false" aria-controls="collapseFaqTwo">
-                                Installation Guides
+                                Como funciona
                             </button>
                         </h5>
                 </div>
                 <div id="collapseFaqTwo" class="collapse" aria-labelledby="headingFaqTwo" data-parent="#accordion-faq">
                     <div class="card-body">
-                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird
-                        on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table,
-                        raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                        Ingresando al menu lateral, dentro de la opcion <strong> RestoMusic! </strong> tendras a tu disposicion nuestro servicio de musica para restaurantes, potenciado por Spotify, encontraras todas las canciones que requieras para que; con un costo de 1bs, puedas agregar una cancion a la cola de reproduccion, cada cancion que agregues se ira sumando a tu cuenta final junto a tu pedido. 
                     </div>
                 </div>
             </div>
@@ -153,23 +148,21 @@
                 <div class="card-header" id="headingFaqThree">
                     <h5 class="mb-0">
                             <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFaqThree" aria-expanded="false" aria-controls="collapseFaqThree">
-                                Additional Options and Services
+                                Politicas de uso
                             </button>
                         </h5>
                 </div>
                 <div id="collapseFaqThree" class="collapse" aria-labelledby="headingFaqThree" data-parent="#accordion-faq">
                     <div class="card-body">
-                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird
-                        on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table,
-                        raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                        Al acceder al servicio <strong>RestoMusic!</strong> estas de acuerdo con alterar el monto de tu cuenta a pagar, segun la cantidad de canciones que hayas agregado.
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <header class="text-center m-b-30">
-        <h4 id="communityTitle">Community</h4>
-        <p>Craft beer labore wes anderson cred nesciunt.</p>
+        <h4 id="communityTitle">Creciendo Juntos</h4>
+        <p>Mejoramos a traves de tu experiencia!.</p>
     </header>
     <div class="col-12">
         <div class="accordion" id="accordion-community">
@@ -177,15 +170,13 @@
                 <div class="card-header" id="headingcommunityOne">
                     <h5 class="mb-0">
                             <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapsecommunityOne" aria-expanded="true" aria-controls="collapsecommunityOne">
-                                General Description
+                                Nuevas funciones
                             </button>
                         </h5>
                 </div>
                 <div id="collapsecommunityOne" class="collapse show" aria-labelledby="headingcommunityOne" data-parent="#accordion-community">
                     <div class="card-body">
-                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird
-                        on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table,
-                        raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                        Restonovo es una plataforma joven, nacida de una nueva empresa de desarrollo software consolidada en Tarija, que tiene la mision de innovar con aplicaciones modernas destinados a rubros especificos, aportando funcionalidades nunca antes vistas con el objetivo principal de seguir mejorando y creciendo a traves de las opiniones y sugerencias de los clientes/usuarios que logran conocer nuestro ecosistema de aplicaciones.
                     </div>
                 </div>
             </div>
@@ -193,15 +184,13 @@
                 <div class="card-header" id="headingcommunityTwo">
                     <h5 class="mb-0">
                             <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapsecommunityTwo" aria-expanded="false" aria-controls="collapsecommunityTwo">
-                                Installation Guides
+                                Como puedes ayudarnos?
                             </button>
                         </h5>
                 </div>
                 <div id="collapsecommunityTwo" class="collapse" aria-labelledby="headingcommunityTwo" data-parent="#accordion-community">
                     <div class="card-body">
-                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird
-                        on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table,
-                        raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                        Dentro del menu lateral tienes opciones para dejar tus comentarios y valoraciones, sobre la atencion y experiencia que tuviste en el restaurante como tambien de la satisfaccion que conseguiste al usar nuestra plataforma. No existe la mala critica! Que esperas para contarnos tu experiencia?
                     </div>
                 </div>
             </div>
@@ -209,15 +198,13 @@
                 <div class="card-header" id="headingcommunityThree">
                     <h5 class="mb-0">
                             <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapsecommunityThree" aria-expanded="false" aria-controls="collapsecommunityThree">
-                                Additional Options and Services
+                                Politicas de uso
                             </button>
                         </h5>
                 </div>
                 <div id="collapsecommunityThree" class="collapse" aria-labelledby="headingcommunityThree" data-parent="#accordion-community">
                     <div class="card-body">
-                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird
-                        on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table,
-                        raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                       Las funciones de valoracion y comentarios estan destinados solamente para fines de crecimiento y reparacion de servicios, por lo que toda esta informacion es privada y no sera publicada de ninguna forma, diciendolo de otra manera, tus comentarios y valoraciones son anonimos...
                     </div>
                 </div>
             </div>

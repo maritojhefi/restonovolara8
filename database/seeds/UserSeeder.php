@@ -35,5 +35,15 @@ class UserSeeder extends Seeder
             'cedula'=>"10657721",
            
         ]);
+        User::create([
+            'name'=>"Cliente",
+            'apellido'=>"",
+            'email'=>"cliente@gmail.com",
+            'password'=>"cliente123",
+            'telefono'=>"",
+            'rol_id'=>1,
+            'cedula'=>"",
+           
+        ]);
     }
 }
