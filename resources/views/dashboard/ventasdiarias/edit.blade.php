@@ -191,7 +191,7 @@
       
                                
                                <div class="card text-dark">
-                                <p class="text-small">{{$producto->nombre}}-{{$producto->precioventa}}Bs</p> 
+                                <p class="text-small">{{$producto->nombre}}- <strong class="text-danger"> {{$producto->precioventa}}Bs</strong></p> 
                                 
                                 @if ($producto->image)
                                 <img class="card-img" src="{{asset('images')}}/{{$producto->image->imagen}}" alt="Card image">
