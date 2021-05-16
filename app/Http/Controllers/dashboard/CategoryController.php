@@ -96,7 +96,7 @@ class CategoryController extends Controller
      */
     public function destroy(Categoria $categoria)
     {
-      dd($categoria);
+      
         $categoria->delete();
         return back()->with('info','La categoria: '. $categoria->nombre.' fue eliminada!');
     }

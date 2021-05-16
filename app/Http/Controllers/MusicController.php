@@ -182,7 +182,7 @@ class MusicController extends Controller
            {
                $token=auth()->user()->token;
                $mesa=Sale::where('token',$token)->first();
-               DB::table('sales')->increment('rockola',1);
+               DB::table('sales')->where('token',$token)->increment('rockola',1);
               
                $canciones=Ranking_track::where('uri',$request->trackid)->get();
                if($canciones->count()==0)
