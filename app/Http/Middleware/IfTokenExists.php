@@ -23,7 +23,7 @@ class IfTokenExists
 
         }
        
-         return redirect()->route('cliente')->with('danger','No tienes clave? Solicitalo a tu mesero o administrador');
+         return redirect()->route('cliente')->with('danger','Necesitas la clave de tu mesa, solicitalo a tu mesero o administrador');
         
     }
 }
