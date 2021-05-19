@@ -13,7 +13,7 @@
                 @csrf
                 <div class="search-wrapper page-search">
                     <button class="search-button-submit" type="submit"><i class="icon dripicons-search"></i></button>
-                    <input type="text" class="search-input" name="clave" placeholder="Clave de 6 digitos">
+                    <input type="text" class="search-input" name="clave" placeholder="Clave de 5 digitos">
                    
                 </div>
             </form>
@@ -72,7 +72,7 @@
                 <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
                     <div class="card-body">
                        <strong>Restonovo</strong> es una plataforma nueva para restaurantes que otorga varias funciones
-                        interactivas a los usuarios, entre ellas, verificar el estado actual de tu cuenta, con lujo de detalles para no perderte de nada ademas de poder acceder al menu del dia con la disponibilidad en tiempo real de cada platillo.
+                        interactivas a los usuarios, entre ellas, verificar el estado actual de tu cuenta, con todos los detalles necesarios para no perderte de nada ademas de poder acceder al menu del dia con la disponibilidad en tiempo real de cada platillo, entre otras funciones.
 
                         </div>
                 </div>
@@ -103,7 +103,7 @@
                 </div>
                 <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
                     <div class="card-body">
-                        Al ingresar a esta plataforma estas aceptando la 
+                        Al ingresar a esta plataforma concedes la autorizacion para manejar y alterar tu cuenta de acuerdo a las funciones disponibles y que se den uso dentro del sistema.
                         </div>
                 </div>
             </div>

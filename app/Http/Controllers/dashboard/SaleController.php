@@ -181,7 +181,9 @@ class SaleController extends Controller
         }
         else
         {
-            $id->token=Str::random(6);
+           
+            $id->token=rand ( 10000 , 99999 );
+            
             $id->update();
             $profile= CapabilityProfile::load('simple');
             $nombre_impresora = "POS-582"; 
@@ -228,7 +230,7 @@ class SaleController extends Controller
             }
             //helper para imprimir por api
           CustomPrint::imprimir($listastring);
-            return back()->with('success','Se creo token para la mesa : '.$id->table->numero);
+            return back()->with('success','Se creo token para la mesa '.$id->table->numero.': '.$id->token);
         }
         
     }
@@ -301,7 +303,12 @@ class SaleController extends Controller
         }     
         return response($personalizado);   
     }
-    
+    public function deletecuenta(Sale $cuenta)
+    {
+        $cuenta->delete();
+        return back()->with('info','La mesa #'.$cuenta->table->numero.' fue borrada');
+    }
+
     public function deleteproductocuenta(Request $request)
     {
         $cuenta = Sale::find($request->id_sale);
@@ -447,6 +454,18 @@ class SaleController extends Controller
             return back()->with('danger','La mesa: '. $cuenta->table->numero.' no se archivo porque no tiene ningun producto!'); 
         }
         
+    }
+    public function reabrir(Sale $cuenta)
+    {
+        DB::table('sales')
+          ->where('id', $cuenta->id)
+          ->update(['estado' => "pendiente"]);
+          return back()->with('info','Se volvio a abrir la mesa: '.$cuenta->table->numero);
+    }
+    public function actualizarcantidad(Request $request)
+    {
+        $producto=Product::find($request->id);
+        echo $producto->cantidad;
     }
     public function cobrar(Sale $cuenta)
     {

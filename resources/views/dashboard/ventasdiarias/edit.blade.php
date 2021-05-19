@@ -12,6 +12,19 @@
           <li class="nav-item">
               <a class="nav-link" id="pills-2-tab" data-toggle="pill" href="#pills-2" role="tab" aria-controls="pills-2" aria-selected="true">Bebida</a>
           </li>
+         @if (auth()->user()->rol_id==5)
+         <li class="nav-item">
+          <a class="btn btn-rounded btn-danger btn-floating btn-outline" href="{{route('cuentasActivas')}}" ><span class="material-icons">
+            arrow_back
+            </span></a>
+      </li>
+         @else
+         <li class="nav-item">
+          <a class="btn btn-rounded btn-danger btn-floating btn-outline" href="{{route('listarmesasMesero')}}" ><span class="material-icons">
+            arrow_back
+            </span></a>
+      </li>
+         @endif
           
       </ul>
       <div class="tab-content" id="pills-tabContent-1">
@@ -51,7 +64,7 @@
       
                                
                                <div class=" card text-dark">
-                                <p class="text-small">{{$producto->nombre}}-<strong class="text-danger"> {{$producto->precioventa}}Bs</strong></p> 
+                                <p class="text-small"><small id="cantidad{{$producto->id}}">({{$producto->cantidad}})</small>{{$producto->nombre}}-<strong class="text-danger"> {{$producto->precioventa}}Bs</strong></p> 
                                 @if ($producto->image)
                                 <img class="card-img" src="{{asset('images')}}/{{$producto->image->imagen}}" alt="Card image">
 
@@ -87,7 +100,7 @@
       
                                
                                <div class="card text-dark ">
-                                <p class="text-small">{{$producto->nombre}}-<strong class="text-danger"> {{$producto->precioventa}}Bs</strong></p> 
+                                <p class="text-small"><small id="cantidad{{$producto->id}}">({{$producto->cantidad}})</small>{{$producto->nombre}}-<strong class="text-danger"> {{$producto->precioventa}}Bs</strong></p> 
                                 @if ($producto->image)
                                 <img class="card-img" src="{{asset('images')}}/{{$producto->image->imagen}}" alt="Card image">
 
@@ -157,7 +170,7 @@
       
                                
                                <div class="card text-dark">
-                                <p class="text-small">{{$producto->nombre}}-<strong class="text-danger"> {{$producto->precioventa}}Bs</strong></p> 
+                                <p class="text-small"><small id="cantidad{{$producto->id}}">({{$producto->cantidad}})</small>{{$producto->nombre}}-<strong class="text-danger"> {{$producto->precioventa}}Bs</strong></p> 
                                 @if ($producto->image)
                                 <img class="card-img" src="{{asset('images')}}/{{$producto->image->imagen}}" alt="Card image">
 
@@ -191,7 +204,7 @@
       
                                
                                <div class="card text-dark">
-                                <p class="text-small">{{$producto->nombre}}- <strong class="text-danger"> {{$producto->precioventa}}Bs</strong></p> 
+                                <p class="text-small"><small id="cantidad{{$producto->id}}">({{$producto->cantidad}})</small>{{$producto->nombre}}- <strong class="text-danger"> {{$producto->precioventa}}Bs</strong></p> 
                                 
                                 @if ($producto->image)
                                 <img class="card-img" src="{{asset('images')}}/{{$producto->image->imagen}}" alt="Card image">
@@ -262,10 +275,10 @@
                   <table class="table table-striped">
                     <thead>
                       <tr>
+                        <th>Cant.</th>
                         <th>Producto</th>
-                        <th>Cantidad</th>
-                        <th>Precio Unitario</th>
-                        <th>Total</th>
+                        
+                       
                       </tr>
                     </thead>
                     <tbody id="tablacuenta">
@@ -362,7 +375,7 @@ function leerjson(approved){
    var link='';
       for (var a in approved) {
         
-        string= string+'<tr><td>'+ approved[i].nombre+'</td><td ><a href="javascript:void(0)" id="suma'+approved[i].id+'" onclick="sumarproducto('+approved[i].id+');" data-id="'+approved[i].id+'" class="tile-primary sumar"><i  class="zmdi zmdi-plus zmdi-hc-fw sumar"></i></a><button class="btn btn-sm btn-success" name="number" id="cantidad'+approved[i].id+'" >'+ approved[i].cantidad+'</button></td><td>'+ approved[i].precio+' Bs</td><td>'+ approved[i].subtotal+' Bs</td><td><a href="javascript:void(0)" id="delete'+approved[i].id+'" onclick="deleteproducto('+approved[i].id+','+approved[i].cantidad+');" data-id="'+approved[i].id+'"><span class="material-icons">delete</span></a></td></tr>'
+        string= string+'<tr><td ><a href="javascript:void(0)" id="suma'+approved[i].id+'" onclick="sumarproducto('+approved[i].id+');" data-id="'+approved[i].id+'" class="tile-primary sumar"><i  class="zmdi zmdi-plus zmdi-hc-fw sumar text-danger"></i></a><strong name="number" id="cantidad'+approved[i].id+'" >'+ approved[i].cantidad+'</strong></td><td>'+ approved[i].nombre+'</td><td><a href="javascript:void(0)" id="delete'+approved[i].id+'" onclick="deleteproducto('+approved[i].id+','+approved[i].cantidad+');" data-id="'+approved[i].id+'"><span class="material-icons">delete</span></a></td></tr>'
         sum=sum+parseInt(approved[i].subtotal);
       
         i++;
@@ -370,7 +383,7 @@ function leerjson(approved){
 
     }
     
-    string=string+ '<th></th><th></th><th></th><th>Total: '+sum+' Bs</th><th></th>';
+    string=string+ '<th></th><th>Total: '+sum+' Bs</th><th></th>';
     tabla.innerHTML=string;
 
    
@@ -427,6 +440,7 @@ $.ajax({
   else{
     toastagrego()
     leerjson(approved)
+    actualizarcantidad(id)
    $('#exampleModalFixedHeight').modal('show'); // abrir
   }
     
@@ -435,6 +449,19 @@ $.ajax({
   });
 }
 
+function actualizarcantidad(id){
+  var tabla = document.getElementById("cantidad"+id);
+ var string='';
+ $.ajax({
+  method: "POST",
+  url: "{{route('actualizarcantidad')}}",
+  data:{'_token': '{{csrf_token()}}','id':id}
+})
+  .done(function( approved ) {
+    console.log(approved)
+    tabla.innerHTML="("+approved+")";
+  }); 
+}
 
 
 
@@ -456,7 +483,7 @@ $.ajax({
   else
   {
     toast(id,nombre)
-
+    actualizarcantidad(id)
   }
   
  

@@ -23,7 +23,7 @@ class ClientController extends Controller
     {
         
         $validator = Validator::make($request->all(), [
-            'clave' => 'required|min:6',
+            'clave' => 'required|min:5',
         ]);
         if ($validator->fails()) {
             return back()
@@ -39,11 +39,11 @@ class ClientController extends Controller
                 $usuario= User::find($iduser);
                 if($usuario->token==$token)
                 {
-                    return back()->with('info','Ya estas con el acceso a la plataforma!');
+                    return back()->with('info','Ya estas con el acceso a la plataforma, Revisa el menu lateral!');
                 }
                 $usuario->token=$request->clave;
                 $usuario->update();
-                return back()->with('success','Clave aceptada! Ya puedes acceder a todas las funciones!');
+                return back()->with('success','Clave aceptada! Ya puedes acceder a todas las funciones dentro del menu lateral!');
             }
         }
         return back()->with('danger','Acceso denegado, clave incorrecta o inexistente');

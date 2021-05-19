@@ -60,6 +60,12 @@
                                
                                 <button class="btn btn-accent btn-rounded btn-floating  btn-sm"  data-toggle="modal" data-target="#deleteModal{{$cuenta->id}}" data-id="{{ $cuenta->id}}">
                                     <span class="material-icons">save</span></button>
+                                    @if ($cuenta->estado=='finalizado')
+                                    <a class="btn btn-success btn-rounded btn-floating   btn-sm text-white" href="{{route('reabrircuenta',$cuenta->id)}}"><span class="material-icons">
+                                        lock_open
+                                        </span></a>
+
+                                    @endif
                                    
                             </div>
           

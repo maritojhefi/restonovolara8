@@ -65,10 +65,15 @@ Route::post('/dashboard/crearmesa', 'dashboard\SaleController@crearMesaActiva')-
 Route::post('/dashboard/mostrarLista', 'dashboard\SaleController@mostrarLista')->name('mostrarLista');
 Route::post('/dashboard/anadiralista', 'dashboard\SaleController@anadirALista')->name('anadiralista');
 Route::post('/dashboard/restarproducto', 'dashboard\SaleController@restarproducto')->name('restarproducto');
+Route::post('/dashboard/actualizarcantidad', 'dashboard\SaleController@actualizarcantidad')->name('actualizarcantidad');
+
 Route::post('/dashboard/sumarproducto', 'dashboard\SaleController@sumarproducto')->name('sumarproducto');
 Route::post('/dashboard/deleteproductocuenta', 'dashboard\SaleController@deleteproductocuenta')->name('deleteproductocuenta');
 Route::delete('/dashboard/archivarcuenta/{cuenta}', 'dashboard\SaleController@archivarcuenta')->name('archivarcuenta');
 Route::get('/dashboard/cobrar{cuenta}', 'dashboard\SaleController@cobrar')->name('cobrar');
+Route::get('/dashboard/reabrir{cuenta}', 'dashboard\SaleController@reabrir')->name('reabrircuenta');
+
+
 Route::get('/dashboard/imprimir/{cuenta}', 'dashboard\SaleController@imprimir')->name('imprimir');
 Route::get('/dashboard/listarMesas', 'dashboard\SaleController@listarmesasMesero')->name('listarmesasMesero');
 Route::get('/dashboard/pedidomesero{cuenta}', 'dashboard\SaleController@imprimirpedidomesero')->name('imprimirpedidomesero');

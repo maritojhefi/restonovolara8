@@ -86,9 +86,16 @@
          
          
             <a href="{{route('imprimir',$idcuenta)}}" class="btn btn-primary pull-right m-t-20 m-b-20  {{session('borrar')? 'disabled':''}} " >Pagar e Imprimir</a>
+            @if (auth()->user()->rol_id==5)
+            <a href="{{route('cuentasActivas')}}" class="btn btn-secondary pull-right m-t-20 m-b-20 mr-3 ml-3 " ><span class="material-icons">
+              settings_backup_restore
+              </span></a>
+            @else
             <a href="{{route('listarmesasMesero')}}" class="btn btn-secondary pull-right m-t-20 m-b-20 mr-3 ml-3 " ><span class="material-icons">
               settings_backup_restore
               </span></a>
+            @endif
+           
           
       
         </div>

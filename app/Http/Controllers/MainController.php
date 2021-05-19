@@ -10,6 +10,6 @@ class MainController extends Controller
     public function menu(){
         
         
-        return view('frontend.clientes.main');
+        return view('auth.login');
     }
 }

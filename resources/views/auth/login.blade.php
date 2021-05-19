@@ -30,9 +30,23 @@
 							</span>
 						@enderror					</div>
 					
-					<button type="submit" class="btn btn-primary btn-rounded btn-floating btn-block" type="submit">Inicia Sesion</button>
-					<a href="{{route('social_auth',['driver'=>'facebook'])}}" class="btn btn-rounded btn-floating  btn-block text-white" style="background-color: rgb(80, 136, 240)"><small>Loguea con </small> <i class="zmdi zmdi-facebook-box zmdi-hc-fw" style="color: white"></i></a>
-				 <p class="text-muted m-t-25 m-b-0 p-0">Aun sin una cuenta?<a href="{{route('register')}}"> Crea una nueva</a></p>
+					<button type="submit" class="btn btn-primary btn-rounded btn-floating btn-block" style="background-color: rgb(226, 66, 66)" type="submit">Inicia Sesion</button>
+					<div class="row mx-auto"><small class="text-center mx-auto">Alternativas</small></div>
+					<div class="row">
+					
+						<div class="col-6">
+							<a href="{{route('social_auth',['driver'=>'facebook'])}}" class="btn btn-rounded btn-floating btn-dark btn-block text-white" style="border-radius: 50px;
+								padding: 8px 5px; background-color:rgb(62, 129, 230)"> <i class="zmdi zmdi-facebook-box zmdi-hc-fw" style="color: white"></i><small>Facebook</small></a>
+						</div>
+						<div class="col-6">
+							<a href="{{route('social_auth',['driver'=>'google'])}}" class="btn btn-rounded btn-floating btn-secondary  btn-block " style="border-radius: 50px;
+								padding: 8px 5px;"> <i class="zmdi zmdi-google zmdi-hc-fw" style="color: rgb(231, 71, 71)"></i><small>Google</small></a>
+						</div>
+
+					</div>
+
+				 <p class="text-muted m-t-25 m-b-0 p-0"><small> Aun sin una cuenta?</small><a href="{{route('register')}}"><small> Crea una nueva</small></a></p>
+				 
 				</div>
 
 			</div>
