@@ -17,7 +17,8 @@
 	<link rel="stylesheet" href="{{asset("dashboard/css/icons/line-awesome.min.css")}}">
 	<link rel="stylesheet" href="{{asset("dashboard/css/icons/material-design-iconic-font.min.css")}}">
 	
-	
+	@laravelPWA
+
 </head>
 
  @yield('content')
