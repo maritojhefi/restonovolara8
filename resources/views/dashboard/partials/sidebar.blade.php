@@ -48,7 +48,7 @@
                 <li class="nav-dropdown">
                     <a class="has-arrow" href="#" aria-expanded="false"><i class="zmdi zmdi-store zmdi-hc-fw"></i><span>Almacen</span></a>
                     <ul class="collapse nav-sub" aria-expanded="true">
-                        <li><a href="javascript:void(0)"><span>Stock de productos</span></a></li>
+                        <li><a href="{{route('stock')}}"><span>Stock de productos</span></a></li>
                         <li><a href="javascript:void(0)"><span>Meseros Activos</span></a></li>
                         <li><a href="javascript:void(0)"><span>Caja diaria</span></a></li>
                     </ul>

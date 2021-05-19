@@ -8,7 +8,7 @@
           <form class="sign-in-form" method="POST" action="{{ route('register') }}" style="margin-top: 20px">
             @csrf 
             <div class="card">
-                  <div class="card-body" style="box-shadow: 0px -1px 7px 5px rgb(218, 204, 204); border: 2px solid rgb(238, 143, 143);border-radius: 25px;">
+                  <div class="card-body" style="box-shadow: 0px -1px 7px 5px rgb(241, 233, 233); border: 2px solid rgb(252, 241, 241);border-radius: 25px;">
                       <a href="#" class="brand text-center d-block m-b-20">
                           <img src="{{asset('restaurant/images/logo.png')}}" alt="QuantumPro Logo">
                       </a>

@@ -85,6 +85,8 @@ Route::post('/dashboard/deleteproductocuentaCompleta', 'dashboard\SaleController
 Route::get('/dashboard/creartokenmesa/{id}', 'dashboard\SaleController@creartokenmesa')->name('creartokenmesa');
 
 
+//Rutas almacen
+Route::get('/dashboard/stock', 'dashboard\AlmacenController@stockindex')->name('stock');
 
 
 

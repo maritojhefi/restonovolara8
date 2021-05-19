@@ -5,11 +5,11 @@
 		<form method="POST" action="{{ route('login') }}" class="sign-in-form" style="margin-top: 20px">
 			@csrf
 			<div class="card" style="border-radius: 25px;">
-				<div class="card-body" style="box-shadow: 0px -1px 7px 5px rgb(218, 204, 204); border: 2px solid rgb(236, 124, 124);border-radius: 25px;">
+				<div class="card-body" style="box-shadow: 0px -1px 7px 5px rgb(241, 233, 233); border: 2px solid rgb(252, 241, 241);border-radius: 25px;">
 					<a href="#" class="brand text-center d-block m-b-20">
 						<img src="{{asset('restaurant/images/logo.png')}}" alt="Rincon Tomateno Logo" />
 						<div class="row mx-auto" style="color: rgb(75, 73, 70)">
-							<div class="mx-auto" ><img src="{{asset('restaurant/images/sound.gif')}}" style="width:20px" alt=""></div>
+							<div class="mx-auto" ><img src="{{asset('restaurant/images/sound.gif')}}" style="width:20px;" alt=""></div>
 							<div class="mx-auto"><img src="{{asset('restaurant/images/google.gif')}}" style="width:20px"></div>
 							<div class="mx-auto" ><img src="{{asset('restaurant/images/facebok.gif')}}" style="width:20px"></div>
 							<div class="mx-auto"><img src="{{asset('restaurant/images/smart.gif')}}" style="width:20px"></div>

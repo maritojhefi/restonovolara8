@@ -88,8 +88,8 @@
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
                     <div class="card-body">
                        
-                        Para cada una de las funciones que brinda restonovo, se requiere la clave de acceso suministrada por el 
-                        cajero o mesero de turno, no obstante, es imprescindible no compartir dicha clave con personas ajenas puesto que con ella tendrian acceso a tu cuenta para poder alterar el consumo total de distintas maneras.
+                        Para cada una de las funciones que brinda restonovo, se requiere la clave de acceso suministrada por un 
+                        cajero o mesero autorizado, no obstante, es imprescindible no compartir dicha clave con personas ajenas para no corromper la seguridad y el acceso a tu cuenta(tu consumo total dentro del restaurante), causando posibles alteraciones de distintas maneras.
                     </div>
                 </div>
             </div>
@@ -103,7 +103,7 @@
                 </div>
                 <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
                     <div class="card-body">
-                        Al ingresar a esta plataforma concedes la autorizacion para manejar y alterar tu cuenta de acuerdo a las funciones disponibles y que se den uso dentro del sistema.
+                        Al ingresar a esta plataforma concedes la autorizacion para manejar y alterar tu cuenta de acuerdo a las funciones disponibles dentro del sistema Restonovo.
                         </div>
                 </div>
             </div>
@@ -125,8 +125,8 @@
                 </div>
                 <div id="collapseFaqOne" class="collapse show" aria-labelledby="headingFaqOne" data-parent="#accordion-faq">
                     <div class="card-body">
-                        Restonovo te ofrece el nuevo servicio de musica para restaurantes <strong>RestoMusic!</strong> con el que de manera intuitiva el usuario puede agregar
-                        canciones desde la comodida de su asiento por medio de nuestro buscador para ser reproducidas en el restaurante! Es un servicio nunca antes visto cambiando el paradigma de las rockolas que antiguamente se usaban dentro de bares y/o algunos restaurantes en todo el pais.
+                        Restonovo te ofrece el nuevo servicio de musica para restaurantes <strong>RestoMusic!</strong> con el que de manera intuitiva el usuario puede reproducir
+                        canciones desde la comodidad de su asiento por medio de nuestro buscador para ser escuchadas dentro del restaurante! Se trata de un servicio nunca antes visto basado en el uso de las clasicas "rockolas", a diferencia de estas, con Restonovo tienes acceso facil a una biblioteca de canciones interminable y actualizada constantemente, todo desde tu movil y desde tu asiento, mientras disfrutas de tu compañia y de los platillos que ofrece el restaurante!
                     </div>
                 </div>
             </div>
@@ -140,7 +140,7 @@
                 </div>
                 <div id="collapseFaqTwo" class="collapse" aria-labelledby="headingFaqTwo" data-parent="#accordion-faq">
                     <div class="card-body">
-                        Ingresando al menu lateral, dentro de la opcion <strong> RestoMusic! </strong> tendras a tu disposicion nuestro servicio de musica para restaurantes, potenciado por Spotify, encontraras todas las canciones que requieras para que; con un costo de 1bs, puedas agregar una cancion a la cola de reproduccion, cada cancion que agregues se ira sumando a tu cuenta final junto a tu pedido. 
+                        Ingresando al menu lateral, dentro de la opcion <strong> RestoMusic! </strong> tendras a tu disposicion nuestro servicio de musica para restaurantes, potenciado por Spotify, encontraras todas las canciones que quieras escuchar, con el costo de 1bs por cancion, puedes agregar todas las canciones que desees, la informacion de tu consumo, Restomusic y tus pedidos tambien se encuentran en el mismo menu. 
                     </div>
                 </div>
             </div>
