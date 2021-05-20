@@ -87,6 +87,9 @@ Route::get('/dashboard/creartokenmesa/{id}', 'dashboard\SaleController@creartoke
 
 //Rutas almacen
 Route::get('/dashboard/stock', 'dashboard\AlmacenController@stockindex')->name('stock');
+Route::post('/dashboard/cambiarstock', 'dashboard\AlmacenController@cambiarstock')->name('cambiarstock');
+Route::post('/dashboard/cambiarestado', 'dashboard\AlmacenController@cambiarestado')->name('cambiarestado');
+
 
 
 

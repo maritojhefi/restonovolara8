@@ -8,21 +8,11 @@
                
                 <div class="card-body   ">
                     <div  class="dataTables_wrapper container-fluid dt-bootstrap4 ">
-                        <form action="" method="" >
+                        <form action="{{route('stock')}}" method="GET" >
+                            @csrf
                         <div class="row">
                             
-                        <div class="col-sm-12 col-md-4">
-                            
-                            <div class="dataTables_length" >
-                                <label>Mostrar 
-                                    <select  aria-controls="bs4-table" class="form-control form-control-sm" name="resultados">
-                                        <option value="5">5</option>
-                                        <option value="10">10</option>
-                                        <option value="15">15</option>
-                                        <option value="20">20</option>
-                                    </select> resultados</label>
-                                </div>
-                            </div>
+                      
                         <div class="col-sm-12 col-md-4">
                             <div id="bs4-table_filter" class="dataTables_filter">
                                 <label>Buscar:
@@ -34,100 +24,80 @@
                                 </div>
                           
                         </div>
+                        <br>
+                        Productos totales:{{$cantidad}}
                     </form>
                         <div class="row  table-responsive-md table-responsive-xs">
                             <div class="col-sm-12">
                                 <table id="bs4-table" class="table table-striped table-bordered dataTable" style="width: 100%;" role="grid" aria-describedby="bs4-table_info">
                         <thead>
                             <tr role="row ">
-                                <th class="sorting_asc" style="width: auto;">Foto</th>
+                                <th class="sorting_asc" style="width: auto;">Imagen</th>
 
-                                <th class="sorting_asc" style="width: 25%;">Nombre</th>
-                                <th class="sorting_asc" style="width: 20%;">Apellido</th>
-                                <th class="sorting_asc" style="width: 10%;">Rol</th>
-                                <th class="sorting_asc" style="width: 10%;">Cedula</th>
-                                <th class="sorting_asc" style="width: 20%;">Telefono</th>
-                                <th style="width: 5px;"> <i class="icon dripicons-gear text-success"></i></th>
+                                <th class="sorting_asc">Nombre</th>
+                                <th class="sorting_asc">Cantidad</th>
+                                <th class="sorting_asc">Estado</th>
+                                <th class="sorting_asc">Acciones</th>
+                               
                             </tr>
                                   </thead>
                         <tbody>
                             
+                           @foreach ($productos as $prod)
+                               
                            
                                 
                           
                             <tr role="row" class="odd  ">
                                 <td>
                                    
-                                   
+                                   @if ($prod->image)
+                                   <img class=" mr-3 rounded-circle" src="{{asset('images')}}/{{$prod->image->imagen}}"  style="width:50px;height:50px" alt=" ">
+                                    @else
                                     <img class=" mr-3 rounded-circle" src="{{asset('images')}}/person.png"  style="width:50px;height:50px" alt=" ">
-
-                                 
+                                   @endif
                                 </td>
                                 <td class="sorting_1"><div class="media">
-                                   
                                     <div class="media-body">
-                                      <p class="mb-0"><strong class=""></strong></p>
-                                      
+                                      <p class="mb-0"><strong class="">{{$prod->nombre}}</strong></p>
                                     </div>
                                   </div></td>
-                                <td></td>
+                                  <td>{{$prod->cantidad}}</td>
+                            <td><button class=" btn btn-sm btn-rounded badge badge-pill estado badge-{{$prod->estado=='activo'?'success':'danger'}}" data-id="{{$prod->id}}">{{$prod->estado}}</button></td>
                               
-                                <td>No asignado</td>
+                                <td><button type="button" class="btn btn-accent btn-rounded btn-floating btn-outline" data-toggle="modal" data-target="#editarmodal{{$prod->id}}">
+                                    Editar
+                                </button> </td>
                                
                               
-                                <td></td>
-                                <td></td>
-                                <td>
-                                    <div class="col">
-                                        <div class="dropdown">
-                                            <a href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                    <i class="la la-ellipsis-v"></i>
-                                                </a>
-                                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink" x-placement="bottom-end" style="">
-                                                <div class="row">
-                                                    <div class="col-4">
-                                                        <a class="dropdown-item" href="" data-toggle="tooltip" data-placement="top" data-original-title="Ver detalle"><span class="material-icons">
-                                                            remove_red_eye
-                                                            </span></a>
-                                                    </div>
-                                                    <div class="col-4">
-                                                        <a class="dropdown-item" href="" data-toggle="tooltip" data-placement="bottom" data-original-title="Editar"><span class="material-icons">
-                                                            mode
-                                                            </span></a>
-
-                                                    </div>
-                                                    <div class="col-4">
-                                                        <button class="dropdown-item"  type="submit"  data-toggle="modal" data-target="#deleteModal" data-id="" ><span class="material-icons">
-                                                            delete_forever
-                                                            </span></button>
-
-                                                    </div>
-                                                </div>
-                                            
-                                            </div>
-                                        </div>
-                                    </div>
-                                </td>
+                             
+                               
                             </tr>
-                            <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal fade" id="editarmodal{{$prod->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                   <div class="modal-content">
                                     <div class="modal-header">
-                                      <h5 class="modal-title" id="modalLabel">Borrar Registro</h5>
+                                      <h5 class="modal-title" id="modalLabel"><strong>{{$prod->nombre}}</strong> - Stock actual:{{$prod->cantidad}}</h5>
                                       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                       </button>
                                     </div>
                                     <div class="modal-body">
-                                    <p>Seguro que desea borrar el usuario ?</p>
+                                        <form id="formDelete" method="POST" action="{{route('cambiarstock')}}" >
+                                            @csrf
+                                        <div class="form-group">
+                                            <label for="demoTextInput2">Introduzca el stock:</label>
+                                            <input type="text" class="form-control input-rounded" required id="" placeholder="Nueva cantidad" name="nuevacantidad">
+                                            <input type="hidden" name="idproducto" value="{{$prod->id}}">
+                                        </div>
                                     </div>
                                     <div class="modal-footer">
-                                        <form id="formDelete" method="POST" action="" >
+                                       
                                       <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                                       
-                                        @method('DELETE')
+                                       
                                     
-                                        @csrf
+                                       
                                         <button type="submit" class="btn btn-primary">Confirmar</button>
                                     </div>
                                     </form>
@@ -136,17 +106,16 @@
                                 </div>
                               </div>
                          
-                           
+                              @endforeach
                         </tbody>
                        
                     </table>
                 </div>
             </div>
             <div class="row"><div class="col-sm-12 col-md-5">
-                <div class="dataTables_info" id="bs4-table_info" role="status" aria-live="polite">Mostrando  usuarios</div>
             </div>
             <div class="row"><div class="btn btn-sm">
-                
+                {{$productos->links()}}
             </div>
         </div>
     </div>
@@ -157,4 +126,29 @@
         </div>
     </div>
 </section>
+
+<script>
+     document.querySelectorAll(".estado").
+forEach(link=>link.addEventListener("click", function(){
+
+var id=link.getAttribute("data-id");
+$.ajax({
+  method: "POST",
+  url: "{{route('cambiarestado')}}",
+  data:{'_token': '{{csrf_token()}}','id':id}
+})
+  .done(function( approved ) {
+   if(approved=="inactivo"){
+     $(link).removeClass('badge-success');
+     $(link).addClass('badge-danger');
+     $( link).text("inactivo")
+   }else{
+    $(link).removeClass('badge-danger');
+     $(link).addClass('badge-success');
+     $( link).text("activo")
+   }
+
+  });
+}))
+</script>
 @endsection

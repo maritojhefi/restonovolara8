@@ -78,7 +78,7 @@
                                                         <div class="card-img-overlay">
                                                             <h3 class="card-title texto-borde">{{$canciones['nombre']}}</h3>
                                                             <p class="texto-artist ">{{$canciones['artista']}}</p>
-                                                            <button type="button" class="btn btn-dark btn-rounded btn-outline" style="padding: 10px 10px 40px 10px; position: absolute;bottom: 70px;left: 50%;transform: translate(-50%, -50%);box-shadow: 0px -1px 7px 5px rgb(201, 187, 187);" data-toggle="modal" data-target="#modal{{$loop->index}}" style="padding: 10px 10px 40px 10px; position:absolute;bottom:30px;right:15px;box-shadow: 0px -1px 5px 1px rgb(250, 226, 226)">
+                                                            <button type="button" class="btn btn-dark btn-rounded btn-outline" style="padding: 10px 10px 40px 10px; position: absolute;bottom: 70px;left: 50%;transform: translate(-50%, -50%);box-shadow: 0px -1px 4px 2px rgb(201, 187, 187);" data-toggle="modal" data-target="#modal{{$loop->index}}" style="padding: 10px 10px 40px 10px; position:absolute;bottom:30px;right:15px;box-shadow: 0px -1px 5px 1px rgb(250, 226, 226)">
                                                                 <span class="material-icons" style="color: rgb(216, 66, 66)">
                                                                     add_task
                                                                     </span><strong> Añadir</strong> </button>
