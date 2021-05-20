@@ -41,7 +41,7 @@ class SaleController extends Controller
         })->get();
         
     
-        $cuentas = Sale::all();
+        $cuentas = Sale::orderBy('created_at','desc')->get();
         
         return view('dashboard.ventasdiarias.index',compact('meseros','cuentas'));
     }
@@ -431,6 +431,7 @@ class SaleController extends Controller
               'observacion'=>$observacion,
               'comprador_id'=>$cliente,
               'caja_id'=>$caja[0]->id,
+              'estado'=>$cuenta->estado
           ]);
           
          $productos=$cuenta->products;
@@ -608,7 +609,7 @@ class SaleController extends Controller
         $nombre=Str::of($mesero)->explode(' ');
         
         $cabecera="Tus cuentas ".$nombre[0];
-        $cuentas = Sale::where('usuario_id',auth()->user()->id)->get();
+        $cuentas = Sale::where('usuario_id',auth()->user()->id)->orderBy('created_at','desc')->get();
         
         return view('dashboard.ventasdiarias.indexMesero',compact('cuentas','cabecera'));
     }

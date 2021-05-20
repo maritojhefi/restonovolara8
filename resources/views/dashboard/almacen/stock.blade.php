@@ -16,7 +16,7 @@
                         <div class="col-sm-12 col-md-4">
                             <div id="bs4-table_filter" class="dataTables_filter">
                                 <label>Buscar:
-                                    <input type="search" class="form-control form-control-sm" placeholder="" aria-controls="bs4-table" name="buscar" value="{{old('buscar')}}"></label>
+                                    <input type="search" class="form-control form-control-sm" placeholder="" aria-controls="bs4-table" name="buscar" value="{{old('buscar',$buscar)}}"></label>
                                 </div>
                             </div>
                             <div class="col-sm-12 col-md-4  mb-3">
@@ -54,7 +54,7 @@
                                    @if ($prod->image)
                                    <img class=" mr-3 rounded-circle" src="{{asset('images')}}/{{$prod->image->imagen}}"  style="width:50px;height:50px" alt=" ">
                                     @else
-                                    <img class=" mr-3 rounded-circle" src="{{asset('images')}}/person.png"  style="width:50px;height:50px" alt=" ">
+                                    <img class=" mr-3 rounded-circle" src="{{asset('images')}}/food.png"  style="width:50px;height:50px" alt=" ">
                                    @endif
                                 </td>
                                 <td class="sorting_1"><div class="media">

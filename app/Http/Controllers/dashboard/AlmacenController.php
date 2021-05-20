@@ -9,17 +9,19 @@ use App\Http\Controllers\Controller;
 class AlmacenController extends Controller
 {
     public function stockindex(Request $request){
+       
         if($request->buscar)
         {
-            $productos=Product::where('nombre','like','%'.$request->buscar.'%')->orWhere('estado','like','%'.$request->buscar.'%')->orWhere('genero','like','%'.$request->buscar.'%')->orderBy('cantidad','asc')->simplePaginate(10);
+            $buscar=$request->buscar;
+            $productos=Product::where('nombre','like','%'.$request->buscar.'%')->orWhere('estado','like','%'.$request->buscar.'%')->orWhere('genero','like','%'.$request->buscar.'%')->orderBy('cantidad','asc')->paginate(100);
 
         }
         else{
-            $productos=Product::orderBy('cantidad','asc')->simplePaginate(10);
-
+            $productos=Product::orderBy('cantidad','asc')->simplePaginate(5);
+            $buscar="";
         }
         $cantidad = $productos->count();
-        return view('dashboard.almacen.stock',compact('productos','cantidad'));
+        return view('dashboard.almacen.stock',compact('productos','cantidad','buscar'));
     }
 
     public function cambiarstock(Request $request){

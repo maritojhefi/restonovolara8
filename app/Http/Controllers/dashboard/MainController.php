@@ -18,12 +18,12 @@ class MainController extends Controller
     public function index()
     {
         if(auth()->user()->rol_id==3){
-            $ventas=Sale_record::where('usuario_id',auth()->user()->id)->whereDate('created_at',Carbon::today())->get();
+            $ventas=Sale_record::where('usuario_id',auth()->user()->id)->whereDate('created_at',Carbon::today())->orderBy('created_at','desc')->get();
             $ventasabiertas=Sale::where('usuario_id',auth()->user()->id)->whereDate('created_at',Carbon::today())->get();
         }
         else if(auth()->user()->rol_id==5)
         {
-            $ventas=Sale_record::whereDate('created_at',Carbon::today())->get();
+            $ventas=Sale_record::whereDate('created_at',Carbon::today())->orderBy('created_at','desc')->get();
             $ventasabiertas=Sale::whereDate('created_at',Carbon::today())->get();
         }
        

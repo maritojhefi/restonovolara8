@@ -5,6 +5,7 @@ namespace App;
 use App\Rol;
 use App\Sale;
 use App\UserImage;
+use App\Sale_record;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -52,7 +53,10 @@ class User extends Authenticatable
     {
         return $this->hasMany(Sale::class,'usuario_id');
     }
-   
+    public function sale_records()
+    {
+        return $this->hasMany(Sale_record::class,'usuario_id');
+    }
     public function rol()
     {
         return $this->belongsTo(Rol::class);

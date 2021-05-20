@@ -78,7 +78,7 @@
    
    
 
-@if (auth()->user()->rol_id==5)
+
 <div class="row">
     <div class="col-lg-12 col-xl-7">
         <div class="card">
@@ -92,22 +92,24 @@
                     <div class="row"><div class="col-sm-12">
                         <table id="" class="table table-striped table-bordered dataTable no-footer" style="width: 100%;" role="grid" aria-describedby="recent-transaction-table_info">
                         <thead>
-                            <th>Numero de Mesa</th>
+                            <th>#Mesa</th>
                             <th>Mesero</th>
-                            <th>Observacion</th>
-                            <th>Rockola</th>
                             <th>Total</th>
+                            <th>Estado</th>
+                            <th>Hora</th>
                             
                         </thead>
                         <tbody>
-                            
-                        <tr role="row">
-                                <td class="sorting_1">440-23423</td>
-                                <td>06/25/18</td>
-                                <td>$650</td>
-                                <td><span class="badge badge-pill badge-warning">Pending</span></td>
-                                <td></td>
-                        </tr>
+                            @foreach ($ventas as $venta)
+                            <tr role="row">
+                                <td>{{$venta->table->numero}}</td>
+                                <td>{{$venta->user->name}}</td>
+                                <td>{{$venta->total}}</td>
+                                <td><span class="badge badge-pill badge-{{$venta->estado=='pendiente'?'warning':'success'}}">{{$venta->estado}}</span></td>
+                                <td>{{$venta->created_at->format('H:i:s')}}</td>
+                        </tr>  
+                            @endforeach
+                        
                         
                         </tbody>
                     </table>
@@ -118,6 +120,7 @@
             </div>
         </div>
     </div>
+    @if (auth()->user()->rol_id==5)
     <div class="col-lg-12 col-xl-5">
         <div class="card">
             <div class="card-header"><span class="m-t-10 d-inline-block">Reporte de meseros</span>

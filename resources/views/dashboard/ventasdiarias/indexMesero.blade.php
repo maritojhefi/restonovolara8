@@ -43,11 +43,7 @@
                         <div class="form-body">
                             <div class="inputs">
                             <div class="form-group row">
-                                <label class="control-label text-success col-md-4">Estado</label>
-                                <div class="col-md-8">
-                                    <span class="text-center">{{$cuenta->estado}}</span>                                        
-
-                                </div>
+                              
                                 <label class="control-label text-info col-md-4">Detalle</label>
                                 <div class="col-md-8">
                                     <span class="text-center">{{$cuenta->observacion}}</span>
@@ -67,9 +63,10 @@
                         <!--<order-progress status="{{$cuenta->estado}}" cuenta_id="{{$cuenta->id}}"></order-progress>-->
 
                         <div class="row d-flex justify-content-between align-items-center mx-auto pl-3 pr-3">
-                            @if ($cuenta->estado!="finalizado")
+                            @if ($cuenta->estado!="finalizado" && $cuenta->total!=0)
                             <a class="btn btn-success btn-floating btn-block text-white btn-sm" href="{{route('cobrar',$cuenta->id)}}">Cobrar({{$cuenta->total}} Bs)</a>
-
+                            <button class="btn btn-info btn-floating btn-block text-white btn-sm showlist"  data-toggle="modal" data-target="#exampleModalFixedHeight{{$cuenta->id}}" data-id="{{ $cuenta->id}}">
+                                <span class="material-icons">fact_check</span></button>
                             @endif
                             @if ($cuenta->total==0)
                             <button class="btn btn-danger btn-floating btn-block text-white btn-sm"  data-toggle="modal" data-target="#deleteModal{{$cuenta->id}}" data-id="{{ $cuenta->id}}">
@@ -113,6 +110,44 @@
               </div>
             </div>
           </div>
+          <div class="modal fade" id="exampleModalFixedHeight{{$cuenta->id}}"  tabindex="-1" role="dialog" aria-labelledby="exampleModalFixedHeightTitle" aria-hidden="true" data-modal="scroll">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalFixedHeightTitle">Cuenta total mesa # {{$cuenta->table->numero}}</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true" class="zmdi zmdi-close"></span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+            
+            <div class="card">
+              
+               
+
+                <div class="table-responsive">
+                  <table class="table table-striped">
+                    <thead>
+                      <tr>
+                        <th>Producto</th>
+                        <th>Cantidad</th>
+                        
+                        <th>Total</th>
+                      </tr>
+                    </thead>
+                    <tbody id="tablacuenta{{$cuenta->id}}">
+                     <tr id="total{{$cuenta->id}}"></tr>
+                    </tbody>
+                  </table>
+
+                </div>
+              
+            </div>
+                    </div>
+                
+                </div>
+            </div>
+        </div>
         @endforeach
         @endisset
         @empty($cuenta)
@@ -189,6 +224,45 @@
 
 
 <script type="application/javascript">
+     document.querySelectorAll(".showlist").
+   forEach(link=>link.addEventListener("click", function(){
+       var id=link.getAttribute("data-id");
+   $.ajax({
+     method: "POST",
+     url: "{{route('mostrarListaCompleta')}}",
+     data:{'_token': '{{csrf_token()}}','id_sale':id}
+   })
+     .done(function( approved ) {
+        leerjson(approved,id)
+       
+       
+      $('#exampleModalFixedHeight'+id).modal('show'); // abrir
+    
+     });
+   }))
+
+   function leerjson(approved,idtable){
+    
+  
+    var tabla = document.getElementById("tablacuenta"+idtable);
+    var total = document.getElementById("total"+idtable);
+ 
+    //console.log(approved);
+     var i=0;
+     var string='';
+     var sum=0;
+     let id=0;
+     var link='';
+        for (var a in approved) {
+          
+            string= string+'<tr><td ><strong name="number" id="cantidad'+approved[i].id+'" >'+ approved[i].cantidad+'</strong></td><td>'+ approved[i].nombre+'</td><td>'+ approved[i].subtotal+' Bs</td><td></tr>'
+          sum=sum+parseInt(approved[i].subtotal);
+          i++;
+      }
+      string=string+ '<th></th><th></th><th>Total: '+sum+' Bs</th><th></th>';
+      tabla.innerHTML=string;
+  }
+
  $('.modal').on('shown.bs.modal', function() {
   $(this).find('[autofocus]').focus();
 });
