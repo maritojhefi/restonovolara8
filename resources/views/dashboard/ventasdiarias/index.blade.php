@@ -38,12 +38,12 @@
                             
                             </div>
                             @if ($cuenta->user)
-                            <li class="text-muted"><strong>Mesero:</strong> <span class="m-l-15">{{$cuenta->user->name}}</span></li>
+                            <li class="text-muted"><strong>Mesero:</strong> <span class="m-l-15"><strong class="text-accent">{{$cuenta->user->name}}</strong></span></li>
 
                             @endif
                             <li class="text-muted"><strong>Estado:</strong><span class="m-l-15">{{$cuenta->estado}}</span></li>
 
-                            <li class="text-muted"><strong>Subtotal:</strong> <span class="m-l-15">{{$cuenta->total}}</span></li>
+                            <li class="text-muted"><strong>Subtotal:</strong> <span class="m-l-15"><strong>{{$cuenta->total}} Bs</strong></span></li>
     
                             <!--<order-progress status="{{$cuenta->estado}}" cuenta_id="{{$cuenta->id}}"></order-progress>-->
     

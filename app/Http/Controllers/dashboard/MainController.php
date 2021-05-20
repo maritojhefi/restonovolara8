@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\dashboard;
 
 use App\Sale;
+use App\User;
 use App\Empresa;
 use Carbon\Carbon;
 use App\Sale_record;
@@ -17,6 +18,7 @@ class MainController extends Controller
     }
     public function index()
     {
+        $coleccion=collect();
         if(auth()->user()->rol_id==3){
             $ventas=Sale_record::where('usuario_id',auth()->user()->id)->whereDate('created_at',Carbon::today())->orderBy('created_at','desc')->get();
             $ventasabiertas=Sale::where('usuario_id',auth()->user()->id)->whereDate('created_at',Carbon::today())->get();
@@ -25,6 +27,16 @@ class MainController extends Controller
         {
             $ventas=Sale_record::whereDate('created_at',Carbon::today())->orderBy('created_at','desc')->get();
             $ventasabiertas=Sale::whereDate('created_at',Carbon::today())->get();
+            $reporte=Sale_record::pluck('usuario_id');
+           $usuarios=$reporte->countBy();
+           
+           foreach($usuarios as $usuario=>$numeromesas){
+            $cuentass=Sale_record::where('usuario_id',$usuario)->whereDate('created_at',Carbon::today())->pluck('total');
+            $mesero=User::find($usuario);
+            $total=$cuentass->sum();
+               $coleccion->prepend(['mesero'=>$mesero->name,'mesas'=>$numeromesas,'total'=>$total]);
+           }
+           
         }
        
 
@@ -39,7 +51,7 @@ class MainController extends Controller
             $totalvendidoabierto=$totalvendidoabierto+$venta->total;
         }
         
-        return view('dashboard.empresa.dashboard', compact('ventas','ventasabiertas','numeroventas','numeroventasabiertas','totalvendido','totalvendidoabierto'));
+        return view('dashboard.empresa.dashboard', compact('ventas','ventasabiertas','numeroventas','numeroventasabiertas','totalvendido','totalvendidoabierto','coleccion'));
     }
     public function configuracion()
     {

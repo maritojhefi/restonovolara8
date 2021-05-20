@@ -126,7 +126,7 @@
             <div class="card-header"><span class="m-t-10 d-inline-block">Reporte de meseros</span>
                 <ul class="nav nav-pills nav-pills-primary float-right" id="pills-demo-sales" role="tablist">
                     <li class="nav-item">
-                        <a class="nav-link active" id="pills-month-tab" data-toggle="tab" href="#sales-month-tab" role="tab">Month</a>
+                        <a class="nav-link active" id="pills-month-tab" data-toggle="tab" href="#sales-month-tab" role="tab">Hoy</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" id="pills-year-tab" data-toggle="tab" href="#sales-year-tab" role="tab">Year</a>
@@ -139,19 +139,22 @@
                         <table class="table v-align-middle">
                             <thead class="bg-light">
                                 <tr>
-                                    <th class="p-l-20">Name</th>
-                                    <th>Earnings</th>
-                                    <th>Quota</th>
+                                    <th class="p-l-20">Mesero</th>
+                                    <th>Mesas</th>
+                                    <th>Total</th>
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach ($coleccion as $lista)
                                 <tr>
-                                    <td><img class="align-self-center mr-3 ml-2 w-50 rounded-circle" src="../assets/img/avatars/27.jpg" alt="">
-                                        <strong class="nowrap">Robert Norris</strong>
-                                    </td>
-                                    <td>$37,000</td>
-                                    <td><span class="badge badge-pill badge-success">Above</span></td>
-                                </tr>
+                                    <th>{{$lista['mesero']}}</th>
+                                    <td>{{$lista['mesas']}}</td>
+  
+                                    <td>{{$lista['total']}} Bs</td>
+  
+                                  </tr>
+                                @endforeach
+                               
                                 
                                                         </tbody>
                                                     </table>
