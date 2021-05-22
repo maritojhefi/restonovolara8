@@ -21,7 +21,7 @@
                Todos nuestros servicios dentro del menu lateral! <strong>Bienvenido a Restonovo!</strong> 
                <br>
                <span class="badge badge-pill badge-secondary" data-toggle-state="aside-left-open">Tu cuenta</span>
-               <span class="badge badge-pill badge-primary" data-toggle-state="aside-left-open">Musica</span>
+               <span class="badge badge-pill badge-primary" data-toggle-state="aside-left-open">Musica </span>
                <span class="badge badge-pill badge-accent" data-toggle-state="aside-left-open">Pagos Online</span>
                <span class="badge badge-pill badge-success" data-toggle-state="aside-left-open">Mucho mas!</span>
                <div class="row mx-auto">

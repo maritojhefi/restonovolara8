@@ -17,7 +17,7 @@
 
                     </ul>
                 </li>
-                <li class="nav-dropdown {{ Request::path()=='menuCliente' ? 'active':''}}">
+                <li class="nav-dropdown {{ Request::path()=='cliente/buscador' ? 'active':''}}">
                     <a href="{{route('vistamusica')}}" aria-expanded="false"><i class="la la-music"></i><span><strong>RestoMusic!</strong> <span class="badge badge-danger">Nuevo!</span></span></a>
                 </li>
                 <li class="nav-dropdown {{ Request::path()=='cliente/menuplatos' ? 'active':''}}">
