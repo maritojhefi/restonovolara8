@@ -13,11 +13,11 @@ class AlmacenController extends Controller
         if($request->buscar)
         {
             $buscar=$request->buscar;
-            $productos=Product::where('nombre','like','%'.$request->buscar.'%')->orWhere('estado','like','%'.$request->buscar.'%')->orWhere('genero','like','%'.$request->buscar.'%')->orderBy('cantidad','asc')->paginate(100);
+            $productos=Product::where('nombre','like','%'.$request->buscar.'%')->orWhere('estado','like','%'.$request->buscar.'%')->orWhere('genero','like','%'.$request->buscar.'%')->orderBy('updated_at','asc')->paginate(20);
 
         }
         else{
-            $productos=Product::orderBy('cantidad','asc')->simplePaginate(5);
+            $productos=Product::orderBy('updated_at','asc')->paginate(5);
             $buscar="";
         }
         $cantidad = $productos->count();

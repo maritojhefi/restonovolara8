@@ -27,7 +27,7 @@ class MainController extends Controller
         {
             $ventas=Sale_record::whereDate('created_at',Carbon::today())->orderBy('created_at','desc')->get();
             $ventasabiertas=Sale::whereDate('created_at',Carbon::today())->get();
-            $reporte=Sale_record::pluck('usuario_id');
+            $reporte=Sale_record::whereDate('created_at',Carbon::today())->pluck('usuario_id');
            $usuarios=$reporte->countBy();
            
            foreach($usuarios as $usuario=>$numeromesas){

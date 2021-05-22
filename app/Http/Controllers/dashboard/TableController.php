@@ -19,7 +19,7 @@ class TableController extends Controller
        
         $resultados=5;
         $mesas=Table::orderBy('id','desc');
-       $mesas=$mesas->simplePaginate($resultados);
+       $mesas=$mesas->paginate($resultados);
       $lista=$mesas->count();
       return view('dashboard.mesas.index',['mesas'=>$mesas,"lista"=>$lista]);
     }

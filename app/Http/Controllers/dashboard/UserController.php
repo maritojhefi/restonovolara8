@@ -44,7 +44,7 @@ class UserController extends Controller
             ->orWhere('telefono','like','%'.request('buscar').'%')
             ->orWhere('cedula','like','%'.request('buscar').'%');
         }
-        $usuarios=$usuarios->simplePaginate($resultados);
+        $usuarios=$usuarios->paginate($resultados);
       
       $lista=$usuarios->count();
       return view('dashboard.user.index',['usuarios'=>$usuarios,"lista"=>$lista]);
