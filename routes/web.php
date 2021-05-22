@@ -147,6 +147,9 @@ Route::get('/cliente/pagaronline', 'ClientController@pagaronline')->name('pagaro
 Route::get('/cliente/propina', 'ClientController@propina')->name('propina');
 Route::get('/cliente/valoracion', 'ClientController@valoracion')->name('valoracion');
 Route::get('/cliente/calificamesero', 'ClientController@calificamesero')->name('calificamesero');
+Route::get('/cliente/quienessomos', 'ClientController@quienessomos')->name('quienessomos');
+Route::get('/cliente/politicasdeuso', 'ClientController@politicasdeuso')->name('politicasdeuso');
+
 
 
 //login face

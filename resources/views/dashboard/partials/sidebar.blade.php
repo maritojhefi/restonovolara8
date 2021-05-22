@@ -14,8 +14,8 @@
                 </li>
                 <li class="nav-dropdown">
                     <a class="has-arrow" data-toggle="dropdown" href="#" aria-expanded="false"><i class="zmdi zmdi-shield-check zmdi-hc-fw"></i><span>Administrador</span></a>
-                    <ul class="collapse {{ Request::path()=='usuarios' ? 'in':''}} {{ Request::path()=='mesas' ? 'in':''}} nav-sub" aria-expanded="true">
-                        <li class="{{ Request::path()=='usuarios' ? 'active':''}}"><a href="{{route('usuario.index')}}" ><span>Usuarios</span></a></li>
+                    <ul class="collapse {{ Request::path()=='dashboard/usuario' ? 'in':''}} {{ Request::path()=='mesas' ? 'in':''}} nav-sub" aria-expanded="true">
+                        <li class="{{ Request::path()=='dashboard/usuario' ? 'active':''}}"><a href="{{route('usuario.index')}}" ><span>Usuarios</span></a></li>
                         <li class="{{ Request::path()=='mesas' ? 'active':''}}"><a href="{{route('mesa.index')}}"><span>Mesas</span></a></li>
                         <li class="{{ Request::path()=='roles' ? 'active':''}}"><a href="{{route('rol.index')}}"><span>Roles</span></a></li>
                     </ul>

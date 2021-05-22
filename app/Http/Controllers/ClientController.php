@@ -43,7 +43,7 @@ class ClientController extends Controller
                 }
                 $usuario->token=$request->clave;
                 $usuario->update();
-                return back()->with('success','Clave aceptada! Ya puedes acceder a todas las funciones dentro del menu lateral!');
+                return back()->with('success','Clave aceptada! Ya puedes acceder a todas las funciones Restonovo!');
             }
         }
         return back()->with('danger','Acceso denegado, clave incorrecta o inexistente');
@@ -90,5 +90,11 @@ class ClientController extends Controller
     }
     public function calificamesero(){
         return view('frontend.dashboardcliente.cuenta.calificamesero');
+    }
+    public function quienessomos(){
+        return view('frontend.dashboardcliente.cuenta.contacto');
+    }
+    public function politicasdeuso(){
+        return view('frontend.dashboardcliente.cuenta.politicas');
     }
 }
