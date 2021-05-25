@@ -1,13 +1,13 @@
 @extends('dashboard.ventasdiarias.cabecera')
 @section('section')
-<button class="btn btn-secondary btn-block mt-2 mb-2 btn-lg btn-floating" data-toggle="modal" data-target="#crearcuentamodal">Abrir una nueva cuenta</button>
+<button class="btn btn-secondary btn-block mt-2 mb-4 btn-lg btn-floating" data-toggle="modal" data-target="#crearcuentamodal">Abrir una nueva cuenta</button>
 
 <div id="app">
     <div id="" class="row">
         @foreach ($cuentas as $cuenta)
-        <div class="col-sm-3 col-6">
+        <div class="col-sm-3 col-6 col-md-4 col-lg-3" >
     
-                <div class="card  border ">
+                <div class="card  border " style="box-shadow: 0px -1px 7px 5px rgb(241, 233, 233); border: 2px solid rgb(250, 250, 250);border-radius: 15px;">
                     @if ($cuenta->estado=="finalizado")
                     <a href="javascript:void(0)">
     
@@ -16,9 +16,9 @@
     
                     @endif
     
-                    <div class="d-flex bg-primary">
+                    <div class="d-flex " style="background-color: {{$cuenta->table->color}}; border-radius:15px 15px 0px 0px">
                        
-                        <div class="col p-t-30 p-b-30" style="background-color:{{$cuenta->table->color}}">
+                        <div class="col p-t-15 p-b-15" >
                             @if ($cuenta->estado=="finalizado")
                             <del style="color:red;"><h2 for="" class="text-white text-center">mesa {{$cuenta->table->numero}}</h2></del>
     

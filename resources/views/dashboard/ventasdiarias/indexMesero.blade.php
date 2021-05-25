@@ -11,9 +11,9 @@
         
      @isset($cuentas)
      @foreach ($cuentas as $cuenta)
-        <div class="col-sm-3 col-6">
+        <div class="col-sm-3 col-6" >
     
-            <div class="card ">
+            <div class="card " style="box-shadow: 0px -1px 7px 5px rgb(241, 233, 233);border-radius: 15px;">
                 @if ($cuenta->estado=="finalizado")
                 <a href="javascript:void(0)">
 
@@ -22,9 +22,9 @@
 
                 @endif
 
-                <div class="d-flex bg-primary">
+                <div class="d-flex" style="">
                    
-                    <div class="col p-t-30 p-b-30" style="background-color:{{$cuenta->table->color}}">
+                    <div class="col p-t-15 p-b-15" style="background-color:{{$cuenta->table->color}};border-radius: 15px 15px 0px 0px;">
                         @if ($cuenta->estado=="finalizado")
                         <del style="color:red;"><h2 for="" class="text-white text-center">mesa {{$cuenta->table->numero}}</h2></del>
 
@@ -64,12 +64,12 @@
 
                         <div class="row d-flex justify-content-between align-items-center mx-auto pl-3 pr-3">
                             @if ($cuenta->estado!="finalizado" && $cuenta->total!=0)
-                            <a class="btn btn-success btn-floating btn-block text-white btn-sm" href="{{route('cobrar',$cuenta->id)}}">Cobrar({{$cuenta->total}} Bs)</a>
-                            <button class="btn btn-info btn-floating btn-block text-white btn-sm showlist"  data-toggle="modal" data-target="#exampleModalFixedHeight{{$cuenta->id}}" data-id="{{ $cuenta->id}}">
+                            <a class="btn btn-success btn-floating btn-block text-white btn-sm btn-rounded" href="{{route('cobrar',$cuenta->id)}}">Cobrar({{$cuenta->total}} Bs)</a>
+                            <button class="btn btn-info btn-floating btn-block text-white btn-sm btn-rounded showlist"  data-toggle="modal" data-target="#exampleModalFixedHeight{{$cuenta->id}}" data-id="{{ $cuenta->id}}">
                                 <span class="material-icons">fact_check</span></button>
                             @endif
                             @if ($cuenta->total==0)
-                            <button class="btn btn-danger btn-floating btn-block text-white btn-sm"  data-toggle="modal" data-target="#deleteModal{{$cuenta->id}}" data-id="{{ $cuenta->id}}">
+                            <button class="btn btn-danger btn-floating btn-block text-white btn-sm btn-rounded"  data-toggle="modal" data-target="#deleteModal{{$cuenta->id}}" data-id="{{ $cuenta->id}}">
                                 <span class="material-icons">delete_forever</span></button>
                             @endif
                           
