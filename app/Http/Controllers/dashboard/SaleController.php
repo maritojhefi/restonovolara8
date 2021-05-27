@@ -31,7 +31,9 @@ class SaleController extends Controller
 {
     public function __construct()
     {
-        $this->middleware(['auth','ifcajaopen','printernotfound']);
+        $this->middleware('auth');
+        $this->middleware('ifcajaopen');
+        $this->middleware('printernotfound');
     }
     public function cuentasActivas()
     {

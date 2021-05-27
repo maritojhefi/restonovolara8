@@ -27,6 +27,6 @@ class CheckIfCajaOpen
 
         }
         
-        return back()->with('danger','Acceso denegado, la caja diaria debe estar activa');
+        return redirect()->route('inicio')->with('danger','Acceso denegado, la caja diaria debe estar activa');
     }
 }
