@@ -8,6 +8,12 @@ use App\Http\Controllers\Controller;
 
 class AlmacenController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware('admin');
+  
+    }
     public function stockindex(Request $request){
        
         if($request->buscar)
