@@ -64,7 +64,7 @@
       
                                
                                <div class=" card text-dark">
-                                <p class="text-small"><small id="cantidad{{$producto->id}}">({{$producto->cantidad}})</small>{{$producto->nombre}}-<strong class="text-danger"> {{$producto->precioventa}}Bs</strong></p> 
+                                <p class="text-small"><mark class="text-primary " id="cantidad{{$producto->id}}">({{$producto->cantidad}})</mark>{{$producto->nombre}}-<strong class="text-danger"> {{$producto->precioventa}}Bs</strong></p> 
                                 @if ($producto->image)
                                 <img class="card-img" src="{{asset('images')}}/{{$producto->image->imagen}}" alt="Card image">
 
@@ -100,7 +100,7 @@
       
                                
                                <div class="card text-dark ">
-                                <p class="text-small"><small id="cantidad{{$producto->id}}">({{$producto->cantidad}})</small>{{$producto->nombre}}-<strong class="text-danger"> {{$producto->precioventa}}Bs</strong></p> 
+                                <p class="text-small"><mark class="text-primary " id="cantidad{{$producto->id}}">({{$producto->cantidad}})</mark>{{$producto->nombre}}-<strong class="text-danger"> {{$producto->precioventa}}Bs</strong></p> 
                                 @if ($producto->image)
                                 <img class="card-img" src="{{asset('images')}}/{{$producto->image->imagen}}" alt="Card image">
 
@@ -170,7 +170,7 @@
       
                                
                                <div class="card text-dark">
-                                <p class="text-small"><small id="cantidad{{$producto->id}}">({{$producto->cantidad}})</small>{{$producto->nombre}}-<strong class="text-danger"> {{$producto->precioventa}}Bs</strong></p> 
+                                <p class="text-small"><mark class="text-primary " id="cantidad{{$producto->id}}">({{$producto->cantidad}})</mark>{{$producto->nombre}}-<strong class="text-danger"> {{$producto->precioventa}}Bs</strong></p> 
                                 @if ($producto->image)
                                 <img class="card-img" src="{{asset('images')}}/{{$producto->image->imagen}}" alt="Card image">
 
@@ -204,7 +204,7 @@
       
                                
                                <div class="card text-dark">
-                                <p class="text-small"><small id="cantidad{{$producto->id}}">({{$producto->cantidad}})</small>{{$producto->nombre}}- <strong class="text-danger"> {{$producto->precioventa}}Bs</strong></p> 
+                                <p class="text-small"><mark class="text-primary " id="cantidad{{$producto->id}}">({{$producto->cantidad}})</mark>{{$producto->nombre}}- <strong class="text-danger"> {{$producto->precioventa}}Bs</strong></p> 
                                 
                                 @if ($producto->image)
                                 <img class="card-img" src="{{asset('images')}}/{{$producto->image->imagen}}" alt="Card image">

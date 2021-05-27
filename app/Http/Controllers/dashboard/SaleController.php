@@ -559,7 +559,16 @@ class SaleController extends Controller
 
             /*Alinear a la izquierda para la cantidad y el nombre*/
             $printer->setJustification(Printer::JUSTIFY_LEFT);
-            $printer->text($list['cantidad'] . "x " . $list['nombre'] ."(Bs ".$list['precio']." c/u)". "\n"); 
+            if($list['cantidad']==1)
+            {
+                $printer->text($list['cantidad'] . "x " . $list['nombre'] . "\n"); 
+
+            }
+            else
+            {
+                $printer->text($list['cantidad'] . "x " . $list['nombre'] ."(Bs ".$list['precio']." c/u)". "\n"); 
+
+            }
          
             /*Y a la derecha para el importe*/
             $printer->setJustification(Printer::JUSTIFY_RIGHT);
