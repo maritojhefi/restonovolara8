@@ -13,6 +13,7 @@ const mix = require('laravel-mix');
 
 mix.scripts([
     'resources/quantumpro/vendor/modernizr/modernizr.custom.js',
+    'resources/quantumpro/vendor/jquery/dist/jquery.min.js',
     'resources/quantumpro/vendor/bootstrap/dist/js/bootstrap.bundle.min.js/',
     'resources/quantumpro/vendor/js-storage/js.storage.js',
     'resources/quantumpro/vendor/js-cookie/src/js.cookie.js',

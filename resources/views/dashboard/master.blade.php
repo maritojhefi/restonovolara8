@@ -106,7 +106,6 @@ a.disabled {
 		</div>
 	
 		<script src="{{asset('js/jsquantum.js')}}"></script>
-		<script src="{{asset('js/app.js')}}"></script>
 
 	</body>
 </html>
