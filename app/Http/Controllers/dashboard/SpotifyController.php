@@ -3,8 +3,9 @@
 namespace App\Http\Controllers\dashboard;
 
 use Spotify;
-use Illuminate\Http\Request;
 use SpotifySeed;
+use App\Spotify_token;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Http;
 
