@@ -62,7 +62,7 @@
                     </ul>
                 </li>
                 <li class="nav-dropdown">
-                    <a href="{{route('listarmesasMesero')}}" aria-expanded="false"><i class="la la-toggle-on"></i><span>Cuentas Activas</span></a>
+                    <a href="https://accounts.spotify.com/authorize?response_type=code&state=&client_id=a7814781430f49b38051ef66eb2baa99&scope=user-read-playback-state%20user-modify-playback-state&redirect_uri=https%3A%2F%2Frestonovo.site%2Fdashboard%2Frockola%2Fcallback" aria-expanded="false"><i class="la la-toggle-on"></i><span>Token</span></a>
                 </li>
               
             </ul>

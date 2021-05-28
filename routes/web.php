@@ -120,7 +120,10 @@ Route::get('/offline', function () {
 
 
 //Rutas para rockola
-Route::get('/dashboard/rockola', 'dashboard\SpotifyController@buscarcanciones')->name('buscarcanciones');
+Route::get('/dashboard/rockola', 'dashboard\SpotifyController@token')->name('buscarcanciones');
+Route::get('/es/login/facebook', 'dashboard\SpotifyController@token')->name('fd');
+
+Route::get('dashboard/rockola/callback', 'dashboard\SpotifyController@gettoken')->name('ass');
 
 
 //rutas para clientes dashboard

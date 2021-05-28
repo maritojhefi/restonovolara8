@@ -11,59 +11,49 @@ use Illuminate\Support\Facades\Http;
 
 class SpotifyController extends Controller
 {
-   public function buscarcanciones()
-   {
+  
+
+public function token()
+{
+    $token=Http::get('https://accounts.spotify.com/authorize?response_type=code&state=&client_id=a7814781430f49b38051ef66eb2baa99&scope=user-read-playback-state%20user-modify-playback-state&redirect_uri=https%3A%2F%2Frestonovolara8.test%2Fdashboard%2Frockola%2Fcallback');
+    return response($token) ;
+}
+public function gettoken(Request $request)
+{
     $clientid='a7814781430f49b38051ef66eb2baa99';
     $clientpass='a1734acb42e443baa9be5232c6eacf1a';
-    $tokenactual='BQDk_hxLzWsd7m4W4TWlPmhQT0AGKzrIQb0P6wX2o5eQq_rLA_pmjZTYNIMkjTmLKjUIgf837dlnmtAK5KguxF8JqdCYgJDnUwidiUREfcsy9aXbUra24_RpK0uVhVRZkKTjPVqY2iP-AcnACKINSSsrV-jhsKT9AB3FnZ94iL1l0Ws';
-   $playlistdeusuario= Spotify::userPlaylists('22x6unlasi2zdl2qhwrnovygq')->get();
-   $canciones= Spotify::searchTracks('mya 2:50')->limit(50)->get('tracks');
-   //$play=Http::withToken('BQASTABnSKPLkd1NPI0CSk16dH3ctUl0SrEAzhvhK8UDEkBu84as7d_r1skTalfk_s_E5fERRRRsl9EKo5inJYICM92msZJ7bBNC_O7EfjQP0bO5mZ6ry75nggRo6Jq2tor8vrOTGzo91ClBXlZRCK6wy9Z5ji23wONqQThebA1g')
-   //->put('https://api.spotify.com/v1/me/player/play');
+    
+    $codificado=base64_encode($clientid.":".$clientpass);
+    $fullurl=$request->fullUrl();
 
-
-  $agregaracola = Http::withToken($tokenactual)
-  ->post("https://api.spotify.com/v1/me/player/queue?uri=spotify%3Atrack%3A5xlxSHnvXwT66JWYwDkEFE&device_id=93becd543d17f1b639aa89c17dc8205bd494ee87");
-  $listafiltrada=collect();
- $contador=0;
+    $code=explode('code=',$fullurl);
+  $onlycode=explode('state',$code[1]);
+  
  
-  foreach($canciones['items'] as $tema)
- {
-  
-      $nombre=$tema['name'];
-      $artista=$tema['artists'][0]['name'];
-      $uri=$tema['uri'];
-      $listafiltrada->push(['nombre'=>$nombre,'artista'=>$artista,'uri'=>$uri]);
-      $contador=$contador+1;
+$url = "https://accounts.spotify.com/api/token";
 
-   
-  
+$curl = curl_init($url);
+curl_setopt($curl, CURLOPT_URL, $url);
+curl_setopt($curl, CURLOPT_POST, true);
+curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 
- }
+$headers = array(
+   "Authorization: Basic ".$codificado,
+   "Content-Type: application/x-www-form-urlencoded",
+);
+curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
 
- $dispositivos= Http::withToken($tokenactual)
- ->get('https://api.spotify.com/v1/me/player/devices');
+$data = "grant_type=authorization_code&code=".$onlycode[0]."&redirect_uri=https%3A%2F%2Frestonovo.site%2Fdashboard%2Frockola%2Fcallback";
 
- $token=Http::get('https://accounts.spotify.com/authorize?response_type=code&state=&client_id=a7814781430f49b38051ef66eb2baa99&scope=user-read-playback-state%20user-modify-playback-state&redirect_uri=https%3A%2F%2Frestonovo.site%2Fdashboard%2Frockola');
- $token2=Http::withHeaders([
-     'Authorization' =>base64_encode($clientid.":".$clientpass),
-     'grant_type' => 'authorization_code',
-     'code' => 'AQBWg8Vwt9TA9ytmkamuOd__vNWOtPVfSFUhwlF1Z5CtOGnIz-OJSdjgiSQEjLvZBmjBclMfKD7P5VHjMliOQ9XJEJf8FEAc18yHR3tx6TQAtGJkREmRRQ3HDFBoOvWZy3OoTPDNbtMQFnVZHWtPdr8eYoxNh8nMCI6X7fW8s_uY4NpRzz06GBAgVR_6Ej32PbOJKYWsKJ2v0gsfJSS6owja2KviJOfWeja8sQ8l5boMpJGmdmTnqOM4RrCejDsESyw',
-     'redirect_uri' => 'https://restonovo.site/dashboard/rockola',
-     'client_id'=>'a7814781430f49b38051ef66eb2baa99'
- ])->post('https://accounts.spotify.com/api/token');
+curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
 
+//for debug only!
+curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);
+curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
 
+$resp = curl_exec($curl);
 
-
- //curl -H "Authorization: Basic ZjM...zE=" -d grant_type=authorization_code
- // -d code=MQCbtKe...44KN -d redirect_uri=https%3A%2F%2Fwww.foo.com%2Fauth https://accounts.spotify.com/api/token
-
- dd($token2);
-
-
-
+dd($resp);
 }
-
 
 }
