@@ -55,10 +55,15 @@ $resp = curl_exec($curl);
 
 $devolucion=explode('":"',$resp);
 $token=explode('"',$devolucion[1]);
-echo $token[0];
-$token_refresh=explode('"',$devolucion[3]);
-echo $token_refresh[0];
 
+$token_refresh=explode('"',$devolucion[3]);
+
+Spotify_token::truncate();
+        Spotify_token::create([
+            'token'=> $token[0],
+        ]);
+        return back()->with('success','Guardado! Este token expirara de 1 hora...');
+    }
 
 
 }
