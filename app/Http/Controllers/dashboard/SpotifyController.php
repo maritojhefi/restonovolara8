@@ -53,7 +53,7 @@ curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
 
 $resp = curl_exec($curl);
 
-$token=explode(":",$resp);
+$token=explode('":"',$resp);
 dd($token);
 
 
