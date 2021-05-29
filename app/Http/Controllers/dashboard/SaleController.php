@@ -625,6 +625,89 @@ class SaleController extends Controller
         return view('dashboard.ventasdiarias.indexMesero',compact('cuentas','cabecera'));
     }
 
+    public function imprimirpedidocompleto(Sale $cuenta)
+    {
+        $lista= Sale::find($cuenta->id);
+        $listapendientes= $lista->products->pluck('nombre');  
+        $contando=$listapendientes->countBy();
+
+        //sumar # de ticket para boleta
+      
+            $nombre=Str::of($cuenta->user->name)->explode(' ');
+
+        
+            $nombre_impresora = "POS-582"; 
+           
+            $connector = new WindowsPrintConnector($nombre_impresora);
+            $printer = new Printer($connector);
+            $printer->setJustification(Printer::JUSTIFY_RIGHT);
+            $printer->setTextSize(2, 2);
+            $printer->text("Mesa:".$cuenta->table->numero."\n");
+            $printer->setJustification(Printer::JUSTIFY_LEFT);
+            $printer->setTextSize(1, 1);
+            $printer->text("Mesero:".$nombre[0]."\n"); 
+            $printer->setTextSize(1, 2);
+    
+              foreach ($contando as $nombre=>$cantidad) {
+                $verificartipo=Product::where('nombre',$nombre)->first();
+                if($verificartipo->genero=='comida')
+                {
+                    $printer->setJustification(Printer::JUSTIFY_LEFT);
+                    $printer->text($cantidad." ".$nombre."\n");
+                }
+                
+                
+            }
+            $printer->text("---------------"."\n");
+            $printer->setTextSize(1, 1);
+            foreach ($contando as $nombre=>$cantidad) {
+                $verificartipo=Product::where('nombre',$nombre)->first();
+                if($verificartipo->genero=='bebida')
+                {
+                    $printer->setJustification(Printer::JUSTIFY_LEFT);
+                    $printer->text($cantidad." ".$nombre."\n");
+                }
+                
+                
+            }
+            $printer->setJustification(Printer::JUSTIFY_CENTER);
+            $printer->setTextSize(1, 2);
+            $printer->text("---------------"."\n");
+            $printer->text($lista->created_at->format('H:i:s')."\n");
+            $printer->setTextSize(1, 1);
+            $printer->text(date('d-m-Y')."\n");
+
+          
+            $printer->feed(3);
+          //convertimos en array y recorremos hasta obtener el string para enviar al helper de impresion
+          $lista= collect($printer);      
+          $cont=0;    
+          $listastring="";
+          foreach($lista as $p)
+          {
+              $cont++;
+              if($cont==2)
+              {
+                  $boleta=collect($p);           
+                  foreach($boleta as $asd)
+                  {         
+                          for ($i=0; $i < collect($asd)->count() ; $i++) { 
+                      $listastring=$listastring.$asd[$i];             
+                  }
+                  break;              
+                  }         
+              }
+          }
+          //helper para imprimir por api
+        CustomPrint::imprimir($listastring);
+                         
+         return back()->with('info','Pedido completo impreso!');
+       
+        
+
+     
+     
+    }
     public function imprimirpedidomesero(Sale $cuenta)
     {
         $lista= Sale::find($cuenta->id);

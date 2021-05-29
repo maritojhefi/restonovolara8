@@ -65,7 +65,7 @@ Spotify_token::truncate();
         ]);
         
         
-        return redirect()->route('inicio')->with('success','Guardado! Este token expirara de 1 hora...');
+        return redirect()->route('inicio')->with('success','Token creado! Expira en 1 hora de inactividad');
     
 
 

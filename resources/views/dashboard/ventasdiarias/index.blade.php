@@ -128,7 +128,10 @@
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalFixedHeightTitle">Cuenta total mesa # {{$cuenta->table->numero}}</h5>
+                            <h5 class="modal-title mr-3" id="exampleModalFixedHeightTitle">Cuenta total mesa # {{$cuenta->table->numero}}</h5>
+                            
+                            <a href="{{route('imprimirpedidocompleto',$cuenta->id)}}" class="btn btn-sm btn-rounded btn-floating btn-danger">Imprimir pedido</a>
+
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true" class="zmdi zmdi-close"></span>
                             </button>

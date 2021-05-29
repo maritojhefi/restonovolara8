@@ -76,7 +76,8 @@ Route::get('/dashboard/reabrir{cuenta}', 'dashboard\SaleController@reabrir')->na
 
 Route::get('/dashboard/imprimir/{cuenta}', 'dashboard\SaleController@imprimir')->name('imprimir');
 Route::get('/dashboard/listarMesas', 'dashboard\SaleController@listarmesasMesero')->name('listarmesasMesero');
-Route::get('/dashboard/pedidomesero{cuenta}', 'dashboard\SaleController@imprimirpedidomesero')->name('imprimirpedidomesero');
+Route::get('/dashboard/pedidomesero/{cuenta}', 'dashboard\SaleController@imprimirpedidomesero')->name('imprimirpedidomesero');
+Route::get('/dashboard/imprimirpedidocompleto/{cuenta}', 'dashboard\SaleController@imprimirpedidocompleto')->name('imprimirpedidocompleto');
 Route::get('/dashboard/meserosactivos', 'dashboard\SaleController@meserosactivos')->name('meserosactivos');
 //Permisos de ventas solo para cajero y administrador:
 Route::post('/dashboard/mostrarListaCompleta', 'dashboard\SaleController@mostrarListaCompleta')->name('mostrarListaCompleta');
@@ -114,7 +115,7 @@ Route::get('/dashboard/selecreproductor', 'dashboard\PerifericoController@selecr
 
 
 Route::get('/offline', function () {
-    return view('frontend.clientes.main');
+    return view('vendor.laravelpwa.offline');
 })->name('offline');
 
 
