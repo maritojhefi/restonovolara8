@@ -40,7 +40,7 @@
 							</span>
 						@enderror					</div>
 					
-					<button type="submit" class="btn btn-primary btn-rounded btn-floating btn-block" style="background-color: rgb(226, 66, 66);box-shadow: 0 5px 10px rgba(120,141,180,.4)!important;" type="submit">Inicia Sesion</button>
+					<button type="submit" class="btn btn-primary btn-rounded btn-floating btn-block" style="background-color: rgb(226, 66, 66);box-shadow: 0 5px 10px rgba(120,141,180,.4)!important;" >Inicia Sesion</button>
 					<div><br></div>
 					<div class="row mx-auto"><small class="text-center mx-auto ">otras opciones:</small></div>
 					<div class="row">

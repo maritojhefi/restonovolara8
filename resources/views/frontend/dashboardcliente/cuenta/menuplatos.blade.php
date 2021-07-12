@@ -8,11 +8,11 @@
             <div class="card-header" id="heading{{$cat->id}}">
                 <h5 class="mb-0">
                         <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse{{$cat->id}}" aria-expanded="false" aria-controls="collapse{{$cat->id}}">
-                            {{$cat->nombre}}
+                           <img  src="{{asset('asset-cliente/food.gif')}}" style="width:30px" /> {{$cat->nombre}}
                         </button>
                     </h5>
             </div>
-            <div id="collapse{{$cat->id}}" class="collapse" aria-labelledby="heading{{$cat->id}}" data-parent="#accordion" style="">
+            <div id="collapse{{$cat->id}}" class="collapse" aria-labelledby="heading{{$cat->id}}" data-parent="#accordion{{$cat->id}}" style="">
                 <div class="card-body">
                     @foreach ($productos as $prod)
                     @if ($prod->categoria->nombre==$cat->nombre)

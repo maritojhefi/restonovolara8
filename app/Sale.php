@@ -29,6 +29,7 @@ class Sale extends Model
     {
         return $this->belongsToMany('App\Product', 'product_sale')
         ->wherePivot('estado_actual', 'pendiente');
+        
 
                    
     }

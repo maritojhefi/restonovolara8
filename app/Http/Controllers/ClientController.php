@@ -7,6 +7,7 @@ use App\User;
 use App\Product;
 use App\Categoria;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Validator;
 
 class ClientController extends Controller
@@ -14,7 +15,7 @@ class ClientController extends Controller
     public function __construct()
     {
         $this->middleware(['auth']);
-        $this->middleware(['iftokenexist'])->only('detallecuenta');
+        $this->middleware(['iftokenexist'])->only('detallecuenta','pagaronline');
 
        
 
@@ -80,7 +81,74 @@ class ClientController extends Controller
         return view('frontend.dashboardcliente.cuenta.prepedido');
     }
     public function pagaronline(){
-        return view('frontend.dashboardcliente.cuenta.pagaonline');
+        $tokenusuario= auth()->user()->token;
+        $mesa=Sale::where('token',$tokenusuario)->first();
+        $cuenta=$mesa->total;
+
+        $listafiltrada=$mesa->products->pluck('nombre');
+        $total=$mesa->products->pluck('precioventa')->sum();
+        $rockola=$mesa->rockola;
+        $contando=$listafiltrada->countBy();
+        $coleccion=collect($contando);
+        $personalizado=collect();
+        $string='';
+        foreach($coleccion as $nombre=>$cantidad)
+        {
+            $producto=Product::where('nombre',$nombre)->first();
+            if($producto->image)
+            {
+                $fotos=$producto->image->first();
+                $subtotal=$producto->precioventa*$cantidad;
+                 $string=$string.'{"concept":'.'"'.$nombre.'",'.'"productImageUrl":'.'"'.asset('images/'.$fotos->imagen).'",'.'"quantity":'.'"'.$cantidad.'",'.'"unitPrice":'.'"'.$producto->precioventa.'"},';
+            }
+            else
+            {
+                $subtotal=$producto->precioventa*$cantidad;
+                 $string=$string.'{"concept":'.'"'.$nombre.'",'.'"productImageUrl":'.'"'.asset('images/food.png').'",'.'"quantity":'.'"'.$cantidad.'",'.'"unitPrice":'.'"'.$producto->precioventa.'"},'; 
+            }
+        }     
+        $contador=0;
+        $separado=[];
+        $string = substr($string, 0, -1);//quitamos ultimo caracter al string en este caso ","
+        $linkpago = Http::withHeaders([
+            'Content-Type' => 'application/json',
+            
+        ])->withBody('{
+            "affiliateCode": "c2f5558e-9c57-4950-868b-3b1192e1a61f",
+            "withInvoice": false,
+            "expireMinutes": 20,
+            "externalCode": "1234",
+            "paymentDescription": "Pago de Comida Restaurant Rincon Tomateño",
+            "reserved1": "string",
+            "reserved2": "string",
+            "reserved3": "string",
+            "reserved4": "string",
+            "reserved5": "string",
+            "details": [
+                
+            '.$string.'
+            ]
+            }','text/plain')->post('https://banipay.me:8443/api/payments/transaction');
+            if($linkpago->successful())
+            {
+                $respuesta=response($linkpago);
+                $array=collect($respuesta);
+                foreach($array as $ar)
+                {
+                    if($contador==1)
+                    {
+                       $separado=explode('"',$ar);
+                    }
+                    $contador++;
+                }
+                return view('frontend.dashboardcliente.cuenta.pagaonline',['linkpago'=>$separado[11],'total'=>$total]);
+
+
+            }
+            else
+            {
+                return back()->with('danger','Error en realizar pago online');
+            }
     }
     public function propina(){
         return view('frontend.dashboardcliente.cuenta.propina');

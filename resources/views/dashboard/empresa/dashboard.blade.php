@@ -1,6 +1,8 @@
 @extends('dashboard.master')
 @section('content')
     
+@if ($ventas !=null && $totalvendido!=null && $coleccion!=null)
+    
 
 
 
@@ -187,6 +189,8 @@
                                                 </div>
 
 
+
+@endif
 
 @endif
 @endsection
