@@ -1,6 +1,6 @@
 
     @if (session('success'))
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
+    <div class="alert alert-success alert-dismissible fade show" role="alert" id="contenido">
         <strong><span class="material-icons">
             done
             </span> 
@@ -13,7 +13,7 @@
     </div>
     @endif
     @if (session('info'))
-    <div class="alert alert-info alert-dismissible fade show" role="alert">
+    <div class="alert alert-info alert-dismissible fade show" role="alert" id="contenido">
         <strong><span class="material-icons">
             info
             </span> 
@@ -26,7 +26,7 @@
     </div>
 @endif
 @if (session('danger'))
-<div class="alert alert-danger alert-dismissible fade show" role="alert">
+<div class="alert alert-danger alert-dismissible fade show" role="alert" id="contenido">
     <strong> <span class="material-icons">
         new_releases
         </span> 
@@ -37,4 +37,22 @@
         </span>
     </button>
 </div>
+
+
 @endif
+
+<script>
+    $(document).ready(function() {
+        //Ejecutamos método que oculta las cajas
+        OcultarContenedores1();
+      });
+      
+      //Método que oculta el primer contenedor para mostrar el otro
+      function OcultarContenedores1() {
+        setTimeout(function() {
+          $("#contenido").hide(1000);
+        }, 5000);
+      }
+     
+
+</script>

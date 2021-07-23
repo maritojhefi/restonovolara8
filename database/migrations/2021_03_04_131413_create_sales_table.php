@@ -22,6 +22,7 @@ class CreateSalesTable extends Migration
             $table->string('estado', 100)->nullable()->default('pendiente');
             $table->string('observacion', 100)->nullable();
             $table->string('token', 100)->nullable();
+            $table->string('idpago', 100)->nullable();
             $table->integer('propina')->nullable()->default(0);
             $table->integer('rockola')->nullable()->default(0);
             $table->integer('total')->nullable()->default(0);

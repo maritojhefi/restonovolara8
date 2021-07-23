@@ -191,6 +191,7 @@
 
 
 @endif
-
+@else
+Aun no se tienen registros de ventas
 @endif
 @endsection

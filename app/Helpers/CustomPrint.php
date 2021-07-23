@@ -7,8 +7,9 @@ use Rawilk\Printing\Facades\Printing;
 use Rawilk\Printing\Receipts\ReceiptPrinter;
 
 
-class CustomPrint{
+class CustomPrint {
 
+    
     static function imprimir($lista)
     {
          //Imprimir con api en red

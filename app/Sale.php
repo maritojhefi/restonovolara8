@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Model;
 class Sale extends Model
 {
     protected $fillable = [
-        'comprador_id','mesa_id','usuario_id','estado','total','observacion','rockola','propina'
+        'comprador_id','mesa_id','usuario_id','estado','total','observacion','rockola','propina','idpago'
      ];
     public function products()
     {

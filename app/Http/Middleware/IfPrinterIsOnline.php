@@ -3,10 +3,11 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use App\Printer_device;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Redirect;
+use Rawilk\Printing\Facades\Printing;
 
-class IfAdminCheck
+class IfPrinterIsOnline
 {
     /**
      * Handle an incoming request.
@@ -17,12 +18,17 @@ class IfAdminCheck
      */
     public function handle(Request $request, Closure $next)
     {
-        if(auth()->user()->rol->nombre=='administrador') 
+        
+        $printer=Printer_device::first();
+        $printeractivo=Printing::find($printer->id_impresora);
+        if($printeractivo->isOnline())
         {
             return $next($request);
 
         }
-        
-        return Redirect::route('cuentasActivas');
+        else
+        {
+            return back()->with('danger','La impresora seleccionada no esta activa');
+        }
     }
 }

@@ -141,6 +141,8 @@ class ClientController extends Controller
                     }
                     $contador++;
                 }
+                $mesa->idpago=$separado[15];
+                $mesa->save;
                 return view('frontend.dashboardcliente.cuenta.pagaonline',['linkpago'=>$separado[11],'total'=>$total]);
 
 

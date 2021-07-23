@@ -3,7 +3,7 @@
 <div class="card">
     <h5 class="card-header">Impresoras encontradas : {{$coleccion->count()}}</h5>
     @isset($impresoraactiva)
-    <span class="badge badge-info">Impresora activa:{{$impresoraactiva->nombre}}</span>
+    <span class="badge badge-info">Impresora seleccionada:{{$impresoraactiva->nombre}}</span>
 
     @endisset
     @empty($impresoraactiva)
@@ -19,7 +19,7 @@
                         <th>Impresora</th>
                         <th>ID</th>
                         <th>Estado</th>
-                        <th>Online</th>
+                        
                         <th>Accion</th>
 
                     </tr>
@@ -30,15 +30,18 @@
                 <tbody>
                     @foreach ($coleccion as $printer)
                     <tr>
-                        <th>{{$printer['nombre']}}</th>
+                        <th>
+                            @if ($impresoraactiva->nombre==$printer['nombre'])
+                            <i class="la la-check-circle font-size-22 v-align-middle text-success"></i>
+                            @endif
+                            {{$printer['nombre']}}</th>
                         <td>{{$printer['idprinter']}}</td>
-                        <td>{{$printer['status']}}</td>
-                        <td>{{$printer['isonline']}}</td>
+                        <td><span class="badge badge-pill badge-{{$printer['status']=='online'?'success':'danger'}}">{{$printer['status']}}</span></td>
                         <td> <form action="{{route('activarimpresora')}}" method="POST">
                             @csrf
                             <input type="hidden" name="nombre" value="{{$printer['nombre']}}">
                             <input type="hidden" name="idprinter" value="{{$printer['idprinter']}}">
-                            <button type="submit" class="btn btn-rounded btn-success btn-sm">Activar
+                            <button type="submit" class="btn btn-rounded btn-info btn-sm">Activar
                             </button>
                         
                         </td>

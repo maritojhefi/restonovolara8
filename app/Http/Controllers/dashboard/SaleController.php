@@ -34,6 +34,8 @@ class SaleController extends Controller
         $this->middleware('auth');
         $this->middleware('ifcajaopen');
         $this->middleware('printernotfound');
+        $this->middleware('printerIsOnline')->only(['creartokenmesa','imprimir','imprimirpedidocompleto','imprimirpedidomesero']);
+
     }
     public function cuentasActivas()
     {
