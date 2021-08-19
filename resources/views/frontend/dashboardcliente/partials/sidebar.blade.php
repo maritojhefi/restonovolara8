@@ -35,6 +35,9 @@
                 <li class="nav-dropdown {{ Request::path()=='cliente/politicasdeuso' ? 'active':''}}">
                     <a href="{{route('politicasdeuso')}}" aria-expanded="false"><i class="la la-file-text-o"></i><span>Politicas de uso</span></a>
                 </li>
+                <li class="nav-dropdown">
+                    <a href="{{route('login')}}" aria-expanded="false"><i class="zmdi zmdi-account-circle zmdi-hc-fw"></i><span>Inicia Sesion</span></a>
+                </li>
             </ul>
         </nav>
     </div>

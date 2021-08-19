@@ -72,23 +72,20 @@
                                             <div class="row">
                                             @foreach ($listafiltrada as $canciones)
                                             
-                                                <div class="col-sm-12 col-md-4">
-                                                    <div class="card text-white">
-                                                        <img class="card-img" src="{{$canciones['foto']}}" style="width: auto" alt="Card image">
-                                                        <div class="card-img-overlay">
-                                                            <h3 class="card-title texto-borde">{{$canciones['nombre']}}</h3>
-                                                            <p class="texto-artist ">{{$canciones['artista']}}</p>
-                                                            <button type="button" class="btn btn-dark btn-rounded btn-outline" style="padding: 10px 10px 40px 10px; position: absolute;bottom: 70px;left: 50%;transform: translate(-50%, -50%);box-shadow: 0px -1px 4px 2px rgb(201, 187, 187);" data-toggle="modal" data-target="#modal{{$loop->index}}" style="padding: 10px 10px 40px 10px; position:absolute;bottom:30px;right:15px;box-shadow: 0px -1px 5px 1px rgb(250, 226, 226)">
-                                                                <span class="material-icons" style="color: rgb(216, 66, 66)">
-                                                                    add_task
-                                                                    </span><strong> Añadir</strong> </button>
-
-                                                            
+                                                
+                                                <div class="row no-gutters m-b-30">
+                                                    <div class="col-auto">
+                                                        <img src="{{$canciones['foto']}}" class="img-thumbnail max-w-100" alt="">
+                                                    </div>
+                                                    <div class="col">
+                                                        <div class="m-l-10">
+                                                            <h6 class="card-title m-0"><a class="text-dark">{{$canciones['nombre']}}</a></h6>
+                                                            <small class="card-text">{{$canciones['artista']}}</small> <br>
+                                                            <a href="#" data-toggle="modal" data-target="#modal{{$loop->index}}">  <small class="text-muted"><span class="badge badge-pill badge-secondary"><i class="font-size-22 v-align-middle zmdi zmdi-plus-circle zmdi-hc-fw text-white"></i>Añadir</span></small> </a> <br>
+                            
                                                         </div>
-                
                                                     </div>
                                                 </div>
-                                               
                                                 <div class="modal fade bd-example-modal-sm" id="modal{{$loop->index}}" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" >
                                                     <div class="modal-dialog modal-sm" >
                                                         <div class="modal-content">

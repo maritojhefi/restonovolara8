@@ -17,19 +17,30 @@ class IfTokenExists
      */
     public function handle(Request $request, Closure $next)
     {
-        $clave = session('tokenmesa');
-        $tokens=Sale::pluck('token');
-        foreach($tokens as $token)
+        if(session()->has('tokenmesa'))
         {
-            if($token==$clave)
+            $clave = session('tokenmesa');
+            $tokens=Sale::pluck('token');
+            foreach($tokens as $token)
             {
-                return $next($request);
-    
+                if($token==$clave)
+                {
+                    return $next($request);
+        
+                }
             }
+            session()->forget('tokenmesa');
+            return redirect()->route('cliente')->with('danger','Tu clave expiró!, debes tener una cuenta activa para usar Restonovo!');
+
         }
+        else
+        {
+            return redirect()->route('cliente')->with('danger','Ingresa la clave, si aun no lo tienes solicitalo a tu mesero!');
+        }
+       
         
        
-         return redirect()->route('cliente')->with('danger','Necesitas la clave de tu mesa, solicitalo a tu mesero o administrador');
+         
         
     }
 }
