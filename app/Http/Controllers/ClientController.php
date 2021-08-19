@@ -75,9 +75,11 @@ class ClientController extends Controller
     }
 
     public function menuplatos(){
-        $productos=Product::where('genero','comida')->where('estado','activo')->get();
+        $productos=Product::all();
         $categorias=Categoria::where('tipo','comida')->get();
-        return view('frontend.dashboardcliente.cuenta.menuplatos',compact('productos','categorias'));
+        $bebidas=Categoria::where('tipo','bebida')->get();
+
+        return view('frontend.dashboardcliente.cuenta.menuplatos',compact('productos','categorias','bebidas'));
     }
     public function prepedido(){
         return view('frontend.dashboardcliente.cuenta.prepedido');

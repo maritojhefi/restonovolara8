@@ -118,6 +118,11 @@ label:hover ~ label {
 input[type="radio"]:checked ~ label {
   color: orange;
 }
+.opaco{
+  opacity: 0.4;
+    filter: alpha(opacity=40); /* msie */
+    background-color: #000;
+}
 </style>
 
 <body class="content-menu  ">
