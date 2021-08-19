@@ -121,7 +121,7 @@ input[type="radio"]:checked ~ label {
 .opaco{
   opacity: 0.4;
     filter: alpha(opacity=40); /* msie */
-    background-color: #000;
+    background-color: rgb(211, 65, 65);
 }
 </style>
 

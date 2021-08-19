@@ -62,7 +62,12 @@
                         <div class="m-l-10">
                             <h6 class="card-title m-0"><a class="text-dark">{{$producto->nombre}}</a></h6>
                             <small class="card-text"></small>{{$producto->precioventa}} Bs<br>
+                            @if ($producto->cantidad==0 || $producto->estado=='inactivo')
+                            <a href="#">  <small class="text-muted"><span class="badge badge-pill badge-danger"><i class="font-size-22 v-align-middle la la-ban text-white"></i>No disponible</span></small> </a> <br>
+                            @else
                             <a href="#">  <small class="text-muted"><span class="badge badge-pill badge-secondary"><i class="font-size-22 v-align-middle zmdi zmdi-plus zmdi-hc-fw text-white"></i>Agregar</span></small> </a> <br>
+
+                            @endif
 
                         </div>
                     </div>
@@ -93,8 +98,12 @@
                             <div class="m-l-10">
                                 <h6 class="card-title m-0"><a class="text-dark">{{$producto->nombre}}</a></h6>
                                 <small class="card-text"></small>{{$producto->precioventa}} Bs<br>
+                                @if ($producto->cantidad==0 || $producto->estado=='inactivo')
+                                <a href="#">  <small class="text-muted"><span class="badge badge-pill badge-danger"><i class="font-size-22 v-align-middle la la-ban text-white"></i>No disponible</span></small> </a> <br>
+                                @else
                                 <a href="#">  <small class="text-muted"><span class="badge badge-pill badge-secondary"><i class="font-size-22 v-align-middle zmdi zmdi-plus zmdi-hc-fw text-white"></i>Agregar</span></small> </a> <br>
     
+                                @endif    
                             </div>
                         </div>
                     </div>
@@ -158,8 +167,12 @@
                             <div class="m-l-10">
                                 <h6 class="card-title m-0"><a class="text-dark">{{$producto->nombre}}</a></h6>
                                 <small class="card-text"></small>{{$producto->precioventa}} Bs<br>
+                                @if ($producto->cantidad==0 || $producto->estado=='inactivo')
+                                <a href="#">  <small class="text-muted"><span class="badge badge-pill badge-danger"><i class="font-size-22 v-align-middle la la-ban text-white"></i>No disponible</span></small> </a> <br>
+                                @else
                                 <a href="#">  <small class="text-muted"><span class="badge badge-pill badge-secondary"><i class="font-size-22 v-align-middle zmdi zmdi-plus zmdi-hc-fw text-white"></i>Agregar</span></small> </a> <br>
     
+                                @endif    
                             </div>
                         </div>
                     </div>
@@ -189,8 +202,12 @@
                                 <div class="m-l-10">
                                     <h6 class="card-title m-0"><a class="text-dark">{{$producto->nombre}}</a></h6>
                                     <small class="card-text"></small>{{$producto->precioventa}} Bs<br>
+                                    @if ($producto->cantidad==0 || $producto->estado=='inactivo')
+                                    <a href="#">  <small class="text-muted"><span class="badge badge-pill badge-danger"><i class="font-size-22 v-align-middle la la-ban text-white"></i>No disponible</span></small> </a> <br>
+                                    @else
                                     <a href="#">  <small class="text-muted"><span class="badge badge-pill badge-secondary"><i class="font-size-22 v-align-middle zmdi zmdi-plus zmdi-hc-fw text-white"></i>Agregar</span></small> </a> <br>
         
+                                    @endif        
                                 </div>
                             </div>
                         </div>
