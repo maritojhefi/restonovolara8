@@ -1,13 +1,6 @@
 <nav class="top-toolbar navbar navbar-desktop flex-nowrap">
     <ul class="navbar-nav nav-left">
-        @if (auth()->user()->rol->nombre!='mesero')
-           
-        <li class="nav-item">
-            <a href="javascript:void(0)" data-toggle-state="content-menu-close">
-                <i class="icon dripicons-align-left"></i>
-            </a>
-        </li>
-        @endif
+        
        
         <!--
         <li class="nav-item nav-text dropdown dropdown-menu-md">
@@ -164,32 +157,9 @@
             <a class="nav-link nav-pill user-avatar"  href="{{route('vistamusica')}}">
                <img src="{{asset('asset-cliente/wavesanimated.gif')}}" class="w-35 rounded-circle" style="width: 55px!important;">
             </a>
-            <a class="nav-link nav-pill user-avatar" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                @if (auth()->user()->image)
-                <img src="{{asset('images')}}/{{auth()->user()->image->imagen}}" class="w-35 rounded-circle">
-               @else
-               <img src="{{asset('asset-cliente/profile.gif')}}" class="w-35 rounded-circle" style="width: 55px!important;">
-
-                @endif
-
-            </a>
+            
            
-            <div class="dropdown-menu dropdown-menu-right dropdown-menu-accout">
-                <div class="dropdown-header pb-3">
-                    <div class="media d-user">
-                        <img class="align-self-center mr-3 w-40 rounded-circle" src="{{asset('images/person.png')}}" alt="Albert Einstein">
-                        <div class="media-body">
-                            <h5 class="mt-0 mb-0">{{auth()->user()->name}}</h5>
-                            <span>{{auth()->user()->email}}</span>
-                        </div>
-                    </div>
-                </div>
-                <a class="dropdown-item" href="{{ route('logout') }}"  onclick="event.preventDefault();
-                document.getElementById('logout-form').submit();"><i class="icon dripicons-lock-open"></i> Cerrar Sesion</a>
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                    @csrf
-                </form>
-            </div>
+            
         </li>
         
         

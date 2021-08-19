@@ -1,4 +1,4 @@
-@if(auth()->user()->rol->nombre!='mesero')
+
 <aside class="sidebar sidebar-left">
     <div class="sidebar-content">
         <nav class="main-menu">
@@ -39,6 +39,6 @@
         </nav>
     </div>
 </aside>
-      @endif
+      
 
     

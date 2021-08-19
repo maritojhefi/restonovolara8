@@ -39,14 +39,10 @@ class SaleController extends Controller
     }
     public function cuentasActivas()
     {
-
         $meseros = User::whereHas('rol', function (Builder $query) {
             $query->where('nombre', 'like', 'Mesero');
         })->get();
-        
-    
         $cuentas = Sale::orderBy('created_at','desc')->get();
-        
         return view('dashboard.ventasdiarias.index',compact('meseros','cuentas'));
     }
     public function editarCuenta(Sale $cuenta)
@@ -67,26 +63,20 @@ class SaleController extends Controller
             if($mesa==$request->mesa)
             {
                 $mesaexiste=true;
-            }
-            
+            }    
         }
         if($mesaexiste==true)
         {
-         
             $cuentas= Sale::all();
             foreach($cuentas as $b)
             {
                 if($b->table)
-                {
-                    
+                {  
                     if(  $b->table->numero==$request->mesa)
-                    {
-                        
+                    { 
                         $estado="mesaocupada";
-                      
                         break;
                     }
-                 
                 }   
             }         
         }
@@ -99,10 +89,8 @@ class SaleController extends Controller
 
     public function crearMesaActiva(Request $request)
     {
-       
     $mesa=0;
     $mesas=Table::all()->where('numero',$request->mesa_id);
-   
     if($mesas->count()==0)
     {
         return back()->with('danger','La mesa no existe!');

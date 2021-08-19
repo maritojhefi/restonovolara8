@@ -120,7 +120,7 @@ input[type="radio"]:checked ~ label {
 }
 </style>
 
-<body class="content-menu  {{auth()->user()->rol->nombre=='mesero'? 'content-menu-close' : ''}}">
+<body class="content-menu  ">
 	<!-- CONTENT WRAPPER -->
 	<div id="">
 		<!-- TOP TOOLBAR WRAPPER -->

@@ -14,7 +14,7 @@ class ClientController extends Controller
 {
     public function __construct()
     {
-        $this->middleware(['auth']);
+        
         $this->middleware(['iftokenexist'])->only('detallecuenta','pagaronline');
 
        
@@ -36,15 +36,17 @@ class ClientController extends Controller
         {
             if($token==$request->clave)
             {
-                $iduser= auth()->user()->id;
-                $usuario= User::find($iduser);
-                if($usuario->token==$token)
+                session(['tokenmesa' => $token]);
+                /*$iduser= auth()->user()->id;
+                $usuario= User::find($iduser);*/
+                //if($usuario->token==$token)
+                if(session()->has('tokenmesa'))
                 {
-                    return back()->with('info','Ya estas con el acceso a la plataforma, Revisa el menu lateral!');
+                    return back()->with('info','Ya estas con el acceso a la aplicacion, Revisa el menu lateral!');
                 }
-                $usuario->token=$request->clave;
-                $usuario->update();
-                return back()->with('success','Clave aceptada! Ya puedes acceder a todas las funciones Restonovo!');
+               /* $usuario->token=$request->clave;
+                $usuario->update();*/
+                return back()->with('success','Clave aceptada! Revisa las funciones en el menu lateral!');
             }
         }
         return back()->with('danger','Acceso denegado, clave incorrecta o inexistente');
@@ -52,7 +54,7 @@ class ClientController extends Controller
     }
 
     public function detallecuenta(){
-        $tokenusuario= auth()->user()->token;
+        $tokenusuario= session('tokenmesa');
         $mesa=Sale::where('token',$tokenusuario)->first();
         $listafiltrada=$mesa->products->pluck('nombre');
         
@@ -81,7 +83,7 @@ class ClientController extends Controller
         return view('frontend.dashboardcliente.cuenta.prepedido');
     }
     public function pagaronline(){
-        $tokenusuario= auth()->user()->token;
+        $tokenusuario= session('tokenmesa');
         $mesa=Sale::where('token',$tokenusuario)->first();
         $cuenta=$mesa->total;
 

@@ -72,8 +72,5 @@ class Kernel extends HttpKernel
         'printernotfound' => \App\Http\Middleware\IfPrinterNotFound::class,
         'iftokenexist' => \App\Http\Middleware\IfTokenExists::class,
         'printerIsOnline' => \App\Http\Middleware\IfPrinterIsOnline::class,
-
-
-
     ];
 }

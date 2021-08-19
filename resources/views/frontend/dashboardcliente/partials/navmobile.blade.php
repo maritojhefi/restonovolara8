@@ -1,14 +1,12 @@
 <nav class="top-toolbar navbar navbar-mobile navbar-tablet">
     <ul class="navbar-nav nav-left">
-        @if (auth()->user()->rol->nombre=="mesero")
-            
-        @else
+        
         <li class="nav-item">
             <a href="javascript:void(0)" data-toggle-state="aside-left-open">
                 <i class="icon dripicons-align-left"></i>
             </a>
         </li>
-        @endif
+       
         
     </ul>
     <ul class="navbar-nav nav-center site-logo">

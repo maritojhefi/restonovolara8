@@ -130,7 +130,7 @@ Route::get('dashboard/rockola/callback', 'dashboard\SpotifyController@gettoken')
 //rutas para clientes dashboard
 Route::get('/menuCliente', function () {
     return view('frontend.dashboardcliente.cuenta.inicio');
-})->name('cliente')->middleware('auth');
+})->name('cliente');
 
 //rutas cliente rockola
 Route::get('/cliente/musica', 'MusicController@buscarcanciones')->name('agregarmusica');

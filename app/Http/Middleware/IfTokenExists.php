@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use App\Sale;
 use Illuminate\Http\Request;
 
 class IfTokenExists
@@ -16,12 +17,17 @@ class IfTokenExists
      */
     public function handle(Request $request, Closure $next)
     {
-        $clave=auth()->user()->token;
-        if($clave!=null)
+        $clave = session('tokenmesa');
+        $tokens=Sale::pluck('token');
+        foreach($tokens as $token)
         {
-            return $next($request);
-
+            if($token==$clave)
+            {
+                return $next($request);
+    
+            }
         }
+        
        
          return redirect()->route('cliente')->with('danger','Necesitas la clave de tu mesa, solicitalo a tu mesero o administrador');
         

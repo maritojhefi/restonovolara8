@@ -23,7 +23,6 @@ class UserSeeder extends Seeder
             'telefono'=>"75140175",
             'rol_id'=>5,
             'cedula'=>"10657721",
-           
         ]);
         User::create([
             'name'=>"Esther Claudia",
@@ -33,7 +32,6 @@ class UserSeeder extends Seeder
             'telefono'=>"61857295",
             'rol_id'=>3,
             'cedula'=>"10657721",
-           
         ]);
         User::create([
             'name'=>"Cliente",
@@ -43,7 +41,6 @@ class UserSeeder extends Seeder
             'telefono'=>"",
             'rol_id'=>1,
             'cedula'=>"",
-           
         ]);
     }
 }
