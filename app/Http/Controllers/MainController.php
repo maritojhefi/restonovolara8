@@ -14,6 +14,6 @@ class MainController extends Controller
     public function menu(){
         
         
-        return view('auth.login');
+        return view('frontend.dashboardcliente.cuenta.inicio');
     }
 }

@@ -18,7 +18,7 @@
                 </div>
             </form>
             <p class="text-center m-t-50 m-b-50">
-               Todos nuestros servicios dentro del menu lateral! <strong>Bienvenido a Restonovo!</strong> 
+               Descubre funciones en el  <strong>menu lateral!</strong> 
                <br>
                <span class="badge badge-pill badge-secondary" data-toggle-state="aside-left-open">Tu cuenta</span>
                <span class="badge badge-pill badge-primary" data-toggle-state="aside-left-open">Musica </span>
@@ -32,7 +32,20 @@
             
         </div>
     </div>
-    
+    <script>
+        let installButton = document.createElement('button');
+        let prompt;
+window.addEventListener('beforeinstallprompt', function(e){
+  // Prevent the mini-infobar from appearing on mobile
+  e.preventDefault();
+  // Stash the event so it can be triggered later.
+  prompt = e;
+});
+
+installButton.addEventListener('click', function(){
+   prompt.prompt();
+})
+    </script>
 </section>
 
 
