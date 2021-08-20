@@ -62,10 +62,11 @@ $token_refresh=explode('"',$devolucion[3]);
 Spotify_token::truncate();
         Spotify_token::create([
             'token'=> $token[0],
+            'refresh_token'=>$token_refresh[0],
         ]);
         
         
-        return redirect()->route('inicio')->with('success','Token creado! Expira en 1 hora de inactividad');
+        return redirect()->route('inicio')->with('success','Token creado!');
     
 
 

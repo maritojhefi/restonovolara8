@@ -16,6 +16,7 @@ class CreateSpotifyTokensTable extends Migration
         Schema::create('spotify_tokens', function (Blueprint $table) {
             $table->id();
             $table->string('token', 500);
+            $table->string('refresh_token', 500);
             $table->timestamps();
         });
     }

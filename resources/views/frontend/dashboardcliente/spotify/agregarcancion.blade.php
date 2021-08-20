@@ -81,7 +81,7 @@
                                                         <div class="m-l-10">
                                                             <h6 class="card-title m-0"><a class="text-dark">{{$canciones['nombre']}}</a></h6>
                                                             <small class="card-text">{{$canciones['artista']}}</small> <br>
-                                                            <a href="#" data-toggle="modal" data-target="#modal{{$loop->index}}">  <small class="text-muted"><span class="badge badge-pill badge-secondary"><i class="font-size-22 v-align-middle zmdi zmdi-plus-circle zmdi-hc-fw text-white"></i>Añadir</span></small> </a> <br>
+                                                            <a href="#" data-toggle="modal" data-target="#modal{{$loop->index}}">  <small class="text-muted"><span class="badge badge-pill badge-secondary"><i class="font-size-22 v-align-middle zmdi zmdi-plus-circle zmdi-hc-fw text-white"></i>Reproducir</span></small> </a> <br>
                             
                                                         </div>
                                                     </div>

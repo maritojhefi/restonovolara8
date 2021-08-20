@@ -9,21 +9,18 @@
 	<title>RESTONOVO</title>
 	<!-- ================== GOOGLE FONTS ==================-->
 
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
-	<link rel="stylesheet" href="{{asset("css/cssquantumcliente.css")}}">
-
-	<link rel="stylesheet" href="{{asset("dashboard/css/icons/dripicons.min.css")}}">
-	<link rel="stylesheet" href="{{asset("dashboard/css/icons/line-awesome.min.css")}}">
-	<link rel="stylesheet" href="{{asset("dashboard/css/icons/material-design-iconic-font.min.css")}}">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+	<!-- Nucleo Icons -->
+	<link href="{{asset('css/ui-creative.css')}}" rel="stylesheet" />
+	
 	
 	@laravelPWA
 
 </head>
-
+<body class="bg-gray-100">
  @yield('content')
    
- <script src="{{asset('js/jsquantum.js')}}"></script>
+ 
 
 
 </body>

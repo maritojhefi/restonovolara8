@@ -9,5 +9,6 @@ class Spotify_token extends Model
 {
     protected $fillable = [
         'token',
+        'refresh_token'
      ];
 }

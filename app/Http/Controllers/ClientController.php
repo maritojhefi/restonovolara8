@@ -36,7 +36,7 @@ class ClientController extends Controller
         {
             if($token==$request->clave)
             {
-                session(['tokenmesa' => $token]);
+               
                 /*$iduser= auth()->user()->id;
                 $usuario= User::find($iduser);*/
                 //if($usuario->token==$token)
@@ -46,7 +46,8 @@ class ClientController extends Controller
                 }
                /* $usuario->token=$request->clave;
                 $usuario->update();*/
-                return back()->with('success','Clave aceptada! Revisa las funciones en el menu lateral!');
+                session(['tokenmesa' => $token]);
+                return back()->with('success','Clave aceptada!');
             }
         }
         return back()->with('danger','Acceso denegado, clave incorrecta o inexistente');

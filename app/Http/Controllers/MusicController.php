@@ -174,6 +174,9 @@ class MusicController extends Controller
        {
            $tokenactual=$tokens->last();
      
+           $infoactual= Http::withToken($tokenactual->token)
+           ->post("	https://api.spotify.com/v1/me/player");
+           dd($infoactual);
            $agregaracola = Http::withToken($tokenactual->token)
            ->post("https://api.spotify.com/v1/me/player/queue?uri=spotify%3Atrack%3A".$track[2]."&device_id=".$deviceid);
    

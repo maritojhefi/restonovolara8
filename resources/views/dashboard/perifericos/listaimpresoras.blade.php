@@ -31,9 +31,11 @@
                     @foreach ($coleccion as $printer)
                     <tr>
                         <th>
+                            @isset($impresoraactiva)
                             @if ($impresoraactiva->nombre==$printer['nombre'])
                             <i class="la la-check-circle font-size-22 v-align-middle text-success"></i>
                             @endif
+                            @endisset
                             {{$printer['nombre']}}</th>
                         <td>{{$printer['idprinter']}}</td>
                         <td><span class="badge badge-pill badge-{{$printer['status']=='online'?'success':'danger'}}">{{$printer['status']}}</span></td>
