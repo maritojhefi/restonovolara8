@@ -157,32 +157,7 @@ input[type="radio"]:checked ~ label {
 					</aside>
 			</div>
 		</div>
-	<!-- Messenger plugin de chat Code -->
-    <div id="fb-root"></div>
-
-    <!-- Your plugin de chat code -->
-    <div id="fb-customer-chat" class="fb-customerchat">
-    </div>
-
-    <script>
-      var chatbox = document.getElementById('fb-customer-chat');
-      chatbox.setAttribute("page_id", "2109985345740506");
-      chatbox.setAttribute("attribution", "biz_inbox");
-      window.fbAsyncInit = function() {
-        FB.init({
-          xfbml            : true,
-          version          : 'v10.0'
-        });
-      };
-
-      (function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
-        js.src = 'https://connect.facebook.net/es_ES/sdk/xfbml.customerchat.js';
-        fjs.parentNode.insertBefore(js, fjs);
-      }(document, 'script', 'facebook-jssdk'));
-    </script>
+	
 		<script src="{{asset('js/jsquantum.js')}}"></script>
 		<script src="{{asset('dashboard/js/components/mail-app.js')}}"></script>
 		<script src="{{asset('js/app.js')}}" defer></script>

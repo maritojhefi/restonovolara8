@@ -44,10 +44,6 @@
                         <tbody>
                             
                            @foreach ($productos as $prod)
-                               
-                           
-                                
-                          
                             <tr role="row" class="odd  ">
                                 <td>
                                    

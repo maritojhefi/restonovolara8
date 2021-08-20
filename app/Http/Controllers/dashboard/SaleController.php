@@ -47,7 +47,7 @@ class SaleController extends Controller
     }
     public function editarCuenta(Sale $cuenta)
     {
-        $productos=Product::where('estado','activo')->get();
+        $productos=Product::all();
         $catcomidas=Categoria::where('tipo','comida')->get();
         $catbebidas=Categoria::where('tipo','bebida')->get();
         $cabecera="mesa #".$cuenta->table->numero;
