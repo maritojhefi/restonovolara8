@@ -1,5 +1,5 @@
 <div>
-    <header class="page-header" style="background-color: rgb(190, 49, 49);padding: 30px 30px 50px;">
+    <header class="page-header" style="background-color: rgb(184, 32, 32);padding: 30px 30px 50px;">
         <div class="container">
             <!-- PAGE SEARCH -->
            

@@ -160,7 +160,7 @@ input[type="radio"]:checked ~ label {
 		@livewireScripts
 		<script src="{{asset('js/jsquantum.js')}}"></script>
 		<script src="{{asset('dashboard/js/components/mail-app.js')}}"></script>
-		<script src="{{asset('js/app.js')}}" defer></script>
+	
 
 	</body>
 </html>
