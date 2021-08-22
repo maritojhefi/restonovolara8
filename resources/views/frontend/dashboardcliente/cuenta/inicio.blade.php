@@ -13,7 +13,7 @@
                 @csrf
                 <div class="search-wrapper page-search">
                     <button class="search-button-submit" type="submit"><i class="icon dripicons-search"></i></button>
-                    <input type="text" class="search-input" name="clave" placeholder="Clave de 5 digitos">
+                    <input type="number" class="search-input" name="clave" placeholder="Clave de 5 digitos">
                    
                 </div>
             </form>
