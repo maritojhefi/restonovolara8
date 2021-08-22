@@ -15,7 +15,7 @@
 	<link rel="stylesheet" href="{{asset("dashboard/css/icons/material-design-iconic-font.min.css")}}">
 	<script type="text/javascript" src="{{asset("dashboard/vendor/jquery/dist/jquery.min.js")}}"></script>
 	@laravelPWA
-
+	@livewireStyles
 </head>
 <style>
 
@@ -157,7 +157,7 @@ input[type="radio"]:checked ~ label {
 					</aside>
 			</div>
 		</div>
-	
+		@livewireScripts
 		<script src="{{asset('js/jsquantum.js')}}"></script>
 		<script src="{{asset('dashboard/js/components/mail-app.js')}}"></script>
 		<script src="{{asset('js/app.js')}}" defer></script>

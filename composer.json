@@ -21,6 +21,7 @@
         "laravel/socialite": "^5.2",
         "laravel/tinker": "^2.5",
         "laravel/ui": "^3.2",
+        "livewire/livewire": "^2.5",
         "mike42/escpos-php": "^3.0",
         "printnode/printnode-php": "master",
         "pusher/pusher-php-server": "^6.1",

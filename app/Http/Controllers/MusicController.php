@@ -161,22 +161,47 @@ class MusicController extends Controller
    }
    public function agregaracola(Request $request)
    {
-
+    $currentplayer="";
+    $tokenvalido="";
     $track=explode(':',$request->trackid);
-    $reproductoractual=Play_device::find(1);
-
-    if($reproductoractual!=null)
-    {
-  
-        $deviceid=$reproductoractual->id_reproductor;
+    
        $tokens=Spotify_token::all();
        if($tokens->count()>0)
        {
            $tokenactual=$tokens->last();
-     
+            $tokenvalido=$tokenactual->token;
+           $cancionactual= Http::withToken($tokenvalido)
+            ->get('https://api.spotify.com/v1/me/player');
+           if($cancionactual->successful())
+           {
+            $array = json_decode($cancionactual, true);
+            $currentplayer=$array['device']['id'];
+            
+           } 
+           else
+           {
+            $refrescartoken=Http::withHeaders([
+                'Authorization' => 'Basic YTc4MTQ3ODE0MzBmNDliMzgwNTFlZjY2ZWIyYmFhOTk6YTE3MzRhY2I0MmU0NDNiYWE5YmU1MjMyYzZlYWNmMWE='
+              
+            ])->asForm()->post('https://accounts.spotify.com/api/token', [
+                'grant_type' => 'refresh_token',
+                'refresh_token' => $tokenactual->refresh_token,
+            ]);
+            $respuesta=response($refrescartoken);
+            $dividido=explode(':',$respuesta);
+            $tokenobtenido=explode('"',$dividido[5]);
+            $tokendb=Spotify_token::first();
            
-           $agregaracola = Http::withToken($tokenactual->token)
-           ->post("https://api.spotify.com/v1/me/player/queue?uri=spotify%3Atrack%3A".$track[2]."&device_id=".$deviceid);
+            $tokendb->token=$tokenobtenido[1];
+            $tokendb->save();
+            $tokenvalido=$tokenobtenido[1];
+            $cancionactual= Http::withToken($tokenvalido)
+            ->get('https://api.spotify.com/v1/me/player');
+            $array = json_decode($cancionactual, true);
+            $currentplayer=$array['device']['id'];
+           }
+           $agregaracola = Http::withToken($tokenvalido)
+           ->post("https://api.spotify.com/v1/me/player/queue?uri=spotify%3Atrack%3A".$track[2]."&device_id=".$currentplayer);
    
           
            if($agregaracola->successful())
@@ -205,61 +230,17 @@ class MusicController extends Controller
                
                }
               
-               return back()->with('success','Agregado a la lista! Tu cancion sonará en breve...');
+               return back()->with('success','Tu cancion se agrego a la lista! Puedes agregar mas canciones!');
    
            }
-           else
-           {
-            $refrescartoken=Http::withHeaders([
-                'Authorization' => 'Basic YTc4MTQ3ODE0MzBmNDliMzgwNTFlZjY2ZWIyYmFhOTk6YTE3MzRhY2I0MmU0NDNiYWE5YmU1MjMyYzZlYWNmMWE='
-              
-            ])->asForm()->post('https://accounts.spotify.com/api/token', [
-                'grant_type' => 'refresh_token',
-                'refresh_token' => $tokenactual->refresh_token,
-            ]);
-            $respuesta=response($refrescartoken);
-            $dividido=explode(':',$respuesta);
-            $tokenobtenido=explode('"',$dividido[5]);
-            $tokendb=Spotify_token::first();
            
-            $tokendb->token=$tokenobtenido[1];
-            $tokendb->save();
-            $agregaracola = Http::withToken($tokenobtenido[1])
-           ->post("https://api.spotify.com/v1/me/player/queue?uri=spotify%3Atrack%3A".$track[2]."&device_id=".$deviceid);
-           
-           $canciones=Ranking_track::where('uri',$request->trackid)->get();
-           if($canciones->count()==0)
-           {
-            Ranking_track::create([
-                'nombre'=>$request->cancion,
-                'artista'=>$request->artista,
-                'foto'=>$request->foto,
-                'uri'=>$request->trackid,
-            ]);
-           }
-           else
-           {
-               foreach($canciones as $cancion)
-               {
-                   $cancion->increment('reproducido',1);
-                   break;
-               }
-           
-           }
-            
-           return back()->with('success','Agregado a la lista! Tu cancion sonará en breve...');
-           }
        }
        else
        {
            return back()->with('danger','No se encuentra habilitada la rockola');
    
        }
-    }
-    else
-    {
-        return back()->with('danger','No se habilito el reproductor, por favor notifique al administrador');
-    }
+   
     
   
  
