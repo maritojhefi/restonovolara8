@@ -15,6 +15,9 @@
         <li class="nav-item">
             <a class="nav-link" id="pills-2-tab" data-toggle="pill" href="#pills-2" role="tab" aria-controls="pills-2" aria-selected="true">Bebida</a>
         </li>
+        <li class="nav-item">
+            <a class="btn btn-rounded btn-info btn-floating" href="javascript:location.reload()" ><i class="zmdi zmdi-refresh zmdi-hc-fw font-size-22 v-align-middle text-white"></i></a>
+        </li>
     </ul>
     <div class="tab-content" id="pills-tabContent-1">
         <div class="tab-pane active show" id="pills-1" role="tabpanel" aria-labelledby="pills-1">
