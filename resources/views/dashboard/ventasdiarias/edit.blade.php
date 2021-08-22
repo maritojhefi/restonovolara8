@@ -254,7 +254,7 @@
       </button>
     </div>
     <!-- Scrolling long content modal demo -->
-		<div class="modal fade" id="exampleModalFixedHeight" tabindex="-1" role="dialog" aria-labelledby="exampleModalFixedHeightTitle" aria-hidden="true" data-modal="scroll">
+		<div class="modal fade" id="exampleModalFixedHeight" tabindex="-1" role="dialog" aria-labelledby="exampleModalFixedHeightTitle" aria-hidden="true">
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
 					<div class="modal-header">
