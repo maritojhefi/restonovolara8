@@ -227,15 +227,15 @@ class MusicController extends Controller
             $agregaracola = Http::withToken($tokenobtenido[1])
            ->post("https://api.spotify.com/v1/me/player/queue?uri=spotify%3Atrack%3A".$track[2]."&device_id=".$deviceid);
            
-           $canciones=Ranking_track::where('uri',$musica)->get();
+           $canciones=Ranking_track::where('uri',$request->trackid)->get();
            if($canciones->count()==0)
            {
-               Ranking_track::create([
-                   'nombre'=>$nombre,
-                   'artista'=>$artista,
-                   'foto'=>$foto,
-                   'uri'=>$musica,
-               ]);
+            Ranking_track::create([
+                'nombre'=>$request->cancion,
+                'artista'=>$request->artista,
+                'foto'=>$request->foto,
+                'uri'=>$request->trackid,
+            ]);
            }
            else
            {
