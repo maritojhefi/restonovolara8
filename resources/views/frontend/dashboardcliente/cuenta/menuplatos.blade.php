@@ -2,8 +2,8 @@
 @section('content')
 <br>
 <div class="col-12">
-    <div class="alert alert-info alert-dismissible fade show" role="alert">
-<strong>Pulse en el boton "Agregar" para realizar el pedido a su mesa!</strong>
+    <div class="alert alert-secondary alert-rounded alert-dismissible fade show" id="contenido" role="alert">
+<strong>La funcion de realizar pedidos desde el movil a su mesa se habilitara pronto!</strong>
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true" class="la la-close"></span>
         </button>
@@ -49,13 +49,13 @@
                        @if ($producto->category_id==$comida->id)
 
                       
-                  <div class="row no-gutters m-b-30">
+                  <div class="row no-gutters ">
                     <div class="col-auto">
                         @if ($producto->image)
-                        <img  class="img-thumbnail max-w-100 {{$producto->cantidad==0 || $producto->estado=='inactivo'?'opaco':''}}" src="{{asset('images')}}/{{$producto->image->imagen}}" alt="Card image">
+                        <img  class="rounded-circle max-w-100 {{$producto->cantidad==0 || $producto->estado=='inactivo'?'opaco':''}}" src="{{asset('images')}}/{{$producto->image->imagen}}" alt="Card image">
 
                         @else
-                        <img src="{{asset('images/food.png')}}" class="img-thumbnail max-w-100" alt="">
+                        <img src="{{asset('images/food.png')}}" class="rounded-circle max-w-100" alt="">
                         @endif  
                     </div>
                     <div class="col">
@@ -65,7 +65,7 @@
                             @if ($producto->cantidad==0 || $producto->estado=='inactivo')
                             <a href="#">  <small class="text-muted"><span class="badge badge-pill badge-danger"><i class="font-size-22 v-align-middle la la-ban text-white"></i>No disponible</span></small> </a> <br>
                             @else
-                            <a href="#">  <small class="text-muted"><span class="badge badge-pill badge-secondary"><i class="font-size-22 v-align-middle zmdi zmdi-plus zmdi-hc-fw text-white"></i>Agregar</span></small> </a> <br>
+                            <a href="#">  <small class="text-muted"><span class="badge badge-pill badge-success"><i class="font-size-22 v-align-middle zmdi zmdi-check zmdi-hc-fw text-white"></i>Disponible</span></small> </a> <br>
 
                             @endif
 
@@ -85,13 +85,13 @@
                        @foreach ($productos as $producto)
                        @if ($producto->category_id==$comida->id)
                      
-                       <div class="row no-gutters m-b-30">
+                       <div class="row no-gutters ">
                         <div class="col-auto">
                             @if ($producto->image)
-                            <img  class="img-thumbnail max-w-100 {{$producto->cantidad==0 || $producto->estado=='inactivo'?'opaco':''}}" src="{{asset('images')}}/{{$producto->image->imagen}}" alt="Card image">
+                            <img  class="rounded-circle max-w-100 {{$producto->cantidad==0 || $producto->estado=='inactivo'?'opaco':''}}" src="{{asset('images')}}/{{$producto->image->imagen}}" alt="Card image">
     
                             @else
-                            <img src="{{asset('images/food.png')}}" class="img-thumbnail max-w-100" alt="">
+                            <img src="{{asset('images/food.png')}}" class="rounded-circle max-w-100" alt="">
                             @endif  
                         </div>
                         <div class="col">
@@ -101,7 +101,7 @@
                                 @if ($producto->cantidad==0 || $producto->estado=='inactivo')
                                 <a href="#">  <small class="text-muted"><span class="badge badge-pill badge-danger"><i class="font-size-22 v-align-middle la la-ban text-white"></i>No disponible</span></small> </a> <br>
                                 @else
-                                <a href="#">  <small class="text-muted"><span class="badge badge-pill badge-secondary"><i class="font-size-22 v-align-middle zmdi zmdi-plus zmdi-hc-fw text-white"></i>Agregar</span></small> </a> <br>
+                                <a href="#">  <small class="text-muted"><span class="badge badge-pill badge-success"><i class="font-size-22 v-align-middle zmdi zmdi-check zmdi-hc-fw text-white"></i>Disponible</span></small> </a> <br>
     
                                 @endif    
                             </div>
@@ -154,13 +154,13 @@
                            @if ($producto->category_id==$comida->id)
     
                           
-                      <div class="row no-gutters m-b-30">
+                      <div class="row no-gutters ">
                         <div class="col-auto">
                             @if ($producto->image)
-                            <img  class="img-thumbnail max-w-100 {{$producto->cantidad==0 || $producto->estado=='inactivo'?'opaco':''}}" src="{{asset('images')}}/{{$producto->image->imagen}}" alt="Card image">
+                            <img  class="rounded-circle max-w-100 {{$producto->cantidad==0 || $producto->estado=='inactivo'?'opaco':''}}" src="{{asset('images')}}/{{$producto->image->imagen}}" alt="Card image">
     
                             @else
-                            <img src="{{asset('images/food.png')}}" class="img-thumbnail max-w-100" alt="">
+                            <img src="{{asset('images/food.png')}}" class="rounded-circle max-w-100" alt="">
                             @endif  
                         </div>
                         <div class="col">
@@ -170,7 +170,7 @@
                                 @if ($producto->cantidad==0 || $producto->estado=='inactivo')
                                 <a href="#">  <small class="text-muted"><span class="badge badge-pill badge-danger"><i class="font-size-22 v-align-middle la la-ban text-white"></i>No disponible</span></small> </a> <br>
                                 @else
-                                <a href="#">  <small class="text-muted"><span class="badge badge-pill badge-secondary"><i class="font-size-22 v-align-middle zmdi zmdi-plus zmdi-hc-fw text-white"></i>Agregar</span></small> </a> <br>
+                                <a href="#">  <small class="text-muted"><span class="badge badge-pill badge-success"><i class="font-size-22 v-align-middle zmdi zmdi-check zmdi-hc-fw text-white"></i>Disponible</span></small> </a> <br>
     
                                 @endif    
                             </div>
@@ -189,13 +189,13 @@
                            @foreach ($productos as $producto)
                            @if ($producto->category_id==$comida->id)
                          
-                           <div class="row no-gutters m-b-30">
+                           <div class="row no-gutters ">
                             <div class="col-auto">
                                 @if ($producto->image)
-                                <img  class="img-thumbnail max-w-100 {{$producto->cantidad==0 || $producto->estado=='inactivo'?'opaco':''}}" src="{{asset('images')}}/{{$producto->image->imagen}}" alt="Card image">
+                                <img  class="rounded-circle max-w-100 {{$producto->cantidad==0 || $producto->estado=='inactivo'?'opaco':''}}" src="{{asset('images')}}/{{$producto->image->imagen}}" alt="Card image">
         
                                 @else
-                                <img src="{{asset('images/food.png')}}" class="img-thumbnail max-w-100" alt="">
+                                <img src="{{asset('images/food.png')}}" class="rounded-circle max-w-100" alt="">
                                 @endif  
                             </div>
                             <div class="col">
@@ -205,7 +205,7 @@
                                     @if ($producto->cantidad==0 || $producto->estado=='inactivo')
                                     <a href="#">  <small class="text-muted"><span class="badge badge-pill badge-danger"><i class="font-size-22 v-align-middle la la-ban text-white"></i>No disponible</span></small> </a> <br>
                                     @else
-                                    <a href="#">  <small class="text-muted"><span class="badge badge-pill badge-secondary"><i class="font-size-22 v-align-middle zmdi zmdi-plus zmdi-hc-fw text-white"></i>Agregar</span></small> </a> <br>
+                                    <a href="#">  <small class="text-muted"><span class="badge badge-pill badge-success"><i class="font-size-22 v-align-middle zmdi zmdi-check zmdi-hc-fw text-white"></i>Disponible</span></small> </a> <br>
         
                                     @endif        
                                 </div>
@@ -228,4 +228,19 @@
 
   
 </div>
+<script>
+    $(document).ready(function() {
+        //Ejecutamos método que oculta las cajas
+        OcultarContenedores1();
+      });
+      
+      //Método que oculta el primer contenedor para mostrar el otro
+      function OcultarContenedores1() {
+        setTimeout(function() {
+          $("#contenido").hide(1000);
+        }, 5000);
+      }
+     
+
+</script>
 @endsection
