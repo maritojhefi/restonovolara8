@@ -303,9 +303,12 @@ class SaleController extends Controller
 
     public function deleteproductocuenta(Request $request)
     {
+        $success=true;
         $cuenta = Sale::find($request->id_sale);
         $producto=Product::find($request->id_producto);
        
+       try {
+        DB::beginTransaction();
         for ($i=1; $i <= $request->cantidad; $i++) { 
             DB::table('sales')->where('id','=',$request->id_sale)->decrement('total',$producto->precioventa);
             $cuenta->pendientes()->detach($request->id_producto);
@@ -317,8 +320,14 @@ class SaleController extends Controller
         $contando=$listafiltrada->countBy();
         $coleccion=collect($contando);
         $personalizado=collect();
-
-        foreach($coleccion as $nombre=>$cantidad)
+       } catch (\Throwable $th) {
+           DB::rollback();
+          $success=false;
+       }
+        if($success==true)
+        {
+            DB::commit();
+            foreach($coleccion as $nombre=>$cantidad)
         {
             $producto=Product::where('nombre',$nombre)->first();
            $subtotal=$producto->precioventa*$cantidad;
@@ -326,34 +335,49 @@ class SaleController extends Controller
 
         }     
         return response($personalizado);  
+        }
+        
+        
 
         
     }
     public function deleteproductocuentaCompleta(Request $request)
     {
+        $success=false;
         $cuenta = Sale::find($request->id_sale);
         $producto=Product::find($request->id_producto);
-       
-        for ($i=1; $i <= $request->cantidad; $i++) { 
-            DB::table('sales')->where('id','=',$request->id_sale)->decrement('total',$producto->precioventa);
-            $cuenta->products()->detach($request->id_producto);
+        try {
+            DB::beginTransaction();
+            for ($i=1; $i <= $request->cantidad; $i++) { 
+            
+                DB::table('sales')->where('id','=',$request->id_sale)->decrement('total',$producto->precioventa);
+                $cuenta->products()->detach($request->id_producto);
+            }
+            DB::table('products')->where('id','=',$request->id_producto)->increment('cantidad',$request->cantidad);
+    
+            $listafiltrada=$cuenta->products->pluck('nombre');
+            $total=$cuenta->products->pluck('precioventa')->sum();
+            $contando=$listafiltrada->countBy();
+            $coleccion=collect($contando);
+            $personalizado=collect();
+            $success=true;
+        } catch (\Throwable $th) {
+            $success=false;
+            DB::rollback();
         }
-        DB::table('products')->where('id','=',$request->id_producto)->increment('cantidad',$request->cantidad);
-
-        $listafiltrada=$cuenta->products->pluck('nombre');
-        $total=$cuenta->products->pluck('precioventa')->sum();
-        $contando=$listafiltrada->countBy();
-        $coleccion=collect($contando);
-        $personalizado=collect();
-
-        foreach($coleccion as $nombre=>$cantidad)
+        if($success==true)
         {
-            $producto=Product::where('nombre',$nombre)->first();
-           $subtotal=$producto->precioventa*$cantidad;
-            $personalizado->prepend(['nombre'=>$nombre,'cantidad'=>$cantidad,'precio'=>$producto->precioventa,'subtotal'=>$subtotal,'id'=>$producto->id,'idmesa'=>$cuenta->id]);
-
-        }     
-        return response($personalizado);  
+            DB::commit();
+            foreach($coleccion as $nombre=>$cantidad)
+            {
+                $producto=Product::where('nombre',$nombre)->first();
+               $subtotal=$producto->precioventa*$cantidad;
+                $personalizado->prepend(['nombre'=>$nombre,'cantidad'=>$cantidad,'precio'=>$producto->precioventa,'subtotal'=>$subtotal,'id'=>$producto->id,'idmesa'=>$cuenta->id]);
+    
+            }     
+            return response($personalizado);  
+        }
+       
 
         
     }
@@ -365,6 +389,7 @@ class SaleController extends Controller
         $producto=Product::find($request->id_producto);
         if($producto->cantidad>0)
         {
+            DB::beginTransaction();
             DB::table('sales')->where('id','=',$request->id_sale)->increment('total',$producto->precioventa);
             DB::table('products')->where('id','=',$request->id_producto)->decrement('cantidad',1);
             
@@ -381,7 +406,8 @@ class SaleController extends Controller
                $subtotal=$producto->precioventa*$cantidad;
                 $personalizado->prepend(['nombre'=>$nombre,'cantidad'=>$cantidad,'precio'=>$producto->precioventa,'subtotal'=>$subtotal,'id'=>$producto->id,'idmesa'=>$cuenta->id]);
     
-            }     
+            } 
+            DB::commit();    
             return response($personalizado);  
         }
         else
