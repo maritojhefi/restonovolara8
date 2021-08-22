@@ -129,8 +129,8 @@
                   <table class="table table-striped">
                     <thead>
                       <tr>
-                        <th>Producto</th>
-                        <th>Cantidad</th>
+                        <th>Cant</th>
+                        <th>Nombre</th>
                         
                         <th>Total</th>
                       </tr>
@@ -255,7 +255,7 @@
      var link='';
         for (var a in approved) {
           
-            string= string+'<tr><td ><strong name="number" id="cantidad'+approved[i].id+'" >'+ approved[i].cantidad+'</strong></td><td>'+ approved[i].nombre+'</td><td>'+ approved[i].subtotal+' Bs</td><td></tr>'
+            string= string+'<tr><td ><strong name="number" id="cantidad'+approved[i].id+'" >'+ approved[i].cantidad+'</strong></td><td><strong>'+ approved[i].nombre+'</strong></td><td>'+ approved[i].subtotal+' Bs</td><td></tr>'
           sum=sum+parseInt(approved[i].subtotal);
           i++;
       }

@@ -316,7 +316,7 @@
       var link='';
          for (var a in approved) {
            
-           string= string+'<tr><td>'+ approved[i].nombre+'</td><td ><button class="btn btn-sm btn-success" name="number" id="cantidad'+approved[i].id+'" >'+ approved[i].cantidad+'</button></td><td>'+ approved[i].precio+' Bs</td><td>'+ approved[i].subtotal+' Bs</td><td><a href="javascript:void(0)" id="delete'+approved[i].id+'" onclick="deleteproducto('+approved[i].id+','+approved[i].cantidad+','+approved[i].idmesa+');" data-id="'+approved[i].id+'"><span class="material-icons">delete</span></a></td></tr>'
+           string= string+'<tr><td><strong>'+ approved[i].nombre+'</strong></td><td ><button class="btn btn-sm btn-success" name="number" id="cantidad'+approved[i].id+'" >'+ approved[i].cantidad+'</button></td><td>'+ approved[i].precio+' Bs</td><td>'+ approved[i].subtotal+' Bs</td><td><a href="javascript:void(0)" id="delete'+approved[i].id+'" onclick="deleteproducto('+approved[i].id+','+approved[i].cantidad+','+approved[i].idmesa+');" data-id="'+approved[i].id+'"><span class="material-icons">delete</span></a></td></tr>'
            sum=sum+parseInt(approved[i].subtotal);
            i++;
        }

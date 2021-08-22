@@ -375,7 +375,7 @@ function leerjson(approved){
    var link='';
       for (var a in approved) {
         
-        string= string+'<tr><td ><a href="javascript:void(0)" id="suma'+approved[i].id+'" onclick="sumarproducto('+approved[i].id+');" data-id="'+approved[i].id+'" class="tile-primary sumar"><i  class="zmdi zmdi-plus zmdi-hc-fw sumar text-danger"></i></a><strong name="number" id="cantidad'+approved[i].id+'" >'+ approved[i].cantidad+'</strong></td><td>'+ approved[i].nombre+'</td><td><a href="javascript:void(0)" id="delete'+approved[i].id+'" onclick="deleteproducto('+approved[i].id+','+approved[i].cantidad+');" data-id="'+approved[i].id+'"><span class="material-icons">delete</span></a></td></tr>'
+        string= string+'<tr><td ><a href="javascript:void(0)" id="suma'+approved[i].id+'" onclick="sumarproducto('+approved[i].id+');" data-id="'+approved[i].id+'" class="tile-primary sumar"><i  class="zmdi zmdi-plus zmdi-hc-fw sumar text-danger"></i></a><strong name="number" id="cantidad'+approved[i].id+'" >'+ approved[i].cantidad+'</strong></td><td><strong>'+ approved[i].nombre+'</strong></td><td><a href="javascript:void(0)" id="delete'+approved[i].id+'" onclick="deleteproducto('+approved[i].id+','+approved[i].cantidad+');" data-id="'+approved[i].id+'"><span class="material-icons">delete</span></a></td></tr>'
         sum=sum+parseInt(approved[i].subtotal);
       
         i++;
