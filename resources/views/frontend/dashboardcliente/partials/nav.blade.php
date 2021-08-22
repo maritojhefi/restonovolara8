@@ -161,8 +161,36 @@
            
             
         </li>
-        
-        
+        @auth
+        <li class="nav-item dropdown">
+            <a class="nav-link nav-pill user-avatar" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+              
+               <img src="{{asset('asset-cliente/person.gif')}}" class="w-35 rounded-circle"  style="width: 55px!important;">
+
+                
+
+            </a>
+            <div class="dropdown-menu dropdown-menu-right dropdown-menu-accout">
+                <div class="dropdown-header pb-3">
+                    <div class="media d-user">
+                        <img class="align-self-center mr-3 w-40 rounded-circle" src="{{asset('images/person.png')}}" alt="Albert Einstein">
+                        <div class="media-body">
+                            <h5 class="mt-0 mb-0">{{auth()->user()->name}}</h5>
+                            <span>{{auth()->user()->email}}</span>
+                        </div>
+                    </div>
+                </div>
+          
+                
+                <a class="dropdown-item" href="{{ route('logout') }}"  onclick="event.preventDefault();
+                document.getElementById('logout-form').submit();"><i class="icon dripicons-lock-open"></i> Cerrar Sesion</a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                    @csrf
+                </form>
+            </div>
+        </li>
+        @endauth
+       
       
     </ul>
     <form role="search" action="pages.search.html" class="navbar-form">

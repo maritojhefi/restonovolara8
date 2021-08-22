@@ -72,7 +72,7 @@
                                 <img class="card-img" src="{{asset('images/food.png')}}" alt="Card image">
 
                                 @endif                                <div class="card-img-overlay">
-                                    <button type="submit" data-id="{{$producto->id}}" data-nombre="{{$producto->nombre}}" class="btn btn-secondary btn-rounded btn-floating btn-sm addtolist" style="position:absolute;bottom:30px;right:15px;">
+                                    <button type="submit" data-id="{{$producto->id}}" {{$producto->cantidad==0 || $producto->estado=='inactivo'?'disabled':''}} data-nombre="{{$producto->nombre}}" class="btn btn-secondary btn-rounded btn-floating btn-sm addtolist" style="position:absolute;bottom:30px;right:15px;">
                                       <span class="material-icons">
                                         add_task
                                         </span>
@@ -214,7 +214,7 @@
 
                                 @endif
                                 <div class="card-img-overlay">
-                                    <button type="submit" data-id="{{$producto->id}}" data-nombre="{{$producto->nombre}}" class="btn btn-secondary btn-rounded btn-floating btn-sm addtolist" style="position:absolute;bottom:30px;right:15px;">
+                                    <button type="submit" data-id="{{$producto->id}}" {{$producto->cantidad==0 || $producto->estado=='inactivo'?'disabled':''}} data-nombre="{{$producto->nombre}}" class="btn btn-secondary btn-rounded btn-floating btn-sm addtolist" style="position:absolute;bottom:30px;right:15px;">
                                       <span class="material-icons">
                                         add_task
                                         </span>

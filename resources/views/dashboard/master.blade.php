@@ -75,7 +75,11 @@ a.disabled {
   pointer-events: none;
   cursor: default;
 }
-
+.opaco{
+  opacity: 0.3;
+    filter: blur(1px); /* msie */
+    background-color: rgb(211, 65, 65);
+}
 </style>
 
 <body class="content-menu  {{auth()->user()->rol->nombre=='mesero'? 'content-menu-close' : ''}}">

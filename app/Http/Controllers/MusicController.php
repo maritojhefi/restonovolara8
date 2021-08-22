@@ -174,16 +174,14 @@ class MusicController extends Controller
        {
            $tokenactual=$tokens->last();
      
-           $infoactual= Http::withToken($tokenactual->token)
-           ->post("	https://api.spotify.com/v1/me/player");
-           dd($infoactual);
+           
            $agregaracola = Http::withToken($tokenactual->token)
            ->post("https://api.spotify.com/v1/me/player/queue?uri=spotify%3Atrack%3A".$track[2]."&device_id=".$deviceid);
    
           
            if($agregaracola->successful())
            {
-               $token=auth()->user()->token;
+               $token=session('tokenmesa');
                $mesa=Sale::where('token',$token)->first();
                DB::table('sales')->where('token',$token)->increment('rockola',1);
               
@@ -207,13 +205,49 @@ class MusicController extends Controller
                
                }
               
-               return back()->with('success','Agregado a la cola! Tu cancion sonará en breve...');
+               return back()->with('success','Agregado a la lista! Tu cancion sonará en breve...');
    
            }
            else
            {
-               return back()->with('danger','Error de token, notifique al administrador!');
-   
+            $refrescartoken=Http::withHeaders([
+                'Authorization' => 'Basic YTc4MTQ3ODE0MzBmNDliMzgwNTFlZjY2ZWIyYmFhOTk6YTE3MzRhY2I0MmU0NDNiYWE5YmU1MjMyYzZlYWNmMWE='
+              
+            ])->asForm()->post('https://accounts.spotify.com/api/token', [
+                'grant_type' => 'refresh_token',
+                'refresh_token' => $tokenactual->refresh_token,
+            ]);
+            $respuesta=response($refrescartoken);
+            $dividido=explode(':',$respuesta);
+            $tokenobtenido=explode('"',$dividido[5]);
+            $tokendb=Spotify_token::first();
+           
+            $tokendb->token=$tokenobtenido[1];
+            $tokendb->save();
+            $agregaracola = Http::withToken($tokenobtenido[1])
+           ->post("https://api.spotify.com/v1/me/player/queue?uri=spotify%3Atrack%3A".$track[2]."&device_id=".$deviceid);
+           
+           $canciones=Ranking_track::where('uri',$musica)->get();
+           if($canciones->count()==0)
+           {
+               Ranking_track::create([
+                   'nombre'=>$nombre,
+                   'artista'=>$artista,
+                   'foto'=>$foto,
+                   'uri'=>$musica,
+               ]);
+           }
+           else
+           {
+               foreach($canciones as $cancion)
+               {
+                   $cancion->increment('reproducido',1);
+                   break;
+               }
+           
+           }
+            
+           return back()->with('success','Agregado a la lista! Tu cancion sonará en breve...');
            }
        }
        else
