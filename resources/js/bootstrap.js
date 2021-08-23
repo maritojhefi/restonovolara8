@@ -37,8 +37,9 @@ import Echo from 'laravel-echo';
     broadcaster: 'pusher',
     key: '345345',
     wsHost: window.location.hostname,
-    wsPort: 6001,
-    forceTLS: false,
+    wsPort: window.APP_DEBUG ? 6001 : 6002,
+    wssPort:window.APP_DEBUG ? 6001 : 6002,
+    forceTLS: !window.APP_DEBUG,
     disableStats: true,
-    encrypted:true,
+    enabledTransports: ['ws', 'wss'],
  });
