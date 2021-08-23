@@ -1,11 +1,11 @@
 @extends('dashboard.ventasdiarias.cabecera')
 @section('section')
 
-<button type="button" class="btn btn-accent btn-rounded btn-block btn-floating m-2  text-white showlist" data-toggle="modal"  data-target="#exampleModalFixedHeight">
+<button type="button" class="btn btn-secondary btn-rounded btn-block btn-floating m-2   showlist" data-toggle="modal"  data-target="#exampleModalFixedHeight">
   Ver Lista del Pedido(mesa : {{$cuenta->table->numero}})
 </button>
 
-      <ul class="nav nav-pills nav-pills-primary mb-3" id="pills-demo-1" role="tablist">
+      <ul class="nav nav-pills nav-pills-danger mb-3" id="pills-demo-1" role="tablist" >
           <li class="nav-item">
               <a class="nav-link  active show" id="pills-1-tab" data-toggle="pill" href="#pills-1" role="tab" aria-controls="pills-1" aria-selected="false">Comida</a>
           </li>

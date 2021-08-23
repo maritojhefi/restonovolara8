@@ -25,7 +25,6 @@
                <span class="badge badge-pill badge-accent" data-toggle-state="aside-left-open">Pagos Online</span>
                <span class="badge badge-pill badge-success" data-toggle-state="aside-left-open">Mucho mas!</span>
                <div class="row mx-auto">
-                <img class="mx-auto rounded-circle" src="{{asset('restaurant/images/loader-animation.gif')}}" data-toggle-state="aside-left-open" alt="">
 
             </div>
             </p>
