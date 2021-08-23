@@ -15,7 +15,8 @@
 	<link rel="stylesheet" href="{{asset("dashboard/css/icons/material-design-iconic-font.min.css")}}">
 	<script type="text/javascript" src="{{asset("dashboard/vendor/jquery/dist/jquery.min.js")}}"></script>
 	@laravelPWA
-
+	<script type="text/javascript" src="{{asset("js/app.js")}}"></script>
+	@livewireStyles
 </head>
 <style>
 
@@ -108,7 +109,7 @@ a.disabled {
 					</aside>
 			</div>
 		</div>
-	
+		@livewireScripts
 		<script src="{{asset('js/jsquantum.js')}}"></script>
 
 	</body>

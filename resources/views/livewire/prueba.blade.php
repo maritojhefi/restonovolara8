@@ -1,0 +1,3 @@
+<div>
+hola {{$mensaje}}
+</div>

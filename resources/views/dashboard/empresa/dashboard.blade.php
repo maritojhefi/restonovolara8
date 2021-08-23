@@ -1,6 +1,6 @@
 @extends('dashboard.master')
 @section('content')
-    
+    @livewire('prueba')
 @if ($ventas !=null && $totalvendido!=null && $coleccion!=null)
     
 
@@ -194,4 +194,5 @@
 @else
 Aun no se tienen registros de ventas
 @endif
+
 @endsection

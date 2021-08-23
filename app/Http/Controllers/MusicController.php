@@ -172,6 +172,7 @@ class MusicController extends Controller
             $tokenvalido=$tokenactual->token;
            $cancionactual= Http::withToken($tokenvalido)
             ->get('https://api.spotify.com/v1/me/player');
+            dd($cancionactual);
            if($cancionactual->successful())
            {
             $array = json_decode($cancionactual, true);
