@@ -1,4 +1,7 @@
 <div>
+    <div id="app">
+        <div id="" class="row">
+           
     @foreach ($cuentas as $cuenta)
     <div class="col-sm-3 col-6 col-md-4 col-lg-3" >
 
@@ -161,4 +164,6 @@
             </div>
         </div>
     @endforeach
+</div>
+</div>
 </div>

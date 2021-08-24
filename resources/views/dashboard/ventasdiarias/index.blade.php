@@ -3,15 +3,12 @@
 
 <button class="btn btn-secondary btn-block mt-2 mb-4 btn-lg btn-floating" data-toggle="modal" data-target="#crearcuentamodal">Abrir una nueva cuenta</button>
 
-    <div id="app">
-        <div id="" class="row">
-           
+    
           
                 @livewire('mesas-activas')
                 
                
-        </div>
-    </div>
+  
     
     
     <div class="modal fade" id="crearcuentamodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
