@@ -113,6 +113,7 @@ class SaleController extends Controller
                     'mesa_id'=>$mesa,
                     'observacion'=>$request->observacion,
                 ]);
+                event(new Mensaje('hola'));
                 return back()->with('success','Mesa: '.$mesass->numero.' creada');
                 break;
             }
