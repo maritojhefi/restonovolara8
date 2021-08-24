@@ -43,8 +43,7 @@ class SaleController extends Controller
         $meseros = User::whereHas('rol', function (Builder $query) {
             $query->where('nombre', 'like', 'Mesero');
         })->get();
-        $cuentas = Sale::orderBy('created_at','desc')->get();
-        return view('dashboard.ventasdiarias.index',compact('meseros','cuentas'));
+        return view('dashboard.ventasdiarias.index',compact('meseros'));
     }
     public function editarCuenta(Sale $cuenta)
     {

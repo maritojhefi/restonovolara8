@@ -12,10 +12,8 @@ class MesasActivas extends Component
     protected $listeners = ['echo:canal,Mensaje' => 'render'];
     public function render()
     {
-        $meseros = User::whereHas('rol', function (Builder $query) {
-            $query->where('nombre', 'like', 'Mesero');
-        })->get();
+      
         $cuentas = Sale::orderBy('created_at','desc')->get();
-        return view('livewire.mesas-activas',compact('meseros','cuentas'));
+        return view('livewire.mesas-activas',compact('cuentas'));
     }
 }
