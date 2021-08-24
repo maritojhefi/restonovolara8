@@ -114,7 +114,7 @@ class SaleController extends Controller
                     'mesa_id'=>$mesa,
                     'observacion'=>$request->observacion,
                 ]);
-                event(new Mensaje('hola'));
+                event(new Mensaje('actualizar'));
                 return back()->with('success','Mesa: '.$mesass->numero.' creada');
                 break;
             }
@@ -300,6 +300,7 @@ class SaleController extends Controller
     public function deletecuenta(Sale $cuenta)
     {
         $cuenta->delete();
+        event(new Mensaje('actualizar'));
         return back()->with('info','La mesa #'.$cuenta->table->numero.' fue borrada');
     }
 
@@ -423,17 +424,6 @@ class SaleController extends Controller
     public function archivarcuenta(Sale $cuenta)
     {
         
-        if($cuenta->token!=null)
-        {
-            $usuarioscontoken=User::where('token',$cuenta->token)->get();
-            foreach($usuarioscontoken as $usertoken)
-            {
-                $usertoken->token=null;
-                $usertoken->update();
-            }
-            
-        }
-
         if($cuenta->total!=0)
         {
             $mesero=$cuenta->usuario_id;
@@ -467,11 +457,12 @@ class SaleController extends Controller
             $cuenta->products()->detach();
             DB::table('cajas')->where('id','=',$caja[0]->id)->increment('monto_acumulado',$sumaproductos);
             DB::table('cajas')->where('id','=',$caja[0]->id)->increment('rockola_acumulado',$cuenta->rockola);
-
+            event(new Mensaje('actualizar'));
             return back()->with('success','La mesa: '. $cuenta->table->numero.' fue archivada!');
         }
         else{
             $cuenta->delete();
+            event(new Mensaje('actualizar'));
             return back()->with('danger','La mesa: '. $cuenta->table->numero.' no se archivo porque no tiene ningun producto!'); 
         }
         
@@ -481,6 +472,7 @@ class SaleController extends Controller
         DB::table('sales')
           ->where('id', $cuenta->id)
           ->update(['estado' => "pendiente"]);
+          event(new Mensaje('actualizar'));
           return back()->with('info','Se volvio a abrir la mesa: '.$cuenta->table->numero);
     }
     public function actualizarcantidad(Request $request)
@@ -538,7 +530,7 @@ class SaleController extends Controller
         DB::table('sales')
           ->where('id', $cuenta->id)
           ->update(['estado' => "finalizado"]);
-
+          event(new Mensaje('actualizar'));
 //actualizar mediante vue el estado
         //event(new OrderStatusChangedEvent($cuenta));
 
@@ -812,7 +804,8 @@ class SaleController extends Controller
         CustomPrint::imprimir($listastring);
             DB::table('product_sale')
                   ->where('sale_id', $cuenta->id)
-                  ->update(['estado_actual' => 'impreso']);             
+                  ->update(['estado_actual' => 'impreso']);   
+                  event(new Mensaje('actualizar'));          
          return back()->with('success','Pedido impreso!');
         }
         else
