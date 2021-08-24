@@ -69,6 +69,7 @@
             </div>
         </div>
     </div>
+    </div>
     <div id="snackbar"></div>
     <script>
         $('.modal').on('shown.bs.modal', function() {
