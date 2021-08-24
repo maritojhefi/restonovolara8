@@ -13,7 +13,8 @@
 	<link rel="stylesheet" href="{{asset("dashboard/css/icons/dripicons.min.css")}}">
 	<link rel="stylesheet" href="{{asset("dashboard/css/icons/line-awesome.min.css")}}">
 	<link rel="stylesheet" href="{{asset("dashboard/css/icons/material-design-iconic-font.min.css")}}">
-	
+	<script type="text/javascript" src="{{asset("dashboard/vendor/jquery/dist/jquery.min.js")}}"></script>
+
 	@laravelPWA
 	<script>
 		window.PUSHER_APP_KEY = '{{ config('broadcasting.connections.pusher.key') }}';
@@ -115,6 +116,8 @@ a.disabled {
 			</div>
 		</div>
 		@livewireScripts
+		<script src="{{asset('js/vendorquantum.js')}}"></script>
+
 		<script src="{{asset('js/jsquantum.js')}}"></script>
 
 	</body>

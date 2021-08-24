@@ -12,6 +12,34 @@ const mix = require('laravel-mix');
  */
 
 mix.scripts([
+    
+    'resources/quantumpro/js/global/app.js',
+    'resources/quantumpro/js/components/countUp-init.js',
+    'resources/quantumpro/js/cards/counter-group.js',
+    'resources/quantumpro/js/cards/recent-transactions.js',
+    'resources/quantumpro/js/cards/monthly-budget.js',
+    'resources/quantumpro/js/cards/users-chart.js',
+    'resources/quantumpro/js/cards/bounce-rate-chart.js',
+    'resources/quantumpro/js/cards/session-duration-chart.js',
+    'resources/quantumpro/js/components/sweetalert2.js',
+    'resources/quantumpro/js/components/switchery-init.js',
+    'resources/quantumpro/js/components/dropzone-init.js',
+    'resources/quantumpro/js/components/drag-and-drop-init.js',
+    'resources/quantumpro/js/components/ecom-dashboard-slider-init.js',
+    'resources/quantumpro/js/components/rateYo-init.js',
+    'resources/quantumpro/js/components/select2-init.js',
+
+
+
+
+
+], 'public/js/jsquantum.js')
+  
+.scripts([
+  
+    'resources/quantumpro/vendor/dragula/dragula.min.js',
+    'resources/quantumpro/vendor/wNumb/wNumb.js',
+    
     'resources/quantumpro/vendor/modernizr/modernizr.custom.js',
     'resources/quantumpro/vendor/jquery/dist/jquery.min.js',
     'resources/quantumpro/vendor/bootstrap/dist/js/bootstrap.bundle.min.js/',
@@ -28,37 +56,8 @@ mix.scripts([
     'resources/quantumpro/vendor/flot/jquery.flot.resize.js',
     'resources/quantumpro/vendor/flot/jquery.flot.time.js',
     'resources/quantumpro/vendor/flot.curvedlines/curvedLines.js',
-    'resources/quantumpro/vendor/datatables.net/js/jquery.dataTables.js',
     'resources/quantumpro/vendor/datatables.net-bs4/js/dataTables.bootstrap4.js',
-    'resources/quantumpro/js/global/app.js',
-    'resources/quantumpro/js/components/countUp-init.js',
-    'resources/quantumpro/js/cards/counter-group.js',
-    'resources/quantumpro/js/cards/recent-transactions.js',
-    'resources/quantumpro/js/cards/monthly-budget.js',
-    'resources/quantumpro/js/cards/users-chart.js',
-    'resources/quantumpro/js/cards/bounce-rate-chart.js',
-    'resources/quantumpro/js/cards/session-duration-chart.js',
-    'resources/quantumpro/vendor/sweetalert2/dist/sweetalert2.min.js',
-    'resources/quantumpro/js/components/sweetalert2.js',
-    'resources/quantumpro/js/components/switchery-init.js',
-    'resources/quantumpro/vendor/dropzone/dropzone.js',
-    'resources/quantumpro/js/components/dropzone-init.js',
-    'resources/quantumpro/js/components/drag-and-drop-init.js',
-    'resources/quantumpro/vendor/dragula/dragula.min.js',
-    'resources/quantumpro/vendor/wNumb/wNumb.js',
-    'resources/quantumpro/vendor/noUiSlider/nouislider.min.js',
-    'resources/quantumpro/vendor/rateYo/jquery.rateyo.min.js',
-    'resources/quantumpro/js/components/ecom-dashboard-slider-init.js',
-    'resources/quantumpro/js/components/rateYo-init.js',
-    'resources/quantumpro/vendor/select2/select2.min.js',
-    'resources/quantumpro/js/components/select2-init.js',
-
-
-
-
-
-], 'public/js/jsquantum.js')
-    
+],'public/js/vendorquantum.js')
 
 .styles([
     'resources/quantumpro/css/vendor/bootstrap.css',
