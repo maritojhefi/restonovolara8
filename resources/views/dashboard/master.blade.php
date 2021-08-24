@@ -13,13 +13,15 @@
 	<link rel="stylesheet" href="{{asset("dashboard/css/icons/dripicons.min.css")}}">
 	<link rel="stylesheet" href="{{asset("dashboard/css/icons/line-awesome.min.css")}}">
 	<link rel="stylesheet" href="{{asset("dashboard/css/icons/material-design-iconic-font.min.css")}}">
+	
+	<script type="text/javascript" src="{{asset("dashboard/vendor/jquery/dist/jquery.min.js")}}"></script>
+	@laravelPWA
 	<script>
 		window.PUSHER_APP_KEY = '{{ config('broadcasting.connections.pusher.key') }}';
 		window.APP_DEBUG = {{ config('app.debug') ? 'true' : 'false' }};
 	</script>
-	<script type="text/javascript" src="{{asset("dashboard/vendor/jquery/dist/jquery.min.js")}}"></script>
-	@laravelPWA
 	<script type="text/javascript" src="{{asset("js/app.js")}}"></script>
+	
 	@livewireStyles
 </head>
 <style>
