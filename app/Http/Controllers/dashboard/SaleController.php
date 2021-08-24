@@ -12,6 +12,7 @@ use App\Categoria;
 use Carbon\Carbon;
 use App\Sale_record;
 use App\Number_ticket;
+use App\Events\Mensaje;
 use Mike42\Escpos\Printer;
 use Illuminate\Support\Str;
 use App\Helpers\CustomPrint;
