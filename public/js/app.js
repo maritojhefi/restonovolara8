@@ -6295,8 +6295,8 @@ window.Echo = new laravel_echo__WEBPACK_IMPORTED_MODULE_0__["default"]({
   broadcaster: 'pusher',
   key: '345345',
   wsHost: window.location.hostname,
-  wsPort: 6001,
-  wssPort: 6001,
+  wsPort: window.APP_DEBUG ? 6001 : 6002,
+  wssPort: window.APP_DEBUG ? 6001 : 6002,
   forceTLS: !window.APP_DEBUG,
   disableStats: true,
   enabledTransports: ['ws', 'wss']
