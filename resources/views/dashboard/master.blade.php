@@ -21,8 +21,11 @@
 		window.APP_DEBUG = {{ config('app.debug') ? 'true' : 'false' }};
 	</script>
 	<script type="text/javascript" src="{{asset("js/app.js")}}"></script>
-	
+	<script src="{{asset('js/vendorquantum.js')}}"></script>
+	@stack('scripts')
+	<script src="{{asset('js/jsquantum.js')}}"></script>
 	@livewireStyles
+	@livewireScripts
 </head>
 <style>
 
@@ -115,10 +118,8 @@ a.disabled {
 					</aside>
 			</div>
 		</div>
-		@livewireScripts
-		<script src="{{asset('js/vendorquantum.js')}}"></script>
-
-		<script src="{{asset('js/jsquantum.js')}}"></script>
-
+		
+	
+		
 	</body>
 </html>

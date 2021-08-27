@@ -1,6 +1,6 @@
 <div>
-    <div id="app">
-        <div id="" class="row">
+   
+        <div class="row">
            
     @foreach ($cuentas as $cuenta)
     <div class="col-sm-3 col-6 col-md-4 col-lg-3" >
@@ -48,7 +48,7 @@
                         <div class="row d-flex justify-content-between align-items-center pl-3 pr-3">
                             @if ($cuenta->estado!="finalizado")
                             <a class="btn btn-success btn-rounded btn-floating   btn-sm text-white" href="{{route('cobrar',$cuenta->id)}}">Cobrar</a>
-                            <button class="btn btn-info btn-rounded btn-floating  btn-sm showlist"  data-toggle="modal" data-target="#exampleModalFixedHeight{{$cuenta->id}}" data-id="{{ $cuenta->id}}">
+                            <button class="btn btn-info btn-rounded btn-floating  btn-sm showlist" wire:click="cuentatotal('{{$cuenta->id}}')">
                                 <span class="material-icons">fact_check</span></button>
                                 <button class="btn btn-warning btn-rounded btn-floating  btn-sm gettoken" data-id="{{ $cuenta->id}}"  data-toggle="modal" data-target="#exampleModalLabel{{$cuenta->id}}">
                                     <span class="material-icons">
@@ -77,7 +77,7 @@
      
         </div>
 
-        <div class="modal modal-top-left-corner fade" data-backdrop="static" tabindex="-1" role="dialog" id="exampleModalLabel{{$cuenta->id}}" aria-labelledby="exampleModalLabel{{$cuenta->id}}" aria-hidden="true">
+        <div class="modal modal-top-left-corner fade"  data-backdrop="false"  tabindex="-1" role="dialog" id="exampleModalLabel{{$cuenta->id}}" aria-labelledby="exampleModalLabel{{$cuenta->id}}" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -96,7 +96,7 @@
             </div>
         </div>
 
-        <div class="modal fade" id="deleteModal{{$cuenta->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="deleteModal{{$cuenta->id}}" data-backdrop="false" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header">
@@ -122,48 +122,83 @@
               </div>
             </div>
           </div>
-          <div class="modal fade" id="exampleModalFixedHeight{{$cuenta->id}}"  tabindex="-1" role="dialog" aria-labelledby="exampleModalFixedHeightTitle" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title mr-3" id="exampleModalFixedHeightTitle">Cuenta total mesa # {{$cuenta->table->numero}}</h5>
+        
+    @endforeach
+        </div>
+       @isset($cuentaactual)
+       <div class="modal fade" id="modalcuenta" data-backdrop="false"  tabindex="-1" role="dialog" aria-labelledby="modalcuentaTitle" aria-hidden="true" >
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title mr-3" id="modalcuentaTitle">Cuenta total mesa # {{$cuentaactual->table->numero}}</h5>
+                    
+                    <a href="{{route('imprimirpedidocompleto',$cuentaactual->id)}}" class="btn btn-sm btn-rounded btn-floating btn-danger">Imprimir pedido</a>
+
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true" class="zmdi zmdi-close"></span>
+                    </button>
+                </div>
+                <div class="modal-body">
+        
+        <div class="card">
+          
+           
+
+            <div class="table-responsive">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>Producto</th>
+                    <th>Cantidad</th>
+                    <th>Precio Unitario</th>
+                    <th>Total</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  @isset($personalizado)
+                  @foreach ($personalizado as $item)
                         
-                        <a href="{{route('imprimirpedidocompleto',$cuenta->id)}}" class="btn btn-sm btn-rounded btn-floating btn-danger">Imprimir pedido</a>
-
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true" class="zmdi zmdi-close"></span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-            
-            <div class="card">
-              
-               
-
-                <div class="table-responsive">
-                  <table class="table table-striped">
-                    <thead>
-                      <tr>
-                        <th>Producto</th>
-                        <th>Cantidad</th>
-                        <th>Precio Unitario</th>
-                        <th>Total</th>
-                      </tr>
-                    </thead>
-                    <tbody id="tablacuenta{{$cuenta->id}}">
-                     <tr id="total{{$cuenta->id}}"></tr>
-                    </tbody>
-                  </table>
-
-                </div>
-              
-            </div>
-                    </div>
+                 <tr>
+                  <td>{{$item['nombre']}}</td>
+                  <td>{{$item['cantidad']}}</td>
+                  <td>{{$item['precio']}} Bs</td>
+                  <td>{{$item['subtotal']}} Bs</td>
+                  <td><a href="#" wire:click="deleteproductos('{{$item['id']}}','{{$item['cantidad']}}')"><span class="material-icons">delete</span></a></td>
+                </tr>
+                  @endforeach
+                  @endisset
                 
+                </tbody>
+              </table>
+
+            </div>
+          
+        </div>
                 </div>
+            
             </div>
         </div>
-    @endforeach
-</div>
-</div>
+    </div>
+       @endisset
+       
+ 
+          
+      
+     
+      <script type="text/javascript">
+           
+            Livewire.on('showmodal', () => {
+              $('#modalcuenta').modal('show')
+            })
+            Livewire.on('hidemodal', () => {
+              $('#modalcuenta').modal('hide')
+            })
+            
+    </script>
+     
+      
+      
+  
+      
+       
 </div>

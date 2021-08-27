@@ -238,6 +238,7 @@ class SaleController extends Controller
             DB::table('sales')->where('id','=',$request->id_sale)->increment('total',$producto->precioventa);
             DB::table('products')->where('id','=',$request->id)->decrement('cantidad',1);
             $cuenta->products()->attach($request->id);
+            event(new Mensaje('actualizar'));
         }
         else{
             echo 'agotado';
@@ -336,6 +337,7 @@ class SaleController extends Controller
             $personalizado->prepend(['nombre'=>$nombre,'cantidad'=>$cantidad,'precio'=>$producto->precioventa,'subtotal'=>$subtotal,'id'=>$producto->id]);
 
         }     
+        event(new Mensaje('actualizar'));
         return response($personalizado);  
         }
         
@@ -377,6 +379,7 @@ class SaleController extends Controller
                 $personalizado->prepend(['nombre'=>$nombre,'cantidad'=>$cantidad,'precio'=>$producto->precioventa,'subtotal'=>$subtotal,'id'=>$producto->id,'idmesa'=>$cuenta->id]);
     
             }     
+            event(new Mensaje('actualizar'));
             return response($personalizado);  
         }
        
@@ -410,6 +413,7 @@ class SaleController extends Controller
     
             } 
             DB::commit();    
+            event(new Mensaje('actualizar'));
             return response($personalizado);  
         }
         else

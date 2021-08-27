@@ -5,9 +5,8 @@
 
     
           
-                @livewire('mesas-activas')
-                
-               
+                 
+               @livewire('mesas-activas')
   
     
     
@@ -70,153 +69,56 @@
         </div>
     </div>
     </div>
-    <div id="snackbar"></div>
-    <script>
-        $('.modal').on('shown.bs.modal', function() {
-         $(this).find('[autofocus]').focus();
-       });
-           $('#mesa').blur(function(){
-               var error_table='';
-               var mesa= $('#mesa').val();
-               var _token=$('input[name="_token"]').val();
-               if(mesa=="")
+   
+   <script>
+       $('.modal').on('shown.bs.modal', function() {
+  $(this).find('[autofocus]').focus();
+});
+    $('#mesa').blur(function(){
+        var error_table='';
+        var mesa= $('#mesa').val();
+        var _token=$('input[name="_token"]').val();
+        if(mesa=="")
+        {
+            
+            $('#error_table').html('<label class="text-danger">Indique una mesa</label>');
+            $('#crear').attr('disabled',true);
+        }
+        else{
+            $.ajax({
+               url:"{{route('revisarMesaAjax')}}" ,
+               method:"POST",
+               data:{mesa:mesa, _token: '{{csrf_token()}}'},
+               success:function(result)
                {
                    
-                   $('#error_table').html('<label class="text-danger">Indique una mesa</label>');
-                   $('#crear').attr('disabled',true);
+                   if(result=='mesaocupada')
+                   {
+                       $('#error_table').html('<label class="text-danger">Mesa En Uso</label>');
+                       $('#mesa').addClass('has-error');
+
+                       $('#crear').attr('disabled',true);
+                   }
+                   else if(result=='mesanoexiste')
+                   {
+                       $('#error_table').html('<label class="text-danger">No existe mesa</label>');
+                       $('#mesa').addClass('has-error');
+
+                       $('#crear').attr('disabled',true);
+                   }
+                   else if(result=="")
+                   {
+                    $('#error_table').html('<label class="text-success">Mesa disponible</label>');
+                    $('#mesa').removeClass('has-error');
+                       $('#crear').attr('disabled',false);
+                   }
                }
-               else{
-                   $.ajax({
-                      url:"{{route('revisarMesaAjax')}}" ,
-                      method:"POST",
-                      data:{mesa:mesa, _token: '{{csrf_token()}}'},
-                      success:function(result)
-                      {
-                          
-                          if(result=='mesaocupada')
-                          {
-                              $('#error_table').html('<label class="text-danger">Mesa En Uso</label>');
-                              $('#mesa').addClass('has-error');
-       
-                              $('#crear').attr('disabled',true);
-                          }
-                          else if(result=='mesanoexiste')
-                          {
-                              $('#error_table').html('<label class="text-danger">No existe mesa</label>');
-                              $('#mesa').addClass('has-error');
-       
-                              $('#crear').attr('disabled',true);
-                          }
-                          else if(result=="")
-                          {
-                           $('#error_table').html('<label class="text-success">Mesa disponible</label>');
-                           $('#mesa').removeClass('has-error');
-                              $('#crear').attr('disabled',false);
-                          }
-                      }
-                   })
-               }
-                   
-               
-           });
+            })
+        }
+            
         
-    </script>
-    @isset($cuenta)
-    <script type="application/javascript">
-        
-           document.querySelectorAll(".showlist").
-       forEach(link=>link.addEventListener("click", function(){
-           var id=link.getAttribute("data-id");
-       $.ajax({
-         method: "POST",
-         url: "{{route('mostrarListaCompleta')}}",
-         data:{'_token': '{{csrf_token()}}','id_sale':id}
-       })
-         .done(function( approved ) {
-            leerjson(approved,id)
-           
-           
-          $('#exampleModalFixedHeight'+id).modal('show'); // abrir
-        
-         });
-       }))
-       function leerjson(approved,idtable){
-        
-      
-         var tabla = document.getElementById("tablacuenta"+idtable);
-         var total = document.getElementById("total"+idtable);
-      
-         //console.log(approved);
-          var i=0;
-          var string='';
-          var sum=0;
-          let id=0;
-          var link='';
-             for (var a in approved) {
-               
-               string= string+'<tr><td><strong>'+ approved[i].nombre+'</strong></td><td ><button class="btn btn-sm btn-success" name="number" id="cantidad'+approved[i].id+'" >'+ approved[i].cantidad+'</button></td><td>'+ approved[i].precio+' Bs</td><td>'+ approved[i].subtotal+' Bs</td><td><a href="javascript:void(0)" id="delete'+approved[i].id+'" onclick="deleteproducto('+approved[i].id+','+approved[i].cantidad+','+approved[i].idmesa+');" data-id="'+approved[i].id+'"><span class="material-icons">delete</span></a></td></tr>'
-               sum=sum+parseInt(approved[i].subtotal);
-               i++;
-           }
-           string=string+ '<th></th><th></th><th></th><th>Total: '+sum+' Bs</th><th></th>';
-           tabla.innerHTML=string;
-       }
-       
-       
-       function deleteproducto(id,cant,mesa){
-       
-       var idproducto= document.getElementById("delete"+id).getAttribute("data-id");
-       console.log(mesa)
-       $.ajax({
-         method: "POST",
-         url: "{{route('deleteproductocuentaCompleta')}}",
-         data:{'_token': '{{csrf_token()}}','id_producto':idproducto,'id_sale':mesa,'cantidad':cant}
-       })
-         .done(function( approved ) {
-           toastdelete()
-           leerjson(approved,mesa)
-           $('#exampleModalFixedHeight'+mesa).modal('show'); // abrir
-         });
-       }
-       
-       
-       function toastdelete() {
-         // Get the snackbar DIV
-         var x = document.getElementById("snackbar");
-         x.innerHTML='<div>Se elimino de la lista</div>'
-         
-         // Add the "show" class to DIV
-         x.className = "show";
-       
-         // After 3 seconds, remove the show class from DIV
-         setTimeout(function(){ x.className = x.className.replace("show", ""); }, 1000);
-       }
-       
-       function toastagrego() {
-         // Get the snackbar DIV
-         var x = document.getElementById("snackbar");
-         x.innerHTML='<div>Se agrego a la lista</div>'
-         
-         // Add the "show" class to DIV
-         x.className = "show";
-       
-         // After 3 seconds, remove the show class from DIV
-         setTimeout(function(){ x.className = x.className.replace("show", ""); }, 1000);
-       }
-       
-       function toastresto() {
-         // Get the snackbar DIV
-         var x = document.getElementById("snackbar");
-         x.innerHTML='<div>Se resto a la lista</div>'
-         
-         // Add the "show" class to DIV
-         x.className = "show";
-       
-         // After 3 seconds, remove the show class from DIV
-         setTimeout(function(){ x.className = x.className.replace("show", ""); }, 2000);
-       }
-       </script>
-    @endisset
-@livewire('mesas-activas')
+    });
+   </script>
+
 
 @endsection
