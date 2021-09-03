@@ -43,12 +43,14 @@ class AlmacenController extends Controller
             $producto->estado='inactivo';
             $producto->update();
             echo 'inactivo';
+            event(new Mensaje('actualizar')); 
         }
         else
         {
             $producto->estado='activo';
             $producto->update();
             echo 'activo';
+            event(new Mensaje('actualizar')); 
         }
     }
 }
