@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\dashboard;
 
 use App\Product;
+use App\Events\Mensaje;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
