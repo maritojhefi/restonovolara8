@@ -5,40 +5,40 @@
   @include('frontend.dashboardcliente.partials.session-flash-status')
 
   @include('frontend.dashboardcliente.partials.validation-error')
-<div class="row">
-  <div class="card card-elevate text-center col-5 m-3">
+<div class="row m-3">
+  <div class="card card-elevate text-center col-6 ">
     <a href="{{route('detallecuenta')}}" class="smooth-scroll">
       <div class="card-body">
         <i class="zmdi zmdi-assignment-check zmdi-hc-fw font-size-80 text-primary"></i>
         <h5 class="card-title m-t-20">Tu cuenta!</h5>
-        <small class="text-muted">Toda la informacion de tu cuenta actual</small>
+       
       </div>
     </a>
   </div>
-  <div class="card card-elevate text-center col-5 m-3">
+  <div class="card card-elevate text-center col-6">
     <a href="{{route('vistamusica')}}" class="smooth-scroll">
       <div class="card-body">
         <i class="la la-music zmdi-hc-fw font-size-80 text-primary"></i>
         <h5 class="card-title m-t-20">Reproduce Musica!</h5>
-        <small class="text-muted">Busca tus canciones preferidas y reproducelas en el restaurante!</small>
+       
       </div>
     </a>
   </div>
-  <div class="card card-elevate text-center col-5 m-3">
+  <div class="card card-elevate text-center col-6">
     <a href="{{route('menuplatos')}}" class="smooth-scroll">
       <div class="card-body">
         <i class="zmdi zmdi-cutlery zmdi-hc-fw font-size-80 text-primary"></i>
         <h5 class="card-title m-t-20">Nuestro Menu!</h5>
-        <small class="text-muted">Menus fisicos? Olvidalo! Aqui te mostramos el menu con la disponibilidad en tiempo real</small>
+        
       </div>
     </a>
   </div>
-  <div class="card card-elevate text-center col-5 m-3">
+  <div class="card card-elevate text-center col-6">
     <a href="{{route('pagaronline')}}" class="smooth-scroll">
       <div class="card-body">
         <i class="la la-credit-card font-size-80 text-primary"></i>
         <h5 class="card-title m-t-20">Paga Online!</h5>
-        <small class="text-muted">No es necesario pagar con efectivo... Usa tu tarjeta de credito o Tigo Money!</small>
+       
       </div>
     </a>
   </div>
