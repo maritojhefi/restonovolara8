@@ -72,7 +72,7 @@
             @endisset
             
            @empty($canciones)
-           <div class="h6 result-count"><span>Ingrese al menos 4 caracteres</span> </div>
+           <div class="h6 result-count"><span>Ingrese al menos 5 caracteres</span> </div>
 
            @endempty
         </div>

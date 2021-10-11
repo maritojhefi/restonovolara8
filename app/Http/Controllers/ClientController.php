@@ -32,6 +32,7 @@ class ClientController extends Controller
                         ->withInput();
         }
         $tokencuentas= Sale::pluck('token');
+        $claveexiste=true;
         foreach($tokencuentas as $token)
         {
             if($token==$request->clave)
@@ -42,12 +43,13 @@ class ClientController extends Controller
                 //if($usuario->token==$token)
                 if(session()->has('tokenmesa'))
                 {
-                    return back()->with('info','Ya estas con el acceso a la aplicacion, Revisa el menu lateral!');
+                    return back()->with('info','Ya estas con el acceso a la aplicacion, Revisa el menu lateral!',compact('claveexiste'));
                 }
                /* $usuario->token=$request->clave;
                 $usuario->update();*/
                 session(['tokenmesa' => $token]);
-                return back()->with('success','Clave aceptada!');
+               
+                return back()->with('success','Clave aceptada!',compact('claveexiste'));
             }
         }
         return back()->with('danger','Acceso denegado, clave incorrecta o inexistente');
@@ -154,7 +156,7 @@ class ClientController extends Controller
             }
             else
             {
-                return back()->with('danger','Error en realizar pago online');
+                return back()->with('danger','Primero debe tener productos agregados a su cuenta!');
             }
     }
     public function propina(){

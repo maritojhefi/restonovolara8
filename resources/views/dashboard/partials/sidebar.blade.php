@@ -58,7 +58,7 @@
                     <ul class="collapse nav-sub" aria-expanded="true">
                         <li><a href="javascript:void(0)"><span>Ventas</span></a></li>
                         <li><a href="javascript:void(0)"><span>Compras</span></a></li>
-                        <li><a href="javascript:void(0)"><span>Meseros</span></a></li>
+                       
                     </ul>
                 </li>
                 <li class="nav-dropdown">
