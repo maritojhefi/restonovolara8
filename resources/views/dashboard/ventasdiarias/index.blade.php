@@ -10,8 +10,8 @@
            
     @foreach ($cuentas as $cuenta)
     <div class="col-sm-3 col-6 col-md-4 col-lg-3" >
-
-            <div class="card  border " style="box-shadow: 0px -1px 7px 5px rgb(241, 233, 233); border: 2px solid rgb(250, 250, 250);border-radius: 15px;">
+            
+            <div class="card  border " style="box-shadow: 0px -1px 7px 5px {{$cuenta->pendientes->where('genero','comida')->count()!=0?'rgb(255, 160, 160)':'rgb(241, 233, 233)'}} ; border: 2px solid rgb(250, 250, 250);border-radius: 15px;">
                 @if ($cuenta->estado=="finalizado")
                 <a href="javascript:void(0)">
 

@@ -264,8 +264,8 @@
 						</button>
 					</div>
 					<div class="modal-body">
-            <a class="btn btn-success btn-rounded text-white btn-sm" href="{{route('imprimirpedidomesero',$cuenta->id)}}">Imprimir Pedido</a>
-            <a class="btn btn-info text-white btn-rounded btn-sm" href="{{route('cobrar',$cuenta->id)}}">Cuenta Total</a>
+            <a class="btn btn-danger btn-rounded btn-outline btn-sm" href="{{route('imprimirpedidomesero',$cuenta->id)}}">Imprimir Pedido</a>
+            <a class="btn btn-info  btn-outline btn-rounded btn-sm" href="{{route('cobrar',$cuenta->id)}}">Cuenta Total</a>
 
             <div class="card">
               <div class="card-body">

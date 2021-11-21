@@ -19,7 +19,7 @@
     <a href="{{route('vistamusica')}}" class="smooth-scroll">
       <div class="card-body">
         <i class="la la-music zmdi-hc-fw font-size-80 text-primary"></i>
-        <h5 class="card-title m-t-20">Reproduce Musica!</h5>
+        <h5 class="card-title m-t-20">Reproduce <br>Musica!</h5>
        
       </div>
     </a>
