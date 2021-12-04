@@ -75,6 +75,7 @@ Route::get('/dashboard/reabrir{cuenta}', 'dashboard\SaleController@reabrir')->na
 
 
 Route::get('/dashboard/imprimir/{cuenta}', 'dashboard\SaleController@imprimir')->name('imprimir');
+Route::get('/dashboard/pagoparcial/{cuenta}', 'dashboard\SaleController@pagoparcial')->name('pagoparcial');
 Route::get('/dashboard/listarMesas', 'dashboard\SaleController@listarmesasMesero')->name('listarmesasMesero');
 Route::get('/dashboard/pedidomesero/{cuenta}', 'dashboard\SaleController@imprimirpedidomesero')->name('imprimirpedidomesero');
 Route::get('/dashboard/imprimirpedidocompleto/{cuenta}', 'dashboard\SaleController@imprimirpedidocompleto')->name('imprimirpedidocompleto');
@@ -172,6 +173,8 @@ Route::get('/login/{driver}/callback', [App\Http\Controllers\Auth\LoginControlle
 
 
 
-
+Route::get('/mesas', function () {
+    return view('dashboard.ventasdiarias.index2');
+});
 
 

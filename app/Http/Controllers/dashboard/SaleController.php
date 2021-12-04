@@ -520,6 +520,12 @@ class SaleController extends Controller
 
         }
     }
+
+    public function pagoparcial(Sale $cuenta)
+    {
+        $lista=$cuenta->products;
+        return view ('dashboard.ventasdiarias.pagoparcial',compact('lista'));
+    }
     public function imprimir(Sale $cuenta)
     {
         $cuenta = Sale::find($cuenta->id);

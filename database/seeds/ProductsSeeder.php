@@ -13,486 +13,94 @@ class ProductsSeeder extends Seeder
      */
     public function run()
     {
+        $comida=[
+            "Sopa de mani"=>[8,"activo","Nada","comida","Plato rapido","20",1],
+            "Sopa de arroz"=>[8,"activo","Nada","comida","Plato rapido","20",1],
+            "Saice"=>[9,"activo","Nada","comida","Plato rapido","20",1],
+            "Picante de Pollo"=>[18,"activo","Nada","comida","Plato rapido","20",1],
+            "Picante de Lengua"=>[20,"activo","Nada","comida","Plato rapido","20",1],
+            "Picante Mixto"=>[25,"activo","Nada","comida","Plato rapido","20",1],
+            "Costillitas de chancho"=>[35,"activo","Nada","comida","Plato rapido","20",1],
+            "Cangrejos"=>[35,"activo","Nada","comida","Plato rapido","20",4],
+            "Doraditos"=>[33,"activo","Nada","comida","Plato rapido","20",4],
+            "Misquinchos"=>[33,"activo","Nada","comida","Plato rapido","20",4],
+            "Pejerrey"=>[32,"activo","Nada","comida","Plato rapido","20",4],
+            "Sabalo"=>[30,"activo","Nada","comida","Plato rapido","20",3],
+            "Pacu"=>[35,"activo","Nada","comida","Plato rapido","20",3],
+            "Mixto Pescaditos"=>[38,"activo","Nada","comida","Plato rapido","20",4],
+            "Pique a lo macho"=>[67,"activo","Nada","comida","Plato rapido","20",2],
+            "Medio Pique"=>[37,"activo","Nada","comida","Plato rapido","20",2],
+            "Charke Crocante"=>[50,"activo","Nada","comida","Plato rapido","20",2],
+            "Lomo Borracho"=>[32,"activo","Nada","comida","Plato rapido","20",2],
+            "Lomito"=>[26,"activo","Nada","comida","Plato rapido","20",6],
+            "Lomo con chorrellana"=>[28,"activo","Nada","comida","Plato rapido","20",6],
+            "Milaneza de carne"=>[26,"activo","Nada","comida","Plato rapido","20",6],
+            "Milaneza de pollo"=>[26,"activo","Nada","comida","Plato rapido","20",5],
+            "Chicharron de pollo"=>[26,"activo","Nada","comida","Plato rapido","20",5],
+            "Pollo a la plancha"=>[26,"activo","Nada","comida","Plato rapido","20",5],
+            "Pollo dorado"=>[26,"activo","Nada","comida","Plato rapido","20",5],
+            "Tortilla de pollo"=>[28,"activo","Nada","comida","Plato rapido","20",5],
+
+            "Almuerzo"=>[15,"activo","Nada","comida","Plato rapido","20",1],
+          
+        ];
+
+        $bebida=[
+            'Pacena litro'=>[25,7],
+            'Potosina litro y cuarto'=>[24,7],
+            'Huari 600 ml'=>[19,7],
+            'Linaza'=>[15,8],
+            'Frut All'=>[14,8],
+            'Jugo en Jarra litro'=>[10,8],
+            'Jugo en Jarra 2 litros'=>[15,8],
+            'Jugo en Vaso'=>[3,8],
+            'Agua 2 litros'=>[10,8],
+            'Agua 500 ml'=>[5,8],
+            'Agua carbonatada'=>[6,8],
+            'Coca Cola 600ml'=>[6,9],
+            'Coca Cola litro'=>[8,9],
+            'Coca Cola 1.5 litros'=>[10,9],
+            'Coca Cola 2 litros'=>[14,9],
+            'Fanta 600ml'=>[6,10],
+            'Fanta litro'=>[8,10],
+            'Fanta 1.5 litros'=>[10,10],
+            'Fanta 2 litros'=>[14,10],
+            'Sprite 600ml'=>[6,11],
+            'Sprite litro'=>[8,11],
+            'Sprite 1.5 litros'=>[10,11],
+            'Sprite 2 litros'=>[14,11],
+            'Vino terruno blanco'=>[25,12],
+            'Vino terruno tinto'=>[25,12],
+            'Vino comun blanco'=>[20,12],
+            'Vino Patero en jarra'=>[40,12],
+            'Vino Patero botella'=>[22,12],
+            'Vino patero copa'=>[6,12],
+            
+        ];
+
         Product::truncate();
-        Product::create([
-            'nombre'=>"Sopa de Mani ",
-            'precioventa'=>8,
-            'estado'=>"activo",
-            'ingredientes'=>"Fideo, pollo, papa frita y especias",
-            'genero'=>"comida",
-            'detalle'=>"Plato Rapido",
-            'cantidad'=>"10",
-            'category_id'=>1,
-        ]);
-        Product::create([
-            'nombre'=>"Sopa de Arroz ",
-            'precioventa'=>8,
-            'estado'=>"activo",
-            'ingredientes'=>"Arroz, pollo, papa frita y especias",
-            'genero'=>"comida",
-            'detalle'=>"Plato Rapido",
-            'cantidad'=>"10",
-            'category_id'=>1,
-        ]);
-        Product::create([
-            'nombre'=>"Saice",
-            'precioventa'=>9,
-            'estado'=>"activo",
-            'ingredientes'=>"Arroz, ensalada, papa hervida, carne de res picada, chuño",
-            'genero'=>"comida",
-            'detalle'=>"Plato Rapido",
-            'cantidad'=>"10",
-            'category_id'=>1,
-        ]);
-        Product::create([
-            'nombre'=>"Picante de Pollo",
-            'precioventa'=>18,
-            'estado'=>"activo",
-            'ingredientes'=>"Arroz, ensalada, papa hervida, chuño, pollo de granja",
-            'genero'=>"comida",
-            'detalle'=>"Plato Rapido",
-            'cantidad'=>"10",
-            'category_id'=>1,
-        ]);
-        Product::create([
-            'nombre'=>"Picante de Lengua",
-            'precioventa'=>20,
-            'estado'=>"activo",
-            'ingredientes'=>"Arroz, ensalada, papa hervida, lengua de res, chuño",
-            'genero'=>"comida",
-            'detalle'=>"Plato Rapido",
-            'cantidad'=>"10",
-            'category_id'=>1,
-        ]);
-        Product::create([
-            'nombre'=>"Picante Mixto",
-            'precioventa'=>25,
-            'estado'=>"activo",
-            'ingredientes'=>"Arroz, ensalada, papa hervida, lengua de res, pollo de granja, chuño",
-            'genero'=>"comida",
-            'detalle'=>"Plato Rapido",
-            'cantidad'=>"10",
-            'category_id'=>1,
-        ]);
-        Product::create([
-            'nombre'=>"Costillitas de chancho",
-            'precioventa'=>35,
-            'estado'=>"activo",
-            'ingredientes'=>"Mote(maiz hervido), papa hervida, costillas y blando de cerdo",
-            'genero'=>"comida",
-            'detalle'=>"Plato Rapido",
-            'cantidad'=>"10",
-            'category_id'=>1,
-        ]);
-        Product::create([
-            'nombre'=>"Pique a lo macho",
-            'precioventa'=>67,
-            'estado'=>"activo",
-            'ingredientes'=>"Papa frita, salchicha, huevo duro, carne de res, tomate, cebolla y especias",
-            'genero'=>"comida",
-            'detalle'=>"Para 2 personas",
-            'cantidad'=>10,
-            'category_id'=>2,
-        ]);
-        Product::create([
-            'nombre'=>"Medio pique",
-            'precioventa'=>37,
-            'estado'=>"activo",
-            'ingredientes'=>"Papa frita, salchicha, huevo duro, carne de res, tomate, cebolla y especias",
-            'genero'=>"comida",
-            'detalle'=>"Para 1 persona",
-            'cantidad'=>10,
-            'category_id'=>2,
-        ]);
-        Product::create([
-            'nombre'=>"Charke",
-            'precioventa'=>50,
-            'estado'=>"activo",
-            'ingredientes'=>"Carne de res, huevo duro, papa hervida, mote(maiz hervido), queso",
-            'genero'=>"comida",
-            'detalle'=>"Para 2 personas",
-            'cantidad'=>10,
-            'category_id'=>2,
-        ]);
-        Product::create([
-            'nombre'=>"Lomo borracho",
-            'precioventa'=>32,
-            'estado'=>"activo",
-            'ingredientes'=>"Carne de res, huevo frito, papas fritas, chorrellana, ahogado en base a cerveza",
-            'genero'=>"comida",
-            'detalle'=>"Para 1 persona",
-            'cantidad'=>10,
-            'category_id'=>2,
-        ]);
-        Product::create([
-            'nombre'=>"Sabalo",
-            'precioventa'=>30,
-            'estado'=>"activo",
-            'ingredientes'=>"Mote, papa hervida y limon",
-            'genero'=>"comida",
-            'detalle'=>"Para 1 persona",
-            'cantidad'=>10,
-            'category_id'=>3,
-        ]);
-        Product::create([
-            'nombre'=>"Pacu",
-            'precioventa'=>35,
-            'estado'=>"activo",
-            'ingredientes'=>"Mote, papa hervida y limon",
-            'genero'=>"comida",
-            'detalle'=>"Para 1 persona",
-            'cantidad'=>10,
-            'category_id'=>3,
-        ]);
-        Product::create([
-            'nombre'=>"Cangrejo",
-            'precioventa'=>35,
-            'estado'=>"activo",
-            'ingredientes'=>"Mote, papa hervida y limon",
-            'genero'=>"comida",
-            'detalle'=>"Para 1 persona",
-            'cantidad'=>10,
-            'category_id'=>4,
-        ]);
-        Product::create([
-            'nombre'=>"Misquincho",
-            'precioventa'=>33,
-            'estado'=>"activo",
-            'ingredientes'=>"Mote, papa hervida y limon",
-            'genero'=>"comida",
-            'detalle'=>"Para 1 persona",
-            'cantidad'=>10,
-            'category_id'=>4,
-        ]);
-        Product::create([
-            'nombre'=>"Doradito",
-            'precioventa'=>32,
-            'estado'=>"activo",
-            'ingredientes'=>"Mote, papa hervida y limon",
-            'genero'=>"comida",
-            'detalle'=>"Para 1 persona",
-            'cantidad'=>10,
-            'category_id'=>4,
-        ]);
-        Product::create([
-            'nombre'=>"Pejerrey",
-            'precioventa'=>32,
-            'estado'=>"activo",
-            'ingredientes'=>"Mote, papa hervida y limon",
-            'genero'=>"comida",
-            'detalle'=>"Para 1 persona",
-            'cantidad'=>10,
-            'category_id'=>4,
-        ]);
-        Product::create([
-            'nombre'=>"Mixto pescados",
-            'precioventa'=>38,
-            'estado'=>"activo",
-            'ingredientes'=>"Mote, papa hervida y limon con 3 variedades de pescados",
-            'genero'=>"comida",
-            'detalle'=>"Para 1 persona",
-            'cantidad'=>10,
-            'category_id'=>4,
-        ]);
-        Product::create([
-            'nombre'=>"Milaneza de Pollo",
-            'precioventa'=>26,
-            'estado'=>"activo",
-            'ingredientes'=>"Papas fritas, arroz, ensalada",
-            'genero'=>"comida",
-            'detalle'=>"Plato extra de preparacion estimada en 12 min.",
-            'cantidad'=>10,
-            'category_id'=>5,
-        ]);
-        Product::create([
-            'nombre'=>"Tortilla de Pollo",
-            'precioventa'=>28,
-            'estado'=>"activo",
-            'ingredientes'=>"Papas fritas, arroz, ensalada",
-            'genero'=>"comida",
-            'detalle'=>"Plato extra de preparacion estimada en 12 min.",
-            'cantidad'=>10,
-            'category_id'=>5,
-        ]);
-        Product::create([
-            'nombre'=>"Pollo a la plancha",
-            'precioventa'=>26,
-            'estado'=>"activo",
-            'ingredientes'=>"Papa hervida, arroz, ensalada",
-            'genero'=>"comida",
-            'detalle'=>"Plato extra de preparacion estimada en 12 min.",
-            'cantidad'=>10,
-            'category_id'=>5,
-        ]);
-        Product::create([
-            'nombre'=>"Pollo Dorado",
-            'precioventa'=>26,
-            'estado'=>"activo",
-            'ingredientes'=>"Papa frita, arroz, ensalada",
-            'genero'=>"comida",
-            'detalle'=>"Plato extra de preparacion estimada en 12 min.",
-            'cantidad'=>10,
-            'category_id'=>5,
-        ]);
-        Product::create([
-            'nombre'=>"Chicharron de pollo",
-            'precioventa'=>26,
-            'estado'=>"activo",
-            'ingredientes'=>"Papa frita, arroz, ensalada",
-            'genero'=>"comida",
-            'detalle'=>"Plato extra de preparacion estimada en 12 min.",
-            'cantidad'=>10,
-            'category_id'=>5,
-        ]);
-        Product::create([
-            'nombre'=>"Lomito",
-            'precioventa'=>26,
-            'estado'=>"activo",
-            'ingredientes'=>"Papa frita, huevo frito, arroz, ensalada",
-            'genero'=>"comida",
-            'detalle'=>"Plato extra de preparacion estimada en 12 min.",
-            'cantidad'=>10,
-            'category_id'=>6,
-        ]);
-        Product::create([
-            'nombre'=>"Lomo con chorrellana",
-            'precioventa'=>28,
-            'estado'=>"activo",
-            'ingredientes'=>"Papa frita, huevo frito, arroz, chorrellana",
-            'genero'=>"comida",
-            'detalle'=>"Plato extra de preparacion estimada en 12 min.",
-            'cantidad'=>10,
-            'category_id'=>6,
-        ]);
-        Product::create([
-            'nombre'=>"Milaneza de carne",
-            'precioventa'=>26,
-            'estado'=>"activo",
-            'ingredientes'=>"Papa frita, arroz, ensalada",
-            'genero'=>"comida",
-            'detalle'=>"Plato extra de preparacion estimada en 12 min.",
-            'cantidad'=>10,
-            'category_id'=>6,
-        ]);
-        Product::create([
-            'nombre'=>"Coca Cola litro",
-            'precioventa'=>8,
-            'estado'=>"activo",
-            'ingredientes'=>"",
-            'genero'=>"bebida",
-            'detalle'=>"Coca cola de litro",
-            'cantidad'=>10,
-            'category_id'=>9,
-        ]);
-        Product::create([
-            'nombre'=>"Coca Cola 600ml",
-            'precioventa'=>6,
-            'estado'=>"activo",
-            'ingredientes'=>"",
-            'genero'=>"bebida",
-            'detalle'=>"Coca cola popular",
-            'cantidad'=>10,
-            'category_id'=>9,
-        ]);
-        Product::create([
-            'nombre'=>"Coca Cola 2 litros",
-            'precioventa'=>14,
-            'estado'=>"activo",
-            'ingredientes'=>"",
-            'genero'=>"bebida",
-            'detalle'=>"Coca cola 2 litros",
-            'cantidad'=>10,
-            'category_id'=>9,
-        ]);
-        Product::create([
-            'nombre'=>"Coca Cola 1.5 lts.",
-            'precioventa'=>10,
-            'estado'=>"activo",
-            'ingredientes'=>"",
-            'genero'=>"bebida",
-            'detalle'=>"Coca cola pansona",
-            'cantidad'=>10,
-            'category_id'=>9,
-        ]);
-        Product::create([
-            'nombre'=>"Fanta litro",
-            'precioventa'=>8,
-            'estado'=>"activo",
-            'ingredientes'=>"",
-            'genero'=>"bebida",
-            'detalle'=>"Fanta de litro",
-            'cantidad'=>10,
-            'category_id'=>10,
-        ]);
-        Product::create([
-            'nombre'=>"Fanta 600ml",
-            'precioventa'=>6,
-            'estado'=>"activo",
-            'ingredientes'=>"",
-            'genero'=>"bebida",
-            'detalle'=>"Fanta popular",
-            'cantidad'=>10,
-            'category_id'=>10,
-        ]);
-        Product::create([
-            'nombre'=>"Fanta 2 litros",
-            'precioventa'=>14,
-            'estado'=>"activo",
-            'ingredientes'=>"",
-            'genero'=>"bebida",
-            'detalle'=>"Fanta 2 litros",
-            'cantidad'=>10,
-            'category_id'=>10,
-        ]);
-        Product::create([
-            'nombre'=>"Fanta 1.5 lts.",
-            'precioventa'=>10,
-            'estado'=>"activo",
-            'ingredientes'=>"",
-            'genero'=>"bebida",
-            'detalle'=>"Fanta pansona",
-            'cantidad'=>10,
-            'category_id'=>10,
-        ]);
-        Product::create([
-            'nombre'=>"Sprite litro",
-            'precioventa'=>8,
-            'estado'=>"activo",
-            'ingredientes'=>"",
-            'genero'=>"bebida",
-            'detalle'=>"Sprite de litro",
-            'cantidad'=>10,
-            'category_id'=>11,
-        ]);
-        Product::create([
-            'nombre'=>"Sprite 600ml",
-            'precioventa'=>6,
-            'estado'=>"activo",
-            'ingredientes'=>"",
-            'genero'=>"bebida",
-            'detalle'=>"Sprite popular",
-            'cantidad'=>10,
-            'category_id'=>11,
-        ]);
-        Product::create([
-            'nombre'=>"Sprite 2 litros",
-            'precioventa'=>14,
-            'estado'=>"activo",
-            'ingredientes'=>"",
-            'genero'=>"bebida",
-            'detalle'=>"Sprite 2 litros",
-            'cantidad'=>10,
-            'category_id'=>11,
-        ]);
-        Product::create([
-            'nombre'=>"Sprite 1.5 lts.",
-            'precioventa'=>10,
-            'estado'=>"activo",
-            'ingredientes'=>"",
-            'genero'=>"bebida",
-            'detalle'=>"Sprite pansona",
-            'cantidad'=>10,
-            'category_id'=>11,
-        ]);
-        Product::create([
-            'nombre'=>"Pacena litro",
-            'precioventa'=>25,
-            'estado'=>"activo",
-            'ingredientes'=>"",
-            'genero'=>"bebida",
-            'detalle'=>"Pacena de litro",
-            'cantidad'=>10,
-            'category_id'=>7,
-        ]);
-        Product::create([
-            'nombre'=>"Huari 600ml",
-            'precioventa'=>19,
-            'estado'=>"activo",
-            'ingredientes'=>"",
-            'genero'=>"bebida",
-            'detalle'=>"Huari mediana",
-            'cantidad'=>10,
-            'category_id'=>7,
-        ]);
-        Product::create([
-            'nombre'=>"Potosina litro",
-            'precioventa'=>24,
-            'estado'=>"activo",
-            'ingredientes'=>"",
-            'genero'=>"bebida",
-            'detalle'=>"Potosina de litro",
-            'cantidad'=>10,
-            'category_id'=>7,
-        ]);
-        Product::create([
-            'nombre'=>"Aranjuez Comun blanco",
-            'precioventa'=>20,
-            'estado'=>"activo",
-            'ingredientes'=>"",
-            'genero'=>"bebida",
-            'detalle'=>"Potosina de litro",
-            'cantidad'=>10,
-            'category_id'=>12,
-        ]);
-        Product::create([
-            'nombre'=>"Terruño tinto",
-            'precioventa'=>24,
-            'estado'=>"activo",
-            'ingredientes'=>"",
-            'genero'=>"bebida",
-            'detalle'=>"Potosina de litro",
-            'cantidad'=>10,
-            'category_id'=>12,
-        ]);
-        Product::create([
-            'nombre'=>"Terruño blanco",
-            'precioventa'=>24,
-            'estado'=>"activo",
-            'ingredientes'=>"",
-            'genero'=>"bebida",
-            'detalle'=>"Potosina de litro",
-            'cantidad'=>10,
-            'category_id'=>12,
-        ]);
-        Product::create([
-            'nombre'=>"Vino Patero",
-            'precioventa'=>22,
-            'estado'=>"activo",
-            'ingredientes'=>"",
-            'genero'=>"bebida",
-            'detalle'=>"Vino artesanal",
-            'cantidad'=>10,
-            'category_id'=>12,
-        ]);
-        Product::create([
-            'nombre'=>"Jugo en Jarra Litro",
-            'precioventa'=>10,
-            'estado'=>"activo",
-            'ingredientes'=>"",
-            'genero'=>"bebida",
-            'detalle'=>"Jugo natural de la casa",
-            'cantidad'=>10,
-            'category_id'=>8,
-        ]);
-        Product::create([
-            'nombre'=>"Jugo en Jarra 2 Litros",
-            'precioventa'=>15,
-            'estado'=>"activo",
-            'ingredientes'=>"",
-            'genero'=>"bebida",
-            'detalle'=>"Jugo natural de la casa",
-            'cantidad'=>10,
-            'category_id'=>8,
-        ]);
-        Product::create([
-            'nombre'=>"Jugo en Vaso",
-            'precioventa'=>3,
-            'estado'=>"activo",
-            'ingredientes'=>"",
-            'genero'=>"bebida",
-            'detalle'=>"Jugo natural de la casa",
-            'cantidad'=>10,
-            'category_id'=>8,
-        ]);
+        foreach($comida as $nombre=>$lista)
+        {
+            Product::create([
+                'nombre'=>$nombre,
+                'precioventa'=>$lista[0],
+                'genero'=>$lista[3],
+                'estado'=>$lista[1],
+                'cantidad'=>$lista[5],
+                'category_id'=>$lista[6]
+            ]);
+        }
+        foreach($bebida as $nombre=>$lista)
+        {
+            Product::create([
+                'nombre'=>$nombre,
+                'precioventa'=>$lista[0],
+                'genero'=>'bebida',
+                'estado'=>'activo',
+                'cantidad'=>20,
+                'category_id'=>$lista[1]
+            ]);
+        }
+      
     }
 }

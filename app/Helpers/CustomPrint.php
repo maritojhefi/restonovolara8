@@ -2,6 +2,7 @@
 
 namespace App\Helpers;
 
+
 use App\Printer_device;
 use Rawilk\Printing\Facades\Printing;
 use Rawilk\Printing\Receipts\ReceiptPrinter;

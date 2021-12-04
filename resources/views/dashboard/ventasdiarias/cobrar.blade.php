@@ -67,7 +67,9 @@
             
          
          
-            <a href="{{route('imprimir',$idcuenta)}}" class="btn btn-primary pull-right m-t-20 m-b-20  {{session('borrar')? 'disabled':''}} " >Pagar e Imprimir</a>
+            <a href="{{route('imprimir',$idcuenta)}}" class="btn btn-primary pull-right m-t-20 m-b-20  {{session('borrar')? 'disabled':''}} " >Imprimir cuenta</a>
+           <!-- <a href="{{route('pagoparcial',$idcuenta)}}" class="btn btn-accent pull-right m-t-20 m-b-20 m-r-20  {{session('borrar')? 'disabled':''}} " >Pago Parcial</a>-->
+
             @if (auth()->user()->rol_id==5)
             <a href="{{route('cuentasActivas')}}" class="btn btn-secondary pull-right m-t-20 m-b-20 mr-3 ml-3 " ><span class="material-icons">
               settings_backup_restore
