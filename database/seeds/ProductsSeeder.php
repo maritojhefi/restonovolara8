@@ -2,6 +2,7 @@
 
 
 use App\Product;
+use App\ProductImage;
 use Illuminate\Database\Seeder;
 
 class ProductsSeeder extends Seeder
@@ -101,6 +102,47 @@ class ProductsSeeder extends Seeder
                 'category_id'=>$lista[1]
             ]);
         }
+
+        $imagenes=[
+            'sopitamani','sopitaarroz','saice','picantepollo','picantelengua','picantemixto','chancho',
+            'cangrejo','doradito','misquincho','','sabalo','','mixto',
+            'piqueentero','pique','charke','lomoborracho',
+            'lomito','lomochorrellana','milanezacarne','milanezapollo',
+            'chicharron','polloplancha','pollodorado','tortilla','',
+
+            '','','',
+            '','','','','','','','', //jugos
+            'coca600','cocalitro','','coca2litros',
+            'fantapopular','','','fanta2litros',
+            'spritepopular','spritelitro','spritepansona','',
+            'terruno','terrunotinto','aranjuezcomun','','',''
+
+        ];
+     
+        foreach($imagenes as $numero=>$foto)
+        {
+           if($foto!="")
+           {
+            if($numero>27)
+            {
+                ProductImage::create([
+                    'imagen'=>'images/bebidas/'.$foto.'.jpg',
+                    'product_id'=>$numero+1
+                ]);
+            }
+            else
+            {
+                ProductImage::create([
+                    'imagen'=>'images/'.$foto.'.jpg',
+                    'product_id'=>$numero+1
+                ]);
+            }
+           }
+           
+            
+        }
+       
+        
       
     }
 }
