@@ -53,7 +53,7 @@ curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);
 curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
 
 $resp = curl_exec($curl);
-
+dd($resp);
 $devolucion=explode('":"',$resp);
 $token=explode('"',$devolucion[1]);
 
