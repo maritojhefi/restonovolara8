@@ -44,7 +44,7 @@ $headers = array(
 );
 curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
 
-$data = "grant_type=authorization_code&code=".$onlycode[0]."&redirect_uri=https%3A%2F%2Frestonovo.site%2Fdashboard%2Frockola%2Fcallback";
+$data = "grant_type=authorization_code&code=".$onlycode[0]."&redirect_uri=https%3A%2F%2Frestonovo.click%2Fdashboard%2Frockola%2Fcallback";
 
 curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
 
@@ -53,7 +53,7 @@ curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);
 curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
 
 $resp = curl_exec($curl);
-
+//dd($resp);
 $devolucion=explode('":"',$resp);
 $token=explode('"',$devolucion[1]);
 
