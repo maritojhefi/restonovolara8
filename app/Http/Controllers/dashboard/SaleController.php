@@ -18,6 +18,7 @@ use Illuminate\Support\Str;
 use App\Helpers\CustomPrint;
 use Illuminate\Http\Request;
 use Mike42\Escpos\EscposImage;
+use App\Events\ActualizarLista;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Mike42\Escpos\CapabilityProfile;
@@ -44,7 +45,7 @@ class SaleController extends Controller
         $meseros = User::whereHas('rol', function (Builder $query) {
             $query->where('nombre', 'like', 'Mesero');
         })->get();
-        return view('dashboard.ventasdiarias.index',compact('meseros','cuentas'));
+        return view('dashboard.ventasdiarias.index-realtime',compact('meseros','cuentas'));
     }
     public function editarCuenta(Sale $cuenta)
     {
@@ -239,7 +240,7 @@ class SaleController extends Controller
             DB::table('sales')->where('id','=',$request->id_sale)->increment('total',$producto->precioventa);
             DB::table('products')->where('id','=',$request->id)->decrement('cantidad',1);
             $cuenta->products()->attach($request->id);
-            event(new Mensaje('actualizar'));
+            event(new ActualizarLista($cuenta->mesa_id,$cuenta->table->numero,$cuenta->id));
         }
         else{
             echo 'agotado';
@@ -414,7 +415,8 @@ class SaleController extends Controller
     
             } 
             DB::commit();    
-            event(new Mensaje('actualizar'));
+            event(new ActualizarLista($cuenta->mesa_id,$cuenta->table->numero,$cuenta->id));
+
             return response($personalizado);  
         }
         else
@@ -642,7 +644,7 @@ class SaleController extends Controller
         $cabecera="Tus cuentas ".$nombre[0];
         $cuentas = Sale::where('usuario_id',auth()->user()->id)->orderBy('created_at','desc')->get();
         
-        return view('dashboard.ventasdiarias.indexMesero',compact('cuentas','cabecera'));
+        return view('dashboard.ventasdiarias.indexMesero-realtime',compact('cuentas','cabecera'));
     }
 
     public function imprimirpedidocompleto(Sale $cuenta)

@@ -3,6 +3,7 @@
 namespace App\Helpers;
 
 
+use App\Events\Mensaje;
 use App\Printer_device;
 use Rawilk\Printing\Facades\Printing;
 use Rawilk\Printing\Receipts\ReceiptPrinter;
@@ -27,5 +28,10 @@ class CustomPrint {
       
 
        
+    }
+
+    static function EcoCanal()
+    {
+        event(new Mensaje('actualizar'));
     }
 }

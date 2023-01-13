@@ -14,13 +14,14 @@
 	<link rel="stylesheet" href="{{asset("dashboard/css/icons/line-awesome.min.css")}}">
 	<link rel="stylesheet" href="{{asset("dashboard/css/icons/material-design-iconic-font.min.css")}}">
 	<script type="text/javascript" src="{{asset("dashboard/vendor/jquery/dist/jquery.min.js")}}"></script>
-
+	<link rel="stylesheet" href="{{asset("dashboard/css/layouts/vertical/themes/theme-h.css")}}">
 	@laravelPWA
 	<script>
 		window.PUSHER_APP_KEY = '{{ config('broadcasting.connections.pusher.key') }}';
 		window.APP_DEBUG = {{ config('app.debug') ? 'true' : 'false' }};
 	</script>
 	<script type="text/javascript" src="{{asset("js/app.js")}}"></script>
+	<script src="{{asset('js/sweetalert.min.js')}}"></script>
 	<script src="{{asset('js/vendorquantum.js')}}"></script>
 	@stack('scripts')
 	<script src="{{asset('js/jsquantum.js')}}"></script>
@@ -119,7 +120,27 @@ a.disabled {
 			</div>
 		</div>
 		
-	
+		<script>
+			const Toast = Swal.mixin({
+				toast: true,
+				position: 'top',
+				showConfirmButton: false,
+				showCloseButton: true,
+				timer: 5000,
+				timerProgressBar:true,
+				didOpen: (toast) => {
+					toast.addEventListener('mouseenter', Swal.stopTimer)
+					toast.addEventListener('mouseleave', Swal.resumeTimer)
+				}
+			});
+		
+			window.addEventListener('alert',({detail:{type,message}})=>{
+				Toast.fire({
+					icon:type,
+					title:message
+				})
+			})
+		</script>
 		
 	</body>
 </html>

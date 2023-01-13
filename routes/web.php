@@ -170,6 +170,8 @@ Route::get('/login/{driver}/callback', [App\Http\Controllers\Auth\LoginControlle
 
 
 
+//rutas de prueba
+Route::get('/pruebas/impuestos', [App\Http\Controllers\PruebasController::class, 'pruebaImpuestos']);
 
 
 
@@ -178,3 +180,6 @@ Route::get('/mesas', function () {
 });
 
 
+Route::get('/dina/2meses', function () {
+   dd('asdsdsa');
+});

@@ -13,7 +13,7 @@ class Table extends Model
     ];
     public function sales()
     {
-        return $this->hasMany(Sale::class);
+        return $this->hasMany(Sale::class,'mesa_id');
     }
     public function sale_records()
     {

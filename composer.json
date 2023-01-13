@@ -27,6 +27,7 @@
         "printnode/printnode-php": "master",
         "pusher/pusher-php-server": "^5.0",
         "rawilk/laravel-printing": "^2.0",
+        "ricorocks-digital-agency/soap": "^1.6",
         "silviolleite/laravelpwa": "^2.0",
         "simplesoftwareio/simple-qrcode": "~4"
     },
