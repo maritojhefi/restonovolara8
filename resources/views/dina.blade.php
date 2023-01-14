@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="keywords" content="​Creative, intelligent &amp; functional ideas">
     <meta name="description" content="">
-    <title>Wedding</title>
+    <title>Mario y Dina</title>
     <link rel="stylesheet" href="{{ asset('nicepage.css') }}" media="screen" class="u-static-style">
     <link rel="stylesheet" href="{{ asset('nice2.css') }}" media="screen">
     <script class="u-script" type="text/javascript" src="//capp.nicepage.com/assets/jquery-1.9.1.min.js" defer=""></script>
