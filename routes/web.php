@@ -181,5 +181,5 @@ Route::get('/mesas', function () {
 
 
 Route::get('/dina/2meses', function () {
-   dd('asdsdsa');
+   return view('dina');
 });
