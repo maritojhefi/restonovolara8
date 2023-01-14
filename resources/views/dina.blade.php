@@ -2210,7 +2210,7 @@
                 data-animation-duration="1500" style="will-change: transform, opacity; animation-duration: 1500ms;">
             </div>
             <img class="u-image u-image-circle u-image-2 animated customAnimationIn-played"
-                src="{{ asset('dina/6.jpeg') }}" alt="" data-image-width="889" data-image-height="889"
+                src="{{ asset('dina/15.jpeg') }}" alt="" data-image-width="889" data-image-height="889"
                 data-animation-name="customAnimationIn" data-animation-duration="1500"
                 style="will-change: transform, opacity; animation-duration: 1500ms;">
             <img class="u-border-20 u-border-palette-3-base u-image u-image-circle u-image-3 animated customAnimationIn-played"
@@ -2228,14 +2228,8 @@
                     <h2 class="u-text u-text-palette-1-base u-text-1"> Gracias por estos 2 meses!<br>
                     </h2>
                     <p class="u-text u-text-2">Espero te guste este pequeño viaje!.</p>
-                    <p class="u-text u-text-default u-text-3">Image from <a href="https://www.freepik.com/photos/people"
-                            class="u-border-1 u-border-active-palette-1-base u-border-black u-border-hover-palette-1-base u-border-no-left u-border-no-right u-border-no-top u-bottom-left-radius-0 u-bottom-right-radius-0 u-btn u-button-link u-button-style u-none u-radius-0 u-text-body-color u-top-left-radius-0 u-top-right-radius-0 u-btn-1"
-                            target="_blank">Freepik</a>
-                    </p>
-                    <a href="https://nicepage.best"
-                        class="u-active-palette-3-base u-align-center u-border-2 u-border-active-palette-3-base u-border-hover-palette-3-base u-border-palette-3-base u-btn u-btn-round u-button-style u-hover-palette-3-base u-none u-radius-10 u-text-active-white u-text-hover-white u-text-palette-3-dark-1 u-btn-2"
-                        data-animation-name="" data-animation-duration="0" data-animation-delay="0"
-                        data-animation-direction="">learn more</a>
+                    
+                   
                 </div>
             </div>
         </div>
@@ -2243,56 +2237,48 @@
     <section class="u-align-center u-clearfix u-image u-shading u-section-3" src="" data-image-width="1620"
         data-image-height="1080" id="carousel_aeea">
         <div class="u-clearfix u-sheet u-sheet-1">
-            <h2 class="u-text u-text-body-color u-text-1">Top Wedding Planning Tips</h2>
+            <h2 class="u-text u-text-body-color u-text-1">Una breve historia!</h2>
             <div class="u-expanded-width u-list u-list-1">
                 <div class="u-repeater u-repeater-1">
                     <div class="u-container-style u-list-item u-palette-3-light-3 u-repeater-item u-list-item-1">
                         <div class="u-container-layout u-similar-container u-valign-top u-container-layout-1">
-                            <h4 class="u-text u-text-default u-text-2"> Start planning early</h4>
-                            <p class="u-text u-text-body-color u-text-default u-text-3">Sample text. Click to select
-                                the text box. Click again or double click to start editing the text.</p>
+                            <h4 class="u-text u-text-default u-text-2"> Sin pensarte te conoci</h4>
+                            <p class="u-text u-text-body-color u-text-default u-text-3">De la manera menos esperada nos conocimos, entre malos entendidos y peleas, pero a pesar de ello, nuestro amor fue mas y vamos fortaleciendo cada vez mas nuestra relacion.</p>
                         </div>
                     </div>
                     <div class="u-container-style u-list-item u-palette-3-light-3 u-repeater-item u-list-item-2">
                         <div class="u-container-layout u-similar-container u-valign-top u-container-layout-2">
-                            <h4 class="u-text u-text-default u-text-4"> Nail the budget</h4>
-                            <p class="u-text u-text-body-color u-text-default u-text-5">Sample text. Click to select
-                                the text box. Click again or double click to start editing the text.</p>
+                            <h4 class="u-text u-text-default u-text-4">Orgullosita!</h4>
+                            <p class="u-text u-text-body-color u-text-default u-text-5">No olvidare lo odiosita que fuiste al comienzo, una capa gruesa que tenias, pero poco a poco me mostraste lo que en realidad llevabas dentro, y me encanta cada dia mas la persona que eres...</p>
                         </div>
                     </div>
                     <div class="u-container-style u-list-item u-palette-3-light-3 u-repeater-item u-list-item-3">
                         <div class="u-container-layout u-similar-container u-valign-top u-container-layout-3">
-                            <h4 class="u-text u-text-default u-text-6"> Helping hands</h4>
-                            <p class="u-text u-text-body-color u-text-default u-text-7">Sample text. Click to select
-                                the text box. Click again or double click to start editing the text.</p>
+                            <h4 class="u-text u-text-default u-text-6"> Detalles y mas detalles</h4>
+                            <p class="u-text u-text-body-color u-text-default u-text-7">No me cansare de hacerte pequeños detalles, en cualquier momento, cualquier lugar, porque mi amor es inmenso hacia ti, a pesar de que no paso mucho tiempo pero ya te convertiste en la persona mas importante de mi vida.</p>
                         </div>
                     </div>
                     <div class="u-container-style u-list-item u-palette-3-light-3 u-repeater-item u-list-item-4">
                         <div class="u-container-layout u-similar-container u-valign-top u-container-layout-4">
-                            <h4 class="u-text u-text-default u-text-8"> Pick your best girls</h4>
-                            <p class="u-text u-text-body-color u-text-default u-text-9">Sample text. Click to select
-                                the text box. Click again or double click to start editing the text.</p>
+                            <h4 class="u-text u-text-default u-text-8"> Celos? Donde!</h4>
+                            <p class="u-text u-text-body-color u-text-default u-text-9">Debo confesar que a veeeeces suelo sentir algo de celos de algunas cosas pero supongo que tambien te pasa a ti, estos celos no son dañinos desde mi punto de vista y creo que son algo normal en cualquier relacion, mientras haya comunicacion y confianza todo estara bien!</p>
                         </div>
                     </div>
                     <div class="u-container-style u-list-item u-palette-3-light-3 u-repeater-item u-list-item-5">
                         <div class="u-container-layout u-similar-container u-valign-top u-container-layout-5">
-                            <h4 class="u-text u-text-default u-text-10"> Get the menu right</h4>
-                            <p class="u-text u-text-body-color u-text-default u-text-11">Sample text. Click to select
-                                the text box. Click again or double click to start editing the text.</p>
+                            <h4 class="u-text u-text-default u-text-10">Tu casa daba miedo!</h4>
+                            <p class="u-text u-text-body-color u-text-default u-text-11">Entrar de nuevo a tu casa despues de lo que paso la primera vez si que me daba escalofrios, pensar que varios conocidos y cercanos tuyos sabian lo que habia pasado empeoro la cosa jaja, pero fue momentaneo, ya me siento bien en cualquier lado contigo.</p>
                         </div>
                     </div>
                     <div class="u-container-style u-list-item u-palette-3-light-3 u-repeater-item u-list-item-6">
                         <div class="u-container-layout u-similar-container u-valign-top u-container-layout-6">
-                            <h4 class="u-text u-text-default u-text-12"> Essential checklist</h4>
-                            <p class="u-text u-text-body-color u-text-default u-text-13">Sample text. Click to select
-                                the text box. Click again or double click to start editing the text.</p>
+                            <h4 class="u-text u-text-default u-text-12"> La charla del auto!</h4>
+                            <p class="u-text u-text-body-color u-text-default u-text-13">Otra confesion mia, cuando fui por ti la primera vez en el auto, y estabas con la pata coja, admito que lo hice mas que todo por un motivo de disculpas, sentia re incomodo dejarlo asi como asi, y me daba verguenza, pero fue tan bonita y sincera la charla que tuvimos que cambio todo el concepto que tenia de ti, tal vez por eso es que fui persistente contigo, porque sabia que tenias tesoros en el fondo, y a pesar de tu odiosidad logre sacar poco a poco lo que en realidad eres, y asi tambien mostrarte lo que en realidad soy...</p>
                         </div>
                     </div>
                 </div>
             </div>
-            <p class="u-text u-text-body-color u-text-default u-text-14">Image from <a
-                    href="https://www.freepik.com/photos/background"
-                    class="u-active-none u-border-1 u-border-grey-75 u-btn u-button-link u-button-style u-hover-none u-none u-text-body-color u-btn-1">Freepik</a>
+            <p class="u-text u-text-body-color u-text-default u-text-14">
             </p>
         </div>
     </section>
@@ -2300,7 +2286,7 @@
         <div class="u-clearfix u-sheet u-valign-middle-md u-valign-middle-sm u-valign-middle-xs u-sheet-1">
             <div class="u-image u-image-circle u-image-1 backstage u-backstage-hidden animated" data-image-width="639"
                 data-image-height="639" data-animation-name="customAnimationIn" data-animation-duration="1500"
-                style="background-image: url({{ asset('dina/2.jpeg') }})" data-animation-delay="250"
+                style="background-image: url({{ asset('dina/4.jpeg') }})" data-animation-delay="250"
                 style="will-change: transform, opacity; animation-duration: 1500ms;"></div>
             <div class="u-preserve-proportions u-shape u-shape-svg u-text-palette-3-base u-shape-1 backstage u-backstage-hidden animated"
                 data-animation-name="customAnimationIn" data-animation-duration="1500" data-animation-delay="500"
@@ -2319,30 +2305,21 @@
             <div class="u-image u-image-circle u-image-2 backstage u-backstage-hidden animated"
                 data-image-width="1380" data-image-height="920" data-animation-name="customAnimationIn"
                 data-animation-duration="1500" data-animation-delay="750"
-                style="background-image: url({{ asset('dina/2.jpeg') }})"
+                style="background-image: url({{ asset('dina/3.jpeg') }})"
                 style="will-change: transform, opacity; animation-duration: 1500ms;"></div>
             <div class="u-border-20 u-border-palette-3-base u-image u-image-circle u-preserve-proportions u-image-3 backstage u-backstage-hidden animated"
                 data-image-width="800" data-image-height="800" data-animation-name="customAnimationIn"
-                style="background-image: url({{ asset('dina/2.jpeg') }})" data-animation-duration="1500"
+                style="background-image: url({{ asset('dina/11.jpeg') }})" data-animation-duration="1500"
                 style="will-change: transform, opacity; animation-duration: 1500ms;">
             </div>
             <div class="u-align-left u-container-style u-expanded-width-xs u-group u-white u-group-1 backstage u-backstage-hidden animated"
                 data-animation-name="customAnimationIn" data-animation-duration="1500" data-animation-delay="500"
                 style="will-change: transform, opacity; animation-duration: 1500ms;">
                 <div class="u-container-layout u-container-layout-1">
-                    <h2 class="u-text u-text-default u-text-1"> How to Plan a Wedding</h2>
-                    <p class="u-text u-text-2">Paragraph. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Curabitur id suscipit ex. Suspendisse rhoncus laoreet purus quis elementum. Phasellus sed
-                        efficitur dolor, et ultricies sapien.&nbsp;<i></i>
+                    <h2 class="u-text u-text-default u-text-1"> Quieres abrir tu regalo?</h2>
+                    <p class="u-text u-text-2">Es hora de poner a prueba tu memoria!
                     </p>
-                    <p class="u-text u-text-3">Images from <a href="https://www.freepik.com"
-                            class="u-border-1 u-border-active-palette-3-base u-border-grey-75 u-border-hover-palette-3-base u-btn u-button-style u-none u-text-body-color u-btn-1"
-                            target="_blank">Freepik</a>
-                    </p>
-                    <a href="https://nicepage.com/k/membership-website-templates"
-                        class="u-active-palette-3-base u-align-center u-border-2 u-border-active-palette-3-base u-border-hover-palette-3-base u-border-palette-3-base u-btn u-btn-round u-button-style u-hover-palette-3-base u-none u-radius-10 u-text-active-white u-text-hover-white u-text-palette-3-dark-1 u-btn-2"
-                        target="_blank" data-animation-name="" data-animation-duration="0" data-animation-delay="0"
-                        data-animation-direction="">learn more</a>
+                   
                 </div>
             </div>
             <div class="u-palette-3-base u-shape u-shape-circle u-shape-2 backstage u-backstage-hidden animated"
@@ -2352,10 +2329,8 @@
     </section>
     <section class="u-align-center u-clearfix u-grey-5 u-section-5" id="carousel_c208">
         <div class="u-expanded-width u-palette-3-base u-shape u-shape-rectangle u-shape-1"></div>
-        <h2 class="u-text u-text-1">How to Plan a Wedding</h2>
-        <p class="u-text u-text-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit nullam nunc justo sagittis
-            suscipit ultrices. Images from <a href="https://www.freepik.com/free-photos/wedding"
-                class="u-border-1 u-border-active-palette-3-dark-1 u-border-black u-border-hover-palette-3-dark-2 u-border-no-left u-border-no-right u-border-no-top u-bottom-left-radius-0 u-bottom-right-radius-0 u-btn u-button-link u-button-style u-none u-radius-0 u-text-body-color u-top-left-radius-0 u-top-right-radius-0 u-btn-1">Freepik</a>
+        <h2 class="u-text u-text-1">Dina Fernanda, te amo</h2>
+        <p class="u-text u-text-2">Cada digito del candado sale de las siguientes preguntas, ojo que el orden de los digitos puede ser cualquiera... segui bajando amor.
         </p>
         <div class="u-list u-list-1">
             <div class="u-repeater u-repeater-1">
@@ -2363,47 +2338,41 @@
                     class="u-align-center u-container-style u-list-item u-radius-20 u-repeater-item u-shape-round u-white u-list-item-1">
                     <div class="u-container-layout u-similar-container u-valign-top u-container-layout-1">
                         <div alt="" class="u-image u-image-circle u-image-1"
-                            style="background-image: url({{ asset('dina/2.jpeg') }})"></div>
-                        <h5 class="u-text u-text-3">Planning</h5>
-                        <p class="u-text u-text-grey-50 u-text-4">Suspendisse vulputate eros in velit fermentum cursus.
-                            Nulla fringilla justo tellus, at sodales eros laoreet a. Quisque facilisis lorem augue, sit
-                            amet</p>
+                            style="background-image: url({{ asset('dina/1.jpeg') }})"></div>
+                        <h5 class="u-text u-text-3">Meses de Novios?</h5>
+                        <p class="u-text u-text-grey-50 u-text-4">Esta pregunta esta de regalo... Ya tienes un digito</p>
                     </div>
                 </div>
                 <div
                     class="u-align-center u-container-style u-list-item u-radius-20 u-repeater-item u-shape-round u-video-cover u-white u-list-item-2">
                     <div class="u-container-layout u-similar-container u-valign-top u-container-layout-2">
                         <div alt="" class="u-image u-image-circle u-image-2"
-                            style="background-image: url({{ asset('dina/2.jpeg') }})"></div>
-                        <h5 class="u-text u-text-5">Wedding Party</h5>
-                        <p class="u-text u-text-grey-50 u-text-6">Suspendisse vulputate eros in velit fermentum cursus.
-                            Nulla fringilla justo tellus, at sodales eros laoreet a. Quisque facilisis lorem augue, sit
-                            amet</p>
+                            style="background-image: url({{ asset('dina/16.jpeg') }})"></div>
+                        <h5 class="u-text u-text-5">El color que mas me queda?</h5>
+                        <p class="u-text u-text-grey-50 u-text-6">Cuando tengas en mente el color que mas me queda, suma cada uno de sus letras (suponiendo que es rosado=6)</p>
                     </div>
                 </div>
                 <div
                     class="u-align-center u-container-style u-list-item u-radius-20 u-repeater-item u-shape-round u-video-cover u-white u-list-item-3">
                     <div class="u-container-layout u-similar-container u-valign-top u-container-layout-3">
                         <div alt="" class="u-image u-image-circle u-image-3"
-                            style="background-image: url({{ asset('dina/2.jpeg') }})"> </div>
-                        <h5 class="u-text u-text-7">Photoography</h5>
-                        <p class="u-text u-text-grey-50 u-text-8">Suspendisse vulputate eros in velit fermentum cursus.
-                            Nulla fringilla justo tellus, at sodales eros laoreet a. Quisque facilisis lorem augue, sit
-                            amet</p>
+                            style="background-image: url({{ asset('dina/17.jpeg') }})"> </div>
+                        <h5 class="u-text u-text-7">El mes cuando me contrataron en Chile</h5>
+                        <p class="u-text u-text-grey-50 u-text-8">Ufffff!!! esta te va costar! Cuando lo sepas, suma cada una de sus letras, como el anterior acertijo (ejemplo: enero = 5)</p>
                     </div>
                 </div>
             </div>
         </div>
-        <a href="https://nicepage.com/k/shopping-cart-html-templates"
-            class="u-active-palette-3-base u-align-center u-border-2 u-border-active-palette-3-base u-border-hover-palette-3-base u-border-palette-3-base u-btn u-btn-round u-button-style u-hover-palette-3-base u-none u-radius-10 u-text-active-white u-text-hover-white u-text-palette-3-dark-1 u-btn-2"
-            data-animation-name="" data-animation-duration="0" data-animation-delay="0"
-            data-animation-direction="">learn more</a>
+       
+        <br>
+        <br>
+
     </section>
     <section class="u-clearfix u-section-6" id="carousel_f152">
         <div
             class="u-clearfix u-sheet u-valign-middle-lg u-valign-middle-md u-valign-middle-sm u-valign-middle-xs u-sheet-1">
             <div class="u-image u-image-circle u-preserve-proportions u-image-1" data-image-width="1212"
-                style="background-image: url({{ asset('dina/2.jpeg') }})" data-image-height="920"></div>
+                style="background-image: url({{ asset('dina/18.jpeg') }})" data-image-height="920"></div>
             <div class="u-preserve-proportions u-shape u-shape-svg u-text-palette-3-base u-shape-1">
                 <svg class="u-svg-link" preserveAspectRatio="none" viewBox="0 0 160 160" style="">
                     <use xlink:href="#svg-410b"></use>
@@ -2420,25 +2389,16 @@
                 data-animation-name="customAnimationIn" data-animation-duration="1500" data-animation-delay="250"
                 style="will-change: transform, opacity; animation-duration: 1500ms;"></div>
             <div class="u-image u-image-circle u-preserve-proportions u-image-2" data-image-width="800"
-                data-image-height="800" style="background-image: url({{ asset('dina/2.jpeg') }})"></div>
+                data-image-height="800" style="background-image: url({{ asset('dina/19.jpeg') }})"></div>
             <div class="u-image u-image-circle u-preserve-proportions u-image-3" data-image-width="1380"
-                style="background-image: url({{ asset('dina/2.jpeg') }})" data-image-height="920"></div>
+                style="background-image: url({{ asset('dina/20.jpeg') }})" data-image-height="920"></div>
             <div
                 class="u-align-left u-container-style u-expanded-width-sm u-expanded-width-xs u-group u-radius-50 u-shape-round u-white u-group-1">
                 <div class="u-container-layout u-valign-middle u-container-layout-1">
-                    <h2 class="u-text u-text-1"> Trends And Dresses</h2>
-                    <p class="u-text u-text-2">Paragraph. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Curabitur id suscipit ex. Suspendisse rhoncus laoreet purus quis elementum. Phasellus sed
-                        efficitur dolor, et ultricies sapien.&nbsp;<i></i>
+                    <h2 class="u-text u-text-1"> Espero te haya gustado!</h2>
+                    <p class="u-text u-text-2">Cuando logres abrir el regalo encontraras mas sorpresas, te amo tanto que queria hacer algunas cosas mas pero el tiempo no me dejo, la buena noticia es que tenemos tiempo de sobra para compartir todas nuestras ocurrencias, secretos, miedos, y todo de nosotros, espero que estos 2 meses sean la antesala a una relacion duradera, porque en realidad es lo que busco contigo. Aunque los recuerdos vividos son pocos, cada uno es inolvidable...<i></i>
                     </p>
-                    <p class="u-text u-text-default u-text-3">Images from <a href="https://www.freepik.com/"
-                            class="u-border-1 u-border-active-palette-1-base u-border-grey-75 u-border-hover-palette-1-base u-border-no-left u-border-no-right u-border-no-top u-bottom-left-radius-0 u-bottom-right-radius-0 u-btn u-button-link u-button-style u-none u-radius-0 u-text-body-color u-top-left-radius-0 u-top-right-radius-0 u-btn-1"
-                            target="_blank">Freepik</a>
-                    </p>
-                    <a href="https://nicepage.com/k/membership-website-templates"
-                        class="u-active-palette-3-base u-align-center u-border-2 u-border-active-palette-3-base u-border-hover-palette-3-base u-border-palette-3-base u-btn u-btn-round u-button-style u-hover-palette-3-base u-none u-radius-10 u-text-active-white u-text-hover-white u-text-palette-3-dark-1 u-btn-2"
-                        target="_blank" data-animation-name="" data-animation-duration="0" data-animation-delay="0"
-                        data-animation-direction="">learn more</a>
+                    
                 </div>
             </div>
         </div>
@@ -2450,20 +2410,10 @@
 
     <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-0e24">
         <div class="u-clearfix u-sheet u-sheet-1">
-            <p class="u-small-text u-text u-text-variant u-text-1">Sample text. Click to select the Text Element.</p>
+            <p class="u-small-text u-text u-text-variant u-text-1">Hecho con mucho amor, por tu ñoñito extrovertido, para mi amada ojosa.</p>
         </div>
     </footer>
-    <section class="u-backlink u-clearfix u-grey-80">
-        <a class="u-link" href="https://nicepage.com/website-templates" target="_blank">
-            <span>Website Templates</span>
-        </a>
-        <p class="u-text">
-            <span>created with</span>
-        </p>
-        <a class="u-link" href="https://nicepage.com/" target="_blank">
-            <span>Website Builder Software</span>
-        </a>.
-    </section>
+    
 
     <style>
         .u-disable-duration * {
