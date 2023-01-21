@@ -24,7 +24,7 @@
 
     @media (min-width: 320px) and (max-width: 1023px) {
         body {
-            transform: scale(0.5);
+            transform: scale(0.8);
         }
     }
 
