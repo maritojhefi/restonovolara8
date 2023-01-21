@@ -183,3 +183,7 @@ Route::get('/mesas', function () {
 Route::get('/dina/2meses', function () {
    return view('dina');
 });
+
+Route::get('/invitacion/cumpleano/cotave', function () {
+    return view('cumpleano');
+ });
