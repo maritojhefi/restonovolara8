@@ -11,7 +11,7 @@
     @import "https://fonts.googleapis.com/css?family=Karla|Slackey|Sriracha";
 
     body {
-        background: radial-gradient(ellipse at center, #7db9e8 0%, #005da6 100%);
+        background: radial-gradient(ellipse at center, #d3e87d 0%, #efc035 100%);
         -webkit-user-select: none;
         -moz-user-select: none;
         -ms-user-select: none;
@@ -64,7 +64,7 @@
         right: 0;
         border-bottom: 0px solid transparent;
         border-top: 307.6923076923px solid transparent;
-        border-right: 500px solid #ff3237;
+        border-right: 500px solid #3e3737;
         z-index: 1;
     }
 
@@ -72,13 +72,13 @@
         left: 0;
         border-bottom: 0px solid transparent;
         border-top: 307.6923076923px solid transparent;
-        border-left: 500px solid #ff1d23;
+        border-left: 500px solid #323030;
         z-index: 1;
     }
 
     .flap {
         border-right: 250px solid transparent;
-        border-top: 153.8461538462px solid #ef0006;
+        border-top: 153.8461538462px solid #615c5c;
         border-left: 250px solid transparent;
         position: absolute;
         left: 0;
@@ -124,11 +124,11 @@
 
     .face:last-of-type {
         transform: translateZ(-3px) rotateY(180deg);
-        background-size: 130% auto;
+        background-size: 100% auto;
     }
 
     .front {
-        background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/39132/poke-bg.gif);
+        background-image: url({{asset('invitacion2.png')}});
     }
 
     .front h1 {
@@ -161,7 +161,7 @@
     }
 
     .face.back {
-        background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/39132/poke-bg.jpg);
+        background-image: url({{asset('invitacion3.png')}});
         color: #000;
         overflow: hidden;
     }
@@ -180,12 +180,12 @@
         padding: 15px 30px;
         border-radius: 30px;
         background: #ffce00;
-        color: #ff3c41;
+        color: #343030;
         border: none;
         position: absolute;
         box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
         left: 50%;
-        top: 170px;
+        top: 200px;
         transform: translate(-50%, -50%);
         transform-origin: 50% 50%;
         z-index: 1;
@@ -206,16 +206,14 @@
             <div class="mask">
                 <div class="card">
                     <div class="face front">
-                        <h1><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/39132/poke-logo.svg" /><span
-                                class="extrude">Invitation Card</span></h1>
+                       
                     </div>
-                    <div class="face back"><img
-                            src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/39132/poke-peeps.png" /></div>
+                    <div class="face back"></div>
                 </div>
             </div>
         </div>
         <div class="flap"></div>
-        <button>You're Invited!</button>
+        <button>Estas invitado!</button>
     </div>
     <script src="https://code.jquery.com/jquery-3.6.3.min.js"
         integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
@@ -284,7 +282,7 @@
         }
 
         function toggleText() {
-            var text = !flipped ? 'Tell me more!' : 'See you there!';
+            var text = !flipped ? 'Mas informacion!' : 'Nos vemos ahi';
             button.toggleClass('invert', !flipped).text(text);
         }
 
