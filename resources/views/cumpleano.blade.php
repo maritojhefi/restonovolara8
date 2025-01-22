@@ -137,7 +137,7 @@
         }
 
         .front {
-            background-image: url({{ asset('invitacion2.png') }});
+            background-image: url({{ asset('INVITACION29.jpg') }});
         }
 
         .front h1 {
@@ -170,7 +170,7 @@
         }
 
         .face.back {
-            background-image: url({{ asset('invitacion5.png') }});
+            background-image: url({{ asset('CUMPLE29.jpg') }});
             color: #000;
             overflow: hidden;
         }
@@ -225,7 +225,7 @@
             </div>
         </div>
         <div class="flap"></div>
-        <button id="button">Estas invitado!</button>
+        <button id="button">Toca aquí!</button>
     </div>
 
     {{-- <canvas class="confetti" id="canvas"></canvas> --}}
@@ -297,7 +297,7 @@
         }
 
         function toggleText() {
-            var text = !flipped ? 'Mas informacion!' : 'Nos vemos ahi';
+            var text = !flipped ? 'Mas Info!' : 'Te espero!';
             button.toggleClass('invert', !flipped).text(text);
         }
 
@@ -306,7 +306,7 @@
 
         var audio = document.createElement("AUDIO")
         document.body.appendChild(audio);
-        audio.src = "/jordan.mp3"
+        audio.src = "/intro.mp3"
         document.body.addEventListener("mousemove", function() {
             audio.play()
         })
